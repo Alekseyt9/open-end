@@ -272,6 +272,14 @@ The dossier contains identified facts, summaries, and source-snapshot copies. Cl
 
 [Interface and exchange format](council.md) · [Completed round on 16 source worlds](../experiments/council/REPORT.md). Observation and macromutations are implemented within the current reaction DSL. Automatic AI invocation is not enabled. The [Stage 8 tree harness](branching.md) preserves multiple selected cohorts, their ancestry, and repeated continuations, with an offline HTML explorer. The [Stage 9 archive](archive.md) adds immutable selection decisions, Pareto comparisons on measured proxies, and protected behavior cells. [Stage 10](evolvability.md) implements inherited copying strategies, with persistent diversity still an open criterion. [Stage 11](environment.md) implements environmental engineering and matched feedback interventions, with new niches still unproven. [Stage 12](collectives.md) adds per-tick collective observation and matched bond, sharing, and signal-reading ablations; whole-group reproduction remains unproven.
 
+## Stage 13: candidate entity discovery
+
+```powershell
+go run ./cmd/discover -input data/collectives-stage12 -source data/environment-stage11 -out data/entities -workers 16 -every 1000 -group-age 100
+```
+
+The command replays a completed group assay, verifies every final physical hash, and records bond, reciprocal-transfer, and copying-ancestry candidates. Exact member-set containment forms a DAG; overlaps remain separate alternatives. Following-interval activity evaluates frozen member IDs independently of the interval used for discovery. The outputs are analysis JSON, not physical snapshots or ordinary telemetry. [Protocol and limitations](entities.md) · [Verified replay results](../experiments/entities/REPORT.md). Information closure, causal coordination, and higher-level individuality remain unmeasured or unproven. UI work is deferred.
+
 ## Experimental Warp solver
 
 [warp-sim](../warp-sim/README.md) implements a GPU physics backend: all 17 opcodes, mutations, resource transport, bonds, both RNGs, and scheduled DSL transitions. It accepts validated Go snapshots and computes independent worlds on GPU. Genome and origin histories remain a Go feature; Warp outputs a physical report incompatible with `cmd/sim -load`.

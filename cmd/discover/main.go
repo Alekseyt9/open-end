@@ -73,6 +73,7 @@ func completed(dir string) (manifest, error) {
 }
 
 type result struct {
+	FlowReciprocal   int    `json:"flow_candidate_observations_with_next_reciprocal_connectivity"`
 	Seed             uint64 `json:"seed"`
 	Treatment        string `json:"treatment"`
 	File             string `json:"report"`
@@ -100,6 +101,9 @@ func compact(r discovery.Report) result {
 			v.MaxDepth = max(v.MaxDepth, n.Level)
 			if slices.Contains(n.Sources, "reciprocal_transfer") && n.NextComplete && n.Next != nil {
 				v.FlowObservations++
+				if n.NextReciprocal {
+					v.FlowReciprocal++
+				}
 				if n.Next.Internal > 0 {
 					v.FlowRetained++
 				}

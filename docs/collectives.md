@@ -83,4 +83,4 @@ Tests include hand-constructed positive and negative daughter examples, one-foun
 
 ## Following stages
 
-Stage 13 generalizes observation into candidate entity discovery: persistent boundaries, resource exchange, coordination, and common reproduction should be measured separately. Stage 14 compares macro descriptions against particle-level descriptions using prediction and interventions. Neither stage should declare an organism solely because it is large, connected, long-lived, or busy copying.
+[Stage 13](entities.md) now proposes bond, reciprocal-transfer, and copying-ancestry boundaries, preserves containment and overlap, and records subsequent-interval activity. Coordination and information closure remain unmeasured. Stage 14 compares macro descriptions against particle-level descriptions using prediction and interventions. Neither stage should declare an organism solely because it is large, connected, long-lived, or busy copying.

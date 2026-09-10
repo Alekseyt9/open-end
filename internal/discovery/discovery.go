@@ -35,6 +35,9 @@ type Flow struct {
 	Retention     *float64 `json:"transfer_retention"`
 }
 type Node struct {
+	CopyRoot          uint64   `json:"copy_ancestry_root,omitempty"`
+	NextAlive         int      `json:"next_interval_members_alive"`
+	NextReciprocal    bool     `json:"next_interval_reciprocal_connectivity"`
 	ID                string   `json:"id"`
 	Members           []uint64 `json:"members"`
 	Sources           []string `json:"boundary_sources"`
@@ -54,12 +57,13 @@ type Node struct {
 	NextComplete      bool     `json:"next_interval_complete"`
 }
 type Frame struct {
-	From     uint64 `json:"from_tick"`
-	Tick     uint64 `json:"tick"`
-	Micro    int    `json:"coded_micro_entities"`
-	Complete bool   `json:"activity_complete"`
-	Dropped  uint64 `json:"dropped_activity_records"`
-	Nodes    []Node `json:"candidates"`
+	MicroIDs []uint64 `json:"coded_particle_ids"`
+	From     uint64   `json:"from_tick"`
+	Tick     uint64   `json:"tick"`
+	Micro    int      `json:"coded_micro_entities"`
+	Complete bool     `json:"activity_complete"`
+	Dropped  uint64   `json:"dropped_activity_records"`
+	Nodes    []Node   `json:"candidates"`
 }
 type Report struct {
 	Version           int      `json:"version"`
@@ -196,7 +200,7 @@ func (r *recorder) measure(ids []uint64) *Flow {
 	return v
 }
 func (r *recorder) sample(from uint64, previous *Frame) (Frame, *observer.CollectiveFrame) {
-	f := Frame{From: from, Tick: r.w.Tick, Complete: r.dropped == 0, Dropped: r.dropped, Nodes: []Node{}}
+	f := Frame{From: from, Tick: r.w.Tick, Complete: r.dropped == 0, Dropped: r.dropped, Nodes: []Node{}, MicroIDs: []uint64{}}
 	if previous != nil {
 		for i := range previous.Nodes {
 			n := &previous.Nodes[i]
@@ -204,6 +208,14 @@ func (r *recorder) sample(from uint64, previous *Frame) (Frame, *observer.Collec
 			n.NextFrom = from
 			n.NextTo = r.w.Tick
 			n.NextComplete = f.Complete
+			for _, id := range n.Members {
+				if r.w.Particles[id] != nil {
+					n.NextAlive++
+				}
+			}
+			if f.Complete && slices.Contains(n.Sources, "reciprocal_transfer") {
+				n.NextReciprocal = reciprocalWithin(r.w, r.edges, n.Members)
+			}
 		}
 	}
 	g := r.Tracker.Frame(r.w).Telemetry.Collectives
@@ -232,9 +244,11 @@ func (r *recorder) sample(from uint64, previous *Frame) (Frame, *observer.Collec
 	for id, p := range r.w.Particles {
 		if len(p.Code) > 0 {
 			f.Micro++
+			f.MicroIDs = append(f.MicroIDs, id)
 			families[r.roots[id]] = append(families[r.roots[id]], id)
 		}
 	}
+	slices.Sort(f.MicroIDs)
 	rootIDs := []uint64{}
 	for root := range families {
 		rootIDs = append(rootIDs, root)
@@ -242,7 +256,7 @@ func (r *recorder) sample(from uint64, previous *Frame) (Frame, *observer.Collec
 	slices.Sort(rootIDs)
 	for _, id := range rootIDs {
 		if len(families[id]) > 1 {
-			add(families[id], "copy_ancestry")
+			add(families[id], "copy_ancestry").CopyRoot = id
 		}
 	}
 	current := map[string]episode{}

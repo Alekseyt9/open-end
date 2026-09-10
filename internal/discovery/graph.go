@@ -69,6 +69,20 @@ func reciprocal(w *world.World, edges map[pair]edge) [][]uint64 {
 	slices.SortFunc(result, func(a, b []uint64) int { return slices.Compare(a, b) })
 	return result
 }
+func reciprocalWithin(w *world.World, edges map[pair]edge, ids []uint64) bool {
+	set := map[uint64]bool{}
+	for _, id := range ids {
+		set[id] = true
+	}
+	induced := map[pair]edge{}
+	for p, e := range edges {
+		if set[p.a] && set[p.b] {
+			induced[p] = e
+		}
+	}
+	groups := reciprocal(w, induced)
+	return len(groups) == 1 && slices.Equal(groups[0], ids)
+}
 func contains(a, b []uint64) bool { // a is a strict superset of b; IDs are sorted.
 	if len(a) <= len(b) {
 		return false
