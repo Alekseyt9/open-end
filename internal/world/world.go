@@ -4,6 +4,7 @@ package world
 
 import (
 	"fmt"
+	"open-end/internal/dsl"
 	"open-end/internal/evolution"
 	"open-end/internal/vm"
 )
@@ -151,6 +152,7 @@ type World struct {
 	TransportRNG evolution.RNG            `json:"transport_rng"`
 	Genomes      map[string]*GenomeRecord `json:"genomes"`
 	Relations    map[string]Relation      `json:"relations"`
+	RuleState    *dsl.State               `json:"rule_state,omitempty"`
 }
 
 func New(c Config) (*World, error) {
@@ -266,6 +268,9 @@ func (w *World) Unlink(id uint64) {
 }
 
 func (w *World) Validate() error {
+	if err := w.RuleState.Validate(w.Tick); err != nil {
+		return err
+	}
 	if err := w.Config.Validate(); err != nil {
 		return err
 	}

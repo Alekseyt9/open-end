@@ -46,6 +46,12 @@ func Resolve(w *world.World, e Event) {
 		cost = max(1, len(p.Code))
 	case vm.COPYMEM:
 		cost = 8
+	case vm.CONVERT:
+		if w.Config.Ecology && w.RuleState != nil {
+			if r := w.RuleState.Active.Find(e.Intent.A); r != nil {
+				cost = r.EnergyCost
+			}
+		}
 	}
 	if p.Energy <= cost {
 		w.Accounting.InstructionStarved++

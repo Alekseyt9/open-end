@@ -1,6 +1,9 @@
 package rules
 
-import "open-end/internal/world"
+import (
+	"open-end/internal/dsl"
+	"open-end/internal/world"
+)
 
 // Diffusion is conservative neighbor mixing, on a separate RNG stream from
 // mutation/execution. Interval 0 disables it for an explicit control run.
@@ -72,6 +75,12 @@ func charge(w *world.World) {
 // CONVERT selects a neutral local reaction, not an organism role.
 // 0: X -> Y + 4 energy; 1: Y -> Z + 4 energy.
 func convert(w *world.World, p *world.Particle, reaction, amount int) {
+	if w.RuleState != nil {
+		if r := w.RuleState.Active.Find(reaction); r != nil {
+			executeDSL(w, p, r, amount)
+			return
+		}
+	}
 	if reaction < 0 || reaction > 1 || amount <= 0 {
 		w.Accounting.FailedReaction++
 		return
@@ -87,5 +96,38 @@ func convert(w *world.World, p *world.Particle, reaction, amount int) {
 	w.Accounting.Converted[reaction] += int64(n)
 	if r := w.Genomes[p.Genome]; r != nil {
 		r.Converted[reaction] += int64(n)
+	}
+}
+
+func executeDSL(w *world.World, p *world.Particle, r *dsl.Rule, amount int) {
+	c := &w.Cells[p.Position]
+	available := [dsl.ResourceCount]int{c.Chemical[0], c.Chemical[1], c.Chemical[2], c.Energy, p.Energy}
+	chemicalCapacity := int(w.Accounting.InitialChemical)
+	capacity := [dsl.ResourceCount]int{chemicalCapacity, chemicalCapacity, chemicalCapacity, w.Config.CellCapacity, w.Config.EnergyCapacity}
+	e, err := dsl.Execute(*r, available, capacity, amount, w.RuleState.Active.Source.InstructionBudget)
+	if err != nil {
+		w.Accounting.FailedReaction++
+		return
+	}
+	w.RuleState.Instructions += uint64(e.Work)
+	if e.Units == 0 {
+		w.Accounting.FailedReaction++
+		return
+	}
+	for i := 0; i < 3; i++ {
+		c.Chemical[i] += e.Delta[i]
+	}
+	c.Energy += e.Delta[3]
+	p.Energy += e.Delta[4]
+	if w.RuleState.Usage == nil {
+		w.RuleState.Usage = map[string]uint64{}
+	}
+	key := w.RuleState.Active.Hash + "/" + r.Name
+	w.RuleState.Usage[key] += uint64(e.Units)
+	if r.ID < 2 {
+		w.Accounting.Converted[r.ID] += int64(e.Units)
+		if g := w.Genomes[p.Genome]; g != nil {
+			g.Converted[r.ID] += int64(e.Units)
+		}
 	}
 }

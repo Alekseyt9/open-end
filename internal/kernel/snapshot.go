@@ -20,7 +20,7 @@ func Save(out io.Writer, w *world.World) error {
 	if err := w.Validate(); err != nil {
 		return err
 	}
-	return json.NewEncoder(out).Encode(snapshot{2, Version, RuleVersion, w})
+	return json.NewEncoder(out).Encode(envelope(w))
 }
 
 func Load(in io.Reader) (*world.World, error) {
@@ -34,7 +34,7 @@ func Load(in io.Reader) (*world.World, error) {
 	if err := d.Decode(&extra); err != io.EOF {
 		return nil, fmt.Errorf("snapshot must contain one JSON object")
 	}
-	if s.Format != 2 || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil {
+	if (s.Format != 2 && s.Format != 3) || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil || (s.Format == 2 && s.World.RuleState != nil) || (s.Format == 3 && s.World.RuleState == nil) {
 		return nil, fmt.Errorf("incompatible snapshot version")
 	}
 	if err := s.World.Validate(); err != nil {
@@ -46,6 +46,14 @@ func Load(in io.Reader) (*world.World, error) {
 // Hash covers all state, including RNG, ancestry, counters and versions.
 func Hash(w *world.World) string {
 	h := sha256.New()
-	_ = json.NewEncoder(h).Encode(snapshot{2, Version, RuleVersion, w})
+	_ = json.NewEncoder(h).Encode(envelope(w))
 	return hex.EncodeToString(h.Sum(nil))
+}
+
+func envelope(w *world.World) snapshot {
+	format := 2
+	if w.RuleState != nil {
+		format = 3
+	}
+	return snapshot{format, Version, RuleVersion, w}
 }
