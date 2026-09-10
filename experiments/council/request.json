@@ -1,0 +1,3248 @@
+{
+  "version": 1,
+  "request_sha256": "fb1cd7ea02e550f9767277895d522c4170bd390e55305620746be7f66f691c61",
+  "kernel_version": "0.1.0",
+  "rule_version": "ecology-2",
+  "capabilities_and_limits": [
+    "Ответ готовит человек или AI в чате; сетевого API и автоматического вызова модели нет.",
+    "Наблюдения должны ссылаться на ID фактов. Ниши, кооперация, причинность и адаптивная ценность требуют гипотез и дополнительных проверок.",
+    "DSL: только локальные реакции X/Y/Z/field_energy/energy; масса и энергия сохраняются; цена инструкции 1..64, до 16 правил и 64 единиц бюджета.",
+    "Мутации CONVERT создают только ID 0 и 1. Добавленный ID без изменения доступного механизма может остаться неиспользуемым.",
+    "Предлагать общий физический механизм, не редактировать геномы, особей, ресурсы или RNG. Проверка предложения не устанавливает его в исходные миры.",
+    "Поведенческие хеши агрегированы по миру; novelty detector — эвристика, не доказательство адаптивной новизны."
+  ],
+  "worlds": [
+    {
+      "id": "w001",
+      "case": "ecology",
+      "seed": 1,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "2d39a7db78c520febcd31858e91a12ee200e1a374e4df4aa2f0a342d799a7cde",
+      "metrics_file_sha256": "f2609ac93d8ce3ed6dbd11ec94efac41693f27c53d4eab5c4a8095b55e016375",
+      "evidence_file_sha256": "c539979d6d32f6747ab9a27004bcc5768b6cdfd4a526f4c207a180a20a99d045",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w001.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 675,
+            "end": 678,
+            "min_observed": 667,
+            "max_observed": 689
+          }
+        },
+        {
+          "id": "w001.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0.9382643097151486,
+            "effective_genomes": 2.5555419373486203,
+            "inverse_simpson": 1.7324527815478425,
+            "dominant_share": 0.7396449704142012,
+            "lineage_shannon_nats": 0.9642097854673246
+          }
+        },
+        {
+          "id": "w001.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "05b26b88e4ed50a7e8a70e8d9bff312b9745526ed99aaf0db984669dec0c8e07",
+              "count": 500,
+              "frequency": 0.7396449704142012,
+              "max_generation": 72,
+              "first_tick": 1339,
+              "births": 53020,
+              "copies": 53549,
+              "last_copy_tick": 99991,
+              "instructions": 45035639,
+              "moved": 182277,
+              "absorbed": 0,
+              "converted": [
+                14303202,
+                14413550
+              ],
+              "taken": 0,
+              "transferred": 2570352,
+              "binds": 53550
+            },
+            {
+              "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+              "count": 112,
+              "frequency": 0.16568047337278108,
+              "max_generation": 178,
+              "first_tick": 66835,
+              "births": 7641,
+              "copies": 7717,
+              "last_copy_tick": 99994,
+              "instructions": 2371339,
+              "moved": 309882,
+              "absorbed": 0,
+              "converted": [
+                619640,
+                624332
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "d71db489b0e3d632209d27fd7ed402d0e79f899636e659b29eb7510cbf4ef357",
+              "count": 34,
+              "frequency": 0.05029585798816568,
+              "max_generation": 37,
+              "first_tick": 3849,
+              "births": 809,
+              "copies": 815,
+              "last_copy_tick": 99794,
+              "instructions": 3870390,
+              "moved": 16142,
+              "absorbed": 0,
+              "converted": [
+                1296066,
+                1296330
+              ],
+              "taken": 0,
+              "transferred": 39120,
+              "binds": 815
+            },
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 7,
+              "frequency": 0.010355029585798817,
+              "max_generation": 23,
+              "first_tick": 0,
+              "births": 9154,
+              "copies": 9245,
+              "last_copy_tick": 14967,
+              "instructions": 4870535,
+              "moved": 402480,
+              "absorbed": 0,
+              "converted": [
+                1700084,
+                1703747
+              ],
+              "taken": 0,
+              "transferred": 443760,
+              "binds": 0
+            },
+            {
+              "hash": "e84a753ab7ae7d01216bf1a5747a0aefd678c26311165966dffb8d193b76cafe",
+              "count": 2,
+              "frequency": 0.0029585798816568047,
+              "max_generation": 49,
+              "first_tick": 15311,
+              "births": 10,
+              "copies": 0,
+              "last_copy_tick": 0,
+              "instructions": 106762,
+              "moved": 151,
+              "absorbed": 0,
+              "converted": [
+                26934,
+                26411
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w001.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 338
+        },
+        {
+          "id": "w001.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 51
+        },
+        {
+          "id": "w001.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 5
+        },
+        {
+          "id": "w001.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83199147,
+            "absorbed_energy": 436,
+            "transferred_energy": 1622083,
+            "taken_energy": 86,
+            "allocation_reserve_energy": 526440,
+            "charged_z_to_x_units": 10399920,
+            "converted_by_id": [
+              10399977,
+              10399997
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w001.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 205,
+            "instruction_energy": 30803,
+            "limit": 0,
+            "matter": 57085,
+            "reaction": 333689,
+            "reserve": 19,
+            "space": 907639
+          }
+        },
+        {
+          "id": "w001.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 43830
+        },
+        {
+          "id": "w001.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 43867
+        },
+        {
+          "id": "w001.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w001.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 223
+        }
+      ]
+    },
+    {
+      "id": "w002",
+      "case": "ecology",
+      "seed": 2,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "5e83f66069169cf76c325fd8e6d2d87301beca35b22124bccacc63d7b07331b4",
+      "metrics_file_sha256": "44a18a5aad3cf87d588377a33334e6da4ab5713f41f68af6ab141f7fcaa088ae",
+      "evidence_file_sha256": "160cf44ad264f503e3dab5c72720e0df17319a571dc53fb0603f01c408cafbed",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w002.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 658,
+            "end": 669,
+            "min_observed": 656,
+            "max_observed": 680
+          }
+        },
+        {
+          "id": "w002.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 2.1737311469783718,
+            "effective_genomes": 8.791023525708601,
+            "inverse_simpson": 4.594204694486619,
+            "dominant_share": 0.33883058470764615,
+            "lineage_shannon_nats": 4.887019736458662
+          }
+        },
+        {
+          "id": "w002.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "574b3cda0fbce829bee9eafb6e21b74af74a22cf6dbaa4bb501d303509e29de2",
+              "count": 226,
+              "frequency": 0.33883058470764615,
+              "max_generation": 55,
+              "first_tick": 7658,
+              "births": 18089,
+              "copies": 18299,
+              "last_copy_tick": 99996,
+              "instructions": 23130405,
+              "moved": 169700,
+              "absorbed": 0,
+              "converted": [
+                8128997,
+                8463161
+              ],
+              "taken": 0,
+              "transferred": 878352,
+              "binds": 18299
+            },
+            {
+              "hash": "39b341e7ac4014938fe6c33dfb3accd2cf6a7275e935b3eb9be4613b60eb84c8",
+              "count": 203,
+              "frequency": 0.30434782608695654,
+              "max_generation": 195,
+              "first_tick": 41303,
+              "births": 10885,
+              "copies": 10985,
+              "last_copy_tick": 99995,
+              "instructions": 9482099,
+              "moved": 0,
+              "absorbed": 8241194,
+              "converted": [
+                1409457,
+                1443131
+              ],
+              "taken": 0,
+              "transferred": 527280,
+              "binds": 0
+            },
+            {
+              "hash": "146017994ebef68dc9ccbd0ce18a86054e1113f4c267504f4a0f69fdcab9f13a",
+              "count": 44,
+              "frequency": 0.06596701649175413,
+              "max_generation": 75,
+              "first_tick": 36838,
+              "births": 2232,
+              "copies": 2258,
+              "last_copy_tick": 99979,
+              "instructions": 2126250,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                568754,
+                575456
+              ],
+              "taken": 0,
+              "transferred": 108384,
+              "binds": 0
+            },
+            {
+              "hash": "e7543081415a063d33b77b9fdeefb619efe3d6bc87b1b421faa690cf713285d2",
+              "count": 31,
+              "frequency": 0.046476761619190406,
+              "max_generation": 61,
+              "first_tick": 10059,
+              "births": 17038,
+              "copies": 17182,
+              "last_copy_tick": 99756,
+              "instructions": 12256346,
+              "moved": 897670,
+              "absorbed": 0,
+              "converted": [
+                3750335,
+                3779541
+              ],
+              "taken": 0,
+              "transferred": 824736,
+              "binds": 0
+            },
+            {
+              "hash": "4281bf3484f75a6c4e387196929d0b68d7b4df7c6f8326d5651dbc03ebe413cf",
+              "count": 22,
+              "frequency": 0.03298350824587706,
+              "max_generation": 62,
+              "first_tick": 46214,
+              "births": 938,
+              "copies": 950,
+              "last_copy_tick": 99931,
+              "instructions": 970083,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                258959,
+                258538
+              ],
+              "taken": 0,
+              "transferred": 45600,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w002.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 18
+        },
+        {
+          "id": "w002.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 56
+        },
+        {
+          "id": "w002.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 9
+        },
+        {
+          "id": "w002.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83199282,
+            "absorbed_energy": 8821253,
+            "transferred_energy": 1052550,
+            "taken_energy": 1098,
+            "allocation_reserve_energy": 413628,
+            "charged_z_to_x_units": 9297310,
+            "converted_by_id": [
+              9297348,
+              9297313
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w002.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 37238,
+            "instruction_energy": 17194,
+            "limit": 0,
+            "matter": 40721,
+            "reaction": 784453,
+            "reserve": 16,
+            "space": 654300
+          }
+        },
+        {
+          "id": "w002.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 32644
+        },
+        {
+          "id": "w002.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 34458
+        },
+        {
+          "id": "w002.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w002.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 261
+        }
+      ]
+    },
+    {
+      "id": "w003",
+      "case": "ecology",
+      "seed": 3,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "8e05ba74ecf1a2577d47b2a72c3dfc7cd778ef3fb41b893c62c43928e0f9d2dc",
+      "metrics_file_sha256": "03949cb2af50d5fdb1e885b0aaf108de7c5a548b837b51733180e6c58542363d",
+      "evidence_file_sha256": "698bfa8fb4b147f700b4ffef16ecd59c7f6a79e279de6da007d14b42686b22e0",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w003.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 668,
+            "end": 675,
+            "min_observed": 662,
+            "max_observed": 685
+          }
+        },
+        {
+          "id": "w003.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 2.2027189289792974,
+            "effective_genomes": 9.049585259474126,
+            "inverse_simpson": 6.058601385583016,
+            "dominant_share": 0.2785185185185185,
+            "lineage_shannon_nats": 4.0407336865355115
+          }
+        },
+        {
+          "id": "w003.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "099eb757a2f4c965c7385a2ba7ca2f468b7052d79908eb55051d19a85e219a5d",
+              "count": 188,
+              "frequency": 0.2785185185185185,
+              "max_generation": 49,
+              "first_tick": 7114,
+              "births": 18872,
+              "copies": 19033,
+              "last_copy_tick": 99988,
+              "instructions": 13918513,
+              "moved": 15052,
+              "absorbed": 0,
+              "converted": [
+                4743820,
+                4889645
+              ],
+              "taken": 0,
+              "transferred": 913584,
+              "binds": 19033
+            },
+            {
+              "hash": "b3b48330c68c3bf39b9ce7da4a474dc622703efb9ddd551481da2955ea7c1cd2",
+              "count": 142,
+              "frequency": 0.21037037037037037,
+              "max_generation": 51,
+              "first_tick": 8855,
+              "births": 16916,
+              "copies": 17087,
+              "last_copy_tick": 99987,
+              "instructions": 11154491,
+              "moved": 13178,
+              "absorbed": 0,
+              "converted": [
+                3764929,
+                3835628
+              ],
+              "taken": 0,
+              "transferred": 820128,
+              "binds": 17087
+            },
+            {
+              "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+              "count": 93,
+              "frequency": 0.13777777777777778,
+              "max_generation": 96,
+              "first_tick": 10451,
+              "births": 14966,
+              "copies": 15113,
+              "last_copy_tick": 99993,
+              "instructions": 8503852,
+              "moved": 767823,
+              "absorbed": 0,
+              "converted": [
+                2321072,
+                2351091
+              ],
+              "taken": 0,
+              "transferred": 725424,
+              "binds": 0
+            },
+            {
+              "hash": "2e416123ad180ef302c2d12ae9cd3b48ef050a00b1de18a0f995685cc445c16b",
+              "count": 74,
+              "frequency": 0.10962962962962963,
+              "max_generation": 57,
+              "first_tick": 35912,
+              "births": 1788,
+              "copies": 1804,
+              "last_copy_tick": 99983,
+              "instructions": 2250459,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                587628,
+                593032
+              ],
+              "taken": 0,
+              "transferred": 86592,
+              "binds": 0
+            },
+            {
+              "hash": "9859199868c05c1e3c6758f29ab85d6258bb04c1bd5f412073f9494c55e6555d",
+              "count": 59,
+              "frequency": 0.0874074074074074,
+              "max_generation": 84,
+              "first_tick": 80399,
+              "births": 977,
+              "copies": 985,
+              "last_copy_tick": 99999,
+              "instructions": 452298,
+              "moved": 48571,
+              "absorbed": 0,
+              "converted": [
+                117922,
+                119774
+              ],
+              "taken": 0,
+              "transferred": 47232,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w003.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 112
+        },
+        {
+          "id": "w003.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 32
+        },
+        {
+          "id": "w003.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 3
+        },
+        {
+          "id": "w003.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83198515,
+            "absorbed_energy": 41548,
+            "transferred_energy": 1752653,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 482076,
+            "charged_z_to_x_units": 10394801,
+            "converted_by_id": [
+              10394822,
+              10394857
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w003.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 1110,
+            "instruction_energy": 11738,
+            "limit": 0,
+            "matter": 54034,
+            "reaction": 351636,
+            "reserve": 23,
+            "space": 740001
+          }
+        },
+        {
+          "id": "w003.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 40125
+        },
+        {
+          "id": "w003.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 40166
+        },
+        {
+          "id": "w003.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w003.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 256
+        }
+      ]
+    },
+    {
+      "id": "w004",
+      "case": "ecology",
+      "seed": 4,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "a827fc338e7b3d4ad2a0fc2e3a1325bd0649e363de0b3083471c92ba63df6a7e",
+      "metrics_file_sha256": "17d2a09607b539869f24a07b8b4ecfbe61efa5e4fa3adca9441ced1f6d19ec5b",
+      "evidence_file_sha256": "5bdf03347260c346222a7bd9df0d0021e6f4a6c834ac1675f4fb619c0cd7e8b0",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w004.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 669,
+            "end": 672,
+            "min_observed": 660,
+            "max_observed": 685
+          }
+        },
+        {
+          "id": "w004.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 2.147234906286099,
+            "effective_genomes": 8.561153247772554,
+            "inverse_simpson": 4.885897907515202,
+            "dominant_share": 0.36160714285714285,
+            "lineage_shannon_nats": 3.8052526663906874
+          }
+        },
+        {
+          "id": "w004.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "e54bc13654fe828f8d20786407b90f22d222be30f0c0218dee12ab98ffb5c4ea",
+              "count": 243,
+              "frequency": 0.36160714285714285,
+              "max_generation": 59,
+              "first_tick": 11043,
+              "births": 35747,
+              "copies": 36115,
+              "last_copy_tick": 99998,
+              "instructions": 20736884,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                6996762,
+                7252432
+              ],
+              "taken": 0,
+              "transferred": 1733520,
+              "binds": 0
+            },
+            {
+              "hash": "884fe273a00130cd006a8920074f4e06af4b11745d0a16aab62c6660a4692681",
+              "count": 142,
+              "frequency": 0.2113095238095238,
+              "max_generation": 227,
+              "first_tick": 17085,
+              "births": 24198,
+              "copies": 24419,
+              "last_copy_tick": 99993,
+              "instructions": 14300589,
+              "moved": 1217094,
+              "absorbed": 0,
+              "converted": [
+                4212030,
+                4243188
+              ],
+              "taken": 0,
+              "transferred": 1172112,
+              "binds": 0
+            },
+            {
+              "hash": "bf7576f9c88a0be492d58cc4783f4e5575c7d8f6d60db663283142908babc3f4",
+              "count": 77,
+              "frequency": 0.11458333333333333,
+              "max_generation": 76,
+              "first_tick": 30185,
+              "births": 4317,
+              "copies": 4343,
+              "last_copy_tick": 99968,
+              "instructions": 4586381,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                1208887,
+                1231152
+              ],
+              "taken": 0,
+              "transferred": 208464,
+              "binds": 0
+            },
+            {
+              "hash": "9548b5e0cac63d19f59ba1e72d9fe6ccbf26b1474cfeb67315f9a52b67a891d4",
+              "count": 76,
+              "frequency": 0.1130952380952381,
+              "max_generation": 64,
+              "first_tick": 23433,
+              "births": 8112,
+              "copies": 8190,
+              "last_copy_tick": 99984,
+              "instructions": 3967196,
+              "moved": 2742,
+              "absorbed": 0,
+              "converted": [
+                1106340,
+                1138644
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 8190
+            },
+            {
+              "hash": "f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d",
+              "count": 25,
+              "frequency": 0.03720238095238095,
+              "max_generation": 33,
+              "first_tick": 447,
+              "births": 16562,
+              "copies": 16708,
+              "last_copy_tick": 47579,
+              "instructions": 11114599,
+              "moved": 630165,
+              "absorbed": 0,
+              "converted": [
+                3748475,
+                3897286
+              ],
+              "taken": 0,
+              "transferred": 801984,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w004.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 18
+        },
+        {
+          "id": "w004.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 12
+        },
+        {
+          "id": "w004.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w004.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83198361,
+            "absorbed_energy": 74877,
+            "transferred_energy": 1979306,
+            "taken_energy": 45490,
+            "allocation_reserve_energy": 596040,
+            "charged_z_to_x_units": 10390640,
+            "converted_by_id": [
+              10390722,
+              10390683
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w004.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 984,
+            "instruction_energy": 47976,
+            "limit": 0,
+            "matter": 71434,
+            "reaction": 442610,
+            "reserve": 19,
+            "space": 762977
+          }
+        },
+        {
+          "id": "w004.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 49163
+        },
+        {
+          "id": "w004.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 49667
+        },
+        {
+          "id": "w004.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w004.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 290
+        }
+      ]
+    },
+    {
+      "id": "w005",
+      "case": "ecology",
+      "seed": 5,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "d983bc4cb9d3eb51518c0718effa2ed069c22cf568a4299d4ce19a69a9a33cf2",
+      "metrics_file_sha256": "3a5f9ab6b7d5940cf2521a4be9cda40981c8dce56b81a6fa3ed734ad4b2f6173",
+      "evidence_file_sha256": "0f15f2ee878270f6adf3d8cecf5336d3874b01b8a99f57c9033cae6251783e9d",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w005.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 658,
+            "end": 679,
+            "min_observed": 628,
+            "max_observed": 680
+          }
+        },
+        {
+          "id": "w005.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 2.4583544644391804,
+            "effective_genomes": 11.685566694740306,
+            "inverse_simpson": 6.935446773095251,
+            "dominant_share": 0.27031019202363366,
+            "lineage_shannon_nats": 2.462449868755635
+          }
+        },
+        {
+          "id": "w005.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+              "count": 183,
+              "frequency": 0.27031019202363366,
+              "max_generation": 68,
+              "first_tick": 22612,
+              "births": 34007,
+              "copies": 34345,
+              "last_copy_tick": 99997,
+              "instructions": 10756629,
+              "moved": 670493,
+              "absorbed": 0,
+              "converted": [
+                3374500,
+                3588039
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+              "count": 109,
+              "frequency": 0.16100443131462333,
+              "max_generation": 53,
+              "first_tick": 15284,
+              "births": 8648,
+              "copies": 8729,
+              "last_copy_tick": 99996,
+              "instructions": 8027660,
+              "moved": 468645,
+              "absorbed": 0,
+              "converted": [
+                2520308,
+                2603335
+              ],
+              "taken": 0,
+              "transferred": 418992,
+              "binds": 0
+            },
+            {
+              "hash": "af4fd802810b1623faf0772bf66f32631699fe3f9e41e89945c2ffca8adecf08",
+              "count": 100,
+              "frequency": 0.14771048744460857,
+              "max_generation": 57,
+              "first_tick": 20313,
+              "births": 14426,
+              "copies": 14552,
+              "last_copy_tick": 99980,
+              "instructions": 8461599,
+              "moved": 381037,
+              "absorbed": 0,
+              "converted": [
+                2740805,
+                2889889
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "05e813ded1a8e6a36783c8b92bdf8499ad1760b2583fe656fcd299ba733708e6",
+              "count": 62,
+              "frequency": 0.0915805022156573,
+              "max_generation": 51,
+              "first_tick": 11157,
+              "births": 14219,
+              "copies": 14363,
+              "last_copy_tick": 99998,
+              "instructions": 14611432,
+              "moved": 642050,
+              "absorbed": 0,
+              "converted": [
+                4771717,
+                4956991
+              ],
+              "taken": 0,
+              "transferred": 689424,
+              "binds": 0
+            },
+            {
+              "hash": "17892df388b7068caaf991713eea5b1ba55df3e3fda50d78a8296bbf62636b40",
+              "count": 58,
+              "frequency": 0.08567208271787297,
+              "max_generation": 78,
+              "first_tick": 59473,
+              "births": 1061,
+              "copies": 1071,
+              "last_copy_tick": 99887,
+              "instructions": 1161735,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                308238,
+                316174
+              ],
+              "taken": 0,
+              "transferred": 51408,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w005.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w005.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w005.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w005.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83196392,
+            "absorbed_energy": 84731,
+            "transferred_energy": 533811,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 742704,
+            "charged_z_to_x_units": 10389400,
+            "converted_by_id": [
+              10389542,
+              10389498
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w005.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 1068,
+            "instruction_energy": 3562,
+            "limit": 0,
+            "matter": 183920,
+            "reaction": 366772,
+            "reserve": 33,
+            "space": 1168231
+          }
+        },
+        {
+          "id": "w005.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 58651
+        },
+        {
+          "id": "w005.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 61871
+        },
+        {
+          "id": "w005.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w005.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 314
+        }
+      ]
+    },
+    {
+      "id": "w006",
+      "case": "ecology",
+      "seed": 6,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "ef9e3cc2355959aa3943f894c0f742a48d07f27b82ee4193f5b459df7bae07bd",
+      "metrics_file_sha256": "c24bc31341d92c4045455b365441e78ed38f5d178c7238ada2ad8e0979d6deb3",
+      "evidence_file_sha256": "de6e54a602c7608409cc83944f702f55b0405ae7bb48d375b36c872c127fc8bf",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w006.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 650,
+            "end": 666,
+            "min_observed": 638,
+            "max_observed": 679
+          }
+        },
+        {
+          "id": "w006.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 2.0704126020064164,
+            "effective_genomes": 7.928093590423783,
+            "inverse_simpson": 4.258027956176801,
+            "dominant_share": 0.3996983408748115,
+            "lineage_shannon_nats": 2.7989353398394585
+          }
+        },
+        {
+          "id": "w006.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+              "count": 265,
+              "frequency": 0.3996983408748115,
+              "max_generation": 126,
+              "first_tick": 16762,
+              "births": 32833,
+              "copies": 33172,
+              "last_copy_tick": 99996,
+              "instructions": 25518824,
+              "moved": 1584490,
+              "absorbed": 0,
+              "converted": [
+                7990739,
+                8262090
+              ],
+              "taken": 0,
+              "transferred": 1592208,
+              "binds": 0
+            },
+            {
+              "hash": "abbba6a4c30d32976afbb7622fccdb406932b6a12fd8cb538fcae79481980671",
+              "count": 142,
+              "frequency": 0.21417797888386123,
+              "max_generation": 96,
+              "first_tick": 38796,
+              "births": 4985,
+              "copies": 5038,
+              "last_copy_tick": 99999,
+              "instructions": 5300397,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                1395241,
+                1442226
+              ],
+              "taken": 0,
+              "transferred": 241728,
+              "binds": 0
+            },
+            {
+              "hash": "955f4c492adba7d6487502611d5af1eef63e642c61e160038878b6eadb09c4b1",
+              "count": 98,
+              "frequency": 0.1478129713423831,
+              "max_generation": 78,
+              "first_tick": 18729,
+              "births": 25607,
+              "copies": 25835,
+              "last_copy_tick": 99997,
+              "instructions": 6220594,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                2228862,
+                2388952
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "a5fb9d0bbc59270dddcf246f4dfe57b510686de5b6d403e7865ff87322faca41",
+              "count": 52,
+              "frequency": 0.0784313725490196,
+              "max_generation": 82,
+              "first_tick": 19535,
+              "births": 15648,
+              "copies": 15793,
+              "last_copy_tick": 99992,
+              "instructions": 3270511,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                1145914,
+                1195908
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+              "count": 18,
+              "frequency": 0.027149321266968326,
+              "max_generation": 58,
+              "first_tick": 37109,
+              "births": 4776,
+              "copies": 4823,
+              "last_copy_tick": 99989,
+              "instructions": 679972,
+              "moved": 22243,
+              "absorbed": 0,
+              "converted": [
+                207059,
+                248507
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w006.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w006.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w006.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w006.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83199937,
+            "absorbed_energy": 219003,
+            "transferred_energy": 1192239,
+            "taken_energy": 105,
+            "allocation_reserve_energy": 715656,
+            "charged_z_to_x_units": 10372622,
+            "converted_by_id": [
+              10372581,
+              10372586
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w006.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 42,
+            "instruction_energy": 28808,
+            "limit": 0,
+            "matter": 127217,
+            "reaction": 713428,
+            "reserve": 36,
+            "space": 997928
+          }
+        },
+        {
+          "id": "w006.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 59524
+        },
+        {
+          "id": "w006.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 59622
+        },
+        {
+          "id": "w006.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w006.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 342
+        }
+      ]
+    },
+    {
+      "id": "w007",
+      "case": "ecology",
+      "seed": 7,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "f6ce4429e5a7176454820f7d89ed7e72336410ff9ee13a75b6ec4b28d65e16f2",
+      "metrics_file_sha256": "92c5912685d943e4966bf4957cc2b9775fadad7d40bffcaf68596910f3695fec",
+      "evidence_file_sha256": "9a80b7985c0c8fc18dca6c0fe027e2ecd96332c29d8184ff8980d2e25bb092b8",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w007.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 653,
+            "end": 662,
+            "min_observed": 650,
+            "max_observed": 679
+          }
+        },
+        {
+          "id": "w007.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 1.9856395942147411,
+            "effective_genomes": 7.283704511226564,
+            "inverse_simpson": 5.296204710474321,
+            "dominant_share": 0.2950075642965204,
+            "lineage_shannon_nats": 3.3058272751641735
+          }
+        },
+        {
+          "id": "w007.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "d26debb02ca928cf0afeb3af0171769054badd840ef2a85d4e25afa9118e5776",
+              "count": 195,
+              "frequency": 0.2950075642965204,
+              "max_generation": 92,
+              "first_tick": 16624,
+              "births": 7212,
+              "copies": 7263,
+              "last_copy_tick": 99979,
+              "instructions": 6621276,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                1749727,
+                1776735
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "fa5d7d95fb8001e5a400c22b02d4b15012a0f5473137cac4ddf9996fc2fcb4b5",
+              "count": 162,
+              "frequency": 0.24508320726172467,
+              "max_generation": 39,
+              "first_tick": 3604,
+              "births": 7778,
+              "copies": 7850,
+              "last_copy_tick": 99972,
+              "instructions": 17774677,
+              "moved": 99263,
+              "absorbed": 0,
+              "converted": [
+                6093514,
+                6132366
+              ],
+              "taken": 0,
+              "transferred": 376800,
+              "binds": 7850
+            },
+            {
+              "hash": "006ec6ca400504583a3168f5f7ceae85920e5e57370bfe4f48808c111031d738",
+              "count": 95,
+              "frequency": 0.1437216338880484,
+              "max_generation": 60,
+              "first_tick": 7624,
+              "births": 63994,
+              "copies": 64662,
+              "last_copy_tick": 99993,
+              "instructions": 7868551,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                2817709,
+                2915887
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "3bb6f1b1fc93b726b8a6e76f868352a0e20aae42ca6cd3d228a1f7e1c614ec9f",
+              "count": 74,
+              "frequency": 0.11195158850226929,
+              "max_generation": 91,
+              "first_tick": 72535,
+              "births": 4792,
+              "copies": 4839,
+              "last_copy_tick": 99995,
+              "instructions": 1608584,
+              "moved": 205329,
+              "absorbed": 0,
+              "converted": [
+                426115,
+                428495
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "2d7e5032ff49b859b40e4f27c6d3325d41be6363a1176426c82bd5c8c689a465",
+              "count": 44,
+              "frequency": 0.06656580937972768,
+              "max_generation": 47,
+              "first_tick": 7343,
+              "births": 23225,
+              "copies": 23469,
+              "last_copy_tick": 99818,
+              "instructions": 15783680,
+              "moved": 1158675,
+              "absorbed": 0,
+              "converted": [
+                4930511,
+                5001181
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w007.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 26
+        },
+        {
+          "id": "w007.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 39
+        },
+        {
+          "id": "w007.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 1
+        },
+        {
+          "id": "w007.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83197970,
+            "absorbed_energy": 507826,
+            "transferred_energy": 93815,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 837696,
+            "charged_z_to_x_units": 10336503,
+            "converted_by_id": [
+              10336460,
+              10336528
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w007.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 2842,
+            "instruction_energy": 59155,
+            "limit": 0,
+            "matter": 84699,
+            "reaction": 286715,
+            "reserve": 25,
+            "space": 697526
+          }
+        },
+        {
+          "id": "w007.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 69353
+        },
+        {
+          "id": "w007.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 69799
+        },
+        {
+          "id": "w007.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w007.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 399
+        }
+      ]
+    },
+    {
+      "id": "w008",
+      "case": "ecology",
+      "seed": 8,
+      "tick": 100000,
+      "mutation_ppm": 10000,
+      "snapshot_sha256": "cbc920dbc3254bf0891892587de370a634bc6e4afaabb58eff970afd38b1257e",
+      "metrics_file_sha256": "d47980cc12b4d3725ce37ca5856f0c6fceaa9b1e4c5da3ec007ce98eea213894",
+      "evidence_file_sha256": "e72b66fd113eaa7d90c9c8d6d0cd60adcbd88338887f266c37c778a9fafd7be3",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w008.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 654,
+            "end": 671,
+            "min_observed": 649,
+            "max_observed": 678
+          }
+        },
+        {
+          "id": "w008.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 1.1318994479843654,
+            "effective_genomes": 3.101542126575246,
+            "inverse_simpson": 1.6819691085915516,
+            "dominant_share": 0.7639097744360902,
+            "lineage_shannon_nats": 1.1339841011589817
+          }
+        },
+        {
+          "id": "w008.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "3e2f52874e306ef39de5f6f16d3c7546e9a4ac21ca62176c725352dec6fd836e",
+              "count": 508,
+              "frequency": 0.7639097744360902,
+              "max_generation": 46,
+              "first_tick": 3621,
+              "births": 103734,
+              "copies": 104795,
+              "last_copy_tick": 99999,
+              "instructions": 48540063,
+              "moved": 2441810,
+              "absorbed": 0,
+              "converted": [
+                15718445,
+                16115563
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "75307df15390723d85a13fba9100813876538d3f013535661c498d0c8c11bd5d",
+              "count": 64,
+              "frequency": 0.0962406015037594,
+              "max_generation": 60,
+              "first_tick": 40688,
+              "births": 5233,
+              "copies": 5286,
+              "last_copy_tick": 99992,
+              "instructions": 2886106,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                796849,
+                812126
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "9b884b04c7ffc7b54dab3895c7d9cde36fed8ce301f2361a0003e797546f51f7",
+              "count": 20,
+              "frequency": 0.03007518796992481,
+              "max_generation": 49,
+              "first_tick": 58551,
+              "births": 1515,
+              "copies": 1530,
+              "last_copy_tick": 99953,
+              "instructions": 612006,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                163281,
+                177301
+              ],
+              "taken": 14376,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "10cb95cd915798323bd9149a4ff1ec29a6359d28b13bd9f6bd5a9e73fec6d927",
+              "count": 14,
+              "frequency": 0.021052631578947368,
+              "max_generation": 37,
+              "first_tick": 10985,
+              "births": 23577,
+              "copies": 23814,
+              "last_copy_tick": 99997,
+              "instructions": 1116876,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                369971,
+                403617
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            },
+            {
+              "hash": "f73cb9874ece1426c541f6045ae6ce38ea3560706fa676ca1d2caf369950b43e",
+              "count": 7,
+              "frequency": 0.010526315789473684,
+              "max_generation": 40,
+              "first_tick": 8741,
+              "births": 42,
+              "copies": 0,
+              "last_copy_tick": 0,
+              "instructions": 545970,
+              "moved": 0,
+              "absorbed": 0,
+              "converted": [
+                194717,
+                176119
+              ],
+              "taken": 0,
+              "transferred": 0,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w008.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 6
+        },
+        {
+          "id": "w008.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 1
+        },
+        {
+          "id": "w008.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w008.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83198161,
+            "absorbed_energy": 103983,
+            "transferred_energy": 0,
+            "taken_energy": 14431,
+            "allocation_reserve_energy": 937680,
+            "charged_z_to_x_units": 10386998,
+            "converted_by_id": [
+              10387022,
+              10386953
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w008.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 7132,
+            "instruction_energy": 72206,
+            "limit": 0,
+            "matter": 164009,
+            "reaction": 363697,
+            "reserve": 42,
+            "space": 1178214
+          }
+        },
+        {
+          "id": "w008.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 75307
+        },
+        {
+          "id": "w008.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 78123
+        },
+        {
+          "id": "w008.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w008.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 394
+        }
+      ]
+    },
+    {
+      "id": "w009",
+      "case": "ecology-no-mutation",
+      "seed": 1,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "9b64e7ee3da64757fa7cbea36c11a72a4a7175d817a93d2e7470c2c22b985641",
+      "metrics_file_sha256": "6b76aa762d52b06f5c22f167db4f0b0cdff8da73841279326051477820523eb8",
+      "evidence_file_sha256": "062533e79e368ec6cda8570516f0fb0029f9b1992d163f36ebb305c24515c823",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w009.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 573,
+            "end": 580,
+            "min_observed": 558,
+            "max_observed": 608
+          }
+        },
+        {
+          "id": "w009.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.868672328880555
+          }
+        },
+        {
+          "id": "w009.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 577,
+              "frequency": 1,
+              "max_generation": 202,
+              "first_tick": 0,
+              "births": 156835,
+              "copies": 156834,
+              "last_copy_tick": 99999,
+              "instructions": 57252725,
+              "moved": 5705776,
+              "absorbed": 0,
+              "converted": [
+                20804698,
+                20804269
+              ],
+              "taken": 0,
+              "transferred": 7527936,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w009.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w009.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w009.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w009.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83202095,
+            "absorbed_energy": 0,
+            "transferred_energy": 3757008,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 939276,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10400102,
+              10400154
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w009.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 78266,
+            "limit": 0,
+            "matter": 786132,
+            "reaction": 500325,
+            "reserve": 0,
+            "space": 299160
+          }
+        },
+        {
+          "id": "w009.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 78272
+        },
+        {
+          "id": "w009.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 78266
+        },
+        {
+          "id": "w009.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "stagnating"
+        },
+        {
+          "id": "w009.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "w010",
+      "case": "ecology-no-mutation",
+      "seed": 2,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "2302dcb4056e6fcac19266118ec1b4ad236fb49d09f171acf63a43d96bf91c25",
+      "metrics_file_sha256": "343f52d60efa918851e0716751ef459c0c647b1be791c3ff47678e65486a4d28",
+      "evidence_file_sha256": "b603331521b4f115bc81f2faf692efa883d881f050d0e6b63bb4272e98cb5a26",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w010.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 570,
+            "end": 570,
+            "min_observed": 562,
+            "max_observed": 603
+          }
+        },
+        {
+          "id": "w010.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.90395586989016
+          }
+        },
+        {
+          "id": "w010.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 568,
+              "frequency": 1,
+              "max_generation": 220,
+              "first_tick": 0,
+              "births": 156431,
+              "copies": 156430,
+              "last_copy_tick": 99999,
+              "instructions": 57169671,
+              "moved": 5707349,
+              "absorbed": 0,
+              "converted": [
+                20804549,
+                20804056
+              ],
+              "taken": 0,
+              "transferred": 7508592,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w010.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w010.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w010.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w010.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83196723,
+            "absorbed_energy": 0,
+            "transferred_energy": 3739968,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 934944,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10399925,
+              10399893
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w010.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 77912,
+            "limit": 0,
+            "matter": 791162,
+            "reaction": 499815,
+            "reserve": 0,
+            "space": 296398
+          }
+        },
+        {
+          "id": "w010.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 77914
+        },
+        {
+          "id": "w010.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 77912
+        },
+        {
+          "id": "w010.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "stagnating"
+        },
+        {
+          "id": "w010.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "w011",
+      "case": "ecology-no-mutation",
+      "seed": 3,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "f93793af56f125a1643a6e87c4606de027678c6338f89e98e9e97e2e7fe4b038",
+      "metrics_file_sha256": "683a83846c7acd98df6a1937b78e3c89b330cdb73057dc147fde08bb13f297a1",
+      "evidence_file_sha256": "60e77121009f0c2f8a0e2d35be20b6f118e957311850f19d5143b2c639e0f058",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w011.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 586,
+            "end": 584,
+            "min_observed": 552,
+            "max_observed": 588
+          }
+        },
+        {
+          "id": "w011.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.820265433062974
+          }
+        },
+        {
+          "id": "w011.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 582,
+              "frequency": 1,
+              "max_generation": 216,
+              "first_tick": 0,
+              "births": 156603,
+              "copies": 156602,
+              "last_copy_tick": 99999,
+              "instructions": 57195637,
+              "moved": 5705500,
+              "absorbed": 0,
+              "converted": [
+                20804306,
+                20803847
+              ],
+              "taken": 0,
+              "transferred": 7516800,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w011.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w011.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w011.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w011.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83200812,
+            "absorbed_energy": 0,
+            "transferred_energy": 3748224,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 936972,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10400107,
+              10400087
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w011.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 78083,
+            "limit": 0,
+            "matter": 791416,
+            "reaction": 501122,
+            "reserve": 0,
+            "space": 297559
+          }
+        },
+        {
+          "id": "w011.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 78085
+        },
+        {
+          "id": "w011.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 78083
+        },
+        {
+          "id": "w011.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "stagnating"
+        },
+        {
+          "id": "w011.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "w012",
+      "case": "ecology-no-mutation",
+      "seed": 4,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "e9768f3fa0402f639b102d9871036bb014e7e9c1338fc8101ddf7777863d2cc1",
+      "metrics_file_sha256": "872f8cbd418454f070cfcbd95b9808def70afff1a94d1702591ebb387526983f",
+      "evidence_file_sha256": "d21d437553485dfe438b08924ded8e5e2474186235d947afe3f35934db8943a1",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w012.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 585,
+            "end": 575,
+            "min_observed": 563,
+            "max_observed": 594
+          }
+        },
+        {
+          "id": "w012.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.8260380515071635
+          }
+        },
+        {
+          "id": "w012.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 574,
+              "frequency": 1,
+              "max_generation": 211,
+              "first_tick": 0,
+              "births": 157496,
+              "copies": 157495,
+              "last_copy_tick": 99999,
+              "instructions": 57205446,
+              "moved": 5706317,
+              "absorbed": 0,
+              "converted": [
+                20806275,
+                20805722
+              ],
+              "taken": 0,
+              "transferred": 7559712,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w012.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w012.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w012.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w012.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83197988,
+            "absorbed_energy": 0,
+            "transferred_energy": 3758160,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 939492,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10399949,
+              10399849
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w012.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 78301,
+            "limit": 0,
+            "matter": 795440,
+            "reaction": 500430,
+            "reserve": 0,
+            "space": 293848
+          }
+        },
+        {
+          "id": "w012.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 78294
+        },
+        {
+          "id": "w012.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 78301
+        },
+        {
+          "id": "w012.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "stagnating"
+        },
+        {
+          "id": "w012.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "w013",
+      "case": "ecology-no-mutation",
+      "seed": 5,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "3c296a995a45ac1305c547e4554c59a9e052f645b6b9ee761efe49972d65d15b",
+      "metrics_file_sha256": "6edb5515672e8ac11809896282583df8daabb8ff6ff0092ca4eca70640ca7c40",
+      "evidence_file_sha256": "4be0b047ea960a97f75cda936e2ff18ca3bb59cf962987e599bced634412aadf",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w013.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 574,
+            "end": 571,
+            "min_observed": 556,
+            "max_observed": 594
+          }
+        },
+        {
+          "id": "w013.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.832292806050717
+          }
+        },
+        {
+          "id": "w013.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 567,
+              "frequency": 1,
+              "max_generation": 211,
+              "first_tick": 0,
+              "births": 156946,
+              "copies": 156945,
+              "last_copy_tick": 99999,
+              "instructions": 57217424,
+              "moved": 5707420,
+              "absorbed": 0,
+              "converted": [
+                20807002,
+                20806565
+              ],
+              "taken": 0,
+              "transferred": 7533264,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w013.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w013.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w013.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w013.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83197434,
+            "absorbed_energy": 0,
+            "transferred_energy": 3755376,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 938832,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10399993,
+              10400053
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w013.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 78239,
+            "limit": 0,
+            "matter": 788146,
+            "reaction": 503297,
+            "reserve": 0,
+            "space": 297526
+          }
+        },
+        {
+          "id": "w013.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 78237
+        },
+        {
+          "id": "w013.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 78239
+        },
+        {
+          "id": "w013.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "stagnating"
+        },
+        {
+          "id": "w013.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "w014",
+      "case": "ecology-no-mutation",
+      "seed": 6,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "e6255fa837635db168daa257abace1fc23662205d0c123429de669f8ff753ea3",
+      "metrics_file_sha256": "0d1ffa3d8462ba9f1d00e218cf28c5889c327cda44d74ca9e86c2c17fac77ee1",
+      "evidence_file_sha256": "4fc2255e2e43b9a09277f225fdeeb6609ebe551950413a768e85f213fdd9d002",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w014.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 574,
+            "end": 571,
+            "min_observed": 560,
+            "max_observed": 593
+          }
+        },
+        {
+          "id": "w014.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.9928685181508845
+          }
+        },
+        {
+          "id": "w014.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 568,
+              "frequency": 1,
+              "max_generation": 211,
+              "first_tick": 0,
+              "births": 156818,
+              "copies": 156817,
+              "last_copy_tick": 99999,
+              "instructions": 57192092,
+              "moved": 5707152,
+              "absorbed": 0,
+              "converted": [
+                20806249,
+                20805816
+              ],
+              "taken": 0,
+              "transferred": 7527168,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w014.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w014.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w014.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w014.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83197555,
+            "absorbed_energy": 0,
+            "transferred_energy": 3746736,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 936720,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10399909,
+              10399900
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w014.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 78063,
+            "limit": 0,
+            "matter": 792890,
+            "reaction": 500097,
+            "reserve": 0,
+            "space": 296545
+          }
+        },
+        {
+          "id": "w014.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 78057
+        },
+        {
+          "id": "w014.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 78063
+        },
+        {
+          "id": "w014.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "stagnating"
+        },
+        {
+          "id": "w014.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "w015",
+      "case": "ecology-no-mutation",
+      "seed": 7,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "18e7392e4e499d7d88b0c071db5ccdba8621c813ef451ed9d476f6cf93ddfc00",
+      "metrics_file_sha256": "5cc990c5e76e365aa924f24ed4bd562377a4c119b91fb97b5a738626b067baf7",
+      "evidence_file_sha256": "97896102733148fe204d3c6e5e821ae7e9c9520bfe9270b424ebe085e4431260",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w015.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 566,
+            "end": 580,
+            "min_observed": 559,
+            "max_observed": 598
+          }
+        },
+        {
+          "id": "w015.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.880290936026083
+          }
+        },
+        {
+          "id": "w015.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 579,
+              "frequency": 1,
+              "max_generation": 203,
+              "first_tick": 0,
+              "births": 156733,
+              "copies": 156732,
+              "last_copy_tick": 99998,
+              "instructions": 57229177,
+              "moved": 5707870,
+              "absorbed": 0,
+              "converted": [
+                20806771,
+                20806297
+              ],
+              "taken": 0,
+              "transferred": 7523136,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w015.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w015.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w015.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w015.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83201300,
+            "absorbed_energy": 0,
+            "transferred_energy": 3738192,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 934536,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10400127,
+              10400097
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w015.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 77864,
+            "limit": 0,
+            "matter": 787211,
+            "reaction": 498650,
+            "reserve": 0,
+            "space": 297123
+          }
+        },
+        {
+          "id": "w015.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 77878
+        },
+        {
+          "id": "w015.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 77864
+        },
+        {
+          "id": "w015.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "mixed"
+        },
+        {
+          "id": "w015.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "w016",
+      "case": "ecology-no-mutation",
+      "seed": 8,
+      "tick": 100000,
+      "mutation_ppm": 0,
+      "snapshot_sha256": "a7724a84a49a1d602c7b9c5fb310f4d0c3cd7a023ff22d93f6ccf76feca4ddf5",
+      "metrics_file_sha256": "e758edd63eba174345ff325561ef89378d0d5f37a806073038ff93eaee02d1a0",
+      "evidence_file_sha256": "8a352c3c80a4acaa70666ec98b668038f343b3d13ef04294a0dcc07828a9f4ad",
+      "active_rules": {
+        "version": "ecology-2",
+        "sha256": "builtin"
+      },
+      "active_rule_source": {
+        "format": 1,
+        "version": "builtin-equivalent",
+        "instruction_budget": 32,
+        "rules": [
+          {
+            "id": 0,
+            "name": "x-to-y",
+            "consume": {
+              "X": 1
+            },
+            "produce": {
+              "Y": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          },
+          {
+            "id": 1,
+            "name": "y-to-z",
+            "consume": {
+              "Y": 1
+            },
+            "produce": {
+              "Z": 1,
+              "energy": 4
+            },
+            "energy_cost": 1,
+            "max_batch": 64
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "w016.population",
+          "evidence_pointer": "/summary/population",
+          "value": {
+            "start": 591,
+            "end": 569,
+            "min_observed": 561,
+            "max_observed": 605
+          }
+        },
+        {
+          "id": "w016.diversity_end",
+          "evidence_pointer": "/summary/diversity_end",
+          "value": {
+            "shannon_nats": 0,
+            "effective_genomes": 1,
+            "inverse_simpson": 1,
+            "dominant_share": 1,
+            "lineage_shannon_nats": 2.949129340556377
+          }
+        },
+        {
+          "id": "w016.dominant_genomes_at_end",
+          "evidence_pointer": "/summary/dominant_genomes_at_end",
+          "value": [
+            {
+              "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+              "count": 565,
+              "frequency": 1,
+              "max_generation": 208,
+              "first_tick": 0,
+              "births": 156593,
+              "copies": 156592,
+              "last_copy_tick": 99999,
+              "instructions": 57272575,
+              "moved": 5710791,
+              "absorbed": 0,
+              "converted": [
+                20805224,
+                20804715
+              ],
+              "taken": 0,
+              "transferred": 7516368,
+              "binds": 0
+            }
+          ]
+        },
+        {
+          "id": "w016.largest",
+          "evidence_pointer": "/summary/structures_end/largest",
+          "value": 1
+        },
+        {
+          "id": "w016.linked_components",
+          "evidence_pointer": "/summary/structures_end/linked_components",
+          "value": 0
+        },
+        {
+          "id": "w016.mixed_genome_components",
+          "evidence_pointer": "/summary/structures_end/mixed_genome_components",
+          "value": 0
+        },
+        {
+          "id": "w016.resource_flows",
+          "evidence_pointer": "/summary/resource_flows",
+          "value": {
+            "injected_energy": 83200000,
+            "dissipated_energy": 83195728,
+            "absorbed_energy": 0,
+            "transferred_energy": 3739632,
+            "taken_energy": 0,
+            "allocation_reserve_energy": 934836,
+            "charged_z_to_x_units": 10400000,
+            "converted_by_id": [
+              10399958,
+              10399840
+            ],
+            "dsl_units_by_hash_and_name": {}
+          }
+        },
+        {
+          "id": "w016.failed_attempts",
+          "evidence_pointer": "/summary/failed_attempts",
+          "value": {
+            "absorb": 0,
+            "instruction_energy": 77925,
+            "limit": 0,
+            "matter": 786958,
+            "reaction": 500095,
+            "reserve": 0,
+            "space": 297463
+          }
+        },
+        {
+          "id": "w016.copies",
+          "evidence_pointer": "/summary/copies",
+          "value": 77904
+        },
+        {
+          "id": "w016.deaths",
+          "evidence_pointer": "/summary/deaths",
+          "value": 77925
+        },
+        {
+          "id": "w016.status",
+          "evidence_pointer": "/dynamics/status",
+          "value": "stagnating"
+        },
+        {
+          "id": "w016.new_genomes_not_used_as_novelty",
+          "evidence_pointer": "/dynamics/new_genomes_not_used_as_novelty",
+          "value": 0
+        }
+      ]
+    }
+  ]
+}

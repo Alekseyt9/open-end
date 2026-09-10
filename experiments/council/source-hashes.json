@@ -1,0 +1,30 @@
+[
+  {
+    "file": "cmd/council\\main.go",
+    "sha256": "2900b76f5d4b0dd89e62ccde999458b1c21b8348bd8f34abe3373a2748c775ac"
+  },
+  {
+    "file": "internal/council\\council_test.go",
+    "sha256": "d068ad4c970fb340f2db0963b4784532b5d2e56c8ba880f39647de16a8ad4b13"
+  },
+  {
+    "file": "internal/council\\io.go",
+    "sha256": "5f2e80b73e6bacaea64b66ebae62fbc0d7150a8f294eaecc290d850a4bfbd306"
+  },
+  {
+    "file": "internal/council\\prepare.go",
+    "sha256": "dd0893547aa01eb2b4116a33922d3ac369da0dd48c065c9f55cfa0ea385d846f"
+  },
+  {
+    "file": "internal/council\\response.go",
+    "sha256": "d6f9e9e5e9fe20e9173fc50ff4ddc045211f0464e1100381b7a36e03855f3caa"
+  },
+  {
+    "file": "internal/council\\trial.go",
+    "sha256": "168cc2e66e678d038a4708e4b311c45a131b4b58f9b2d27c41d847f463b2fc52"
+  },
+  {
+    "file": "internal/observer/recording.go",
+    "sha256": "701191c21bddb3a8fecf17018dcf4aea291b046b81daec4b82a93f5ddadc0c35"
+  }
+]

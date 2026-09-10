@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "request_sha256": "fb1cd7ea02e550f9767277895d522c4170bd390e55305620746be7f66f691c61",
+  "response_sha256": "8bdbb200331ac1a75c48260b747e77505304e4b41994a9a756660805f4f31da1",
+  "kernel_version": "0.1.0",
+  "options": {
+    "Ticks": 20000,
+    "Every": 1000,
+    "Workers": 16,
+    "Window": 10000
+  },
+  "total": 32,
+  "completed": 32,
+  "seconds": 17.052425
+}
