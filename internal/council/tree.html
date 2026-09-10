@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Open-End · Branch explorer</title>
+<style>
+:root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#dfe8ed;background:#0e171d;font-size:15px;color-scheme:dark}*{box-sizing:border-box}body{margin:0}main{max-width:1500px;margin:auto;padding:36px}h1{font-size:34px;letter-spacing:-1px;margin:8px 0}h2{font-size:20px;margin:0 0 16px}p{line-height:1.6;color:#9eb2bf}header{display:flex;justify-content:space-between;gap:30px;align-items:center;margin-bottom:28px}.eyebrow{font-size:12px;letter-spacing:2px;color:#66dbc0}.badge{border:1px solid #426070;border-radius:20px;padding:8px 14px;white-space:nowrap}.stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px}.stat{background:#18262f;padding:18px 24px;border-radius:10px;min-width:165px}.stat strong{font-size:27px;display:block}.stat span{color:#9eb2bf;font-size:12px}.panel{background:#142129;border:1px solid #2a3c47;border-radius:12px;padding:24px;margin-bottom:24px}.toolbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:18px}button,select,input{font:inherit;border:1px solid #43606e;border-radius:6px;background:#1c303b;color:#e7f0f3;padding:9px 12px}button{cursor:pointer}button:hover{background:#2b4655}button.primary{background:#67dec0;color:#0d2921;border-color:#67dec0}button:disabled{opacity:.45;cursor:default}input[type=checkbox]{accent-color:#67dec0;width:18px;height:18px}label{display:flex;align-items:center;gap:8px}input[type=number]{width:120px}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #79e3ff;outline-offset:3px}.muted{font-size:13px;color:#9eb2bf}.canvas{overflow:auto;min-height:170px}.tree{display:flex;gap:72px;position:relative;isolation:isolate;width:max-content;padding:12px 6px 24px}.column{width:242px;display:flex;flex-direction:column;gap:16px}.column>span{color:#9eb2bf;font-size:12px;text-transform:uppercase;letter-spacing:1px}.node{background:#1c303b;border:1px solid #3a5462;border-radius:9px;padding:14px;min-height:148px;position:relative}.node.selected{border-color:#67dec0;box-shadow:0 0 0 1px #67dec0}.node label{font-weight:600}.node p{margin:8px 0;font-size:13px;overflow-wrap:anywhere}.node button{font-size:12px;padding:5px 10px}.node .numbers{display:flex;gap:16px;font-size:12px;color:#c6d8e1}.tree svg{position:absolute;inset:0;z-index:-1;pointer-events:none}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap;font-size:13px}th{font-weight:500;color:#9eb2bf;background:#192a34}td,th{padding:12px 14px;border-bottom:1px solid #2a3c47}td.num{text-align:right;font-variant-numeric:tabular-nums}.status{border-radius:4px;padding:4px 7px;background:#233d48}.details{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail{overflow-wrap:anywhere}textarea{width:100%;min-height:112px;resize:vertical;background:#0e171d;color:#9eeed8;border:1px solid #36515d;border-radius:8px;padding:14px;font:13px/1.6 Consolas,monospace}code{color:#b1dfd2;font-size:13px}#message{min-height:20px;color:#8be1c6}a{color:#83e6cf}.error{color:#ffb9a8}footer{color:#8da7b7;font-size:12px;padding:0 0 24px}@media(max-width:700px){main{padding:18px}.panel{padding:16px}header{display:block}.badge{display:inline-block;margin-top:10px}.details{grid-template-columns:1fr}h1{font-size:29px}}
+</style></head><body><main>
+<header><div><div class="eyebrow">OPEN-END / RESEARCH LABORATORY</div><h1>Branch explorer</h1><p>Keep multiple evolutionary directions. Inspect evidence before choosing what to continue.</p></div><span class="badge">Stage 8 · Offline report</span></header>
+<div id="stats" class="stats"></div>
+<section class="panel"><h2>World ancestry</h2><div class="toolbar"><button id="saved">Restore saved selection</button><button id="leaves">Select all tips</button><button id="clear">Clear selection</button><span class="muted" id="selection-count" aria-live="polite"></span></div><div class="canvas"><div id="tree" class="tree"></div></div><p class="muted">Each card is a cohort of worlds sharing a rule variant. Lines connect parents to continuations. Selection keeps multiple branches; it does not declare a winner.</p></section>
+<section class="panel"><h2>Compare selected branches</h2><div class="toolbar"><label>Experiment case <select id="case"><option value="">All cases</option></select></label><span class="muted">Rows stay separate by seed and case.</span></div><div class="tablewrap"><table><thead><tr><th>Branch / variant</th><th>Case · seed</th><th>Window</th><th>Population</th><th>Effective diversity</th><th>Largest structure</th><th>Copies / 1k ticks</th><th>Detector</th></tr></thead><tbody id="comparison"></tbody></table></div><p class="muted">Structure size is measured at the final frame. Detector statuses concern each world's local window; behavioral hashes across different rules are not a common fitness score. Niche counts and adaptive value are not inferred here.</p></section>
+<section class="panel"><h2 id="detail-title">Branch evidence</h2><div id="details" class="details"></div></section>
+<section class="panel"><h2>Continue the experiment</h2><div class="toolbar"><label>Ticks <input id="ticks" type="number" min="1" value="20000"></label><label>Every <input id="every" type="number" min="1" value="1000"></label><label>Window <input id="window" type="number" min="1" value="10000"></label><label>Workers <input id="workers" type="number" min="1" max="256" value="16"></label></div><label><input id="proposals" type="checkbox">Test proposals from each selected branch's round/response.json</label><p class="muted">Run commands from the repository root in PowerShell. Proposal mode retains a paired control and every proposed variant. After a successful run all children become the saved selection.</p><textarea id="command" aria-label="PowerShell commands" readonly></textarea><div class="toolbar"><button id="copy" class="primary">Copy commands</button><span id="message" role="status"></span></div><p class="muted">This report is a snapshot. Browser selections do not modify files. Run the generated commands and export again to refresh it. No server, API key, or background execution is involved.</p></section>
+<section class="panel"><h2>Run history</h2><div id="runs" class="tablewrap"></div></section>
+<footer>Preserved snapshots · Deterministic continuations · Multiple retained branches · No automatic winner</footer>
+</main><script>
+const model = {{.}};
+const data=model.Tree, nodes=data.nodes, selected=new Set(data.selected);
+const $=id=>document.getElementById(id);
+const element=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
+const quote=s=>"'"+s.replaceAll("'","''")+"'";
+function variantLabel(n){
+ if(n.variant!=='control')return n.variant;
+ let p=nodes.find(p=>p.id===n.parent);
+ while(p && p.variant==='control')p=nodes.find(a=>a.id===p.parent);
+ return 'control · '+(p && p.variant!=='source'?p.variant:'baseline');
+}
+function statistics(){
+ const worlds=nodes.reduce((s,n)=>s+n.worlds.length,0), gen=Math.max(...nodes.map(n=>n.generation));
+ for(const [value,label] of [[nodes.length,'Preserved branches'],[worlds,'World snapshots'],[gen,'Generations'],[data.runs.length,'Recorded runs']]){
+  const d=element('div',undefined,'stat');d.append(element('strong',value),element('span',label));$('stats').append(d);
+ }
+ const cases=[...new Set(nodes.flatMap(n=>n.worlds.map(w=>w.case)))].sort();
+ for(const c of cases){const o=element('option',c);o.value=c;$('case').append(o)}
+}
+function renderTree(){
+ const host=$('tree');host.replaceChildren();
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');host.append(svg);
+ const generations=[...new Set(nodes.map(n=>n.generation))].sort((a,b)=>a-b);
+ for(const g of generations){
+  const col=element('div',undefined,'column');col.append(element('span','Generation '+g));
+  for(const n of nodes.filter(n=>n.generation===g)){
+   const card=element('article',undefined,'node'+(selected.has(n.id)?' selected':''));card.id='node-'+n.id;
+   const label=element('label'),box=element('input');box.type='checkbox';box.checked=selected.has(n.id);box.setAttribute('aria-label','Select '+n.id);
+   box.addEventListener('change',()=>{box.checked?selected.add(n.id):selected.delete(n.id);update()});
+   label.append(box,element('span',n.id));card.append(label,element('p',variantLabel(n)+' · '+n.worlds.length+' worlds'));
+   const avg=n.worlds.reduce((s,w)=>s+w.diversity,0)/n.worlds.length;
+   card.append(element('div','Mean diversity '+avg.toFixed(3),'numbers'));
+   const b=element('button','Inspect evidence');b.addEventListener('click',()=>details(n));card.append(b);col.append(card);
+  }host.append(col);
+ }
+ requestAnimationFrame(edges);
+}
+function edges(){
+ const host=$('tree'),svg=host.querySelector('svg');if(!svg)return;
+ svg.replaceChildren();svg.setAttribute('width',host.scrollWidth);svg.setAttribute('height',host.scrollHeight);
+ const base=host.getBoundingClientRect();
+ for(const n of nodes.filter(n=>n.parent)){
+  const a=$('node-'+n.parent).getBoundingClientRect(),b=$('node-'+n.id).getBoundingClientRect();
+  const x=a.right-base.left,y=a.top+a.height/2-base.top,tx=b.left-base.left,ty=b.top+b.height/2-base.top;
+  const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d','M '+x+' '+y+' C '+(x+36)+' '+y+', '+(tx-36)+' '+ty+', '+tx+' '+ty);p.setAttribute('stroke',selected.has(n.id)?'#67dec0':'#46616f');p.setAttribute('stroke-width','2');p.setAttribute('fill','none');svg.append(p);
+ }
+}
+function comparison(){
+ const body=$('comparison');body.replaceChildren();let count=0;
+ for(const n of nodes.filter(n=>selected.has(n.id)))for(const w of n.worlds){
+  if($('case').value && w.case!==$('case').value)continue;
+  const tr=element('tr'),window=w.tick-w.from_tick;
+  const values=[n.id+' / '+variantLabel(n),w.case+' · '+w.seed,w.from_tick+'–'+w.tick,w.population,w.diversity.toFixed(3),w.largest_structure,window?(w.copies*1000/window).toFixed(1):'—',w.status];
+  values.forEach((s,i)=>tr.append(element('td',s,i>=3&&i<=6?'num':'')));body.append(tr);count++;
+ }
+ if(!count){const tr=element('tr'),td=element('td','Select branches to compare their worlds.');td.colSpan=8;tr.append(td);body.append(tr)}
+}
+function details(n){
+ $('detail-title').textContent='Evidence · '+n.id;$('details').replaceChildren();
+ const parts=[
+ ['Ancestry',n.parent?'Parent '+n.parent+' → '+n.variant:'Imported source cohort'],
+ ['Prepared AI dossier',model.Directory+'/nodes/'+n.id+'/round/brief.md'],
+ ['Request identity',n.request_sha256],
+ ['Artifacts',n.run?model.Directory+'/runs/'+n.run+'/'+n.parent:model.Directory+'/nodes/'+n.id+'/round']
+ ];
+ for(const [title,value] of parts){const d=element('div',undefined,'detail');d.append(element('strong',title),element('p',value));$('details').append(d)}
+}
+function commands(){
+ const ids=[...selected].sort();$('selection-count').textContent=ids.length+' selected';
+ const ticks=+$('ticks').value,every=+$('every').value,window=+$('window').value,workers=+$('workers').value;
+ const valid=ids.length&&[ticks,every,window,workers].every(Number.isSafeInteger)&&Math.min(ticks,every,window,workers)>0&&window<=ticks&&workers<=256;
+ $('copy').disabled=!valid;
+ if(!valid){$('command').value='Select branches and use positive integer options, window ≤ ticks, workers ≤ 256.';return}
+ const prefix='go run ./cmd/council tree ',tree=' -tree '+quote(model.Directory);
+ $('command').value=prefix+'grow'+tree+' -branches '+ids.join(',')+($('proposals').checked?' -proposals':'')+' -ticks '+ticks+' -every '+every+' -window '+window+' -workers '+workers+'\n'+prefix+'export'+tree;
+}
+function update(){renderTree();comparison();commands()}
+$('saved').onclick=()=>{selected.clear();data.selected.forEach(id=>selected.add(id));update()};
+$('leaves').onclick=()=>{const parents=new Set(nodes.map(n=>n.parent));selected.clear();nodes.filter(n=>!parents.has(n.id)).forEach(n=>selected.add(n.id));update()};
+$('clear').onclick=()=>{selected.clear();update()};
+$('case').onchange=comparison;
+for(const id of ['ticks','every','window','workers','proposals'])$(id).addEventListener('input',commands);
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('command').value);$('message').textContent='Commands copied.'}catch{ $('command').focus();$('command').select();$('message').textContent='Press Ctrl+C to copy the selected commands.'}};
+const table=element('table');
+for(const run of data.runs){const row=element('tr');for(const s of [run.id,run.status,run.parents.join(', ')+' → '+run.children.join(', '),run.seconds.toFixed(2)+' s',run.error||''])row.append(element('td',s));table.append(row)}
+$('runs').append(data.runs.length?table:element('p','No runs yet. Continue the imported source to create descendants.'));
+statistics();update();details(nodes[0]);window.addEventListener('resize',edges);
+</script></body></html>

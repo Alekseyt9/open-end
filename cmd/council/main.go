@@ -16,8 +16,11 @@ func main() {
 	}
 }
 func run(args []string, out io.Writer) error {
+	if len(args) > 0 && args[0] == "tree" {
+		return runTree(args[1:], out)
+	}
 	if len(args) == 0 || args[0] == "help" || args[0] == "-h" || args[0] == "--help" {
-		_, err := fmt.Fprintln(out, "council prepare -input <completed experiment> -out <new round> [-window 50000]\ncouncil check -round <round> [-response <response.json>]\ncouncil trial -round <round> -out <new trial> [-response <response.json>] [-ticks 20000 -every 1000 -window 10000 -workers 16]\n\nAI работает через файлы: prepare → заполнить response.json в чате → check → trial. Исходные миры не изменяются.")
+		_, err := fmt.Fprintln(out, "council prepare -input <completed experiment> -out <new round> [-window 50000]\ncouncil check -round <round> [-response <response.json>]\ncouncil trial -round <round> -out <new trial> [-response <response.json>] [-ticks 20000 -every 1000 -window 10000 -workers 16]\ncouncil tree help\n\nAI works through files: prepare → write response.json in chat → check → trial. Source worlds remain unchanged. Tree commands preserve and continue multiple branches across generations.")
 		return err
 	}
 	command := args[0]

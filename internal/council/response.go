@@ -64,6 +64,10 @@ func pointerValue(b []byte, path string) (json.RawMessage, error) {
 }
 
 func Check(round, responsePath string) (Checked, error) {
+	return checkRound(round, responsePath, false)
+}
+
+func checkRound(round, responsePath string, continuation bool) (Checked, error) {
 	c := Checked{Modules: map[string]*dsl.Module{}, Kinds: map[string]string{}}
 	if err := readJSON(filepath.Join(round, "request.json"), &c.Request); err != nil {
 		return c, err
@@ -114,6 +118,9 @@ func Check(round, responsePath string) (Checked, error) {
 			}
 			facts[fact.ID] = true
 		}
+	}
+	if continuation && responsePath == "" {
+		return c, nil
 	}
 	if err := readJSON(responsePath, &c.Response); err != nil {
 		return c, err

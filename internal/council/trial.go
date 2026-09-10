@@ -65,6 +65,10 @@ func Trial(round, responsePath, out string, opts TrialOptions, progress io.Write
 	if len(c.Modules) == 0 {
 		return nil, fmt.Errorf("no proposals to trial; observer-only response is valid for check")
 	}
+	return executeTrial(c, round, out, opts, progress)
+}
+
+func executeTrial(c Checked, round, out string, opts TrialOptions, progress io.Writer) ([]TrialRow, error) {
 	jobs := []trialJob{}
 	for _, w := range c.Request.Worlds {
 		if uint64(opts.Ticks) > ^uint64(0)-w.Tick {
@@ -83,8 +87,10 @@ func Trial(round, responsePath, out string, opts TrialOptions, progress io.Write
 		return nil, err
 	}
 	// Freeze the exact accepted reply and request alongside the run.
-	if err := writeJSON(filepath.Join(out, "response.json"), c.Response); err != nil {
-		return nil, err
+	if c.ResponseHash != "" {
+		if err := writeJSON(filepath.Join(out, "response.json"), c.Response); err != nil {
+			return nil, err
+		}
 	}
 	if err := writeJSON(filepath.Join(out, "request.json"), c.Request); err != nil {
 		return nil, err
