@@ -1,0 +1,266 @@
+[
+  {
+    "case": "control",
+    "seed": 1,
+    "config": {
+      "width": 64,
+      "height": 64,
+      "max_entities": 4096,
+      "max_code": 64,
+      "cell_capacity": 128,
+      "energy_capacity": 256,
+      "inflow": 4,
+      "maintenance": 1,
+      "mutation_ppm": 10000,
+      "seed": 1,
+      "matter_diffusion": 0,
+      "ecology": false,
+      "chemical_diffusion": 0
+    },
+    "kernel": "0.1.0",
+    "rules": "ecology-2",
+    "tick": 100000,
+    "entities": 11,
+    "executable": 11,
+    "genomes": 8,
+    "copies": 8077,
+    "deaths": 8081,
+    "interval": {
+      "ticks": 50000,
+      "copies": 1,
+      "deaths": 9,
+      "copies_per_tick": 2E-05,
+      "deaths_per_tick": 0.00018,
+      "converted": [
+        0,
+        0
+      ]
+    },
+    "lit_matter": 3,
+    "dark_matter": 4082,
+    "converted": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "transport",
+    "seed": 1,
+    "config": {
+      "width": 64,
+      "height": 64,
+      "max_entities": 4096,
+      "max_code": 64,
+      "cell_capacity": 128,
+      "energy_capacity": 256,
+      "inflow": 4,
+      "maintenance": 1,
+      "mutation_ppm": 10000,
+      "seed": 1,
+      "matter_diffusion": 4,
+      "ecology": false,
+      "chemical_diffusion": 0
+    },
+    "kernel": "0.1.0",
+    "rules": "ecology-2",
+    "tick": 100000,
+    "entities": 2481,
+    "executable": 2478,
+    "genomes": 130,
+    "copies": 351562,
+    "deaths": 356353,
+    "interval": {
+      "ticks": 10000,
+      "copies": 32259,
+      "deaths": 33046,
+      "copies_per_tick": 3.2259,
+      "deaths_per_tick": 3.3046,
+      "converted": [
+        0,
+        0
+      ]
+    },
+    "lit_matter": 859,
+    "dark_matter": 756,
+    "converted": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "transport-no-mutation",
+    "seed": 1,
+    "config": {
+      "width": 64,
+      "height": 64,
+      "max_entities": 4096,
+      "max_code": 64,
+      "cell_capacity": 128,
+      "energy_capacity": 256,
+      "inflow": 4,
+      "maintenance": 1,
+      "mutation_ppm": 0,
+      "seed": 1,
+      "matter_diffusion": 4,
+      "ecology": false,
+      "chemical_diffusion": 0
+    },
+    "kernel": "0.1.0",
+    "rules": "ecology-2",
+    "tick": 100000,
+    "entities": 2067,
+    "executable": 2060,
+    "genomes": 1,
+    "copies": 439429,
+    "deaths": 437370,
+    "interval": {
+      "ticks": 20000,
+      "copies": 87671,
+      "deaths": 87662,
+      "copies_per_tick": 4.38355,
+      "deaths_per_tick": 4.3831,
+      "converted": [
+        0,
+        0
+      ]
+    },
+    "lit_matter": 768,
+    "dark_matter": 1261,
+    "converted": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "ecology",
+    "seed": 1,
+    "config": {
+      "width": 32,
+      "height": 32,
+      "max_entities": 1024,
+      "max_code": 64,
+      "cell_capacity": 128,
+      "energy_capacity": 256,
+      "inflow": 4,
+      "maintenance": 1,
+      "mutation_ppm": 10000,
+      "seed": 1,
+      "matter_diffusion": 4,
+      "ecology": true,
+      "chemical_diffusion": 4
+    },
+    "kernel": "0.1.0",
+    "rules": "ecology-2",
+    "tick": 100000,
+    "entities": 678,
+    "executable": 676,
+    "genomes": 26,
+    "copies": 92401,
+    "deaths": 91832,
+    "interval": {
+      "ticks": 10000,
+      "copies": 8980,
+      "deaths": 8997,
+      "copies_per_tick": 0.898,
+      "deaths_per_tick": 0.8997,
+      "converted": [
+        2079844,
+        2079962
+      ]
+    },
+    "lit_matter": 230,
+    "dark_matter": 116,
+    "converted": [
+      20805713,
+      20805290
+    ]
+  },
+  {
+    "case": "ecology",
+    "seed": 7,
+    "config": {
+      "width": 32,
+      "height": 32,
+      "max_entities": 1024,
+      "max_code": 64,
+      "cell_capacity": 128,
+      "energy_capacity": 256,
+      "inflow": 4,
+      "maintenance": 1,
+      "mutation_ppm": 10000,
+      "seed": 7,
+      "matter_diffusion": 4,
+      "ecology": true,
+      "chemical_diffusion": 4
+    },
+    "kernel": "0.1.0",
+    "rules": "ecology-2",
+    "tick": 100000,
+    "entities": 662,
+    "executable": 661,
+    "genomes": 30,
+    "copies": 139121,
+    "deaths": 140138,
+    "interval": {
+      "ticks": 10000,
+      "copies": 14293,
+      "deaths": 14335,
+      "copies_per_tick": 1.4293,
+      "deaths_per_tick": 1.4335,
+      "converted": [
+        2067562,
+        2067522
+      ]
+    },
+    "lit_matter": 253,
+    "dark_matter": 109,
+    "converted": [
+      20744409,
+      20744089
+    ]
+  },
+  {
+    "case": "ecology",
+    "seed": 42,
+    "config": {
+      "width": 32,
+      "height": 32,
+      "max_entities": 1024,
+      "max_code": 64,
+      "cell_capacity": 128,
+      "energy_capacity": 256,
+      "inflow": 4,
+      "maintenance": 1,
+      "mutation_ppm": 10000,
+      "seed": 42,
+      "matter_diffusion": 4,
+      "ecology": true,
+      "chemical_diffusion": 4
+    },
+    "kernel": "0.1.0",
+    "rules": "ecology-2",
+    "tick": 100000,
+    "entities": 662,
+    "executable": 661,
+    "genomes": 48,
+    "copies": 127086,
+    "deaths": 128902,
+    "interval": {
+      "ticks": 10000,
+      "copies": 12776,
+      "deaths": 13486,
+      "copies_per_tick": 1.2776,
+      "deaths_per_tick": 1.3486,
+      "converted": [
+        2079226,
+        2079132
+      ]
+    },
+    "lit_matter": 241,
+    "dark_matter": 121,
+    "converted": [
+      20801178,
+      20800600
+    ]
+  }
+]
