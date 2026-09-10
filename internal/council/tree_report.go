@@ -23,6 +23,10 @@ func ExportTree(dir, dest string) error {
 	if err != nil {
 		return err
 	}
+	archive, err := LatestArchive(dir)
+	if err != nil {
+		return err
+	}
 	abs, err := filepath.Abs(dir)
 	if err != nil {
 		return err
@@ -33,9 +37,11 @@ func ExportTree(dir, dest string) error {
 	}
 	var b bytes.Buffer
 	model := struct {
-		Tree      TreeView
-		Directory string
-	}{v, abs}
+		Tree         TreeView
+		Directory    string
+		Archive      *ArchiveDecision
+		ArchiveStale bool
+	}{v, abs, archive, archive != nil && archive.TreeHash != jsonHash(v.Nodes)}
 	if err = t.Execute(&b, model); err != nil {
 		return err
 	}

@@ -3,10 +3,23 @@
 <style>
 :root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#dfe8ed;background:#0e171d;font-size:15px;color-scheme:dark}*{box-sizing:border-box}body{margin:0}main{max-width:1500px;margin:auto;padding:36px}h1{font-size:34px;letter-spacing:-1px;margin:8px 0}h2{font-size:20px;margin:0 0 16px}p{line-height:1.6;color:#9eb2bf}header{display:flex;justify-content:space-between;gap:30px;align-items:center;margin-bottom:28px}.eyebrow{font-size:12px;letter-spacing:2px;color:#66dbc0}.badge{border:1px solid #426070;border-radius:20px;padding:8px 14px;white-space:nowrap}.stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px}.stat{background:#18262f;padding:18px 24px;border-radius:10px;min-width:165px}.stat strong{font-size:27px;display:block}.stat span{color:#9eb2bf;font-size:12px}.panel{background:#142129;border:1px solid #2a3c47;border-radius:12px;padding:24px;margin-bottom:24px}.toolbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:18px}button,select,input{font:inherit;border:1px solid #43606e;border-radius:6px;background:#1c303b;color:#e7f0f3;padding:9px 12px}button{cursor:pointer}button:hover{background:#2b4655}button.primary{background:#67dec0;color:#0d2921;border-color:#67dec0}button:disabled{opacity:.45;cursor:default}input[type=checkbox]{accent-color:#67dec0;width:18px;height:18px}label{display:flex;align-items:center;gap:8px}input[type=number]{width:120px}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #79e3ff;outline-offset:3px}.muted{font-size:13px;color:#9eb2bf}.canvas{overflow:auto;min-height:170px}.tree{display:flex;gap:72px;position:relative;isolation:isolate;width:max-content;padding:12px 6px 24px}.column{width:242px;display:flex;flex-direction:column;gap:16px}.column>span{color:#9eb2bf;font-size:12px;text-transform:uppercase;letter-spacing:1px}.node{background:#1c303b;border:1px solid #3a5462;border-radius:9px;padding:14px;min-height:148px;position:relative}.node.selected{border-color:#67dec0;box-shadow:0 0 0 1px #67dec0}.node label{font-weight:600}.node p{margin:8px 0;font-size:13px;overflow-wrap:anywhere}.node button{font-size:12px;padding:5px 10px}.node .numbers{display:flex;gap:16px;font-size:12px;color:#c6d8e1}.tree svg{position:absolute;inset:0;z-index:-1;pointer-events:none}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap;font-size:13px}th{font-weight:500;color:#9eb2bf;background:#192a34}td,th{padding:12px 14px;border-bottom:1px solid #2a3c47}td.num{text-align:right;font-variant-numeric:tabular-nums}.status{border-radius:4px;padding:4px 7px;background:#233d48}.details{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail{overflow-wrap:anywhere}textarea{width:100%;min-height:112px;resize:vertical;background:#0e171d;color:#9eeed8;border:1px solid #36515d;border-radius:8px;padding:14px;font:13px/1.6 Consolas,monospace}code{color:#b1dfd2;font-size:13px}#message{min-height:20px;color:#8be1c6}a{color:#83e6cf}.error{color:#ffb9a8}footer{color:#8da7b7;font-size:12px;padding:0 0 24px}@media(max-width:700px){main{padding:18px}.panel{padding:16px}header{display:block}.badge{display:inline-block;margin-top:10px}.details{grid-template-columns:1fr}h1{font-size:29px}}
 </style></head><body><main>
-<header><div><div class="eyebrow">OPEN-END / RESEARCH LABORATORY</div><h1>Branch explorer</h1><p>Keep multiple evolutionary directions. Inspect evidence before choosing what to continue.</p></div><span class="badge">Stage 8 · Offline report</span></header>
+<header><div><div class="eyebrow">OPEN-END / RESEARCH LABORATORY</div><h1>Branch explorer</h1><p>Keep multiple evolutionary directions. Inspect evidence before choosing what to continue.</p></div><span class="badge">Stages 8–9 · Offline report</span></header>
 <div id="stats" class="stats"></div>
 <section class="panel"><h2>World ancestry</h2><div class="toolbar"><button id="saved">Restore saved selection</button><button id="leaves">Select all tips</button><button id="clear">Clear selection</button><span class="muted" id="selection-count" aria-live="polite"></span></div><div class="canvas"><div id="tree" class="tree"></div></div><p class="muted">Each card is a cohort of worlds sharing a rule variant. Lines connect parents to continuations. Selection keeps multiple branches; it does not declare a winner.</p></section>
 <section class="panel"><h2>Compare selected branches</h2><div class="toolbar"><label>Experiment case <select id="case"><option value="">All cases</option></select></label><span class="muted">Rows stay separate by seed and case.</span></div><div class="tablewrap"><table><thead><tr><th>Branch / variant</th><th>Case · seed</th><th>Window</th><th>Population</th><th>Effective diversity</th><th>Largest structure</th><th>Copies / 1k ticks</th><th>Detector</th></tr></thead><tbody id="comparison"></tbody></table></div><p class="muted">Structure size is measured at the final frame. Detector statuses concern each world's local window; behavioral hashes across different rules are not a common fitness score. Niche counts and adaptive value are not inferred here.</p></section>
+<section class="panel" id="archive-panel"><h2>Novelty archive &amp; Pareto selection</h2>
+<p id="archive-state" role="status"></p>
+<div class="toolbar"><button id="use-archive" class="primary">Use recommended branches</button><label>Comparison group <select id="archive-group"></select></label></div>
+<div class="toolbar"><label>Horizontal axis <select id="archive-x"></select></label><label>Vertical axis <select id="archive-y"></select></label><span class="muted">Green: Pareto tip · amber: cell retention · grey: other history</span></div>
+<div id="archive-plot" aria-label="Archive objective comparison"></div>
+<div class="tablewrap"><table><thead><tr><th>Branch</th><th>Retention</th><th>Novelty</th><th>Diversity</th><th>Structure proxy</th><th>Persistence</th><th>Behavior cell</th></tr></thead><tbody id="archive-table"></tbody></table></div>
+<p class="muted">The frontier uses all available objectives, not just the two shown. Comparisons require matched cases, seeds, physical configuration, observation protocol, and final ticks. Novelty compares common action rates with compatible archive history; it does not measure adaptive value. Hierarchy, new information processing, and causal structure remain unmeasured.</p>
+<details><summary>Refresh the archive or apply its selection</summary>
+<div class="toolbar"><label>Minimum ticks <input id="archive-min-ticks" type="number" min="1" value="10000"></label><label>Survival fraction <input id="archive-survival" type="number" min="0.01" max="1" step=".05" value=".75"></label><label>Persistence fraction <input id="archive-persistence" type="number" min="0.01" max="1" step=".05" value=".75"></label></div>
+<div class="toolbar"><label>Cell bins / octave <input id="archive-bins" type="number" min="1" max="16" value="1"></label><label>Neighbors <input id="archive-neighbors" type="number" min="1" max="32" value="3"></label><label><input type="checkbox" id="archive-apply">Save recommended selection</label></div>
+<textarea id="archive-command" aria-label="Archive PowerShell commands" readonly></textarea>
+<p class="muted">These commands record a new immutable decision when evidence or settings change. Applying changes the saved selection only. No snapshots are removed and no simulation starts.</p></details>
+</section>
 <section class="panel"><h2 id="detail-title">Branch evidence</h2><div id="details" class="details"></div></section>
 <section class="panel"><h2>Continue the experiment</h2><div class="toolbar"><label>Ticks <input id="ticks" type="number" min="1" value="20000"></label><label>Every <input id="every" type="number" min="1" value="1000"></label><label>Window <input id="window" type="number" min="1" value="10000"></label><label>Workers <input id="workers" type="number" min="1" max="256" value="16"></label></div><label><input id="proposals" type="checkbox">Test proposals from each selected branch's round/response.json</label><p class="muted">Run commands from the repository root in PowerShell. Proposal mode retains a paired control and every proposed variant. After a successful run all children become the saved selection.</p><textarea id="command" aria-label="PowerShell commands" readonly></textarea><div class="toolbar"><button id="copy" class="primary">Copy commands</button><span id="message" role="status"></span></div><p class="muted">This report is a snapshot. Browser selections do not modify files. Run the generated commands and export again to refresh it. No server, API key, or background execution is involved.</p></section>
 <section class="panel"><h2>Run history</h2><div id="runs" class="tablewrap"></div></section>
@@ -21,7 +34,7 @@ function variantLabel(n){
  if(n.variant!=='control')return n.variant;
  let p=nodes.find(p=>p.id===n.parent);
  while(p && p.variant==='control')p=nodes.find(a=>a.id===p.parent);
- return 'control · '+(p && p.variant!=='source'?p.variant:'baseline');
+ return 'control · '+(p && p.variant!=='source'?p.variant:p && p.worlds.every(w=>w.rules_sha256==='builtin')?'baseline':'imported rules');
 }
 function statistics(){
  const worlds=nodes.reduce((s,n)=>s+n.worlds.length,0), gen=Math.max(...nodes.map(n=>n.generation));
@@ -78,6 +91,8 @@ function details(n){
  ['Artifacts',n.run?model.Directory+'/runs/'+n.run+'/'+n.parent:model.Directory+'/nodes/'+n.id+'/round']
  ];
  for(const [title,value] of parts){const d=element('div',undefined,'detail');d.append(element('strong',title),element('p',value));$('details').append(d)}
+ const point=pointMap.get(n.id);
+ if(point){const d=element('div',undefined,'detail');d.append(element('strong','Archive decision'+(model.ArchiveStale?' (outdated)':'')),element('p',point.reasons.join('; ')||'Preserved historical evidence.'),element('p','Novelty references: '+(point.novelty_reference_nodes.join(', ')||'not available')));$('details').append(d)}
 }
 function commands(){
  const ids=[...selected].sort();$('selection-count').textContent=ids.length+' selected';
@@ -98,5 +113,68 @@ $('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('command')
 const table=element('table');
 for(const run of data.runs){const row=element('tr');for(const s of [run.id,run.status,run.parents.join(', ')+' → '+run.children.join(', '),run.seconds.toFixed(2)+' s',run.error||''])row.append(element('td',s));table.append(row)}
 $('runs').append(data.runs.length?table:element('p','No runs yet. Continue the imported source to create descendants.'));
-statistics();update();details(nodes[0]);window.addEventListener('resize',edges);
+const archive=model.Archive;
+const axes=[['novelty_distance','Novelty distance'],['mean_effective_diversity','Effective diversity'],['mean_bonded_scale_proxy','Bonded scale (proxy)'],['productive_block_fraction','Productive block fraction']];
+const pointMap=new Map((archive?.points||[]).map(p=>[p.node,p]));
+function archiveCommands(){
+ const ticks=+$('archive-min-ticks').value,survival=+$('archive-survival').value,persistence=+$('archive-persistence').value,bins=+$('archive-bins').value,k=+$('archive-neighbors').value;
+ if(!Number.isSafeInteger(ticks)||ticks<1||!Number.isInteger(bins)||bins<1||bins>16||!Number.isInteger(k)||k<1||k>32||!(survival>0&&survival<=1)||!(persistence>0&&persistence<=1)){
+  $('archive-command').value='Use positive ticks, fractions in (0, 1], bins 1–16, and neighbors 1–32.';return;
+ }
+ const tree=' -tree '+quote(model.Directory);
+ $('archive-command').value='go run ./cmd/council tree archive'+tree+' -min-ticks '+ticks+' -min-survival '+survival+' -min-persistence '+persistence+' -bins '+bins+' -neighbors '+k+($('archive-apply').checked?' -apply':'')+'\n'+'go run ./cmd/council tree export'+tree;
+}
+function archivePlot(){
+ const host=$('archive-plot');host.replaceChildren();
+ if(!archive)return;
+ const points=archive.points.filter(p=>p.horizon_group===$('archive-group').value&&p.eligible);
+ const x=$('archive-x').value,y=$('archive-y').value, valid=points.filter(p=>p[x]!==null&&p[y]!==null);
+ if(!valid.length){host.append(element('p','No measured values for this pair of axes in the selected group.'));return}
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 760 300');svg.style.width='100%';svg.style.maxHeight='360px';svg.setAttribute('role','img');svg.setAttribute('aria-label','Two-objective view; use the table for all criteria.');
+ const draw=(tag,attrs,text)=>{const e=document.createElementNS(svg.namespaceURI,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;svg.append(e);return e};
+ const range=key=>{const values=valid.map(p=>p[key]);let lo=Math.min(...values),hi=Math.max(...values);const pad=Math.max((hi-lo)*.15,.05);return [Math.max(0,lo-pad),hi+pad]};
+ const [xmin,xmax]=range(x),[ymin,ymax]=range(y);
+ draw('path',{d:'M 70 20 V 240 H 710',fill:'none',stroke:'#5d7b8a'});
+ for(let i=0;i<=4;i++){
+  const xx=70+640*i/4, yy=240-210*i/4;
+  draw('text',{x:xx,y:263,fill:'#a6bdc9','text-anchor':'middle','font-size':12},(xmin+(xmax-xmin)*i/4).toFixed(2));
+  draw('text',{x:58,y:yy+4,fill:'#a6bdc9','text-anchor':'end','font-size':12},(ymin+(ymax-ymin)*i/4).toFixed(2));
+ }
+ draw('text',{x:390,y:290,fill:'#c6d8e1','text-anchor':'middle','font-size':13},axes.find(a=>a[0]===x)[1]);
+ draw('text',{x:75,y:15,fill:'#c6d8e1','font-size':13},axes.find(a=>a[0]===y)[1]);
+ for(const p of valid){
+  const xx=70+640*(p[x]-xmin)/(xmax-xmin),yy=240-210*(p[y]-ymin)/(ymax-ymin),color=p.pareto_tip?'#67dec0':p.recommended?'#f0bc76':'#859eac';
+  const c=draw('circle',{cx:xx,cy:yy,r:7,fill:color,tabindex:0,role:'button','aria-label':'Inspect '+p.node});
+  c.style.cursor='pointer';const inspect=()=>details(nodes.find(n=>n.id===p.node));c.addEventListener('click',inspect);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect()}});
+  const title=document.createElementNS(svg.namespaceURI,'title');title.textContent=p.node+' · '+p.reasons.join('; ');c.append(title);
+  draw('text',{x:xx+11,y:yy-9,fill:color,'font-size':12},p.node);
+ }host.append(svg);
+}
+function initArchive(){
+ const available=archive&&!model.ArchiveStale;
+ $('use-archive').disabled=!available||!archive.recommended.length;
+ $('archive-state').textContent=!archive?'No archive decision yet. Expand the controls below to generate one.':model.ArchiveStale?'Archive is out of date: the tree has new evidence. Refresh before using recommendations.':archive.points.length+' archived cohorts · '+archive.points.filter(p=>p.pareto_tip).length+' Pareto tips · '+archive.recommended.length+' recommended directions.';
+ for(const id of ['archive-x','archive-y'])for(const [value,label]of axes){const option=element('option',label);option.value=value;$(id).append(option)}
+ $('archive-x').value='novelty_distance';$('archive-y').value='mean_effective_diversity';
+ if(archive){
+  const o=archive.options;
+  for(const [id,value]of [['archive-min-ticks',o.min_ticks],['archive-survival',o.min_survival_fraction],['archive-persistence',o.min_productive_block_fraction],['archive-bins',o.behavior_bins_per_octave],['archive-neighbors',o.novelty_neighbors]])$(id).value=value;
+  const groups=new Map();
+  for(const p of archive.points){if(!groups.has(p.horizon_group))groups.set(p.horizon_group,[]);groups.get(p.horizon_group).push(p)}
+  const ordered=[...groups.entries()].sort((a,b)=>Math.max(...b[1].map(p=>nodes.find(n=>n.id===p.node).generation))-Math.max(...a[1].map(p=>nodes.find(n=>n.id===p.node).generation)));
+  for(const [key,ps]of ordered){const option=element('option',ps.map(p=>p.node).join(', '));option.value=key;$('archive-group').append(option)}
+  for(const p of archive.points){
+   const tr=element('tr'),td=element('td'),b=element('button',p.node);b.onclick=()=>details(nodes.find(n=>n.id===p.node));td.append(b);tr.append(td);
+   const role=!p.eligible?'Filtered':p.pareto_tip?'Pareto tip':p.recommended?'Behavior cell retained':p.cell_representative?'Archived cell representative':'Archived';
+   tr.title=p.reasons.join('; ');
+   for(const value of [role,p.novelty_distance===null?'n/a':p.novelty_distance.toFixed(3),p.mean_effective_diversity.toFixed(3),p.mean_bonded_scale_proxy.toFixed(3),p.productive_block_fraction.toFixed(3),p.behavior_cell?p.behavior_cell.slice(0,8):'—'])tr.append(element('td',value));
+   $('archive-table').append(tr);
+  }
+ }
+ $('use-archive').onclick=()=>{selected.clear();archive.recommended.forEach(id=>selected.add(id));update();$('message').textContent='Archive recommendations loaded into the command builder.'};
+ for(const id of ['archive-x','archive-y','archive-group'])$(id).onchange=archivePlot;
+ for(const id of ['archive-min-ticks','archive-survival','archive-persistence','archive-bins','archive-neighbors','archive-apply'])$(id).addEventListener('input',archiveCommands);
+ archiveCommands();archivePlot();
+}
+statistics();update();initArchive();details(nodes[0]);window.addEventListener('resize',edges);
 </script></body></html>

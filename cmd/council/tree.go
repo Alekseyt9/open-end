@@ -13,13 +13,17 @@ import (
 func runTree(args []string, out io.Writer) error {
 	if len(args) == 0 || args[0] == "help" || args[0] == "-h" {
 		_, err := fmt.Fprintln(out, "council tree init -input <completed batch/trial> -out <new tree> [-variant control] [-window 50000]\ncouncil tree show -tree <tree> [-json]\ncouncil tree select -tree <tree> -branches b000002,b000003\ncouncil tree grow -tree <tree> [-branches b000002,b000003] [-proposals] [-ticks 20000 -every 1000 -window 10000 -workers 16]\ncouncil tree export -tree <tree> [-out <report.html>]\n\nGrow continues selected branches with unchanged rules. With -proposals, every parent must have its own round/response.json; paired controls are always retained. Export produces an offline interactive tree and command builder.")
+		if err == nil {
+			_, err = fmt.Fprintln(out, "\ncouncil tree archive -tree <tree> [-apply] [-json] [-min-ticks 10000 -min-survival 0.75 -min-persistence 0.75 -bins 1 -neighbors 3]\nArchive records immutable novelty/Pareto decisions. -apply saves recommendations without starting simulation.")
+		}
 		return err
 	}
 	command := args[0]
 	fs := flag.NewFlagSet("tree "+command, flag.ContinueOnError)
 	fs.SetOutput(out)
 	var dir, input, dest, variant, branches string
-	var asJSON, proposals bool
+	var asJSON, proposals, apply bool
+	archiveOpts := council.DefaultArchiveOptions()
 	opts := council.TrialOptions{Ticks: 20000, Every: 1000, Window: 10000, Workers: 16}
 	switch command {
 	case "init":
@@ -27,9 +31,17 @@ func runTree(args []string, out io.Writer) error {
 		fs.StringVar(&dest, "out", "", "new tree directory")
 		fs.StringVar(&variant, "variant", "", "trial variant to import")
 		fs.Uint64Var(&opts.Window, "window", 50000, "evidence window")
-	case "show", "select", "grow", "export":
+	case "show", "select", "grow", "export", "archive":
 		fs.StringVar(&dir, "tree", "", "tree directory")
 		switch command {
+		case "archive":
+			fs.BoolVar(&apply, "apply", false, "save recommended branches as the continuation selection")
+			fs.BoolVar(&asJSON, "json", false, "machine-readable archive decision")
+			fs.Uint64Var(&archiveOpts.MinTicks, "min-ticks", 10000, "minimum stable observation window")
+			fs.Float64Var(&archiveOpts.MinSurvival, "min-survival", .75, "minimum fraction of surviving worlds")
+			fs.Float64Var(&archiveOpts.MinPersistence, "min-persistence", .75, "minimum fraction of productive time blocks")
+			fs.IntVar(&archiveOpts.Bins, "bins", 1, "behavior cell bins per log-rate octave")
+			fs.IntVar(&archiveOpts.Neighbors, "neighbors", 3, "nearest archive neighbors for novelty")
 		case "show":
 			fs.BoolVar(&asJSON, "json", false, "machine-readable tree")
 		case "select":
@@ -76,6 +88,18 @@ func runTree(args []string, out io.Writer) error {
 		}
 	}
 	switch command {
+	case "archive":
+		a, err := council.ArchiveTree(dir, archiveOpts, apply)
+		if err != nil {
+			return err
+		}
+		if asJSON {
+			enc := json.NewEncoder(out)
+			enc.SetIndent("", "  ")
+			return enc.Encode(a)
+		}
+		_, err = fmt.Fprint(out, council.ArchiveText(a))
+		return err
 	case "select":
 		if err := council.SelectTree(dir, ids); err != nil {
 			return err

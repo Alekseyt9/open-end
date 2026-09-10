@@ -2,7 +2,7 @@
 
 The tree harness preserves multiple evolutionary directions across generations. A node is a **cohort** of worlds, identified by case and seed, under one rule variant. Children retain the exact parent snapshot identity, the accepted rule experiment, and their own frozen snapshots and evidence.
 
-Selection is explicit. It controls which cohorts receive more computation; deselecting a branch never deletes it or declares it unsuccessful. Automatic Pareto selection and a long-term novelty archive belong to Stage 9.
+Selection controls which cohorts receive more computation; deselecting a branch never deletes it or declares it unsuccessful. Select manually or apply the [Stage 9 novelty archive and Pareto policy](archive.md), which preserves several directions using measured objectives and behavior cells.
 
 ## Workflow
 
@@ -117,6 +117,6 @@ A failed launch records `failed` and its error. A process killed before cleanup 
 
 Compare the same cases and seeds, and check the actual windows. Copy counts are shown per 1000 ticks in the report to make duration explicit. Mean diversity on cards is descriptive and can mix experimental cases; use the per-case table for substantive conclusions.
 
-The harness records diversity, reproduction, structures, and local novelty-detector status. It does not infer niche count, obligate cooperation, adaptive value, or a universal ranking across physical rule sets. Multiple retained directions are the Stage 8 criterion. Deciding which deserve future budget remains a research judgment until the archive and selection work in Stage 9.
+The harness records diversity, reproduction, structures, and local novelty-detector status. It does not infer niche count, obligate cooperation, adaptive value, or a universal ranking across physical rule sets. Multiple retained directions are the Stage 8 criterion. The [Stage 9 archive](archive.md) now provides explicit selection heuristics and an auditable recommendation set; scientific interpretation remains a research judgment.
 
 See the [recorded Stage 8 validation](../experiments/branching/REPORT.md).

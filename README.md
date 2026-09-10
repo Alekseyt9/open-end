@@ -41,10 +41,11 @@ The longer-term idea is to expand the set of mechanisms evolution can use. An ex
 | Observation | Event telemetry, window summaries, interaction graphs | Some structural measures are sampled |
 | Novelty detection | Diversity/structure plateaus and behavioral signatures | Local heuristics, not adaptive-value proof |
 | AI workflow | Evidence dossiers, referenced claims, rule proposals, paired trials | AI participates through chat/files |
-| Branching worlds | Persistent ancestry, multiple selected cohorts, repeated continuations, interactive HTML explorer | Manual selection; no automatic Pareto archive |
+| Branching worlds | Persistent ancestry, multiple selected cohorts, repeated continuations, interactive HTML explorer | Explicit research scheduling |
+| Novelty archive | Immutable decisions, Pareto tips, protected behavior cells, recommended selections | Measured proxies; causal complexity and hierarchy unavailable |
 | GPU execution | Warp physics with exact differential checks | No full genome/origin history on GPU |
 
-Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. The novelty archive and Pareto selection in Stage 9 are next.
+Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. Stage 9 adds a novelty archive and Pareto selection using measured proxies. Stage 10, evolution of mutation mechanisms, is next.
 
 ## Quick start
 
@@ -227,6 +228,17 @@ Batch simulation uses up to 16 independent processes with `GOMAXPROCS=1` each. C
 
 ## What the experiments show
 
+The [novelty archive](docs/archive.md) recommends non-dominated tips and representatives of otherwise uncovered behavior cells. Its decisions are versioned and preserve their evidence and policy settings:
+
+```powershell
+go run ./cmd/council tree archive -tree data/tree -apply
+go run ./cmd/council tree grow -tree data/tree -ticks 20000 -every 1000 -window 10000 -workers 16
+go run ./cmd/council tree archive -tree data/tree -apply
+go run ./cmd/council tree export -tree data/tree
+```
+
+Archive selection uses novelty distance, effective genome diversity, bonded structural scale, and persistence of copying. It does not assign a single fitness score. Hierarchy, causal structure, and new information processing remain unmeasured. Applying an archive decision changes the selected branches; simulation starts only with `grow`.
+
 | Experiment | Recorded finding | Interpretation |
 |---|---|---|
 | [Baseline replicators](experiments/baseline/RESULTS.md) | Heritable code variants and exact replay | A working foundation for evolutionary experiments |
@@ -235,6 +247,7 @@ Batch simulation uses up to 16 independent processes with `GOMAXPROCS=1` each. C
 | [Stagnation detector](experiments/novelty/REPORT.md) | 7/8 no-mutation controls stagnate over the final 50,000-tick window | Useful heuristics with window sensitivity |
 | [First AI proposal](experiments/council/REPORT.md) | 32 continuations × 20,000 ticks in 17.05 s; mean mutation-world diversity 7.849 → 6.644 | Keep the patch as an experiment, not an accepted improvement |
 | [Branching generations](experiments/branching/REPORT.md) | 5 cohorts, 80 stored world states, two retained directions over two generations | Branch history and independent continuation work; no automatic winner |
+| [Novelty archive](experiments/archive/REPORT.md) | Both recommended directions continued; 7 cohorts and two immutable archive decisions | Tradeoffs and rare-cell retention work as research heuristics |
 
 These are recorded results for specific configurations and horizons, not general performance or OEE guarantees.
 
@@ -258,7 +271,7 @@ Preparation and state extraction brought the 256-world GPU run to about 19 secon
 | 0–5 | Deterministic world, replication, ecology, reaction DSL, telemetry, novelty heuristics |
 | 6–7 | AI observation and rule proposals; currently implemented through chat and files |
 | 8 | Implemented: branching experiments, retained cohorts, and an offline explorer |
-| 9 | Next: novelty archive and Pareto selection |
+| 9 | Implemented: novelty archive, Pareto selection on measured proxies, and behavior-cell retention |
 | 10–14 | Evolving mutation mechanisms, environmental coevolution, collective entities, causal analysis |
 | 15–18 | Symbols, cultural inheritance, persistent artifacts, and technology-like construction |
 | 19–21 | Internal VMs, recursive evolution, and long-horizon OEE experiments |
@@ -281,6 +294,7 @@ The test suite covers deterministic replay, resource conservation, mutation and 
 - [Simulator and experiment reference](docs/reference.md): instructions, costs, snapshots, DSL, telemetry, detector thresholds, and batch commands.
 - [Council interface](docs/council.md): prepare, check, trial, and next-round workflows.
 - [Branching worlds](docs/branching.md): tree storage, multiple selections, repeated growth, and the interactive explorer.
+- [Novelty archive](docs/archive.md): descriptors, admission filters, Pareto comparisons, protected cells, and selection commands.
 - [Research plan](open_ended_evolution_ai_world_plan.md): full concept and staged research program.
 - [Warp backend](warp-sim/README.md): setup, execution, benchmarks, and parity checks.
 - [Ecology results](experiments/ecology/RESULTS.md), [DSL validation](experiments/dsl/SMOKE.md), and [telemetry validation](experiments/telemetry/REPORT.md).

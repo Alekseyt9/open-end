@@ -71,6 +71,6 @@ go run ./cmd/council prepare -input data/my-trial -variant solar-y-recycle -out 
 
 `-variant control` selects controls; a proposal name selects its continuations. Selecting a branch for discussion does not declare it an improvement. For longer manual continuation of one world, use ordinary `cmd/sim -load` with the desired final snapshot and a new metrics path.
 
-Rolling back an experiment means returning to the frozen source snapshot or control. Switching rules alone does not undo elapsed ticks. The [Stage 8 tree harness](branching.md) now preserves and continues several selected cohorts across generations. A long-term novelty archive and automatic Pareto selection remain Stage 9.
+Rolling back an experiment means returning to the frozen source snapshot or control. Switching rules alone does not undo elapsed ticks. The [Stage 8 tree harness](branching.md) preserves and continues several selected cohorts across generations. The [Stage 9 archive](archive.md) adds immutable novelty/Pareto decisions and retention of unusual behavior cells.
 
 [First completed round](../experiments/council/REPORT.md).

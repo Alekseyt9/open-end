@@ -1,0 +1,19 @@
+{
+  "id": "r000003",
+  "parents": [
+    "b000004",
+    "b000005"
+  ],
+  "children": [
+    "b000006",
+    "b000007"
+  ],
+  "status": "complete",
+  "options": {
+    "Ticks": 20000,
+    "Every": 1000,
+    "Workers": 16,
+    "Window": 10000
+  },
+  "seconds": 19.0085051
+}

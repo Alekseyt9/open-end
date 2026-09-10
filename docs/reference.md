@@ -262,7 +262,7 @@ go run ./cmd/council prepare -input data/my-trial -variant solar-y-recycle -out 
 
 The dossier contains identified facts, summaries, and source-snapshot copies. Claims cite facts; hypotheses are separated from observations. Macromutations are full DSL modules with a mechanism, prediction, and risk. Validation checks hashes, references, conservation, and reaction reachability in the current VM. Source worlds remain unchanged; runs produce `comparison.md`, JSONL, snapshots, and branch summaries. No API key is required.
 
-[Interface and exchange format](council.md) · [Completed round on 16 source worlds](../experiments/council/REPORT.md). Observation and macromutations are implemented within the current reaction DSL. Automatic AI invocation and long-term branch selection are not enabled; the next major stage is **8, Branching Worlds**.
+[Interface and exchange format](council.md) · [Completed round on 16 source worlds](../experiments/council/REPORT.md). Observation and macromutations are implemented within the current reaction DSL. Automatic AI invocation is not enabled. The [Stage 8 tree harness](branching.md) preserves multiple selected cohorts, their ancestry, and repeated continuations, with an offline HTML explorer. The [Stage 9 archive](archive.md) adds immutable selection decisions, Pareto comparisons on measured proxies, and protected behavior cells. The next major stage is **10, Evolution of Evolvability**.
 
 ## Experimental Warp solver
 
