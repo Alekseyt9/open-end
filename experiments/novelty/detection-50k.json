@@ -1,0 +1,3154 @@
+[
+  {
+    "case": "ecology",
+    "seed": 1,
+    "metrics": "ecology-seed1.jsonl",
+    "session_initial_world_sha256": "33066ccb0947d9e594ce68470871cb66ecd4faf8945768d35586116347d9ddbd",
+    "population": {
+      "start": 675,
+      "end": 678,
+      "min_observed": 667,
+      "max_observed": 689
+    },
+    "copies": 43830,
+    "deaths": 43867,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 2.4358358065596137,
+        "max": 3.2502783156659,
+        "relative_range": 0.3343585421123309
+      },
+      "population": {
+        "min": 667,
+        "max": 689,
+        "relative_range": 0.03298350824587706
+      },
+      "largest_structure": {
+        "min": 329,
+        "max": 358,
+        "relative_range": 0.08814589665653495
+      },
+      "max_size_distribution_total_variation": 0.09577788623176617,
+      "diversity_plateau": false,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.06444612757938517,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 223,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "9f65415e9eef5db5329060bf091fa636d1d72a0c6d1253e60a6e8c3b0e8e023c",
+          "rates_per_1000_particle_ticks": [
+            1.2771692307692306,
+            1.2748307692307692,
+            1.0193230769230768,
+            0,
+            0.8712615384615384,
+            0,
+            0,
+            307.2014769230769,
+            307.2025846153846,
+            307.2,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            4,
+            0,
+            4,
+            0,
+            0,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "9f65415e9eef5db5329060bf091fa636d1d72a0c6d1253e60a6e8c3b0e8e023c",
+          "rates_per_1000_particle_ticks": [
+            1.259452116821372,
+            1.2587729227982793,
+            1.1729680778809146,
+            0.00022639800769753225,
+            0.8414081956078786,
+            0,
+            0.007244736246321032,
+            306.0940683721983,
+            306.0936155761829,
+            306.0888612180213,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            4,
+            0,
+            4,
+            0,
+            0,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "9f65415e9eef5db5329060bf091fa636d1d72a0c6d1253e60a6e8c3b0e8e023c",
+          "rates_per_1000_particle_ticks": [
+            1.3040648409677023,
+            1.303573621515412,
+            0.9462114699742109,
+            0,
+            0.837160751565762,
+            0,
+            0.04568340906299889,
+            306.5113594498342,
+            306.5186049367555,
+            306.5124646936018,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            4,
+            0,
+            4,
+            0,
+            0,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "9f65415e9eef5db5329060bf091fa636d1d72a0c6d1253e60a6e8c3b0e8e023c",
+          "rates_per_1000_particle_ticks": [
+            1.33219935363157,
+            1.3309519759596302,
+            0.8458354595452742,
+            0.00022679594035266768,
+            0.8415263366785735,
+            0,
+            0,
+            306.6290185405681,
+            306.6240290298804,
+            306.6281113568067,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            4,
+            0,
+            4,
+            0,
+            0,
+            33,
+            33,
+            33,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 33.4%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 8.8%; изменение распределения размеров 0.096; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 223; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 2,
+    "metrics": "ecology-seed2.jsonl",
+    "session_initial_world_sha256": "ce05511fff41c3110fc8e09f0b4d82d674f0dfa39621337c93f24511c0caea13",
+    "population": {
+      "start": 658,
+      "end": 669,
+      "min_observed": 656,
+      "max_observed": 680
+    },
+    "copies": 32644,
+    "deaths": 34458,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 5.169129935410978,
+        "max": 9.193018060536184,
+        "relative_range": 0.7784459232799847
+      },
+      "population": {
+        "min": 656,
+        "max": 680,
+        "relative_range": 0.036585365853658534
+      },
+      "largest_structure": {
+        "min": 16,
+        "max": 21,
+        "relative_range": 0.3125
+      },
+      "max_size_distribution_total_variation": 0.11243518684069373,
+      "diversity_plateau": false,
+      "structural_plateau": false,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 0,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.10190758603103589,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 261,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "fe203f986a4413379bad4af25316445d745b99a21488893fb9f757f7b5983e19",
+          "rates_per_1000_particle_ticks": [
+            1.1526230123951422,
+            1.0984099161136849,
+            0.8289720796293978,
+            0,
+            0.545887066483035,
+            0,
+            165.92137222987355,
+            291.7634906723426,
+            291.761737823964,
+            291.7663703518217,
+            0
+          ],
+          "quantized_rates": [
+            4,
+            4,
+            3,
+            0,
+            3,
+            0,
+            30,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "7c05763ad9cd6414f07b91a77b2640e17b22f918488199c37273e84236907b9b",
+          "rates_per_1000_particle_ticks": [
+            0.9896516040013797,
+            0.931815568586869,
+            0.6905829596412556,
+            0.00011498217776244682,
+            0.40588708750143726,
+            0,
+            278.0356444751063,
+            276.16143497757844,
+            276.1610900310452,
+            276.1579855122456,
+            0
+          ],
+          "quantized_rates": [
+            4,
+            4,
+            3,
+            0,
+            2,
+            0,
+            32,
+            32,
+            32,
+            32,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "62d02eb4a8b584db43077af95278dbdce7b2ffede5e2f4ec6e2bbe3a826223d2",
+          "rates_per_1000_particle_ticks": [
+            1.0035379554341755,
+            0.9500341381664702,
+            0.5923902923468438,
+            0.0024827757432809884,
+            0.38855440382347467,
+            0,
+            298.4586928185712,
+            272.5400037241636,
+            272.538762336292,
+            272.5432313326299,
+            0
+          ],
+          "quantized_rates": [
+            4,
+            4,
+            3,
+            0,
+            2,
+            0,
+            33,
+            32,
+            32,
+            32,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "935fdaf5ea08cee39f4c56deacee9fd5c179dec14cd3502ebeb3a3e5ebbe13d4",
+          "rates_per_1000_particle_ticks": [
+            0.9814517975727044,
+            0.9290130524387451,
+            0.5201511335012594,
+            0,
+            0.3843599725211816,
+            0,
+            306.12880696130065,
+            271.3316922372338,
+            271.3307762766201,
+            271.32516601786125,
+            0
+          ],
+          "quantized_rates": [
+            4,
+            4,
+            2,
+            0,
+            2,
+            0,
+            33,
+            32,
+            32,
+            32,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 77.8%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 31.2%; изменение распределения размеров 0.112; плато=false.",
+        "Повторение поведенческих хешей: 0.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 261; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 3,
+    "metrics": "ecology-seed3.jsonl",
+    "session_initial_world_sha256": "cdfefdba2813f1912f9404103aa263579b3b37f4486c849d8c8e8a91f76b4756",
+    "population": {
+      "start": 668,
+      "end": 675,
+      "min_observed": 662,
+      "max_observed": 685
+    },
+    "copies": 40125,
+    "deaths": 40166,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 6.822466295593146,
+        "max": 9.049585259474126,
+        "relative_range": 0.32643898370293883
+      },
+      "population": {
+        "min": 662,
+        "max": 685,
+        "relative_range": 0.03474320241691843
+      },
+      "largest_structure": {
+        "min": 105,
+        "max": 166,
+        "relative_range": 0.580952380952381
+      },
+      "max_size_distribution_total_variation": 0.3127590971902349,
+      "diversity_plateau": false,
+      "structural_plateau": false,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 0.6666666666666666,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.036385664020099906,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 256,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "49933a420c0f20b8fdcf845c381f242afbe059119c67ec1f5eaedd6f91a255b9",
+          "rates_per_1000_particle_ticks": [
+            1.2033950808500093,
+            1.2020320921875969,
+            1.1549470293042563,
+            0,
+            0.7206492782355493,
+            0,
+            1.2269376122916795,
+            309.13636082027136,
+            309.12545691097205,
+            309.12099622080416,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            4,
+            0,
+            3,
+            0,
+            5,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "49933a420c0f20b8fdcf845c381f242afbe059119c67ec1f5eaedd6f91a255b9",
+          "rates_per_1000_particle_ticks": [
+            1.2080582745276578,
+            1.2054404734805373,
+            1.0198042340086502,
+            0,
+            0.6962212610972002,
+            0,
+            1.2284315957204643,
+            307.60300478033236,
+            307.6081265649898,
+            307.60869565217394,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            4,
+            0,
+            3,
+            0,
+            5,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "49933a420c0f20b8fdcf845c381f242afbe059119c67ec1f5eaedd6f91a255b9",
+          "rates_per_1000_particle_ticks": [
+            1.1889361177847595,
+            1.188812911969445,
+            1.0128750077003634,
+            0,
+            0.653976467689275,
+            0,
+            1.2454875870141071,
+            307.35883693710343,
+            307.36388837553136,
+            307.3656132569457,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            4,
+            0,
+            3,
+            0,
+            5,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a47e2d249a88ce316a3dbe74469ff0baa3bd101fdd8775ce091d17f2066f9d95",
+          "rates_per_1000_particle_ticks": [
+            1.1585525194569106,
+            1.1570754984945748,
+            1.139010395955235,
+            0,
+            0.6387547577117536,
+            0,
+            1.220701016872124,
+            307.067999772766,
+            307.07220360165877,
+            307.0677725387718,
+            0
+          ],
+          "quantized_rates": [
+            4,
+            4,
+            4,
+            0,
+            3,
+            0,
+            5,
+            33,
+            33,
+            33,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 32.6%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 58.1%; изменение распределения размеров 0.313; плато=false.",
+        "Повторение поведенческих хешей: 66.7%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 256; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 4,
+    "metrics": "ecology-seed4.jsonl",
+    "session_initial_world_sha256": "fa00e2e7d0e094fc6baf56bbe7e176eab13704ce408acef63c1cf3bbbdd28e78",
+    "population": {
+      "start": 669,
+      "end": 672,
+      "min_observed": 660,
+      "max_observed": 685
+    },
+    "copies": 49163,
+    "deaths": 49667,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 6.37376804765272,
+        "max": 8.59188214236487,
+        "relative_range": 0.3480067172398938
+      },
+      "population": {
+        "min": 660,
+        "max": 685,
+        "relative_range": 0.03787878787878788
+      },
+      "largest_structure": {
+        "min": 14,
+        "max": 23,
+        "relative_range": 0.6428571428571429
+      },
+      "max_size_distribution_total_variation": 0.06222944804625122,
+      "diversity_plateau": false,
+      "structural_plateau": false,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 0.3333333333333333,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.09045764414981639,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 290,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "ba4e542b9e34a7d0ac1fdec2149cae6fdb002acdccd567165d79da53d51da44f",
+          "rates_per_1000_particle_ticks": [
+            1.4490187581254257,
+            1.414226459481211,
+            1.2260261251779856,
+            0.07825171794713057,
+            0.17222806908933325,
+            0,
+            1.9805608865226274,
+            308.8039373490993,
+            308.80888998947563,
+            308.7970036525723,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            5,
+            0,
+            1,
+            0,
+            6,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "ba4e542b9e34a7d0ac1fdec2149cae6fdb002acdccd567165d79da53d51da44f",
+          "rates_per_1000_particle_ticks": [
+            1.5017992802878848,
+            1.477466156394585,
+            1.2342491574798653,
+            0.09047809447649512,
+            0.2189981150396984,
+            0,
+            1.9828639972582396,
+            308.65093962415034,
+            308.6512823442052,
+            308.6571085851374,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            5,
+            0,
+            1,
+            0,
+            6,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "765632ad45d26665c660e3f6d028eec1805833d6769bed7de5ceb03106d399f7",
+          "rates_per_1000_particle_ticks": [
+            1.4835424170910445,
+            1.48267295988076,
+            1.239597565519811,
+            0.10160228543038131,
+            0.22109054775804246,
+            0,
+            2.1758787728232516,
+            309.7577940628493,
+            309.75096261333994,
+            309.7515836542044,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            5,
+            1,
+            1,
+            0,
+            7,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "1578ca1b1a32484018449eada46130b90ada1d73c4b8e8f2ca573e5d58594adb",
+          "rates_per_1000_particle_ticks": [
+            1.4712367894887175,
+            1.4705512710654098,
+            1.206740931162525,
+            0.09425878320479862,
+            0.23981719508711796,
+            0,
+            2.742759211653813,
+            308.60108540417025,
+            308.59800057126535,
+            308.5976578120537,
+            0
+          ],
+          "quantized_rates": [
+            5,
+            5,
+            5,
+            1,
+            1,
+            0,
+            8,
+            33,
+            33,
+            33,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 34.8%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 64.3%; изменение распределения размеров 0.062; плато=false.",
+        "Повторение поведенческих хешей: 33.3%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 290; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 5,
+    "metrics": "ecology-seed5.jsonl",
+    "session_initial_world_sha256": "1af0c80b4db48a4ba01c25a69b9d4dc7bdcab6c5c58e4d7349d74a4e6acd0040",
+    "population": {
+      "start": 658,
+      "end": 679,
+      "min_observed": 628,
+      "max_observed": 680
+    },
+    "copies": 58651,
+    "deaths": 61871,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 7.077338983003606,
+        "max": 11.843070579070055,
+        "relative_range": 0.673379021057415
+      },
+      "population": {
+        "min": 628,
+        "max": 680,
+        "relative_range": 0.08280254777070063
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": false,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.055348145850684705,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 314,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "0c82faee8f2fe827cdae4da784dafe839a21f34027884c07d0877fc6bd70c5ba",
+          "rates_per_1000_particle_ticks": [
+            1.9606961659495217,
+            1.85717038083617,
+            0.3415323357523602,
+            0,
+            0,
+            0,
+            2.6314302228501703,
+            320.25406203840475,
+            320.2454562969623,
+            320.2667779847152,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            2,
+            0,
+            0,
+            0,
+            7,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "0c82faee8f2fe827cdae4da784dafe839a21f34027884c07d0877fc6bd70c5ba",
+          "rates_per_1000_particle_ticks": [
+            1.9399364032505007,
+            1.840065952184666,
+            0.30679543045577673,
+            0,
+            0,
+            0,
+            2.635143092686374,
+            318.1267224119656,
+            318.1288423036156,
+            318.1251913791073,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            2,
+            0,
+            0,
+            0,
+            7,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "0c82faee8f2fe827cdae4da784dafe839a21f34027884c07d0877fc6bd70c5ba",
+          "rates_per_1000_particle_ticks": [
+            1.8345242572395635,
+            1.7364924156951234,
+            0.3579039739250344,
+            0,
+            0,
+            0,
+            2.509464711044252,
+            312.6191550708286,
+            312.57728469349377,
+            312.58580920145414,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            2,
+            0,
+            0,
+            0,
+            7,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "0c82faee8f2fe827cdae4da784dafe839a21f34027884c07d0877fc6bd70c5ba",
+          "rates_per_1000_particle_ticks": [
+            1.783203125,
+            1.6907169117647058,
+            0.34650735294117646,
+            0,
+            0,
+            0,
+            2.510454963235294,
+            310.3431755514706,
+            310.3821231617647,
+            310.3475413602941,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            2,
+            0,
+            0,
+            0,
+            7,
+            33,
+            33,
+            33,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 67.3%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 314; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 6,
+    "metrics": "ecology-seed6.jsonl",
+    "session_initial_world_sha256": "f2427e30457670137c593cc070d20a87305e768dc158665472d79e8d94857f9f",
+    "population": {
+      "start": 650,
+      "end": 666,
+      "min_observed": 638,
+      "max_observed": 679
+    },
+    "copies": 59524,
+    "deaths": 59622,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 4.709759266744307,
+        "max": 8.219259392867283,
+        "relative_range": 0.7451548852833346
+      },
+      "population": {
+        "min": 638,
+        "max": 679,
+        "relative_range": 0.06426332288401254
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": false,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 0.6666666666666666,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.15238965128554227,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 342,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "f3a57b16193f8e7f28dbdd75b335460e388d61edcde98e05e5fc7940c70d4d56",
+          "rates_per_1000_particle_ticks": [
+            1.911159681151967,
+            1.9015170995114425,
+            0.782206222679352,
+            0,
+            0,
+            0,
+            6.160581126253535,
+            320.1289534584726,
+            320.1324247878632,
+            320.13499614296734,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            3,
+            0,
+            0,
+            0,
+            11,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "f3a57b16193f8e7f28dbdd75b335460e388d61edcde98e05e5fc7940c70d4d56",
+          "rates_per_1000_particle_ticks": [
+            1.80105807801872,
+            1.7990814487529796,
+            0.7528632056275798,
+            0,
+            0.00011627230974943318,
+            0,
+            6.045695017731528,
+            313.6452531829545,
+            313.64188128597175,
+            313.64455554909597,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            3,
+            0,
+            0,
+            0,
+            11,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "8690d8c26df34eca82298a968a1bf107da66e275c6f22a12cf43d40f530a3f54",
+          "rates_per_1000_particle_ticks": [
+            1.7583333333333333,
+            1.7557213930348257,
+            0.7416666666666666,
+            0.0011194029850746267,
+            0,
+            0,
+            6.958333333333333,
+            309.5888059701492,
+            309.5809701492537,
+            309.5778606965174,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            3,
+            0,
+            0,
+            0,
+            12,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "8690d8c26df34eca82298a968a1bf107da66e275c6f22a12cf43d40f530a3f54",
+          "rates_per_1000_particle_ticks": [
+            1.73742472039002,
+            1.737310008603384,
+            0.7257814740464582,
+            0,
+            0,
+            0,
+            7.243475767135073,
+            309.26504158302265,
+            309.27307140808716,
+            309.2751362202466,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            3,
+            0,
+            0,
+            0,
+            12,
+            33,
+            33,
+            33,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 74.5%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 66.7%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 342; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 7,
+    "metrics": "ecology-seed7.jsonl",
+    "session_initial_world_sha256": "f7a37358c283aa2a6bec4a737325c77ee1d89138bb89f222281fd866a4f84cc9",
+    "population": {
+      "start": 653,
+      "end": 662,
+      "min_observed": 650,
+      "max_observed": 679
+    },
+    "copies": 69353,
+    "deaths": 69799,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 5.42201939388916,
+        "max": 7.474153792470225,
+        "relative_range": 0.3784815673831608
+      },
+      "population": {
+        "min": 650,
+        "max": 679,
+        "relative_range": 0.04461538461538461
+      },
+      "largest_structure": {
+        "min": 26,
+        "max": 27,
+        "relative_range": 0.038461538461538464
+      },
+      "max_size_distribution_total_variation": 0.11799583775081482,
+      "diversity_plateau": false,
+      "structural_plateau": false,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 0,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.3027327801816422,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 399,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a25ab0c83637fddd5b8513ee994903038fe16321d2a49723b9bf280412ab4c9d",
+          "rates_per_1000_particle_ticks": [
+            2.103856627192705,
+            2.0533215122538153,
+            0.12868089418022924,
+            0,
+            0.3581787093914255,
+            0,
+            9.147995693749603,
+            314.99385726046484,
+            314.9991767462479,
+            314.98587803179026,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            6,
+            1,
+            0,
+            2,
+            0,
+            13,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "f172214a78ccb7748858f5ccca218636fcbe140224c8c6cde6040378b5f829bf",
+          "rates_per_1000_particle_ticks": [
+            2.0653708203170194,
+            2.0627097072775658,
+            0.050908249450422306,
+            0,
+            0.2717806317250954,
+            0,
+            24.55813953488372,
+            309.7924331829226,
+            309.79023487215085,
+            309.78340853870185,
+            0
+          ],
+          "quantized_rates": [
+            6,
+            6,
+            0,
+            0,
+            1,
+            0,
+            19,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "e454edc620a8b0afba71d015b1ce4841ba38930750bdd3496cf79f453b0a6d03",
+          "rates_per_1000_particle_ticks": [
+            2.106646639128802,
+            2.1058956064588807,
+            0.03629991237952184,
+            0,
+            0.25572662410814867,
+            0,
+            11.517336337464013,
+            310.9720866191012,
+            310.9752159218926,
+            310.9893603705094,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            7,
+            0,
+            0,
+            1,
+            0,
+            15,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "f6c98605e31a60652c1284393003ea6b6aa9b50f5465cc6b0f37a84e6a54ef10",
+          "rates_per_1000_particle_ticks": [
+            2.1371191135734073,
+            2.1340027700831024,
+            0.02435364727608495,
+            0,
+            0.24422899353647276,
+            0,
+            15.158125577100646,
+            310.1955216989843,
+            310.1978301015697,
+            310.2008310249307,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            7,
+            0,
+            0,
+            1,
+            0,
+            16,
+            33,
+            33,
+            33,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 37.8%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 3.8%; изменение распределения размеров 0.118; плато=false.",
+        "Повторение поведенческих хешей: 0.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 399; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 8,
+    "metrics": "ecology-seed8.jsonl",
+    "session_initial_world_sha256": "b117a6a265a5803dab0448ecd0396d7eea815a75acb76f71db36293c99b5f432",
+    "population": {
+      "start": 654,
+      "end": 671,
+      "min_observed": 649,
+      "max_observed": 678
+    },
+    "copies": 75307,
+    "deaths": 78123,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 2.0788376062200475,
+        "max": 3.315190041614323,
+        "relative_range": 0.5947325715558591
+      },
+      "population": {
+        "min": 649,
+        "max": 678,
+        "relative_range": 0.04468412942989214
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 6,
+        "relative_range": 5
+      },
+      "max_size_distribution_total_variation": 0.008955223880597007,
+      "diversity_plateau": false,
+      "structural_plateau": false,
+      "persistent_same_genome_monoculture": false,
+      "repeated_behavior_fraction": 0.3333333333333333,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.04538946545158262,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 394,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a7eab39bd6dcd964c5e7a128260f60fe650c1231c282b1752a35b58f2822373c",
+          "rates_per_1000_particle_ticks": [
+            2.3888256857540138,
+            2.2855517633674634,
+            0,
+            0.0042978131715333085,
+            0,
+            0,
+            2.437239287068639,
+            315.2092023764379,
+            315.19959549993683,
+            315.20528378207564,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            7,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "3432ec8c6008d297a80a1d8acabbc91a093e09b1afceab6cb93a8c25d8395126",
+          "rates_per_1000_particle_ticks": [
+            2.344295574502639,
+            2.2600777217098775,
+            0,
+            0.04837306420741257,
+            0,
+            0,
+            3.2318311002842064,
+            313.26465982251614,
+            313.26268777913117,
+            313.26697987355726,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            8,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "3432ec8c6008d297a80a1d8acabbc91a093e09b1afceab6cb93a8c25d8395126",
+          "rates_per_1000_particle_ticks": [
+            2.353354231974922,
+            2.2768652037617554,
+            0,
+            0.08188087774294671,
+            0,
+            0,
+            3.2901567398119123,
+            312.5660188087774,
+            312.56664576802507,
+            312.566144200627,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            8,
+            33,
+            33,
+            33,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "5ac17b74c427382943cc1c9bed531591fe730fc5a4ef27da67ea123d82fa08a4",
+          "rates_per_1000_particle_ticks": [
+            2.3411506469500925,
+            2.2625924214417745,
+            0,
+            0.12396025878003697,
+            0.0013863216266173752,
+            0,
+            3.5354667282809613,
+            311.94431608133084,
+            311.946511090573,
+            311.9426987060998,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            7,
+            0,
+            1,
+            0,
+            0,
+            9,
+            33,
+            33,
+            33,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 59.5%; плато=false. Устойчивая монокультура=false.",
+        "Размах крупнейшей структуры 500.0%; изменение распределения размеров 0.009; плато=false.",
+        "Повторение поведенческих хешей: 33.3%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 394; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 1,
+    "metrics": "ecology-no-mutation-seed1.jsonl",
+    "session_initial_world_sha256": "26b63390f5411d122cf9784e1a77e586d3581a4320262ffa540a07c599154cb7",
+    "population": {
+      "start": 573,
+      "end": 580,
+      "min_observed": 558,
+      "max_observed": 608
+    },
+    "copies": 78272,
+    "deaths": 78266,
+    "dynamics": {
+      "version": 1,
+      "status": "stagnating",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 558,
+        "max": 608,
+        "relative_range": 0.08960573476702509
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.006325539871633978,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.727496026585753,
+            2.7270625632134085,
+            2.726773587631845,
+            0,
+            0,
+            0,
+            0,
+            360.66189856957084,
+            360.66738910562054,
+            360.64152579107065,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6893979754928075,
+            2.689797549280767,
+            2.6901971230687267,
+            0,
+            0,
+            0,
+            0,
+            360.12639850825786,
+            360.12546616941927,
+            360.1491742141715,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6799310443901736,
+            2.6799310443901736,
+            2.679356414308289,
+            0,
+            0,
+            0,
+            0,
+            358.5688837810659,
+            358.5674472058612,
+            358.56917109610686,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.717582490246644,
+            2.7174502413542285,
+            2.7177147391390597,
+            0,
+            0,
+            0,
+            0,
+            357.618726443166,
+            357.6228261588309,
+            357.60100509158235,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Мир застрял по наблюдаемым признакам: плато разнообразия, численности и структур сопровождается повторением поведения.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 2,
+    "metrics": "ecology-no-mutation-seed2.jsonl",
+    "session_initial_world_sha256": "808631d8f79fecd44039f388dddbe1be481e17c2a89ac41a98ce460d42ffe645",
+    "population": {
+      "start": 570,
+      "end": 570,
+      "min_observed": 562,
+      "max_observed": 603
+    },
+    "copies": 77914,
+    "deaths": 77912,
+    "dynamics": {
+      "version": 1,
+      "status": "stagnating",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 562,
+        "max": 603,
+        "relative_range": 0.07295373665480427
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.0032570456663258973,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6826701268742794,
+            2.683246828143022,
+            2.6835351787773933,
+            0,
+            0,
+            0,
+            0,
+            359.8799019607843,
+            359.88235294117646,
+            359.8615916955017,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6902994964219453,
+            2.690166975881261,
+            2.6900344553405775,
+            0,
+            0,
+            0,
+            0,
+            358.32083222899547,
+            358.31539888682744,
+            358.33554200901136,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7028624990987096,
+            2.702718292594996,
+            2.7028624990987096,
+            0,
+            0,
+            0,
+            0,
+            359.9457783546038,
+            359.94967193020403,
+            359.9394332684404,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6819776292276125,
+            2.6819776292276125,
+            2.6819776292276125,
+            0,
+            0,
+            0,
+            0,
+            357.914488053478,
+            357.90985505327944,
+            357.93235819710105,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Мир застрял по наблюдаемым признакам: плато разнообразия, численности и структур сопровождается повторением поведения.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 3,
+    "metrics": "ecology-no-mutation-seed3.jsonl",
+    "session_initial_world_sha256": "ea70f3f18b70e279d798ae93f1f4a5ec9a3f78807f216aed92bbd636059cead1",
+    "population": {
+      "start": 586,
+      "end": 584,
+      "min_observed": 552,
+      "max_observed": 588
+    },
+    "copies": 78085,
+    "deaths": 78083,
+    "dynamics": {
+      "version": 1,
+      "status": "stagnating",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 552,
+        "max": 588,
+        "relative_range": 0.06521739130434782
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.008283651838548511,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7331199068684517,
+            2.733556461001164,
+            2.734138533178114,
+            0,
+            0,
+            0,
+            0,
+            363.21711292200234,
+            363.2194412107101,
+            363.21303841676365,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7234810507319027,
+            2.7234810507319027,
+            2.72334736982822,
+            0,
+            0,
+            0,
+            0,
+            361.44936835773007,
+            361.4402780562796,
+            361.47316355858567,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7005944613600117,
+            2.7007394519356245,
+            2.700884442511237,
+            0,
+            0,
+            0,
+            0,
+            361.933014354067,
+            361.9425837320574,
+            361.89647672901265,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7021630615640597,
+            2.7021630615640597,
+            2.7020299500831944,
+            0,
+            0,
+            0,
+            0,
+            359.93410981697167,
+            359.92958402662225,
+            359.93344425956735,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Мир застрял по наблюдаемым признакам: плато разнообразия, численности и структур сопровождается повторением поведения.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 4,
+    "metrics": "ecology-no-mutation-seed4.jsonl",
+    "session_initial_world_sha256": "b97207dbb5b0df6063ef3c0741a324f94be3ac1fa402057a208ed29a1d1ea8e1",
+    "population": {
+      "start": 585,
+      "end": 575,
+      "min_observed": 563,
+      "max_observed": 594
+    },
+    "copies": 78294,
+    "deaths": 78301,
+    "dynamics": {
+      "version": 1,
+      "status": "stagnating",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 563,
+        "max": 594,
+        "relative_range": 0.055062166962699825
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.0011821873424044949,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.723299565846599,
+            2.723589001447178,
+            2.723589001447178,
+            0,
+            0,
+            0,
+            0,
+            361.2088277858176,
+            361.20636758321274,
+            361.21562952243124,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.707925733679377,
+            2.707526452385706,
+            2.707393358621149,
+            0,
+            0,
+            0,
+            0,
+            359.89552139482265,
+            359.8992480202303,
+            359.88553936248087,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7161439514380694,
+            2.7162884809943635,
+            2.716433010550658,
+            0,
+            0,
+            0,
+            0,
+            360.74056944645184,
+            360.7483740424917,
+            360.7457725104784,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7048885932823414,
+            2.7052876621217163,
+            2.7054206850681743,
+            0,
+            0,
+            0,
+            0,
+            359.6883272364483,
+            359.6663784502827,
+            359.694047223146,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Мир застрял по наблюдаемым признакам: плато разнообразия, численности и структур сопровождается повторением поведения.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 5,
+    "metrics": "ecology-no-mutation-seed5.jsonl",
+    "session_initial_world_sha256": "a14a71b92eae68c2d9b71a078ba30040b8763327e1de9be8067d1ec1b7018ed9",
+    "population": {
+      "start": 574,
+      "end": 571,
+      "min_observed": 556,
+      "max_observed": 594
+    },
+    "copies": 78237,
+    "deaths": 78239,
+    "dynamics": {
+      "version": 1,
+      "status": "stagnating",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 556,
+        "max": 594,
+        "relative_range": 0.0683453237410072
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.00274962848927629,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7138736659936544,
+            2.714306316700317,
+            2.7145947505047587,
+            0,
+            0,
+            0,
+            0,
+            359.9646668589558,
+            359.9727430054802,
+            359.96538794346696,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.734351963543761,
+            2.734217933252915,
+            2.7338158423803782,
+            0,
+            0,
+            0,
+            0,
+            362.42474199169015,
+            362.41603002278515,
+            362.417906446857,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7041479982656456,
+            2.703714409596763,
+            2.704003468709351,
+            0,
+            0,
+            0,
+            0,
+            360.7384015031074,
+            360.74967480849836,
+            360.7457725104784,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7085028342780926,
+            2.7087695898632878,
+            2.70863621207069,
+            0,
+            0,
+            0,
+            0,
+            360.6532844281427,
+            360.6520840280093,
+            360.6535511837279,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Мир застрял по наблюдаемым признакам: плато разнообразия, численности и структур сопровождается повторением поведения.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 6,
+    "metrics": "ecology-no-mutation-seed6.jsonl",
+    "session_initial_world_sha256": "3098b0bc214615a351b55a91b518be36e33cec0cd92f2924260560652e80af85",
+    "population": {
+      "start": 574,
+      "end": 571,
+      "min_observed": 560,
+      "max_observed": 593
+    },
+    "copies": 78057,
+    "deaths": 78063,
+    "dynamics": {
+      "version": 1,
+      "status": "stagnating",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 560,
+        "max": 593,
+        "relative_range": 0.05892857142857143
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.006751664633114718,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7266161068977968,
+            2.7264716504153124,
+            2.7260382809678583,
+            0,
+            0,
+            0,
+            0,
+            360.5746478873239,
+            360.5691585409895,
+            360.5633802816901,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.687985138990247,
+            2.6875870762290184,
+            2.687719763816095,
+            0,
+            0,
+            0,
+            0,
+            358.7778146354408,
+            358.7812645127048,
+            358.7872354541232,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.704730362157103,
+            2.7048743610051122,
+            2.7050183598531214,
+            0,
+            0,
+            0,
+            0,
+            359.4133486932105,
+            359.41637266901864,
+            359.42112463100295,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6887346502936462,
+            2.6887346502936462,
+            2.6888681260010676,
+            0,
+            0,
+            0,
+            0,
+            360.9124399359316,
+            360.91003737319807,
+            360.91831286705815,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Мир застрял по наблюдаемым признакам: плато разнообразия, численности и структур сопровождается повторением поведения.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 7,
+    "metrics": "ecology-no-mutation-seed7.jsonl",
+    "session_initial_world_sha256": "ab6d0efb2ef5e01536a785b369598d158425e9d125ac813f982ade295c4853fb",
+    "population": {
+      "start": 566,
+      "end": 580,
+      "min_observed": 559,
+      "max_observed": 598
+    },
+    "copies": 77878,
+    "deaths": 77864,
+    "dynamics": {
+      "version": 1,
+      "status": "mixed",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 559,
+        "max": 598,
+        "relative_range": 0.06976744186046512
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 0.6666666666666666,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.012329813998028794,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.69611256164781,
+            2.695967507977952,
+            2.69611256164781,
+            0,
+            0,
+            0,
+            0,
+            362.06121264868,
+            362.0633884537279,
+            362.0539599651871,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.695553780617679,
+            2.6952875399361025,
+            2.695021299254526,
+            0,
+            0,
+            0,
+            0,
+            359.97071352502667,
+            359.9608626198083,
+            359.95740149094786,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "91eb556c239ae6ac441d97d6eda41043069a681585d2361c5059462361b11182",
+          "rates_per_1000_particle_ticks": [
+            2.664415547093901,
+            2.6638407931604284,
+            2.6639844816437965,
+            0,
+            0,
+            0,
+            0,
+            358.63064875350244,
+            358.637114735254,
+            358.6464544866729,
+            0
+          ],
+          "quantized_rates": [
+            7,
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7388603113100407,
+            2.739795577526889,
+            2.739929186986439,
+            0,
+            0,
+            0,
+            0,
+            361.2916026454673,
+            361.28946489411453,
+            361.2799786224865,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 66.7%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Динамика неоднозначна: признаков недостаточно для устойчивой новизны или совместного плато.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 8,
+    "metrics": "ecology-no-mutation-seed8.jsonl",
+    "session_initial_world_sha256": "ec0968ccc81e9d326b62814c4821c3ca3a848cd84f49c122a21308f3184ecc0f",
+    "population": {
+      "start": 591,
+      "end": 569,
+      "min_observed": 561,
+      "max_observed": 605
+    },
+    "copies": 77904,
+    "deaths": 77925,
+    "dynamics": {
+      "version": 1,
+      "status": "stagnating",
+      "from_tick": 50000,
+      "to_tick": 100000,
+      "config": {
+        "min_ticks": 10000,
+        "plateau_relative_tolerance": 0.1,
+        "monoculture_share": 0.9,
+        "repeat_threshold": 0.75,
+        "behavior_bins_per_octave": 4
+      },
+      "effective_diversity": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "population": {
+        "min": 561,
+        "max": 605,
+        "relative_range": 0.0784313725490196
+      },
+      "largest_structure": {
+        "min": 1,
+        "max": 1,
+        "relative_range": 0
+      },
+      "max_size_distribution_total_variation": 0,
+      "diversity_plateau": true,
+      "structural_plateau": true,
+      "persistent_same_genome_monoculture": true,
+      "repeated_behavior_fraction": 1,
+      "persistent_new_behavior": false,
+      "min_persistent_behavior_separation_octaves": 0.0025499689552472837,
+      "persistent_structure_growth": false,
+      "new_genomes_not_used_as_novelty": 0,
+      "behavior_features": [
+        "allocate",
+        "copy",
+        "transfer",
+        "take",
+        "bind",
+        "unbind",
+        "absorbed_energy",
+        "converted_x",
+        "converted_y",
+        "charged_z",
+        "dsl_units"
+      ],
+      "behavior_blocks": [
+        {
+          "from_tick": 50000,
+          "to_tick": 62000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.703398409255242,
+            2.703832248734635,
+            2.70412147505423,
+            0,
+            0,
+            0,
+            0,
+            360.95169920462763,
+            360.94331164135934,
+            360.9544468546638,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 62000,
+          "to_tick": 75000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6717355371900826,
+            2.6713388429752065,
+            2.6718677685950416,
+            0,
+            0,
+            0,
+            0,
+            357.5463140495868,
+            357.5334876033058,
+            357.55371900826447,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 75000,
+          "to_tick": 87000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.7161761515655507,
+            2.716320775182587,
+            2.7161761515655507,
+            0,
+            0,
+            0,
+            0,
+            360.99602285053146,
+            361.0088943524477,
+            360.9805481235086,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        },
+        {
+          "from_tick": 87000,
+          "to_tick": 100000,
+          "sha256": "a5b1c95650a560b4b915deb20610bb157e8571eaca5e4a45a2805d5e56efe0f1",
+          "rates_per_1000_particle_ticks": [
+            2.6778336864406778,
+            2.6778336864406778,
+            2.6778336864406778,
+            0,
+            0,
+            0,
+            0,
+            358.04104872881356,
+            358.03416313559325,
+            358.0508474576271,
+            0
+          ],
+          "quantized_rates": [
+            8,
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            34,
+            34,
+            34,
+            0
+          ]
+        }
+      ],
+      "reasons_ru": [
+        "Размах эффективного разнообразия 0.0%; плато=true. Устойчивая монокультура=true.",
+        "Размах крупнейшей структуры 0.0%; изменение распределения размеров 0.000; плато=true.",
+        "Повторение поведенческих хешей: 100.0%. Устойчивое новое поведение=false; устойчивый рост структур=false.",
+        "Мир застрял по наблюдаемым признакам: плато разнообразия, численности и структур сопровождается повторением поведения.",
+        "Новых геномов: 0; их появление само по себе не считается поведенческой новизной."
+      ]
+    }
+  }
+]

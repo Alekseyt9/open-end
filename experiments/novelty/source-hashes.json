@@ -1,0 +1,82 @@
+{
+  "telemetry": [
+    {
+      "file": "ecology-no-mutation-seed1.jsonl",
+      "sha256": "6b76aa762d52b06f5c22f167db4f0b0cdff8da73841279326051477820523eb8"
+    },
+    {
+      "file": "ecology-no-mutation-seed2.jsonl",
+      "sha256": "343f52d60efa918851e0716751ef459c0c647b1be791c3ff47678e65486a4d28"
+    },
+    {
+      "file": "ecology-no-mutation-seed3.jsonl",
+      "sha256": "683a83846c7acd98df6a1937b78e3c89b330cdb73057dc147fde08bb13f297a1"
+    },
+    {
+      "file": "ecology-no-mutation-seed4.jsonl",
+      "sha256": "872f8cbd418454f070cfcbd95b9808def70afff1a94d1702591ebb387526983f"
+    },
+    {
+      "file": "ecology-no-mutation-seed5.jsonl",
+      "sha256": "6edb5515672e8ac11809896282583df8daabb8ff6ff0092ca4eca70640ca7c40"
+    },
+    {
+      "file": "ecology-no-mutation-seed6.jsonl",
+      "sha256": "0d1ffa3d8462ba9f1d00e218cf28c5889c327cda44d74ca9e86c2c17fac77ee1"
+    },
+    {
+      "file": "ecology-no-mutation-seed7.jsonl",
+      "sha256": "5cc990c5e76e365aa924f24ed4bd562377a4c119b91fb97b5a738626b067baf7"
+    },
+    {
+      "file": "ecology-no-mutation-seed8.jsonl",
+      "sha256": "e758edd63eba174345ff325561ef89378d0d5f37a806073038ff93eaee02d1a0"
+    },
+    {
+      "file": "ecology-seed1.jsonl",
+      "sha256": "f2609ac93d8ce3ed6dbd11ec94efac41693f27c53d4eab5c4a8095b55e016375"
+    },
+    {
+      "file": "ecology-seed2.jsonl",
+      "sha256": "44a18a5aad3cf87d588377a33334e6da4ab5713f41f68af6ab141f7fcaa088ae"
+    },
+    {
+      "file": "ecology-seed3.jsonl",
+      "sha256": "03949cb2af50d5fdb1e885b0aaf108de7c5a548b837b51733180e6c58542363d"
+    },
+    {
+      "file": "ecology-seed4.jsonl",
+      "sha256": "17d2a09607b539869f24a07b8b4ecfbe61efa5e4fa3adca9441ced1f6d19ec5b"
+    },
+    {
+      "file": "ecology-seed5.jsonl",
+      "sha256": "3a5f9ab6b7d5940cf2521a4be9cda40981c8dce56b81a6fa3ed734ad4b2f6173"
+    },
+    {
+      "file": "ecology-seed6.jsonl",
+      "sha256": "c24bc31341d92c4045455b365441e78ed38f5d178c7238ada2ad8e0979d6deb3"
+    },
+    {
+      "file": "ecology-seed7.jsonl",
+      "sha256": "92c5912685d943e4966bf4957cc2b9775fadad7d40bffcaf68596910f3695fec"
+    },
+    {
+      "file": "ecology-seed8.jsonl",
+      "sha256": "d47980cc12b4d3725ce37ca5856f0c6fceaa9b1e4c5da3ec007ce98eea213894"
+    }
+  ],
+  "detector_source": [
+    {
+      "file": "internal/observer/dynamics.go",
+      "sha256": "1f2e406827dbd784a950e2101594b288436596b50bc67e118c5d8df532ad3974"
+    },
+    {
+      "file": "internal/observer/summary.go",
+      "sha256": "e70dc3ead79db236accd177ad2a5e3f97075a6a73a0820a54d81466eb1e6dccc"
+    },
+    {
+      "file": "cmd/summarize/main.go",
+      "sha256": "20aa465a163f92f57b1955b8182e2fa07561e7d675490356ceab1ccc46e37d10"
+    }
+  ]
+}

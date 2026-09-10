@@ -91,3 +91,31 @@ func TestSummaryCLIAndPartialBatch(t *testing.T) {
 		t.Fatal("accepted incomplete batch")
 	}
 }
+
+func TestDynamicsCLI(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "run.jsonl")
+	if err := os.WriteFile(path, recording(t), 0600); err != nil {
+		t.Fatal(err)
+	}
+	var out bytes.Buffer
+	if err := run([]string{"-input", path, "-detect", "-format", "json"}, &out); err != nil {
+		t.Fatal(err)
+	}
+	var rows []result
+	if err := json.Unmarshal(out.Bytes(), &rows); err != nil {
+		t.Fatal(err)
+	}
+	if len(rows) != 1 || rows[0].Dynamics == nil || rows[0].Dynamics.Status != "insufficient_history" {
+		t.Fatal("missing short history guard")
+	}
+	out.Reset()
+	if err := run([]string{"-input", path, "-detect"}, &out); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(out.String(), "Детектор: insufficient_history") {
+		t.Fatal("missing text detection")
+	}
+	if err := run([]string{"-input", path, "-detect", "-detect-tolerance", "0"}, &out); err == nil {
+		t.Fatal("accepted invalid threshold")
+	}
+}

@@ -13,10 +13,11 @@ import (
 )
 
 type result struct {
-	Case    string                 `json:"case,omitempty"`
-	Seed    uint64                 `json:"seed,omitempty"`
-	Metrics string                 `json:"metrics"`
-	Summary observer.WindowSummary `json:"summary"`
+	Case     string                 `json:"case,omitempty"`
+	Seed     uint64                 `json:"seed,omitempty"`
+	Metrics  string                 `json:"metrics"`
+	Summary  observer.WindowSummary `json:"summary"`
+	Dynamics *observer.Dynamics     `json:"dynamics,omitempty"`
 }
 
 func main() {
@@ -31,6 +32,11 @@ func run(args []string, out io.Writer) error {
 	input := fs.String("input", "", "JSONL metrics file or completed experiment directory")
 	window := fs.Uint64("window", 10000, "requested number of recent ticks; uses whole recorded intervals")
 	format := fs.String("format", "text", "text or json")
+	detect := fs.Bool("detect", false, "include novelty and stagnation heuristics")
+	detectionConfig := observer.DefaultDynamicsConfig()
+	fs.Uint64Var(&detectionConfig.MinTicks, "detect-min-ticks", detectionConfig.MinTicks, "minimum observed duration for dynamics detection")
+	fs.Float64Var(&detectionConfig.PlateauTolerance, "detect-tolerance", detectionConfig.PlateauTolerance, "relative plateau and structure distribution tolerance (0,1]")
+	fs.IntVar(&detectionConfig.BehaviorResolution, "detect-resolution", detectionConfig.BehaviorResolution, "behavior quantization bins per octave (1..64)")
 	if err := fs.Parse(args); err != nil {
 		if err == flag.ErrHelp {
 			return nil
@@ -45,6 +51,23 @@ func run(args []string, out io.Writer) error {
 		return err
 	}
 	results := []result{}
+	analyze := func(path string) (observer.WindowSummary, *observer.Dynamics, error) {
+		f, err := os.Open(path)
+		if err != nil {
+			return observer.WindowSummary{}, nil, err
+		}
+		defer f.Close()
+		frames, err := readWindow(f, *window)
+		if err != nil {
+			return observer.WindowSummary{}, nil, err
+		}
+		summary, err := observer.Summarize(frames, *window)
+		if err != nil || !*detect {
+			return summary, nil, err
+		}
+		dynamics, err := observer.DetectDynamics(frames, *window, detectionConfig)
+		return summary, &dynamics, err
+	}
 	if info.IsDir() {
 		var manifest struct {
 			Status           string
@@ -74,14 +97,14 @@ func run(args []string, out io.Writer) error {
 				return fmt.Errorf("invalid or duplicate metrics filename")
 			}
 			seen[row.Metrics] = true
-			r, err := summarizeFile(filepath.Join(*input, row.Metrics), *window)
+			r, dynamics, err := analyze(filepath.Join(*input, row.Metrics))
 			if err != nil {
 				return fmt.Errorf("%s seed %d: %w", row.Case, row.Seed, err)
 			}
 			if r.ToTick != row.Tick || r.Population.End != int64(row.Entities) || r.Genomes.End != int64(row.Genomes) || r.Seed != row.Seed {
 				return fmt.Errorf("metrics and batch summary disagree")
 			}
-			results = append(results, result{row.Case, row.Seed, row.Metrics, r})
+			results = append(results, result{Case: row.Case, Seed: row.Seed, Metrics: row.Metrics, Summary: r, Dynamics: dynamics})
 		}
 		sort.Slice(results, func(i, j int) bool {
 			a, b := results[i], results[j]
@@ -91,11 +114,11 @@ func run(args []string, out io.Writer) error {
 			return a.Seed < b.Seed
 		})
 	} else {
-		r, err := summarizeFile(*input, *window)
+		r, dynamics, err := analyze(*input)
 		if err != nil {
 			return err
 		}
-		results = append(results, result{Seed: r.Seed, Metrics: filepath.Base(*input), Summary: r})
+		results = append(results, result{Seed: r.Seed, Metrics: filepath.Base(*input), Summary: r, Dynamics: dynamics})
 	}
 	if *format == "json" {
 		e := json.NewEncoder(out)
@@ -118,6 +141,16 @@ func run(args []string, out io.Writer) error {
 		for _, line := range r.Summary.Narrative {
 			if _, err := fmt.Fprintln(out, line); err != nil {
 				return err
+			}
+		}
+		if r.Dynamics != nil {
+			if _, err := fmt.Fprintf(out, "Детектор: %s\n", r.Dynamics.Status); err != nil {
+				return err
+			}
+			for _, line := range r.Dynamics.Reasons {
+				if _, err := fmt.Fprintln(out, line); err != nil {
+					return err
+				}
 			}
 		}
 	}
