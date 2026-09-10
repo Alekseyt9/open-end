@@ -1,6 +1,6 @@
 # Adaptive capability and research allocation
 
-The research priority is sustained evolution, functional diversity, and increasing adaptive capability. Multicellularity, mutual exchange, symbols, and higher-level individuality are possible routes, not prerequisites. An individual executable particle can improve without acquiring any of these structures.
+The current research priority is organizational complexity toward multicellularity. This assay measures a limited aspect of adaptive capability and remains a supporting diagnostic. Its population-based score and original allocation heuristic do not measure collective heredity, division of labor, or higher-level organization; they are not the sole selection target for the current research direction. See [collective reproduction experiments](multicell-motion.md).
 
 `cmd/adapt-assay` implements a first **adaptive capability proxy**, followed by ordinary evolution of selected worlds. This is an external experiment scheduler. No intelligence attribute, fitness score, or reward is added to particles or physical rules. UI work remains deferred.
 

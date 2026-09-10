@@ -1,6 +1,12 @@
 # Open-Ended Evolution + External AI Agent
 ## Concept, architecture, and phased implementation plan
 
+### Current research priority
+
+Prioritize increasing organizational complexity toward multicellularity: persistent collectives, differentiation of useful functions, coordinated behavior, and reproduction that transmits organization. Mere growth in particle count, genome length, or connected-component size is insufficient evidence.
+
+Use external matched experiments to investigate barriers to collective reproduction and the benefits of coordination. Allocate research effort according to evidence of collective heredity and useful differentiation while retaining alternative directions. Memory and perception assays remain supporting diagnostics rather than the sole selection target. Do not install an intelligence score inside organisms or equate longer code with greater intelligence. See [collective reproduction experiments](docs/multicell-motion.md) and [adaptive capability diagnostics](docs/adaptivity.md). Go is the active solver; Warp maintenance is paused.
+
 ---
 
 ## 0. Core idea

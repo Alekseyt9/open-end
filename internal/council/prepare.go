@@ -21,6 +21,7 @@ type Fact struct {
 	Value   json.RawMessage `json:"value"`
 }
 type WorldBrief struct {
+	BondMotion         string                `json:"bond_motion,omitempty"`
 	Symbols            string                `json:"symbols,omitempty"`
 	CollectiveAblation string                `json:"collective_ablation,omitempty"`
 	CollectiveAge      uint64                `json:"collective_age,omitempty"`
@@ -206,6 +207,7 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		wb.CopyModel = w.Config.CopyModel
 		wb.Environment = w.Config.Environment
 		wb.Symbols = w.Config.Symbols
+		wb.BondMotion = w.Config.BondMotion
 		wb.CollectiveAblation = w.Config.CollectiveAblation
 		if s.Collectives != nil {
 			wb.CollectiveAge = s.Collectives.End.MinAge

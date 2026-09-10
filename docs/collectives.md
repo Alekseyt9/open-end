@@ -4,6 +4,8 @@ Stage 12 adds conservative observation of linked groups and matched intervention
 
 The [first 32-world experiment](../experiments/collectives/REPORT.md) found a substantial survival effect of bonds in several evolved populations, but no qualifying daughter group. The mechanisms and measurement harness are implemented; the research criterion of whole-group reproduction remains open. Interface work is deferred.
 
+A [follow-up on bond motion and clonal ancestry](multicell-motion.md) now records one-founder clonal daughters separately. It found persistent clonal descendant groups excluded by the original multi-founder criterion, including mixed-genome candidates preserved as physical witnesses. This expands observation without changing the historical definition or establishing inherited division of labor.
+
 ## Recording a world
 
 ```powershell

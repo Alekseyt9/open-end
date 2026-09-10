@@ -1,0 +1,478 @@
+[
+  {
+    "case": "environment",
+    "seed": 5,
+    "source_sha256": "a5329bc17c6fea3ce6bc4ca752adb08b538cfc6e9bbae2b062c5926348417f49",
+    "snapshot": "environment-seed5-t110758-cohort13-founder130760.json",
+    "snapshot_sha256": "fc53ca0dbd8c3d36dac0373e5fd9cca586f95acb5a846728ee8ea008100f88d8",
+    "candidate": {
+      "cohort": 13,
+      "members": [
+        148252,
+        148656,
+        149369
+      ],
+      "since_tick": 110658,
+      "qualified_tick": 110758,
+      "last_observed_tick": 110889,
+      "founder": 130760,
+      "genomes_at_qualification": [
+        {
+          "hash": "0083e5e0e1461dc447ab54ca67e2596f690465a45d9a805ac87fd80bfa612169",
+          "count": 2
+        },
+        {
+          "hash": "5af18f769cc4079a908ce41d32fe33580f0bfe38c7114323dd77ecefdf7c777f",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      90243,
+      90526,
+      91532,
+      94625
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t108949-cohort54-founder89334.json",
+    "snapshot_sha256": "631799996700b3839f174625bca1255fd86068b1d2cc9c8019b679217125f9e7",
+    "candidate": {
+      "cohort": 54,
+      "members": [
+        94344,
+        94597,
+        95800
+      ],
+      "since_tick": 108849,
+      "qualified_tick": 108949,
+      "last_observed_tick": 109023,
+      "founder": 89334,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 2
+        },
+        {
+          "hash": "eb6ddd3b260704e7c6af9c69f4d40f25681152ec5069e89013a9f0c94d19c5f1",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      87526,
+      89334
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t109136-cohort54-founder89334.json",
+    "snapshot_sha256": "aadcec2b48bf80c8ec12e550a8dd7522dc569ef21b467fe6338267619e6f54ab",
+    "candidate": {
+      "cohort": 54,
+      "members": [
+        94344,
+        95800
+      ],
+      "since_tick": 109036,
+      "qualified_tick": 109136,
+      "last_observed_tick": 109305,
+      "founder": 89334,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 1
+        },
+        {
+          "hash": "eb6ddd3b260704e7c6af9c69f4d40f25681152ec5069e89013a9f0c94d19c5f1",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      87526,
+      89334
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t109180-cohort44-founder83263.json",
+    "snapshot_sha256": "a1792e46143c304234def7024915c6bc7b5da61c71dc44a0657508150aa492ff",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        92770,
+        93678,
+        95604,
+        95828
+      ],
+      "since_tick": 109080,
+      "qualified_tick": 109180,
+      "last_observed_tick": 109208,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 3
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      79470,
+      87568,
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t109310-cohort44-founder83263.json",
+    "snapshot_sha256": "010fabbbd541c0cf7235068574bff7224b713026228beee695b3721042424078",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        92770,
+        93678,
+        95604,
+        95828,
+        96103
+      ],
+      "since_tick": 109210,
+      "qualified_tick": 109310,
+      "last_observed_tick": 109342,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 4
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      79470,
+      87568,
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t109704-cohort44-founder83263.json",
+    "snapshot_sha256": "26eae65cdba8021b7fbbf33abe16e4478d85cd6bdc920ccdaec26bafb98024c2",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        93678,
+        95828,
+        96417
+      ],
+      "since_tick": 109604,
+      "qualified_tick": 109704,
+      "last_observed_tick": 109736,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 1
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 2
+        }
+      ]
+    },
+    "parent_founders": [
+      79470,
+      87568,
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t109996-cohort44-founder83263.json",
+    "snapshot_sha256": "5992819740708b10fc583b2bb0c200030149c31c9f2520f58a437a70d5b334e4",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        93678,
+        95828,
+        96670
+      ],
+      "since_tick": 109896,
+      "qualified_tick": 109996,
+      "last_observed_tick": 110002,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 2
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t110503-cohort44-founder83263.json",
+    "snapshot_sha256": "c38bfce9b6b653789c48a42d57dba097735f6f5951bda52d456c7e43056b1543",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        93678,
+        95828
+      ],
+      "since_tick": 110403,
+      "qualified_tick": 110503,
+      "last_observed_tick": 110547,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 1
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t110649-cohort44-founder83263.json",
+    "snapshot_sha256": "56f345a88eae05a0b3cc1f6bff408c65771a7b843f7b121440330eafba4ee886",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        93678,
+        95828,
+        97216
+      ],
+      "since_tick": 110549,
+      "qualified_tick": 110649,
+      "last_observed_tick": 110655,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 2
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t110778-cohort44-founder83263.json",
+    "snapshot_sha256": "0375a05aab409e055b00bb485a0eee50be9e8031f44a3527bccb2c3336ce11bd",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        93678,
+        95828,
+        97309
+      ],
+      "since_tick": 110678,
+      "qualified_tick": 110778,
+      "last_observed_tick": 111560,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 1
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 2
+        }
+      ]
+    },
+    "parent_founders": [
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t110914-cohort34-founder88295.json",
+    "snapshot_sha256": "0eeead688a3ca29348d81349b28b5c125301575594883081bba44222c54864a2",
+    "candidate": {
+      "cohort": 34,
+      "members": [
+        92203,
+        97359,
+        97445
+      ],
+      "since_tick": 110814,
+      "qualified_tick": 110914,
+      "last_observed_tick": 110971,
+      "founder": 88295,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 2
+        },
+        {
+          "hash": "563455e5f5d21ac3c2d072e3a7eed461e59aab6a20251227cea753fd73900bbe",
+          "count": 1
+        }
+      ]
+    },
+    "parent_founders": [
+      12842,
+      77724,
+      84099,
+      87330
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t111233-cohort44-founder83263.json",
+    "snapshot_sha256": "8fb92e0f70bb33d660a2f44cfd726eca18e98bc65634213ad5c255634a9affc4",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        93678,
+        95828,
+        97309,
+        97705
+      ],
+      "since_tick": 111133,
+      "qualified_tick": 111233,
+      "last_observed_tick": 111252,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 1
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 3
+        }
+      ]
+    },
+    "parent_founders": [
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 3,
+    "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+    "snapshot": "symbols-seed3-t111804-cohort44-founder83263.json",
+    "snapshot_sha256": "5b955345562b8eb5533efbdda5aff685d759863191fd3eb96b75e02ae2ea56dc",
+    "candidate": {
+      "cohort": 44,
+      "members": [
+        93678,
+        95828,
+        97309,
+        98135
+      ],
+      "since_tick": 111704,
+      "qualified_tick": 111804,
+      "last_observed_tick": 111832,
+      "founder": 83263,
+      "genomes_at_qualification": [
+        {
+          "hash": "1b69e11765f8ee303c0c808b18ce3049bdaedead3c69cd4e2a4f6382bbe746e3",
+          "count": 1
+        },
+        {
+          "hash": "7fec14335b0bafe05181378a3e78f762cb61a8ab0f07f88bc0871dfcd5463448",
+          "count": 3
+        }
+      ]
+    },
+    "parent_founders": [
+      88369,
+      88497
+    ]
+  },
+  {
+    "case": "symbols",
+    "seed": 6,
+    "source_sha256": "2f3350cf6607ec98ae1e22aaa202fd6de29543abf4fd18de0989b5ba5b760414",
+    "snapshot": "symbols-seed6-t119640-cohort97-founder97167.json",
+    "snapshot_sha256": "9ca32718aaaa7f69f91e64d9ae69fead555c9ee397464ef3afec8d27b4dcafce",
+    "candidate": {
+      "cohort": 97,
+      "members": [
+        131741,
+        132783,
+        134400,
+        137638
+      ],
+      "since_tick": 119540,
+      "qualified_tick": 119640,
+      "last_observed_tick": 119755,
+      "founder": 97167,
+      "genomes_at_qualification": [
+        {
+          "hash": "5b971529566abca4e660c80cc676a805d345b730a12649189312d144475760dc",
+          "count": 1
+        },
+        {
+          "hash": "b551f7151460d20b74c1da10584be169d7462d25d67e8aef439a64c585c69f08",
+          "count": 3
+        }
+      ]
+    },
+    "parent_founders": [
+      97167,
+      118102
+    ]
+  }
+]

@@ -74,7 +74,7 @@ func TestDaughterCandidateRequiresMultipleFoundersAndParent(t *testing.T) {
 			groupCopy(w, tr, p[0], p[2])
 			source := p[1]
 			if scenario == "one-founder" {
-				source = p[0]
+				source = p[2] // adjacent descendant of the first founder
 			}
 			groupCopy(w, tr, source, p[3])
 			w.Relations[world.RelationKey(3, 4)] = world.Relation{A: 3, B: 4}

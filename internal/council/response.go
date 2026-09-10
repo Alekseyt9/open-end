@@ -89,7 +89,7 @@ func checkRound(round, responsePath string, continuation bool) (Checked, error) 
 		if err != nil {
 			return c, err
 		}
-		if kernel.Hash(w) != wb.SnapshotHash || w.Tick != wb.Tick || w.Config.Seed != wb.Seed || w.Config.MutationPPM != wb.MutationPPM || w.Config.CopyModel != wb.CopyModel || w.Config.Environment != wb.Environment || w.Config.CollectiveAblation != wb.CollectiveAblation || w.Config.Symbols != wb.Symbols {
+		if kernel.Hash(w) != wb.SnapshotHash || w.Tick != wb.Tick || w.Config.Seed != wb.Seed || w.Config.MutationPPM != wb.MutationPPM || w.Config.CopyModel != wb.CopyModel || w.Config.Environment != wb.Environment || w.Config.CollectiveAblation != wb.CollectiveAblation || w.Config.Symbols != wb.Symbols || w.Config.BondMotion != wb.BondMotion {
 			return c, fmt.Errorf("frozen snapshot changed: %s", wb.ID)
 		}
 		source := builtinSource()

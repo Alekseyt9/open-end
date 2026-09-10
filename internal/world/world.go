@@ -27,6 +27,7 @@ type Config struct {
 	Environment        string `json:"environment,omitempty"`
 	CollectiveAblation string `json:"collective_ablation,omitempty"`
 	Symbols            string `json:"symbols,omitempty"`
+	BondMotion         string `json:"bond_motion,omitempty"`
 }
 
 func DefaultConfig() Config {
@@ -36,6 +37,9 @@ func DefaultConfig() Config {
 }
 
 func (c Config) Validate() error {
+	if c.BondMotion != "" && c.BondMotion != "yielding" {
+		return fmt.Errorf("bond_motion must be empty or yielding")
+	}
 	if c.Symbols != "" && c.Symbols != "persistent" && c.Symbols != "scrambled" && c.Symbols != "unreadable" {
 		return fmt.Errorf("symbols must be empty, persistent, scrambled, or unreadable")
 	}

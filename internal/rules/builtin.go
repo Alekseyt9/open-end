@@ -200,6 +200,9 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		p.Flag = p.Memory[vm.Index(i.A, 8)] >= i.B
 	case vm.MOVE:
 		if w.Linked(p.ID) {
+			if w.Config.BondMotion == "yielding" {
+				moveYielding(w, p, i.A, sink)
+			}
 			return
 		}
 		pos := destination(w, p, i.A, false)

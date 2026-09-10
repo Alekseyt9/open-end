@@ -299,6 +299,14 @@ go run ./cmd/adapt-assay -input data/symbols-stage15 -case symbols -out data/my-
 
 Adaptive allocation is a cross-stage research priority, not an organism class or physical fitness function. It measures limited benefits of memory and perception under resource changes, reserves validation challenges, and retains behavioral diversity and exploration. Selected original worlds continue with ordinary physics. [Protocol and limits](adaptivity.md) · [First round](../experiments/adaptivity/REPORT.md).
 
+## Collective reproduction follow-up
+
+```powershell
+go run ./cmd/multicell-assay -input data/environment-stage11 -case environment -out data/my-multicell-run -workers 16 -ticks 20000 -every 1000 -group-age 100
+```
+
+The assay compares original immobile bonds with optional `-bond-motion yielding`, records growth restrictions, and observes one-founder clonal daughter candidates separately from the historical multi-founder criterion. Yielding snapshots use format 8; ordinary worlds retain their existing formats. The [recorded comparison](../experiments/multicell-motion/REPORT.md) and [mechanics](multicell-motion.md) distinguish candidate persistence from inherited function. Mixed-genome qualification states can be preserved with `experiments/multicell-motion/witnesses.py`.
+
 ## Experimental Warp solver
 
 [warp-sim](../warp-sim/README.md) implements a GPU physics backend: all 17 opcodes, mutations, resource transport, bonds, both RNGs, and scheduled DSL transitions. It accepts validated Go snapshots and computes independent worlds on GPU. Genome and origin histories remain a Go feature; Warp outputs a physical report incompatible with `cmd/sim -load`.
