@@ -1,0 +1,37 @@
+{
+  "Status": "complete",
+  "Workers": 16,
+  "GOMAXPROCS": 1,
+  "Seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "Cases": [
+    "ecology",
+    "ecology-no-mutation",
+    "ecology-no-chemical-diffusion"
+  ],
+  "Ticks": 300000,
+  "Every": 10000,
+  "StartedUTC": "2026-09-10T13:39:09.6205133Z",
+  "SourceRevision": "02b8d0af5d3a081d2bad0882bff87b9a4fdc74a8",
+  "SourceDirty": true,
+  "BinarySHA256": "b48ad7ac68ee945fbc9f8723ff10c307aa9798becbc46a6a773f2397c7fdd846",
+  "Total": 48,
+  "Completed": 48,
+  "ElapsedSeconds": 365.0817653
+}

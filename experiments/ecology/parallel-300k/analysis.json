@@ -1,0 +1,4190 @@
+[
+  {
+    "case": "ecology",
+    "seed": 1,
+    "tick": 300000,
+    "entities": 683,
+    "genomes": 23,
+    "recent_copies": 9763,
+    "recent_ticks": 10000,
+    "state_sha256": "81d1460dfa56353ab8bddc4ee20b5fd0cc564305113a8638a59e0425b10e4476",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "05b26b88e4ed50a7e8a70e8d9bff312b9745526ed99aaf0db984669dec0c8e07",
+          "count": 291,
+          "frequency": 0.42668621700879766,
+          "min_count_observed": 291,
+          "copies_in_window": 10903,
+          "instructions_in_window": 8697498,
+          "moves_in_window": 115,
+          "binds_in_window": 10904,
+          "energy_transferred_in_window": 523344,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            3068840,
+            3085279
+          ],
+          "reaction_1_share": 0.5013356095324124,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "73f6216689b3e1004db73fed9f41bf488667b52c8cbc13f86745ba50450cbf51",
+          "count": 192,
+          "frequency": 0.28152492668621704,
+          "min_count_observed": 140,
+          "copies_in_window": 9622,
+          "instructions_in_window": 5496290,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            782042,
+            800026
+          ],
+          "reaction_1_share": 0.5056837000685179,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "a863f683a0bffcf2dec352fda53743abba9cff597a85e6861efb4d04a562ed75",
+          "count": 138,
+          "frequency": 0.20234604105571846,
+          "min_count_observed": 126,
+          "copies_in_window": 7825,
+          "instructions_in_window": 4016275,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1080407,
+            1098978
+          ],
+          "reaction_1_share": 0.5042606056295698,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "d71db489b0e3d632209d27fd7ed402d0e79f899636e659b29eb7510cbf4ef357",
+          "count": 33,
+          "frequency": 0.04838709677419355,
+          "min_count_observed": 33,
+          "copies_in_window": 50,
+          "instructions_in_window": 983767,
+          "moves_in_window": 0,
+          "binds_in_window": 50,
+          "energy_transferred_in_window": 2400,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            346890,
+            346874
+          ],
+          "reaction_1_share": 0.49998846870117214,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 2,
+    "tick": 300000,
+    "entities": 668,
+    "genomes": 72,
+    "recent_copies": 6794,
+    "recent_ticks": 10000,
+    "state_sha256": "4bc2cac0987901b96b751a7a0b3b68e4130122b9d72ada71a30f8c388962fb52",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "28118d4c78b4447406da421caf5077df68fc41d2b67ac55db656b7683ab09887",
+          "count": 56,
+          "frequency": 0.08433734939759036,
+          "min_count_observed": 56,
+          "copies_in_window": 3319,
+          "instructions_in_window": 1919082,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 159312,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            249057,
+            265586
+          ],
+          "reaction_1_share": 0.5160587047720459,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "28ae11444121fb94735281a6ad56fa9218f1d6bcdb786d134238acdb033b85b3",
+          "count": 13,
+          "frequency": 0.01957831325301205,
+          "min_count_observed": 11,
+          "copies_in_window": 4559,
+          "instructions_in_window": 368022,
+          "moves_in_window": 0,
+          "binds_in_window": 4559,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            134189,
+            146419
+          ],
+          "reaction_1_share": 0.5217919660166496,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "39b341e7ac4014938fe6c33dfb3accd2cf6a7275e935b3eb9be4613b60eb84c8",
+          "count": 54,
+          "frequency": 0.08132530120481928,
+          "min_count_observed": 40,
+          "copies_in_window": 1599,
+          "instructions_in_window": 1435913,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 76752,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            239060,
+            246694
+          ],
+          "reaction_1_share": 0.5078578869139523,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "3d6744afbd6af988f430b02852ff7fedf7a2ce5706ff70cdb987aa95c302acd4",
+          "count": 58,
+          "frequency": 0.08734939759036145,
+          "min_count_observed": 58,
+          "copies_in_window": 3409,
+          "instructions_in_window": 1805539,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            482176,
+            495221
+          ],
+          "reaction_1_share": 0.5066733374462987,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "56619202a57440700eda7df476a3c76ddede12cde4ed9231aca1fd22bceb2324",
+          "count": 17,
+          "frequency": 0.025602409638554216,
+          "min_count_observed": 10,
+          "copies_in_window": 1416,
+          "instructions_in_window": 500328,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            67845,
+            70427
+          ],
+          "reaction_1_share": 0.5093366697523721,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "6ea5f85f713e9abb3db190f7c15d56d173d9ed8b88cfa15bb4fdd5adc8432c99",
+          "count": 14,
+          "frequency": 0.02108433734939759,
+          "min_count_observed": 13,
+          "copies_in_window": 89,
+          "instructions_in_window": 420677,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 4272,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            138655,
+            137196
+          ],
+          "reaction_1_share": 0.4973554563876876,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "b1208090c6a4f2fc19318e16783199790f2be6cb7185d55eeda13d9307ed7701",
+          "count": 9,
+          "frequency": 0.01355421686746988,
+          "min_count_observed": 9,
+          "copies_in_window": 429,
+          "instructions_in_window": 318533,
+          "moves_in_window": 1337,
+          "binds_in_window": 429,
+          "energy_transferred_in_window": 20592,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            92116,
+            114832
+          ],
+          "reaction_1_share": 0.5548833523397182,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "ef58101995a4eeb6bb3d64b2c773544535315668cac1e0154b7650eaebf1a493",
+          "count": 25,
+          "frequency": 0.03765060240963856,
+          "min_count_observed": 22,
+          "copies_in_window": 144,
+          "instructions_in_window": 721360,
+          "moves_in_window": 927,
+          "binds_in_window": 144,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            210513,
+            209996
+          ],
+          "reaction_1_share": 0.4993852688051861,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "f48406521eb1f4422c8afa5aa99601989c0caca7747224cdabd6bb7934ef5dc2",
+          "count": 118,
+          "frequency": 0.17771084337349397,
+          "min_count_observed": 114,
+          "copies_in_window": 5204,
+          "instructions_in_window": 3521726,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            938593,
+            956228
+          ],
+          "reaction_1_share": 0.5046534738637581,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 3,
+    "tick": 300000,
+    "entities": 678,
+    "genomes": 46,
+    "recent_copies": 7345,
+    "recent_ticks": 10000,
+    "state_sha256": "ca49a93777df8e4f1170032e8a0d68709251efd815c45d0379d95318cf97fcd6",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "099eb757a2f4c965c7385a2ba7ca2f468b7052d79908eb55051d19a85e219a5d",
+          "count": 150,
+          "frequency": 0.2222222222222222,
+          "min_count_observed": 150,
+          "copies_in_window": 5275,
+          "instructions_in_window": 4535612,
+          "moves_in_window": 303,
+          "binds_in_window": 5277,
+          "energy_transferred_in_window": 253200,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1602972,
+            1650217
+          ],
+          "reaction_1_share": 0.5072613364916702,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "2e416123ad180ef302c2d12ae9cd3b48ef050a00b1de18a0f995685cc445c16b",
+          "count": 39,
+          "frequency": 0.057777777777777775,
+          "min_count_observed": 39,
+          "copies_in_window": 1492,
+          "instructions_in_window": 1602376,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 71616,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            416170,
+            422317
+          ],
+          "reaction_1_share": 0.5036655308907592,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "7b31115440b6afff17a27c1169f33e90599aaeaea0907056a32f1244d8b2c18a",
+          "count": 35,
+          "frequency": 0.05185185185185185,
+          "min_count_observed": 35,
+          "copies_in_window": 2339,
+          "instructions_in_window": 1461126,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 112272,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            198028,
+            203039
+          ],
+          "reaction_1_share": 0.5062470858983661,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "b101dcf3a6d6a10bfcd892e8e3fb7e012153ac11cf50ca9162bb00aa40754be5",
+          "count": 68,
+          "frequency": 0.10074074074074074,
+          "min_count_observed": 51,
+          "copies_in_window": 3210,
+          "instructions_in_window": 1859488,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 154080,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            248871,
+            255631
+          ],
+          "reaction_1_share": 0.5066996761162493,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "b3b48330c68c3bf39b9ce7da4a474dc622703efb9ddd551481da2955ea7c1cd2",
+          "count": 124,
+          "frequency": 0.1837037037037037,
+          "min_count_observed": 117,
+          "copies_in_window": 4466,
+          "instructions_in_window": 3630255,
+          "moves_in_window": 51,
+          "binds_in_window": 4466,
+          "energy_transferred_in_window": 214368,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1274483,
+            1297944
+          ],
+          "reaction_1_share": 0.504560090529294,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "d5437b954751f6b361a24b0994620007561f4d5c63fd4666c854924da67c86ae",
+          "count": 173,
+          "frequency": 0.2562962962962963,
+          "min_count_observed": 147,
+          "copies_in_window": 4854,
+          "instructions_in_window": 4766133,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 232992,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1242836,
+            1254980
+          ],
+          "reaction_1_share": 0.5024309236549049,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 4,
+    "tick": 300000,
+    "entities": 662,
+    "genomes": 98,
+    "recent_copies": 9709,
+    "recent_ticks": 10000,
+    "state_sha256": "349c1e247e08b995b43d8d3858f95a51d3ec862b4aba670d937f104f3924b089",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "9548b5e0cac63d19f59ba1e72d9fe6ccbf26b1474cfeb67315f9a52b67a891d4",
+          "count": 61,
+          "frequency": 0.09228441754916793,
+          "min_count_observed": 61,
+          "copies_in_window": 3801,
+          "instructions_in_window": 1889466,
+          "moves_in_window": 989,
+          "binds_in_window": 3801,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            522395,
+            549566
+          ],
+          "reaction_1_share": 0.5126735021143493,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "9b4c5175d25851e53c0aa5ddce5233f001f4f3711a80ddc24c9811a1f79df654",
+          "count": 10,
+          "frequency": 0.015128593040847202,
+          "min_count_observed": 9,
+          "copies_in_window": 354,
+          "instructions_in_window": 308620,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            81905,
+            86643
+          ],
+          "reaction_1_share": 0.5140553432849989,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "9e9a33cecdae3eff23294d01f62f6b1d981d21f0d1c5664233cbcdc70af3cea6",
+          "count": 15,
+          "frequency": 0.0226928895612708,
+          "min_count_observed": 14,
+          "copies_in_window": 764,
+          "instructions_in_window": 523086,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 36672,
+          "energy_taken_in_window": 35698,
+          "converted_in_window": [
+            136715,
+            140993
+          ],
+          "reaction_1_share": 0.5077023348265084,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "bf7576f9c88a0be492d58cc4783f4e5575c7d8f6d60db663283142908babc3f4",
+          "count": 58,
+          "frequency": 0.08774583963691376,
+          "min_count_observed": 58,
+          "copies_in_window": 2540,
+          "instructions_in_window": 1830902,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 121920,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            489222,
+            505776
+          ],
+          "reaction_1_share": 0.5083186096856476,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "dc91faa8c713a90ed0eb5c37ee2fde57d21e1f8272890876682846065df5529e",
+          "count": 24,
+          "frequency": 0.036308623298033284,
+          "min_count_observed": 21,
+          "copies_in_window": 619,
+          "instructions_in_window": 651963,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 29712,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            170031,
+            177581
+          ],
+          "reaction_1_share": 0.5108598092125703,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "e54bc13654fe828f8d20786407b90f22d222be30f0c0218dee12ab98ffb5c4ea",
+          "count": 211,
+          "frequency": 0.31921331316187596,
+          "min_count_observed": 211,
+          "copies_in_window": 10991,
+          "instructions_in_window": 6535186,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 527568,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2291461,
+            2381674
+          ],
+          "reaction_1_share": 0.5096522997944635,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "eda693b7c1dce397887575bb3de0f6eed5d8b6674c4703e943bc2aaa27f94f06",
+          "count": 33,
+          "frequency": 0.049924357034795766,
+          "min_count_observed": 30,
+          "copies_in_window": 919,
+          "instructions_in_window": 946493,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            296614,
+            303529
+          ],
+          "reaction_1_share": 0.5057611269314147,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "fe6be4d9b2bf30ba505aef74923c00941bf5b084183084711d8a5af4b0465acb",
+          "count": 83,
+          "frequency": 0.12556732223903178,
+          "min_count_observed": 83,
+          "copies_in_window": 8700,
+          "instructions_in_window": 2600366,
+          "moves_in_window": 337921,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            661560,
+            704564
+          ],
+          "reaction_1_share": 0.5157394204332842,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 5,
+    "tick": 300000,
+    "entities": 663,
+    "genomes": 99,
+    "recent_copies": 10286,
+    "recent_ticks": 10000,
+    "state_sha256": "473bbb622b1452f8a570757454d1e9780b78271cab0df3fb800ca4e0683d5c9e",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "17892df388b7068caaf991713eea5b1ba55df3e3fda50d78a8296bbf62636b40",
+          "count": 85,
+          "frequency": 0.1282051282051282,
+          "min_count_observed": 85,
+          "copies_in_window": 2135,
+          "instructions_in_window": 2560784,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 102480,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            686163,
+            718996
+          ],
+          "reaction_1_share": 0.5116830195017076,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "55c4bad21ea8f28e8ff8706ae5e8700053c8a03cc1feb1cb1273d9ca1551d62d",
+          "count": 9,
+          "frequency": 0.013574660633484163,
+          "min_count_observed": 8,
+          "copies_in_window": 6698,
+          "instructions_in_window": 272849,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            91543,
+            104069
+          ],
+          "reaction_1_share": 0.5320174631413206,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 157,
+          "frequency": 0.2368024132730015,
+          "min_count_observed": 157,
+          "copies_in_window": 15337,
+          "instructions_in_window": 4995393,
+          "moves_in_window": 414290,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1508604,
+            1598843
+          ],
+          "reaction_1_share": 0.514519797119629,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+          "count": 65,
+          "frequency": 0.09803921568627451,
+          "min_count_observed": 58,
+          "copies_in_window": 500,
+          "instructions_in_window": 1889419,
+          "moves_in_window": 9406,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 24000,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            666796,
+            702314
+          ],
+          "reaction_1_share": 0.5129712002687877,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "af4fd802810b1623faf0772bf66f32631699fe3f9e41e89945c2ffca8adecf08",
+          "count": 71,
+          "frequency": 0.10708898944193061,
+          "min_count_observed": 70,
+          "copies_in_window": 2512,
+          "instructions_in_window": 2131310,
+          "moves_in_window": 8125,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            801979,
+            848198
+          ],
+          "reaction_1_share": 0.5140042553010981,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "e7fe1f3fa460069c3780cc160d741959028b20df078d009fd24760658531e3e8",
+          "count": 46,
+          "frequency": 0.0693815987933635,
+          "min_count_observed": 40,
+          "copies_in_window": 1350,
+          "instructions_in_window": 1276929,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 64800,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            337725,
+            357286
+          ],
+          "reaction_1_share": 0.514072439141251,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "f10525711d9654b0a31b98d80cc893133e53aa8d97e83040e26b89be030a226a",
+          "count": 64,
+          "frequency": 0.09653092006033183,
+          "min_count_observed": 59,
+          "copies_in_window": 1716,
+          "instructions_in_window": 1947126,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 82320,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            501942,
+            536631
+          ],
+          "reaction_1_share": 0.5167003186102469,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 6,
+    "tick": 300000,
+    "entities": 669,
+    "genomes": 88,
+    "recent_copies": 9905,
+    "recent_ticks": 10000,
+    "state_sha256": "db02bf9ccecd69e36378bdeab1addcd2b8ff8ff4870d82b19278ab89d83ac948",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 8,
+          "frequency": 0.01199400299850075,
+          "min_count_observed": 7,
+          "copies_in_window": 879,
+          "instructions_in_window": 273111,
+          "moves_in_window": 4418,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            92890,
+            102560
+          ],
+          "reaction_1_share": 0.5247377845996418,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+          "count": 107,
+          "frequency": 0.16041979010494753,
+          "min_count_observed": 103,
+          "copies_in_window": 146,
+          "instructions_in_window": 3175449,
+          "moves_in_window": 356,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 7008,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1239686,
+            1278647
+          ],
+          "reaction_1_share": 0.5077354742204466,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "955f4c492adba7d6487502611d5af1eef63e642c61e160038878b6eadb09c4b1",
+          "count": 120,
+          "frequency": 0.17991004497751126,
+          "min_count_observed": 119,
+          "copies_in_window": 9563,
+          "instructions_in_window": 3633326,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1234418,
+            1314545
+          ],
+          "reaction_1_share": 0.5157175682816895,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "95f1dac6108e73040839ff02bfe0d75bb578a819b2cd10074cf0a39a5ad62c50",
+          "count": 30,
+          "frequency": 0.044977511244377814,
+          "min_count_observed": 23,
+          "copies_in_window": 1442,
+          "instructions_in_window": 859179,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 69264,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            111649,
+            117795
+          ],
+          "reaction_1_share": 0.5133932462823173,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "a5fb9d0bbc59270dddcf246f4dfe57b510686de5b6d403e7865ff87322faca41",
+          "count": 54,
+          "frequency": 0.08095952023988005,
+          "min_count_observed": 53,
+          "copies_in_window": 4774,
+          "instructions_in_window": 1604423,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            547770,
+            575445
+          ],
+          "reaction_1_share": 0.5123195470145965,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "abbba6a4c30d32976afbb7622fccdb406932b6a12fd8cb538fcae79481980671",
+          "count": 171,
+          "frequency": 0.2563718140929535,
+          "min_count_observed": 162,
+          "copies_in_window": 5693,
+          "instructions_in_window": 5074307,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 273264,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1319008,
+            1368989
+          ],
+          "reaction_1_share": 0.5092970713881005,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "abfe3aa5c6db4e6ab44be29ed6caa729e833298045add4ac015dd616f8190242",
+          "count": 38,
+          "frequency": 0.05697151424287856,
+          "min_count_observed": 31,
+          "copies_in_window": 2109,
+          "instructions_in_window": 1229491,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 101232,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            162230,
+            167558
+          ],
+          "reaction_1_share": 0.5080779167222579,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "b3b29224909070a6dfca083a0160b3832eaf7b26f1af25e013ac17396fe7687e",
+          "count": 14,
+          "frequency": 0.020989505247376312,
+          "min_count_observed": 8,
+          "copies_in_window": 855,
+          "instructions_in_window": 260344,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            35365,
+            37743
+          ],
+          "reaction_1_share": 0.5162636100016414,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "f11af599d869648f4c8e224c11f77603fc4a1d3a4df1cc2e6e23763653cd0387",
+          "count": 15,
+          "frequency": 0.022488755622188907,
+          "min_count_observed": 15,
+          "copies_in_window": 1320,
+          "instructions_in_window": 866235,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 63360,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            115358,
+            122655
+          ],
+          "reaction_1_share": 0.5153289946347468,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "fe1844a93418f66a8fe7a1d01a5159f3fbb76affe928fd54714b72b5f676d629",
+          "count": 9,
+          "frequency": 0.013493253373313344,
+          "min_count_observed": 9,
+          "copies_in_window": 965,
+          "instructions_in_window": 295442,
+          "moves_in_window": 3490,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            105372,
+            123994
+          ],
+          "reaction_1_share": 0.5405945083403817,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 7,
+    "tick": 300000,
+    "entities": 665,
+    "genomes": 34,
+    "recent_copies": 13827,
+    "recent_ticks": 10000,
+    "state_sha256": "c97ac858f2524f5382a01e3e3419581d6289ce7ccef6491fef42fe0dfcbcbbe1",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "006ec6ca400504583a3168f5f7ceae85920e5e57370bfe4f48808c111031d738",
+          "count": 94,
+          "frequency": 0.14135338345864662,
+          "min_count_observed": 92,
+          "copies_in_window": 19082,
+          "instructions_in_window": 2815256,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1018302,
+            1052913
+          ],
+          "reaction_1_share": 0.5083552407644788,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "3031dfbe3c25ad7e24d755bb9ebf0ae53c7b5dad2e811b517aabb05c1507dc8e",
+          "count": 5,
+          "frequency": 0.007518796992481203,
+          "min_count_observed": 5,
+          "copies_in_window": 3738,
+          "instructions_in_window": 314205,
+          "moves_in_window": 75,
+          "binds_in_window": 3738,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            102797,
+            110391
+          ],
+          "reaction_1_share": 0.5178105709514607,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "d26debb02ca928cf0afeb3af0171769054badd840ef2a85d4e25afa9118e5776",
+          "count": 222,
+          "frequency": 0.33383458646616543,
+          "min_count_observed": 213,
+          "copies_in_window": 10261,
+          "instructions_in_window": 6582624,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1764555,
+            1792998
+          ],
+          "reaction_1_share": 0.5039975511257316,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 8,
+    "tick": 300000,
+    "entities": 668,
+    "genomes": 78,
+    "recent_copies": 12579,
+    "recent_ticks": 10000,
+    "state_sha256": "b557688a0d8a5cefd0e217f8bdcc8f7c527e171c0c14590cd41e0ef984fc9f0e",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "10cb95cd915798323bd9149a4ff1ec29a6359d28b13bd9f6bd5a9e73fec6d927",
+          "count": 13,
+          "frequency": 0.01957831325301205,
+          "min_count_observed": 13,
+          "copies_in_window": 7414,
+          "instructions_in_window": 409250,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            135049,
+            147785
+          ],
+          "reaction_1_share": 0.5225149734473225,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "3e2f52874e306ef39de5f6f16d3c7546e9a4ac21ca62176c725352dec6fd836e",
+          "count": 272,
+          "frequency": 0.40963855421686746,
+          "min_count_observed": 272,
+          "copies_in_window": 9303,
+          "instructions_in_window": 8577825,
+          "moves_in_window": 61516,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            3003587,
+            3164285
+          ],
+          "reaction_1_share": 0.5130270213130234,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "75307df15390723d85a13fba9100813876538d3f013535661c498d0c8c11bd5d",
+          "count": 87,
+          "frequency": 0.13102409638554216,
+          "min_count_observed": 87,
+          "copies_in_window": 5275,
+          "instructions_in_window": 2665510,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            720453,
+            758968
+          ],
+          "reaction_1_share": 0.5130169167532433,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 95,
+          "frequency": 0.1430722891566265,
+          "min_count_observed": 95,
+          "copies_in_window": 9600,
+          "instructions_in_window": 2966027,
+          "moves_in_window": 385585,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            754114,
+            794583
+          ],
+          "reaction_1_share": 0.5130654995780324,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "905951cb57e997062c44d9450ceef0f9db5a1ebc14bee714bc6247bae6c8a9c7",
+          "count": 51,
+          "frequency": 0.07680722891566265,
+          "min_count_observed": 23,
+          "copies_in_window": 505,
+          "instructions_in_window": 1230566,
+          "moves_in_window": 16144,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            365365,
+            387490
+          ],
+          "reaction_1_share": 0.5146940645941117,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "9b884b04c7ffc7b54dab3895c7d9cde36fed8ce301f2361a0003e797546f51f7",
+          "count": 24,
+          "frequency": 0.03614457831325301,
+          "min_count_observed": 20,
+          "copies_in_window": 1963,
+          "instructions_in_window": 708486,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 20650,
+          "converted_in_window": [
+            190203,
+            204966
+          ],
+          "reaction_1_share": 0.5186793498477866,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 9,
+    "tick": 300000,
+    "entities": 684,
+    "genomes": 72,
+    "recent_copies": 5098,
+    "recent_ticks": 10000,
+    "state_sha256": "2cb4c44e7fbeb14b6dd737599e003c749dbbe7cda779f1adeee3cc69e2afb6f0",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "19eca93c47d0a4834d607fe9912269d1ee2d643821e7b24db90035e42d7612c7",
+          "count": 22,
+          "frequency": 0.03225806451612903,
+          "min_count_observed": 19,
+          "copies_in_window": 2110,
+          "instructions_in_window": 628092,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 101280,
+          "energy_taken_in_window": 26796,
+          "converted_in_window": [
+            226831,
+            256384
+          ],
+          "reaction_1_share": 0.5305795556843227,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "264584cdc35245bb13c66bd8654a67f918803cb6618746b834ae164932090adf",
+          "count": 39,
+          "frequency": 0.05718475073313783,
+          "min_count_observed": 39,
+          "copies_in_window": 1161,
+          "instructions_in_window": 1236408,
+          "moves_in_window": 127,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            188501,
+            193117
+          ],
+          "reaction_1_share": 0.5060479327495034,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "286bc2cf3a13d7d0a81207ca2b59944e50fb62cb4a42fc845b8998d738beea94",
+          "count": 82,
+          "frequency": 0.12023460410557185,
+          "min_count_observed": 82,
+          "copies_in_window": 4909,
+          "instructions_in_window": 2614438,
+          "moves_in_window": 19962,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 235632,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            360911,
+            395246
+          ],
+          "reaction_1_share": 0.522703618428448,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "3ae12f50732f55bc94de009adb0a3417597ccbeff42d55ff4716192e4249763f",
+          "count": 29,
+          "frequency": 0.04252199413489736,
+          "min_count_observed": 26,
+          "copies_in_window": 3227,
+          "instructions_in_window": 835027,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 154944,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            273928,
+            311142
+          ],
+          "reaction_1_share": 0.5318030321158153,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "46b2222182dbf8a6224706acd4331c12d13008d3c900bead7a4cfaab1f31dc3a",
+          "count": 98,
+          "frequency": 0.1436950146627566,
+          "min_count_observed": 89,
+          "copies_in_window": 889,
+          "instructions_in_window": 2800847,
+          "moves_in_window": 284,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 42672,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            413361,
+            419286
+          ],
+          "reaction_1_share": 0.5035579303114045,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "4887d2c7fd3051b1feff1a75c64b4a2edc1bddd3ce0c93f4ebe4bc36ab294955",
+          "count": 22,
+          "frequency": 0.03225806451612903,
+          "min_count_observed": 20,
+          "copies_in_window": 2927,
+          "instructions_in_window": 656542,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 140496,
+          "energy_taken_in_window": 61731,
+          "converted_in_window": [
+            229713,
+            244663
+          ],
+          "reaction_1_share": 0.5157575425400948,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "e40474344d54136ed260527628a517b38a3a7f07c93d4f1b78b2cbd88ee9cfc1",
+          "count": 94,
+          "frequency": 0.1378299120234604,
+          "min_count_observed": 94,
+          "copies_in_window": 187,
+          "instructions_in_window": 3026616,
+          "moves_in_window": 507,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 8976,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            487052,
+            500347
+          ],
+          "reaction_1_share": 0.50673233414253,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 10,
+    "tick": 300000,
+    "entities": 674,
+    "genomes": 74,
+    "recent_copies": 7913,
+    "recent_ticks": 10000,
+    "state_sha256": "0eeba35c8d31557adecb8078dab663cde2661f86b79ce3fdcc89d16c27debcc0",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "0805030fd30003ae5e30f36a6f0ab22282bd3ade3cad9119d20c856ab6de843f",
+          "count": 19,
+          "frequency": 0.02823179791976226,
+          "min_count_observed": 10,
+          "copies_in_window": 584,
+          "instructions_in_window": 487549,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            129385,
+            133444
+          ],
+          "reaction_1_share": 0.5077217506439549,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "25207231d55259873566573fbb9b352ab53d5ca6f4b11ba4943bb605927011a4",
+          "count": 219,
+          "frequency": 0.32540861812778604,
+          "min_count_observed": 219,
+          "copies_in_window": 7417,
+          "instructions_in_window": 6578532,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 355968,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2279975,
+            2327710
+          ],
+          "reaction_1_share": 0.5051799330900442,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "2afb1568e7417b70b3e0974442253f965836b716793e362cff3c0eb1ab62ed6e",
+          "count": 96,
+          "frequency": 0.1426448736998514,
+          "min_count_observed": 93,
+          "copies_in_window": 2925,
+          "instructions_in_window": 2830319,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 140400,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            950221,
+            984169
+          ],
+          "reaction_1_share": 0.5087748592579573,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "88127463092a3a9a3378e6e2f22088df8caed9aeb1738d596de8f539b4899b8a",
+          "count": 32,
+          "frequency": 0.0475482912332838,
+          "min_count_observed": 32,
+          "copies_in_window": 1281,
+          "instructions_in_window": 1072986,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            286354,
+            295045
+          ],
+          "reaction_1_share": 0.507474213061942,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "d2fca86f399ef32d3911983e6e566a8834f31f566936631c32a483394d736392",
+          "count": 25,
+          "frequency": 0.03714710252600297,
+          "min_count_observed": 24,
+          "copies_in_window": 261,
+          "instructions_in_window": 785938,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 12528,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            202166,
+            205965
+          ],
+          "reaction_1_share": 0.504654142909997,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "dcae53359ae7f9ab6874478cdf2fb69e4697c8836ed9cae248e6e3a5d23203f0",
+          "count": 88,
+          "frequency": 0.13075780089153047,
+          "min_count_observed": 88,
+          "copies_in_window": 8930,
+          "instructions_in_window": 2714471,
+          "moves_in_window": 353075,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            687880,
+            737790
+          ],
+          "reaction_1_share": 0.5175040507270265,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "fcd46b332ce2db8ac87a319fb33cd0047fddaf229a0400db65f926263256b257",
+          "count": 87,
+          "frequency": 0.12927191679049035,
+          "min_count_observed": 86,
+          "copies_in_window": 1717,
+          "instructions_in_window": 2749905,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 82416,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            709591,
+            727253
+          ],
+          "reaction_1_share": 0.5061461091113579,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 11,
+    "tick": 300000,
+    "entities": 661,
+    "genomes": 62,
+    "recent_copies": 13822,
+    "recent_ticks": 10000,
+    "state_sha256": "b9e03abd7bd036acafa5eaf5450c7a49f463a0e106960697ee591c351d3903aa",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "151f7a498b592a93521594c1f4f00448f235ff01d40f4969720fe1735a56a566",
+          "count": 10,
+          "frequency": 0.01524390243902439,
+          "min_count_observed": 10,
+          "copies_in_window": 271,
+          "instructions_in_window": 308444,
+          "moves_in_window": 0,
+          "binds_in_window": 271,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            114371,
+            113336
+          ],
+          "reaction_1_share": 0.4977273425937718,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "2279ea0eedc784c41bbbd7e8b3916f82a2ea757812d05e8a5bdafaccd438d5f2",
+          "count": 106,
+          "frequency": 0.16158536585365854,
+          "min_count_observed": 99,
+          "copies_in_window": 8542,
+          "instructions_in_window": 2979811,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            421371,
+            432568
+          ],
+          "reaction_1_share": 0.5065560889009636,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "7c975b49cb1561f1d4893eb2c55eefb377724c757765d03b07ef0cafe24c2214",
+          "count": 6,
+          "frequency": 0.009146341463414634,
+          "min_count_observed": 6,
+          "copies_in_window": 574,
+          "instructions_in_window": 188839,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 7539,
+          "converted_in_window": [
+            51414,
+            55776
+          ],
+          "reaction_1_share": 0.5203470472991883,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "9dcae5190bf8b112bc86568b44de55f68fa2a09bf92552bf5e0339c480524295",
+          "count": 77,
+          "frequency": 0.1173780487804878,
+          "min_count_observed": 76,
+          "copies_in_window": 4840,
+          "instructions_in_window": 2374224,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            639617,
+            659877
+          ],
+          "reaction_1_share": 0.5077953418792237,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "ab19fe95a8af3e58a3c59f40a6818e1e89fbedf0c3fe4574705c3e3ac112d679",
+          "count": 160,
+          "frequency": 0.24390243902439024,
+          "min_count_observed": 160,
+          "copies_in_window": 13965,
+          "instructions_in_window": 4873522,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1452732,
+            1499587
+          ],
+          "reaction_1_share": 0.5079352874807905,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "d4565a50812a0fa1305cbd37743e9595b05e627fc64d04ff6a8d5aacca95e50a",
+          "count": 145,
+          "frequency": 0.22103658536585366,
+          "min_count_observed": 144,
+          "copies_in_window": 11954,
+          "instructions_in_window": 4308873,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1623710,
+            1715277
+          ],
+          "reaction_1_share": 0.5137117934271682,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 12,
+    "tick": 300000,
+    "entities": 667,
+    "genomes": 58,
+    "recent_copies": 12916,
+    "recent_ticks": 10000,
+    "state_sha256": "0675233595adb5e5736c38ee38300bc6cfbdb544cf1f1b1af39a2819324f2110",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "15d345868ca66f3423e722101e6261af0d46d9e7532123b8349660d9ad163765",
+          "count": 6,
+          "frequency": 0.009022556390977444,
+          "min_count_observed": 6,
+          "copies_in_window": 480,
+          "instructions_in_window": 205599,
+          "moves_in_window": 1,
+          "binds_in_window": 480,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            57302,
+            60591
+          ],
+          "reaction_1_share": 0.5139490894285497,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "1dbc698921ad508a4e4e2424f2bae6ed3ee3c288791b95edd6364e3ca31130d2",
+          "count": 117,
+          "frequency": 0.17593984962406015,
+          "min_count_observed": 115,
+          "copies_in_window": 5306,
+          "instructions_in_window": 3522386,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            927553,
+            962382
+          ],
+          "reaction_1_share": 0.5092143380592454,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "21f06fd46bf1860b6b9efbfa4c540dc1052bf3dfa76d38bd5244c9c0a565a9ad",
+          "count": 52,
+          "frequency": 0.07819548872180451,
+          "min_count_observed": 45,
+          "copies_in_window": 3225,
+          "instructions_in_window": 1438797,
+          "moves_in_window": 57373,
+          "binds_in_window": 967,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            380518,
+            392614
+          ],
+          "reaction_1_share": 0.5078227262614922,
+          "observed_profile": "frequent-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "335bb31ee9c6af212908950089740273dcf9dba011e38c15c5abb676367dcabc",
+          "count": 79,
+          "frequency": 0.11879699248120301,
+          "min_count_observed": 76,
+          "copies_in_window": 1047,
+          "instructions_in_window": 2325412,
+          "moves_in_window": 0,
+          "binds_in_window": 1047,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            805755,
+            814685
+          ],
+          "reaction_1_share": 0.5027554244526178,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "551f7f75f08eb519a4436741cb2f0da9a4604554bf1acdac93552120fc0c5646",
+          "count": 12,
+          "frequency": 0.01804511278195489,
+          "min_count_observed": 12,
+          "copies_in_window": 149,
+          "instructions_in_window": 363234,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            134453,
+            135550
+          ],
+          "reaction_1_share": 0.5020314589097158,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "64c8feea8ba779825f7ee3825c132660f7ec034fc9fa0af6411d2faca6820e0e",
+          "count": 176,
+          "frequency": 0.2646616541353383,
+          "min_count_observed": 173,
+          "copies_in_window": 16751,
+          "instructions_in_window": 5279274,
+          "moves_in_window": 0,
+          "binds_in_window": 16749,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1859713,
+            1894774
+          ],
+          "reaction_1_share": 0.5046692131308484,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 69,
+          "frequency": 0.1037593984962406,
+          "min_count_observed": 69,
+          "copies_in_window": 7512,
+          "instructions_in_window": 2232011,
+          "moves_in_window": 289188,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            569980,
+            594580
+          ],
+          "reaction_1_share": 0.510561928968881,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "e52cf58b23a5c93a425ded238d91582cc7831d391ab6142e5816ebadcc18d87b",
+          "count": 50,
+          "frequency": 0.07518796992481203,
+          "min_count_observed": 49,
+          "copies_in_window": 3078,
+          "instructions_in_window": 1546716,
+          "moves_in_window": 1,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 147744,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            553597,
+            574454
+          ],
+          "reaction_1_share": 0.5092447061347404,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions",
+        "frequent-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 13,
+    "tick": 300000,
+    "entities": 659,
+    "genomes": 64,
+    "recent_copies": 11997,
+    "recent_ticks": 10000,
+    "state_sha256": "759c5eb026d02c40f48ddae4a1630c9b5331e94bd3a319c84207de2599e1b540",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "2a00f82e210f3a87ebc3527582cc318fc871a1b76b3799dff99cd72c17703e70",
+          "count": 105,
+          "frequency": 0.16055045871559634,
+          "min_count_observed": 98,
+          "copies_in_window": 5551,
+          "instructions_in_window": 3134827,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            832808,
+            863426
+          ],
+          "reaction_1_share": 0.5090252877845863,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "4fe511195fdddb515a68023cee84bf3b9b08369c3cc1f4edecb4837986b75abf",
+          "count": 5,
+          "frequency": 0.00764525993883792,
+          "min_count_observed": 5,
+          "copies_in_window": 690,
+          "instructions_in_window": 174236,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            48811,
+            50149
+          ],
+          "reaction_1_share": 0.5067603071948262,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "86dac471882ebe83918ec330afeb8695caa1b7d76e57c950c1bd385b759f476c",
+          "count": 12,
+          "frequency": 0.01834862385321101,
+          "min_count_observed": 10,
+          "copies_in_window": 630,
+          "instructions_in_window": 339160,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            93541,
+            98644
+          ],
+          "reaction_1_share": 0.5132762702604261,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 97,
+          "frequency": 0.14831804281345565,
+          "min_count_observed": 97,
+          "copies_in_window": 9958,
+          "instructions_in_window": 3042408,
+          "moves_in_window": 400821,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            769461,
+            813785
+          ],
+          "reaction_1_share": 0.5139978247221215,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "af4fd802810b1623faf0772bf66f32631699fe3f9e41e89945c2ffca8adecf08",
+          "count": 288,
+          "frequency": 0.44036697247706424,
+          "min_count_observed": 288,
+          "copies_in_window": 16201,
+          "instructions_in_window": 8796301,
+          "moves_in_window": 66493,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            3170852,
+            3296985
+          ],
+          "reaction_1_share": 0.5097507868550182,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "baf483d6ab2e92a9e4de8a25b2ce32908a5d9fc849bdad0739faa6025c3044f2",
+          "count": 7,
+          "frequency": 0.010703363914373088,
+          "min_count_observed": 7,
+          "copies_in_window": 324,
+          "instructions_in_window": 256452,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            77188,
+            84577
+          ],
+          "reaction_1_share": 0.5228386857478441,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "f197b29738757e1a69181ad4ebb9bfeddaada14af47b7e5f65a93b2eff444b61",
+          "count": 36,
+          "frequency": 0.05504587155963303,
+          "min_count_observed": 31,
+          "copies_in_window": 1630,
+          "instructions_in_window": 1051278,
+          "moves_in_window": 311,
+          "binds_in_window": 1630,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            289058,
+            302609
+          ],
+          "reaction_1_share": 0.5114515428442012,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 14,
+    "tick": 300000,
+    "entities": 665,
+    "genomes": 64,
+    "recent_copies": 13198,
+    "recent_ticks": 10000,
+    "state_sha256": "6a36c5145beb1e81634b8fd8f28c0dec83ba53860dd2d5870666f3322f0cf402",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "21588c572ae77df5afbd354dba4cecad3c7d362e808c8cf9b49ef180701ebee0",
+          "count": 6,
+          "frequency": 0.00906344410876133,
+          "min_count_observed": 6,
+          "copies_in_window": 5140,
+          "instructions_in_window": 178935,
+          "moves_in_window": 0,
+          "binds_in_window": 1750,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            62545,
+            66694
+          ],
+          "reaction_1_share": 0.5160516562337994,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "418d5d42d2b15170d194de043339087a79754f9a8bb1394833ac3b5cd4a9f803",
+          "count": 13,
+          "frequency": 0.019637462235649546,
+          "min_count_observed": 9,
+          "copies_in_window": 7755,
+          "instructions_in_window": 321378,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            134931,
+            138570
+          ],
+          "reaction_1_share": 0.5066526264986234,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "858631ccb065da2f13ef4260cca1e3bd594532a31c63655e50787aa51d019931",
+          "count": 255,
+          "frequency": 0.3851963746223565,
+          "min_count_observed": 250,
+          "copies_in_window": 11910,
+          "instructions_in_window": 7660511,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2129710,
+            2188218
+          ],
+          "reaction_1_share": 0.5067750087541988,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 270,
+          "frequency": 0.4078549848942598,
+          "min_count_observed": 266,
+          "copies_in_window": 13611,
+          "instructions_in_window": 8151959,
+          "moves_in_window": 372941,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2736905,
+            2935493
+          ],
+          "reaction_1_share": 0.5175047660619019,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 15,
+    "tick": 300000,
+    "entities": 676,
+    "genomes": 40,
+    "recent_copies": 14205,
+    "recent_ticks": 10000,
+    "state_sha256": "c067d69cf71303e6b623404a694aa04f70d585a36cf4476dcdb10fcf2208934f",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "15ca6a181eb68ff409e0b91a4a266742b1892e8b7efd3d2651e77b86fd3a18e7",
+          "count": 17,
+          "frequency": 0.025297619047619048,
+          "min_count_observed": 15,
+          "copies_in_window": 15657,
+          "instructions_in_window": 551132,
+          "moves_in_window": 0,
+          "binds_in_window": 5313,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            199808,
+            207023
+          ],
+          "reaction_1_share": 0.5088673183705273,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 227,
+          "frequency": 0.33779761904761907,
+          "min_count_observed": 226,
+          "copies_in_window": 4412,
+          "instructions_in_window": 6821468,
+          "moves_in_window": 12405,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2558993,
+            2627901
+          ],
+          "reaction_1_share": 0.5066425109130821,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "bcd0d8eb50cb941ec9decef54f7ec7d157ab28283b70d303a54ef08bb141d7a7",
+          "count": 331,
+          "frequency": 0.49255952380952384,
+          "min_count_observed": 331,
+          "copies_in_window": 10819,
+          "instructions_in_window": 10198077,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1542710,
+            1592932
+          ],
+          "reaction_1_share": 0.5080082483906007,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "d537c95a597dd2bda7af358c6d0b072b5872e29f6796c29cae9fcdeaac527feb",
+          "count": 7,
+          "frequency": 0.010416666666666666,
+          "min_count_observed": 7,
+          "copies_in_window": 3546,
+          "instructions_in_window": 192841,
+          "moves_in_window": 0,
+          "binds_in_window": 532,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            71009,
+            75692
+          ],
+          "reaction_1_share": 0.5159610363937532,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "dcd41b64848971e038b0df74431ae1c252d09672619c21b7f0ceda8fc9761da0",
+          "count": 35,
+          "frequency": 0.052083333333333336,
+          "min_count_observed": 27,
+          "copies_in_window": 3073,
+          "instructions_in_window": 881606,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            236513,
+            237016
+          ],
+          "reaction_1_share": 0.5005311184742645,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology",
+    "seed": 16,
+    "tick": 300000,
+    "entities": 655,
+    "genomes": 40,
+    "recent_copies": 13994,
+    "recent_ticks": 10000,
+    "state_sha256": "0dac9f518716c3ed97af25a5902c1f62b2dcc4a51864761ac6de415f7a4cbc33",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "135d229bb9a59b9bf858de02350c9d5924901cb0b4977e8a21fcf3dfc0b2d9fb",
+          "count": 33,
+          "frequency": 0.05061349693251534,
+          "min_count_observed": 33,
+          "copies_in_window": 2332,
+          "instructions_in_window": 1170676,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 26042,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            313876,
+            316080
+          ],
+          "reaction_1_share": 0.5017493285245319,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "586e87bdc0ad2f8b229e64a13b2481995f73f019c75e8902a9c4737dd2f2229f",
+          "count": 48,
+          "frequency": 0.0736196319018405,
+          "min_count_observed": 47,
+          "copies_in_window": 12690,
+          "instructions_in_window": 1445980,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 80277,
+          "converted_in_window": [
+            565380,
+            573087
+          ],
+          "reaction_1_share": 0.503384814843118,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "5ab2b346c31b99c771091bebaadfb3ee96eea8e99f4aec50da6e39c4e1f8cb6c",
+          "count": 179,
+          "frequency": 0.2745398773006135,
+          "min_count_observed": 176,
+          "copies_in_window": 3494,
+          "instructions_in_window": 5340692,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1725168,
+            1752269
+          ],
+          "reaction_1_share": 0.503896691730145,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "646ed4f2c6706f3b606c6aa87a2421d6802533714d9c6c109178d85605d7ddbe",
+          "count": 101,
+          "frequency": 0.1549079754601227,
+          "min_count_observed": 101,
+          "copies_in_window": 9770,
+          "instructions_in_window": 3141031,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            442506,
+            456275
+          ],
+          "reaction_1_share": 0.507659819244065,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "bedb720adee936d3ece3cb86554837b12f60a97e7f68a43c9ac9cd21a925a887",
+          "count": 15,
+          "frequency": 0.023006134969325152,
+          "min_count_observed": 15,
+          "copies_in_window": 6463,
+          "instructions_in_window": 497440,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            223449,
+            231825
+          ],
+          "reaction_1_share": 0.5091988560734855,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "fccf0ca9572c5282092a9d647e054a42ea4ac8adeb767616f3ec78c53f4c1f68",
+          "count": 116,
+          "frequency": 0.17791411042944785,
+          "min_count_observed": 101,
+          "copies_in_window": 6852,
+          "instructions_in_window": 3245540,
+          "moves_in_window": 0,
+          "binds_in_window": 6801,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            873701,
+            893224
+          ],
+          "reaction_1_share": 0.5055245695204946,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 1,
+    "tick": 300000,
+    "entities": 662,
+    "genomes": 112,
+    "recent_copies": 15117,
+    "recent_ticks": 10000,
+    "state_sha256": "e7f78d6a2fcf631f3695f7e10623e36f600783d8eb9d6cc0d0198e731929dd83",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "1a2ac51cd1fde50491eb5d7ea46a2a51cd0d08ba225776a97c49511bb43edaf6",
+          "count": 112,
+          "frequency": 0.1696969696969697,
+          "min_count_observed": 112,
+          "copies_in_window": 10387,
+          "instructions_in_window": 3411390,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1081102,
+            1081102
+          ],
+          "reaction_1_share": 0.5,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8625be9679dcd240e77bc6ea9425457b06d98ac52981457f2d234f7b19bbb6c6",
+          "count": 6,
+          "frequency": 0.00909090909090909,
+          "min_count_observed": 6,
+          "copies_in_window": 8123,
+          "instructions_in_window": 220105,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            86254,
+            86249
+          ],
+          "reaction_1_share": 0.4999855074984203,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 282,
+          "frequency": 0.42727272727272725,
+          "min_count_observed": 276,
+          "copies_in_window": 23438,
+          "instructions_in_window": 8391525,
+          "moves_in_window": 575936,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2390452,
+            2391759
+          ],
+          "reaction_1_share": 0.5001366522723485,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "f79e77af259d2a0c64d837b914a7bddd9bc7fc6a181f2b9f4c95831a1188cc3f",
+          "count": 76,
+          "frequency": 0.11515151515151516,
+          "min_count_observed": 75,
+          "copies_in_window": 1868,
+          "instructions_in_window": 2241669,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 89664,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            794983,
+            794988
+          ],
+          "reaction_1_share": 0.5000015723557222,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 2,
+    "tick": 300000,
+    "entities": 671,
+    "genomes": 108,
+    "recent_copies": 13917,
+    "recent_ticks": 10000,
+    "state_sha256": "54f86db9923c1384ce031b5cfb94aeef6bcb5fadb13c3796556229b1609b9458",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "513dbd383b7c712b2aed68d0bc49008ba4c4f1ad145dc395ab992c1ad1d3e82a",
+          "count": 225,
+          "frequency": 0.3353204172876304,
+          "min_count_observed": 225,
+          "copies_in_window": 17839,
+          "instructions_in_window": 6734612,
+          "moves_in_window": 0,
+          "binds_in_window": 17839,
+          "energy_transferred_in_window": 856272,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2355009,
+            2355015
+          ],
+          "reaction_1_share": 0.5000006369394296,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 249,
+          "frequency": 0.3710879284649776,
+          "min_count_observed": 241,
+          "copies_in_window": 23691,
+          "instructions_in_window": 7484622,
+          "moves_in_window": 589138,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2021437,
+            2022726
+          ],
+          "reaction_1_share": 0.5001593654855158,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 3,
+    "tick": 300000,
+    "entities": 662,
+    "genomes": 99,
+    "recent_copies": 12425,
+    "recent_ticks": 10000,
+    "state_sha256": "5b021c1731b9215572b50e2c507eb74ec87f623ff2a287f58763f9bcf6637287",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "207fe9b109f05d92a77480d2b8215964d0f3a016e502d5a4b0e1458ffd9dc692",
+          "count": 10,
+          "frequency": 0.015151515151515152,
+          "min_count_observed": 9,
+          "copies_in_window": 3528,
+          "instructions_in_window": 277526,
+          "moves_in_window": 0,
+          "binds_in_window": 3469,
+          "energy_transferred_in_window": 169296,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            86250,
+            86253
+          ],
+          "reaction_1_share": 0.5000086955009478,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "3dc4714425e94641eb10c8fd471bb76847523725b2ac6053fbf301a9dce58a74",
+          "count": 17,
+          "frequency": 0.025757575757575757,
+          "min_count_observed": 13,
+          "copies_in_window": 7197,
+          "instructions_in_window": 505929,
+          "moves_in_window": 0,
+          "binds_in_window": 7129,
+          "energy_transferred_in_window": 345456,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            150008,
+            150002
+          ],
+          "reaction_1_share": 0.49999000033332225,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 230,
+          "frequency": 0.3484848484848485,
+          "min_count_observed": 226,
+          "copies_in_window": 23597,
+          "instructions_in_window": 6975444,
+          "moves_in_window": 574689,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1887681,
+            1888280
+          ],
+          "reaction_1_share": 0.5000793175565108,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "b693d762fc342955eecbdc015249c377f3e86150e5fbead8ba23ab9216a520d5",
+          "count": 9,
+          "frequency": 0.013636363636363636,
+          "min_count_observed": 8,
+          "copies_in_window": 2423,
+          "instructions_in_window": 277177,
+          "moves_in_window": 0,
+          "binds_in_window": 2424,
+          "energy_transferred_in_window": 116304,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            93751,
+            93749
+          ],
+          "reaction_1_share": 0.49999466666666664,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 4,
+    "tick": 300000,
+    "entities": 667,
+    "genomes": 112,
+    "recent_copies": 9796,
+    "recent_ticks": 10000,
+    "state_sha256": "2132974014890d6a59e2dd6ddbd356f33171b2da74f7468fde6480953f804f88",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "632838b42d9c6492f77e460cefdb235db4edf4598631b9bac22527a879327498",
+          "count": 61,
+          "frequency": 0.0915915915915916,
+          "min_count_observed": 61,
+          "copies_in_window": 2244,
+          "instructions_in_window": 1864642,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 107712,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            660023,
+            660007
+          ],
+          "reaction_1_share": 0.4999939395316773,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 231,
+          "frequency": 0.34684684684684686,
+          "min_count_observed": 231,
+          "copies_in_window": 20842,
+          "instructions_in_window": 7397327,
+          "moves_in_window": 435754,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1926850,
+            1927405
+          ],
+          "reaction_1_share": 0.5000719983498757,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "8d979e030dba9281f606bcdcc87c2926239a85899608be4f892a9a374c9aa25e",
+          "count": 168,
+          "frequency": 0.25225225225225223,
+          "min_count_observed": 167,
+          "copies_in_window": 5928,
+          "instructions_in_window": 5060113,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 284544,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1777478,
+            1777472
+          ],
+          "reaction_1_share": 0.4999991561062743,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 5,
+    "tick": 300000,
+    "entities": 683,
+    "genomes": 109,
+    "recent_copies": 11596,
+    "recent_ticks": 10000,
+    "state_sha256": "91c3313a38dbf79ab30d4f18dd247b4b7a709a5f3915171d334c0bf3946a5c3d",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "0c51b731ac54ecc4f8379cc3702791991411700c2a2f03d2bf3b5b0cef9ea3e1",
+          "count": 281,
+          "frequency": 0.41262848751835535,
+          "min_count_observed": 273,
+          "copies_in_window": 12888,
+          "instructions_in_window": 8217329,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 618576,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2562253,
+            2562304
+          ],
+          "reaction_1_share": 0.5000049760398801,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "6ce57210280149ad3b69b9128e4f93ab7dea867d68ec0168a8ab450cddda6d4b",
+          "count": 191,
+          "frequency": 0.28046989720998533,
+          "min_count_observed": 191,
+          "copies_in_window": 19140,
+          "instructions_in_window": 6124274,
+          "moves_in_window": 461726,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1634879,
+            1638220
+          ],
+          "reaction_1_share": 0.500510372585736,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "cc26e70f60ee8dc3e179f7c3caaf6fb7dce048f19cf2eed58296314c8f4f7c82",
+          "count": 42,
+          "frequency": 0.06167400881057269,
+          "min_count_observed": 9,
+          "copies_in_window": 1785,
+          "instructions_in_window": 689801,
+          "moves_in_window": 48118,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            184975,
+            185321
+          ],
+          "reaction_1_share": 0.5004671938125176,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 6,
+    "tick": 300000,
+    "entities": 678,
+    "genomes": 109,
+    "recent_copies": 11640,
+    "recent_ticks": 10000,
+    "state_sha256": "0a2d0036ef27cf461ec1374396806f801c3fe299df713e03f5d61744e924cc64",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "579f98da5f48b4107f42bc70d225bf237c03c58a86cfa938f942df86eb309035",
+          "count": 116,
+          "frequency": 0.17261904761904762,
+          "min_count_observed": 92,
+          "copies_in_window": 8264,
+          "instructions_in_window": 2853995,
+          "moves_in_window": 246851,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            769807,
+            770092
+          ],
+          "reaction_1_share": 0.5000925385366183,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "c02ec0d2af621db94b084185855b9ec176d07cdd1ffea88b8a9d1233c5a02240",
+          "count": 128,
+          "frequency": 0.19047619047619047,
+          "min_count_observed": 126,
+          "copies_in_window": 10935,
+          "instructions_in_window": 3903260,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 524880,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1413741,
+            1413729
+          ],
+          "reaction_1_share": 0.49999787796156986,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "e8da1c984d8ab0c5f4e8962b7feba3540fbbaff857ce9b5fa01520b2e09a4b47",
+          "count": 129,
+          "frequency": 0.19196428571428573,
+          "min_count_observed": 129,
+          "copies_in_window": 12419,
+          "instructions_in_window": 4309751,
+          "moves_in_window": 367837,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1177639,
+            1178166
+          ],
+          "reaction_1_share": 0.5001118513629099,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 7,
+    "tick": 300000,
+    "entities": 656,
+    "genomes": 134,
+    "recent_copies": 5777,
+    "recent_ticks": 10000,
+    "state_sha256": "4c682b5c037d1f31bbe696a68bcfbd624f16958aa9e82f7b4beda62c32f0740f",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "56b88a4e9e3763ce0c96141f3ffe65dbbfbb15d741f09d6a057bb24e6c979f20",
+          "count": 17,
+          "frequency": 0.02599388379204893,
+          "min_count_observed": 15,
+          "copies_in_window": 259,
+          "instructions_in_window": 458713,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 12432,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            167438,
+            167438
+          ],
+          "reaction_1_share": 0.5,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+          "count": 412,
+          "frequency": 0.6299694189602446,
+          "min_count_observed": 408,
+          "copies_in_window": 16673,
+          "instructions_in_window": 12525937,
+          "moves_in_window": 532182,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 800352,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            3883773,
+            3887283
+          ],
+          "reaction_1_share": 0.5002258380328234,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 8,
+    "tick": 300000,
+    "entities": 652,
+    "genomes": 145,
+    "recent_copies": 11584,
+    "recent_ticks": 10000,
+    "state_sha256": "c179220ba9b6bfd0608e2ca6945efe9933af1171357316448c0f937a29c34a3f",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 196,
+          "frequency": 0.30153846153846153,
+          "min_count_observed": 196,
+          "copies_in_window": 23351,
+          "instructions_in_window": 5940094,
+          "moves_in_window": 508923,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1586775,
+            1587160
+          ],
+          "reaction_1_share": 0.5000606502653646,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "ada073f15b04b1f588a158f9cccb050cc6942781e6546c86388e699de142e964",
+          "count": 102,
+          "frequency": 0.15692307692307692,
+          "min_count_observed": 102,
+          "copies_in_window": 7832,
+          "instructions_in_window": 3091054,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1027491,
+            1027496
+          ],
+          "reaction_1_share": 0.5000012165527081,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 9,
+    "tick": 300000,
+    "entities": 652,
+    "genomes": 143,
+    "recent_copies": 5782,
+    "recent_ticks": 10000,
+    "state_sha256": "cf8b27e1905f0f0274a9ce159454e5101c6b757c2dda4cb1e7235240eac71d8c",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "22a2df0703fb32cfa194eba284dd01c419760bfd9365c7aa29295ff44d4fa1a6",
+          "count": 105,
+          "frequency": 0.1617873651771957,
+          "min_count_observed": 104,
+          "copies_in_window": 654,
+          "instructions_in_window": 3138125,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 31392,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1102509,
+            1102515
+          ],
+          "reaction_1_share": 0.5000013605294092,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8eb19e065eac095e23b8661d69defdb7497a4e53ce6a83ecf7f2733e86868107",
+          "count": 90,
+          "frequency": 0.1386748844375963,
+          "min_count_observed": 55,
+          "copies_in_window": 8831,
+          "instructions_in_window": 2580664,
+          "moves_in_window": 265373,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 423936,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            707158,
+            707647
+          ],
+          "reaction_1_share": 0.5001728153349755,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+          "count": 218,
+          "frequency": 0.3359013867488444,
+          "min_count_observed": 218,
+          "copies_in_window": 7628,
+          "instructions_in_window": 6762255,
+          "moves_in_window": 217389,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 366144,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2005370,
+            2005755
+          ],
+          "reaction_1_share": 0.500047991523575,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 10,
+    "tick": 300000,
+    "entities": 662,
+    "genomes": 79,
+    "recent_copies": 15002,
+    "recent_ticks": 10000,
+    "state_sha256": "b5c3d8cc02dc9bca453e8613dcdce6c6d585176c0e1921292dee40375b36f11d",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "278059afc31492e3f983e6c47fdbc77ae7559ab0fc09d68daa4a08f0573c6f83",
+          "count": 21,
+          "frequency": 0.03201219512195122,
+          "min_count_observed": 21,
+          "copies_in_window": 15904,
+          "instructions_in_window": 662951,
+          "moves_in_window": 0,
+          "binds_in_window": 15902,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            277515,
+            277495
+          ],
+          "reaction_1_share": 0.4999819823066251,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "773547e4c40b29cc5593faa895e70ab6ec6c46dc9fff225ccf646d69a4434743",
+          "count": 11,
+          "frequency": 0.01676829268292683,
+          "min_count_observed": 11,
+          "copies_in_window": 719,
+          "instructions_in_window": 546736,
+          "moves_in_window": 25504,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            145059,
+            145096
+          ],
+          "reaction_1_share": 0.5000637590253485,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 51,
+          "frequency": 0.07774390243902439,
+          "min_count_observed": 38,
+          "copies_in_window": 4423,
+          "instructions_in_window": 1500943,
+          "moves_in_window": 111054,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            399434,
+            399766
+          ],
+          "reaction_1_share": 0.5002077077077077,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "e1e3d30c2d345782b535e10e5201659a8f01eaef14bdcc4be69129d85c3632f7",
+          "count": 14,
+          "frequency": 0.021341463414634148,
+          "min_count_observed": 11,
+          "copies_in_window": 6944,
+          "instructions_in_window": 382540,
+          "moves_in_window": 0,
+          "binds_in_window": 6942,
+          "energy_transferred_in_window": 333264,
+          "energy_taken_in_window": 229119,
+          "converted_in_window": [
+            142488,
+            142498
+          ],
+          "reaction_1_share": 0.5000175447214951,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "fe2692c4ffc762f8768cedfb6532292c5ec133db2b40f918dc105c560a39fba1",
+          "count": 144,
+          "frequency": 0.21951219512195122,
+          "min_count_observed": 122,
+          "copies_in_window": 14389,
+          "instructions_in_window": 4303112,
+          "moves_in_window": 375032,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1158827,
+            1159207
+          ],
+          "reaction_1_share": 0.5000819660108523,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 11,
+    "tick": 300000,
+    "entities": 666,
+    "genomes": 139,
+    "recent_copies": 8851,
+    "recent_ticks": 10000,
+    "state_sha256": "0f0aa82ae5f7681bc00cf8ca4b6b75ac0f78fa01ba072b38140a519f465ceaf7",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "2e6f48480caa37b9c4b97cadbc865ea40aba470ee2021b26049c433d5da4af47",
+          "count": 193,
+          "frequency": 0.29022556390977444,
+          "min_count_observed": 189,
+          "copies_in_window": 6155,
+          "instructions_in_window": 5750530,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 295440,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2040015,
+            2040016
+          ],
+          "reaction_1_share": 0.5000001225480885,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "9f5c04c94894500fa747cc1e7e32cfca449ea012d0270d6a16d976ffa6f68053",
+          "count": 239,
+          "frequency": 0.3593984962406015,
+          "min_count_observed": 229,
+          "copies_in_window": 19805,
+          "instructions_in_window": 6987108,
+          "moves_in_window": 509468,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1859888,
+            1860276
+          ],
+          "reaction_1_share": 0.5000521482386261,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 12,
+    "tick": 300000,
+    "entities": 664,
+    "genomes": 111,
+    "recent_copies": 14865,
+    "recent_ticks": 10000,
+    "state_sha256": "d4ac21142088f21859f730b6245ae284455904f7744b6254d918b7dd2b5b6f29",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "85769ddcf41876d26caab6e3fce94e4c02c9addab6ea0f616bdb975254742f26",
+          "count": 235,
+          "frequency": 0.3576864535768645,
+          "min_count_observed": 231,
+          "copies_in_window": 22691,
+          "instructions_in_window": 6989838,
+          "moves_in_window": 0,
+          "binds_in_window": 22689,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2579982,
+            2579962
+          ],
+          "reaction_1_share": 0.4999980619944713,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 159,
+          "frequency": 0.2420091324200913,
+          "min_count_observed": 159,
+          "copies_in_window": 20558,
+          "instructions_in_window": 7108504,
+          "moves_in_window": 422670,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1860169,
+            1860718
+          ],
+          "reaction_1_share": 0.5000737727321469,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 13,
+    "tick": 300000,
+    "entities": 667,
+    "genomes": 94,
+    "recent_copies": 21626,
+    "recent_ticks": 10000,
+    "state_sha256": "a15d1cc1c8a6c5415ea26aa2aed618b0c506c7f3cb0c4d9b2d2df911b9c140e7",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "46bd1ce4ad3e56305107bd7ecc4218c0c2f44a021277648517d013d7c6865175",
+          "count": 74,
+          "frequency": 0.11178247734138973,
+          "min_count_observed": 69,
+          "copies_in_window": 25480,
+          "instructions_in_window": 2140838,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            810015,
+            809989
+          ],
+          "reaction_1_share": 0.49999197532845596,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "4d4e8a6422bbd0ea9fc43a8a5632b5ce157fcc6ad2c8b2864a8f3cad7b0d632a",
+          "count": 249,
+          "frequency": 0.37613293051359514,
+          "min_count_observed": 239,
+          "copies_in_window": 21808,
+          "instructions_in_window": 7341896,
+          "moves_in_window": 623207,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2013538,
+            2014077
+          ],
+          "reaction_1_share": 0.5000669130490377,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "86d662a998530bd23af47b0c2e2217734d7e60c060e7ea58225e513d96e4fd39",
+          "count": 81,
+          "frequency": 0.12235649546827794,
+          "min_count_observed": 79,
+          "copies_in_window": 11917,
+          "instructions_in_window": 2387155,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            866235,
+            866261
+          ],
+          "reaction_1_share": 0.500007503624828,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "c6f29edc54f33f45c61d92c482536711683c765042addf8792080dff1e272961",
+          "count": 8,
+          "frequency": 0.012084592145015106,
+          "min_count_observed": 8,
+          "copies_in_window": 5818,
+          "instructions_in_window": 263024,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            101253,
+            101248
+          ],
+          "reaction_1_share": 0.4999876543819537,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 14,
+    "tick": 300000,
+    "entities": 680,
+    "genomes": 104,
+    "recent_copies": 11050,
+    "recent_ticks": 10000,
+    "state_sha256": "743f08f54c75c86a4226b910b1ce0129215d995cd5cff47491043b3060147c60",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "40628faae13dd680880ff6a9556054b92cd02f831af9bac6fc027792469d98c7",
+          "count": 239,
+          "frequency": 0.3525073746312684,
+          "min_count_observed": 239,
+          "copies_in_window": 17062,
+          "instructions_in_window": 7282842,
+          "moves_in_window": 0,
+          "binds_in_window": 17062,
+          "energy_transferred_in_window": 819024,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            2557502,
+            2557516
+          ],
+          "reaction_1_share": 0.5000013685191332,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "9384ab67778b791c3df0b055b9658818b38a032a9ba340c4fa52cbf94a1992e0",
+          "count": 237,
+          "frequency": 0.3495575221238938,
+          "min_count_observed": 231,
+          "copies_in_window": 16210,
+          "instructions_in_window": 6890199,
+          "moves_in_window": 495403,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 778080,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1815597,
+            1817234
+          ],
+          "reaction_1_share": 0.500225306379515,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 15,
+    "tick": 300000,
+    "entities": 677,
+    "genomes": 89,
+    "recent_copies": 14775,
+    "recent_ticks": 10000,
+    "state_sha256": "128d58f9c02f654f13f650f539a27296fbde1b5f02885782e8ddf26528032d60",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 243,
+          "frequency": 0.3610698365527489,
+          "min_count_observed": 235,
+          "copies_in_window": 23499,
+          "instructions_in_window": 7309217,
+          "moves_in_window": 586433,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1982030,
+            1983124
+          ],
+          "reaction_1_share": 0.5001379517668166,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        },
+        {
+          "hash": "f9b9b54d2613330ed41b7010f1101783cda26e5a33295fc349821d24b3aca3bb",
+          "count": 315,
+          "frequency": 0.46805349182763745,
+          "min_count_observed": 315,
+          "copies_in_window": 21230,
+          "instructions_in_window": 9468623,
+          "moves_in_window": 0,
+          "binds_in_window": 21229,
+          "energy_transferred_in_window": 1019040,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            3333773,
+            3333739
+          ],
+          "reaction_1_share": 0.499997450323299,
+          "observed_profile": "frequent-binds/few-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions",
+        "frequent-binds/few-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-chemical-diffusion",
+    "seed": 16,
+    "tick": 300000,
+    "entities": 662,
+    "genomes": 101,
+    "recent_copies": 17533,
+    "recent_ticks": 10000,
+    "state_sha256": "43745ac44c3193e7e4ca09353773cbd7d67f553a34e665d035e05837cba5c0ad",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "4f2f4623902e14350f4f7fad7cbfac74fea0d39bbf316978760724f1231e329e",
+          "count": 58,
+          "frequency": 0.08801213960546282,
+          "min_count_observed": 53,
+          "copies_in_window": 29766,
+          "instructions_in_window": 1617961,
+          "moves_in_window": 0,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            648749,
+            648753
+          ],
+          "reaction_1_share": 0.5000015414234429,
+          "observed_profile": "few-binds/few-moves/mixed-reactions"
+        },
+        {
+          "hash": "8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd",
+          "count": 217,
+          "frequency": 0.3292867981790592,
+          "min_count_observed": 214,
+          "copies_in_window": 22753,
+          "instructions_in_window": 6661444,
+          "moves_in_window": 496759,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 0,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            1769656,
+            1772773
+          ],
+          "reaction_1_share": 0.500439952360372,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/few-moves/mixed-reactions",
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 1,
+    "tick": 300000,
+    "entities": 564,
+    "genomes": 1,
+    "recent_copies": 15608,
+    "recent_ticks": 10000,
+    "state_sha256": "b08308a6546838c7eb711f352324835efdd9673f23cd1fc48da698abfa630de1",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 562,
+          "frequency": 1,
+          "min_count_observed": 562,
+          "copies_in_window": 46823,
+          "instructions_in_window": 17219744,
+          "moves_in_window": 1716272,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2247408,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6239963,
+            6239997
+          ],
+          "reaction_1_share": 0.5000013621838532,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 2,
+    "tick": 300000,
+    "entities": 572,
+    "genomes": 1,
+    "recent_copies": 15607,
+    "recent_ticks": 10000,
+    "state_sha256": "9d30c0a8fa29fd62fb55d3942f2442b8aab50ded187c8e59bbbb6de685fc9db8",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 568,
+          "frequency": 1,
+          "min_count_observed": 565,
+          "copies_in_window": 47115,
+          "instructions_in_window": 17166051,
+          "moves_in_window": 1715479,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2261472,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6239863,
+            6239812
+          ],
+          "reaction_1_share": 0.4999979566775577,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 3,
+    "tick": 300000,
+    "entities": 585,
+    "genomes": 1,
+    "recent_copies": 15724,
+    "recent_ticks": 10000,
+    "state_sha256": "f323b477692fd3124a7ae03d4fca2d4b5281e7b8ba2bacd2968c868ef929b9e3",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 579,
+          "frequency": 1,
+          "min_count_observed": 566,
+          "copies_in_window": 47123,
+          "instructions_in_window": 17173776,
+          "moves_in_window": 1714302,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2261904,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240227,
+            6240299
+          ],
+          "reaction_1_share": 0.5000028844938106,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 4,
+    "tick": 300000,
+    "entities": 573,
+    "genomes": 1,
+    "recent_copies": 15646,
+    "recent_ticks": 10000,
+    "state_sha256": "335a3859f8a5e5a386d98d8fed8cd6ded31b770f7550beaeb0cce8245d1d6906",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 570,
+          "frequency": 1,
+          "min_count_observed": 564,
+          "copies_in_window": 47141,
+          "instructions_in_window": 17162202,
+          "moves_in_window": 1714341,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2262720,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6239948,
+            6239925
+          ],
+          "reaction_1_share": 0.49999907851626374,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 5,
+    "tick": 300000,
+    "entities": 575,
+    "genomes": 1,
+    "recent_copies": 15625,
+    "recent_ticks": 10000,
+    "state_sha256": "2d57bb75f690a6c551d8644982f2c33c3eded1ac48cc62d0f065922890fe7f5a",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 572,
+          "frequency": 1,
+          "min_count_observed": 566,
+          "copies_in_window": 46722,
+          "instructions_in_window": 17196009,
+          "moves_in_window": 1715799,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2242704,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6239893,
+            6239793
+          ],
+          "reaction_1_share": 0.49999599348893875,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 6,
+    "tick": 300000,
+    "entities": 574,
+    "genomes": 1,
+    "recent_copies": 15544,
+    "recent_ticks": 10000,
+    "state_sha256": "2eeeaea5a825f1883a0536914087075d7742c30778a14fada1677e23eb1cc64f",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 571,
+          "frequency": 1,
+          "min_count_observed": 568,
+          "copies_in_window": 46718,
+          "instructions_in_window": 17194497,
+          "moves_in_window": 1714355,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2242464,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240008,
+            6240035
+          ],
+          "reaction_1_share": 0.5000010817270422,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 7,
+    "tick": 300000,
+    "entities": 582,
+    "genomes": 1,
+    "recent_copies": 15520,
+    "recent_ticks": 10000,
+    "state_sha256": "5dc3a1a4134fe3b910c00d668b973b095a4c364534aeeb4269725fbcd94fa4e2",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 572,
+          "frequency": 1,
+          "min_count_observed": 572,
+          "copies_in_window": 46789,
+          "instructions_in_window": 17201897,
+          "moves_in_window": 1716038,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2245824,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6239923,
+            6239870
+          ],
+          "reaction_1_share": 0.4999978765673437,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 8,
+    "tick": 300000,
+    "entities": 585,
+    "genomes": 1,
+    "recent_copies": 15579,
+    "recent_ticks": 10000,
+    "state_sha256": "0239db3374d0f52eca57f549d6449e4f440fed2dc6914b892cc0727ac7dfdbec",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 581,
+          "frequency": 1,
+          "min_count_observed": 562,
+          "copies_in_window": 46855,
+          "instructions_in_window": 17171783,
+          "moves_in_window": 1715093,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2249088,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240143,
+            6240156
+          ],
+          "reaction_1_share": 0.5000005208208553,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 9,
+    "tick": 300000,
+    "entities": 582,
+    "genomes": 1,
+    "recent_copies": 15546,
+    "recent_ticks": 10000,
+    "state_sha256": "9aed02df73cca0a124c1d943df90c1c7e8f0d1c0664bee3c18488dcb5014e695",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 581,
+          "frequency": 1,
+          "min_count_observed": 567,
+          "copies_in_window": 46721,
+          "instructions_in_window": 17189397,
+          "moves_in_window": 1714077,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2242560,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240046,
+            6240041
+          ],
+          "reaction_1_share": 0.49999979968088365,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 10,
+    "tick": 300000,
+    "entities": 573,
+    "genomes": 1,
+    "recent_copies": 15768,
+    "recent_ticks": 10000,
+    "state_sha256": "fc676f14a66b8987073e8851f0cf5b7d625c7db2f0ab0fae65526d4b6e4b83a6",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 568,
+          "frequency": 1,
+          "min_count_observed": 568,
+          "copies_in_window": 47097,
+          "instructions_in_window": 17211732,
+          "moves_in_window": 1715023,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2260704,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240069,
+            6240010
+          ],
+          "reaction_1_share": 0.49999763623291166,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 11,
+    "tick": 300000,
+    "entities": 580,
+    "genomes": 1,
+    "recent_copies": 15606,
+    "recent_ticks": 10000,
+    "state_sha256": "bd06ece23578c603d0e1eea498fd99e005ccd8f1cddcf31aa91e2edda413d6d8",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 579,
+          "frequency": 1,
+          "min_count_observed": 571,
+          "copies_in_window": 46713,
+          "instructions_in_window": 17154575,
+          "moves_in_window": 1714797,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2242176,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240041,
+            6240033
+          ],
+          "reaction_1_share": 0.49999967948908,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 12,
+    "tick": 300000,
+    "entities": 570,
+    "genomes": 1,
+    "recent_copies": 15553,
+    "recent_ticks": 10000,
+    "state_sha256": "6928f2e809717a50752d780330691bdc63350f898220fc57968ebc480c85bc2e",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 566,
+          "frequency": 1,
+          "min_count_observed": 562,
+          "copies_in_window": 46677,
+          "instructions_in_window": 17193807,
+          "moves_in_window": 1715071,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2240640,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240024,
+            6240131
+          ],
+          "reaction_1_share": 0.5000042868057328,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 13,
+    "tick": 300000,
+    "entities": 583,
+    "genomes": 1,
+    "recent_copies": 15585,
+    "recent_ticks": 10000,
+    "state_sha256": "8be342d60f0d7d0d99ddd0ad99e223e5c686d8405b201e3078592c46873a8114",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 579,
+          "frequency": 1,
+          "min_count_observed": 572,
+          "copies_in_window": 46853,
+          "instructions_in_window": 17169100,
+          "moves_in_window": 1715337,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2249088,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240120,
+            6240049
+          ],
+          "reaction_1_share": 0.4999971554872374,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 14,
+    "tick": 300000,
+    "entities": 578,
+    "genomes": 1,
+    "recent_copies": 15619,
+    "recent_ticks": 10000,
+    "state_sha256": "1886e316b4f85a3f06fbb7b852565496f648f0ab8c4eec0e88b178bc9886ea11",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 575,
+          "frequency": 1,
+          "min_count_observed": 575,
+          "copies_in_window": 46863,
+          "instructions_in_window": 17156627,
+          "moves_in_window": 1714989,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2249376,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240051,
+            6240017
+          ],
+          "reaction_1_share": 0.4999986378279349,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 15,
+    "tick": 300000,
+    "entities": 578,
+    "genomes": 1,
+    "recent_copies": 15751,
+    "recent_ticks": 10000,
+    "state_sha256": "9bc3c7babc51725952abc9420c737496cf6e1466d1d8427b2e4cb8aa9c2cbaf8",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 577,
+          "frequency": 1,
+          "min_count_observed": 565,
+          "copies_in_window": 46968,
+          "instructions_in_window": 17159896,
+          "moves_in_window": 1715436,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2254464,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6240124,
+            6240118
+          ],
+          "reaction_1_share": 0.49999975962004584,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  },
+  {
+    "case": "ecology-no-mutation",
+    "seed": 16,
+    "tick": 300000,
+    "entities": 574,
+    "genomes": 1,
+    "recent_copies": 15494,
+    "recent_ticks": 10000,
+    "state_sha256": "cd48783fbf4dec995cd3a0126d62d6b7ce51936e8c89e118183f4782e4292913",
+    "persistence": {
+      "from_tick": 270000,
+      "to_tick": 300000,
+      "thresholds": {
+        "windows": 3,
+        "min_count": 5,
+        "min_copies_per_window": 5
+      },
+      "persistent_genomes": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 572,
+          "frequency": 1,
+          "min_count_observed": 571,
+          "copies_in_window": 46653,
+          "instructions_in_window": 17224211,
+          "moves_in_window": 1715994,
+          "binds_in_window": 0,
+          "energy_transferred_in_window": 2239440,
+          "energy_taken_in_window": 0,
+          "converted_in_window": [
+            6239968,
+            6239915
+          ],
+          "reaction_1_share": 0.49999787658265704,
+          "observed_profile": "few-binds/frequent-moves/mixed-reactions"
+        }
+      ],
+      "observed_profiles": [
+        "few-binds/frequent-moves/mixed-reactions"
+      ],
+      "has_complementary_reaction_candidates": false
+    }
+  }
+]
