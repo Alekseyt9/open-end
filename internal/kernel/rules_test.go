@@ -177,7 +177,7 @@ func TestNewReactionIDAndCustomAttemptCost(t *testing.T) {
 		t.Fatal("new rule usage missing")
 	}
 	energy = p.Energy
-	rules.Resolve(w, rules.Event{Actor: p.ID, Intent: vm.Intent{Instruction: vm.Instruction{Op: vm.CONVERT, A: 2, B: 1}}})
+	rules.Resolve(w, rules.Event{Actor: p.ID, Intent: vm.Intent{Instruction: vm.Instruction{Op: vm.CONVERT, A: 2, B: 0}}})
 	if p.Energy != energy-3 {
 		t.Fatal("failed reaction did not pay attempt cost")
 	}
