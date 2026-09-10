@@ -69,7 +69,9 @@ func TestEncodedCopyReplayAndControls(t *testing.T) {
 				t.Fatal("downgraded snapshot accepted")
 			}
 			for _, r := range loaded.Variation {
-				if r.Policy.Kind != "code" { continue }
+				if r.Policy.Kind != "code" {
+					continue
+				}
 				r.Copies++
 				break
 			}

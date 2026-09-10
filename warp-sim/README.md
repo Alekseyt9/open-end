@@ -2,6 +2,8 @@
 
 Experimental GPU physics backend for `ecology-2`. Implements all 17 VM instructions, code and memory copying with mutation, conservative transport, chemical charging, bonds, creation/decay, both SplitMix64 RNGs, and installation/rollback of compiled DSL modules.
 
+Copying here means the legacy model. Stage 10's `copy_model: fixed|evolving` is currently Go-only. Both the Go fixture bridge and the Python `Batch` API reject it explicitly; they never silently substitute legacy mutation semantics. See [evolvability](../docs/evolvability.md).
+
 The recorded runs used the existing Python environment at `F:/src/game_arc/.venv-warp/Scripts/python.exe`, Warp 1.15.0, and an RTX 5070. Dependencies for other environments are listed in `requirements.txt`.
 
 ## Run from the repository root

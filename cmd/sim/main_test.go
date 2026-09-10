@@ -39,16 +39,29 @@ func TestCLIReplay(t *testing.T) {
 }
 
 func TestCLICopyModelReplay(t *testing.T) {
-	dir:=t.TempDir();path:=filepath.Join(dir,"encoded.json")
-	var first,resumed,full bytes.Buffer
-	base:=[]string{"-width","12","-height","12","-copy-model","evolving"}
-	if err:=run(append(append([]string{},base...),"-ticks","200","-save",path),&first);err!=nil{t.Fatal(err)}
-	if err:=run([]string{"-load",path,"-ticks","100"},&resumed);err!=nil{t.Fatal(err)}
-	if err:=run(append(append([]string{},base...),"-ticks","300"),&full);err!=nil{t.Fatal(err)}
-	hash:=func(b *bytes.Buffer)string{s:=strings.Split(b.String(),"state_sha256=");return s[len(s)-1]}
-	if hash(&resumed)!=hash(&full){t.Fatal("encoded CLI replay differs")}
-	if err:=run([]string{"-load",path,"-copy-model","fixed"},&first);err==nil{t.Fatal("copy model override accepted")}
-	if err:=run([]string{"-copy-model","typo","-ticks","0"},&first);err==nil{t.Fatal("unknown model accepted")}
+	dir := t.TempDir()
+	path := filepath.Join(dir, "encoded.json")
+	var first, resumed, full bytes.Buffer
+	base := []string{"-width", "12", "-height", "12", "-copy-model", "evolving"}
+	if err := run(append(append([]string{}, base...), "-ticks", "200", "-save", path), &first); err != nil {
+		t.Fatal(err)
+	}
+	if err := run([]string{"-load", path, "-ticks", "100"}, &resumed); err != nil {
+		t.Fatal(err)
+	}
+	if err := run(append(append([]string{}, base...), "-ticks", "300"), &full); err != nil {
+		t.Fatal(err)
+	}
+	hash := func(b *bytes.Buffer) string { s := strings.Split(b.String(), "state_sha256="); return s[len(s)-1] }
+	if hash(&resumed) != hash(&full) {
+		t.Fatal("encoded CLI replay differs")
+	}
+	if err := run([]string{"-load", path, "-copy-model", "fixed"}, &first); err == nil {
+		t.Fatal("copy model override accepted")
+	}
+	if err := run([]string{"-copy-model", "typo", "-ticks", "0"}, &first); err == nil {
+		t.Fatal("unknown model accepted")
+	}
 }
 
 func TestCLIRulesReplayWithoutSourceFiles(t *testing.T) {

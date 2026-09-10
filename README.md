@@ -43,9 +43,10 @@ The longer-term idea is to expand the set of mechanisms evolution can use. An ex
 | AI workflow | Evidence dossiers, referenced claims, rule proposals, paired trials | AI participates through chat/files |
 | Branching worlds | Persistent ancestry, multiple selected cohorts, repeated continuations, interactive HTML explorer | Explicit research scheduling |
 | Novelty archive | Immutable decisions, Pareto tips, protected behavior cells, recommended selections | Measured proxies; causal complexity and hierarchy unavailable |
+| Evolvability | Inherited copy rates/operators, local recombination, proofreading, memory transmission, policy inspector | Finite policy repertoire; persistent strategy diversity remains unproven |
 | GPU execution | Warp physics with exact differential checks | No full genome/origin history on GPU |
 
-Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. Stage 9 adds a novelty archive and Pareto selection using measured proxies. Stage 10, evolution of mutation mechanisms, is next.
+Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. Stage 9 adds a novelty archive and Pareto selection using measured proxies. Stage 10 implements inherited copying strategies; their persistent diversity remains an open experimental criterion. Stage 11 concerns environmental coevolution.
 
 ## Quick start
 
@@ -154,7 +155,7 @@ A tick introduces energy, orders particles by ID with a cyclic tick-dependent of
 | `cmd/sim`, `cmd/analyze`, `cmd/summarize` | Run, analyze persistence, and explain history |
 | `warp-sim`, `cmd/warp-reference` | Experimental GPU backend and Go parity reference |
 
-Physical snapshots include the kernel and rule versions. Format 2 represents worlds without DSL state; format 3 includes DSL modules, history, queued changes, and usage counters. Incompatible snapshots are rejected. A rule rollback changes the rules; a snapshot restore returns the entire physical state.
+Physical snapshots include the kernel and rule versions. Format 2 represents legacy copying without DSL state; format 3 includes DSL modules, history, queued changes, and usage counters. Format 4 adds encoded copying policies and their ledger, with or without DSL state. Incompatible snapshots are rejected. A rule rollback changes the rules; a snapshot restore returns the entire physical state.
 
 ## AI observation and rule proposals
 
@@ -253,7 +254,7 @@ These are recorded results for specific configurations and horizons, not general
 
 ## Experimental GPU backend
 
-Warp implements all 17 VM opcodes, mutations, transport, bonds, both RNGs, and scheduled DSL changes. Differential tests compare physical state exactly with Go. Genome/origin histories and complete observer work remain outside the GPU implementation; its output is a physical report, not a resumable Go snapshot.
+Warp implements all 17 VM opcodes, legacy mutations, transport, bonds, both RNGs, and scheduled DSL changes. Differential tests compare physical state exactly with Go. Genome/origin histories and complete observer work remain outside the GPU implementation; its output is a physical report, not a resumable Go snapshot. Stage 10's encoded copying models currently run in Go and are explicitly rejected by Warp.
 
 In the [recorded RTX 5070 / Ryzen 7 5700X benchmark](experiments/warp/REPORT.md), 32×32 worlds ran for 1000 measured ticks each:
 
@@ -272,7 +273,8 @@ Preparation and state extraction brought the 256-world GPU run to about 19 secon
 | 6–7 | AI observation and rule proposals; currently implemented through chat and files |
 | 8 | Implemented: branching experiments, retained cohorts, and an offline explorer |
 | 9 | Implemented: novelty archive, Pareto selection on measured proxies, and behavior-cell retention |
-| 10–14 | Evolving mutation mechanisms, environmental coevolution, collective entities, causal analysis |
+| 10 | Implemented mechanics: inherited copying strategies; persistent diversity remains unproven |
+| 11–14 | Environmental coevolution, collective entities, causal analysis |
 | 15–18 | Symbols, cultural inheritance, persistent artifacts, and technology-like construction |
 | 19–21 | Internal VMs, recursive evolution, and long-horizon OEE experiments |
 
@@ -295,6 +297,7 @@ The test suite covers deterministic replay, resource conservation, mutation and 
 - [Council interface](docs/council.md): prepare, check, trial, and next-round workflows.
 - [Branching worlds](docs/branching.md): tree storage, multiple selections, repeated growth, and the interactive explorer.
 - [Novelty archive](docs/archive.md): descriptors, admission filters, Pareto comparisons, protected cells, and selection commands.
+- [Evolvability](docs/evolvability.md): inherited copy policies, fixed controls, telemetry, and the policy inspector; [24-world experiment](experiments/evolvability/REPORT.md).
 - [Research plan](open_ended_evolution_ai_world_plan.md): full concept and staged research program.
 - [Warp backend](warp-sim/README.md): setup, execution, benchmarks, and parity checks.
 - [Ecology results](experiments/ecology/RESULTS.md), [DSL validation](experiments/dsl/SMOKE.md), and [telemetry validation](experiments/telemetry/REPORT.md).

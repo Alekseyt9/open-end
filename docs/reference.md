@@ -23,7 +23,7 @@ go run ./cmd/sim -width 32 -height 32 -seed 1 -ecology -matter-diffusion 4 -chem
 go run ./cmd/sim -load data/world.json -ticks 5000 -save data/continued.json
 ```
 
-`-ticks` always means **additional** ticks. A snapshot contains configuration, both RNGs, chemical fields, bonds, programs, memory, ancestry, and resource counters. World parameters cannot be overridden with `-load`; they come from the snapshot. The final `state_sha256` line compares complete states. Snapshots use format **2** without DSL state and **3** with it; rules are **ecology-2**. Stage 1 snapshots (format 1) are rejected as incompatible; there is no implicit migration.
+`-ticks` always means **additional** ticks. A snapshot contains configuration, both RNGs, chemical fields, bonds, programs, memory, ancestry, and resource counters. World parameters cannot be overridden with `-load`; they come from the snapshot. The final `state_sha256` line compares complete states. Legacy copying uses snapshot format **2** without DSL state and **3** with it. Encoded copying uses format **4** with or without DSL state; rules are **ecology-2**. Stage 1 snapshots (format 1) are rejected as incompatible; there is no implicit migration.
 
 JSONL output requires a new file to avoid erasing an earlier experiment. Snapshots are written through a temporary file and rename; an existing destination snapshot may be replaced. Run files under `data/` are excluded from Git.
 
@@ -34,6 +34,8 @@ go run ./cmd/sim -width 64 -height 64 -seed 1 -mutation-ppm 0 -matter-diffusion 
 ```
 
 All options: `go run ./cmd/sim -h`.
+
+Stage 10 is enabled with `-copy-model evolving`; use `-copy-model fixed` for the matching six-operator control. Omitting the flag preserves the original copying semantics and replay. These models add inherited mutation policies, local recombination, a proofreading cost/rate tradeoff, and memory transmission layouts. See [Evolvability](evolvability.md) for encoding, controls, telemetry, and the offline policy inspector. Encoded copying is currently Go-only.
 
 ## Implemented features
 
@@ -68,7 +70,7 @@ All options: `go run ./cmd/sim -h`.
 
 Energy enters at the start of a tick. Particles are ordered by ID with a cyclic shift based on the tick number. The VM reads state before events are applied; SENSE captures its value in the event. Conflicts are resolved in this order, rechecking available resources. A new particle first executes on the next tick. At the end of the tick, maintenance is charged and zero-energy particles decay.
 
-Basic rules are implemented in Go; the DSL can replace or add local `CONVERT` reactions. Changes to built-in semantics should increment `rules.Version` or `kernel.Version`: incompatible snapshots will not load. DSL modules have their own versions and hashes. Field transport uses a separate serialized RNG without consuming the mutation RNG stream.
+Basic rules are implemented in Go; the DSL can replace or add local `CONVERT` reactions. Changes to existing built-in semantics should increment `rules.Version` or `kernel.Version`: incompatible snapshots will not load. Stage 10 introduces an opt-in copy model identified by snapshot format 4 while preserving formats 2 and 3. DSL modules have their own versions and hashes. Field transport uses a separate serialized RNG without consuming the mutation RNG stream.
 
 ## Instructions and costs
 
@@ -262,7 +264,7 @@ go run ./cmd/council prepare -input data/my-trial -variant solar-y-recycle -out 
 
 The dossier contains identified facts, summaries, and source-snapshot copies. Claims cite facts; hypotheses are separated from observations. Macromutations are full DSL modules with a mechanism, prediction, and risk. Validation checks hashes, references, conservation, and reaction reachability in the current VM. Source worlds remain unchanged; runs produce `comparison.md`, JSONL, snapshots, and branch summaries. No API key is required.
 
-[Interface and exchange format](council.md) · [Completed round on 16 source worlds](../experiments/council/REPORT.md). Observation and macromutations are implemented within the current reaction DSL. Automatic AI invocation is not enabled. The [Stage 8 tree harness](branching.md) preserves multiple selected cohorts, their ancestry, and repeated continuations, with an offline HTML explorer. The [Stage 9 archive](archive.md) adds immutable selection decisions, Pareto comparisons on measured proxies, and protected behavior cells. The next major stage is **10, Evolution of Evolvability**.
+[Interface and exchange format](council.md) · [Completed round on 16 source worlds](../experiments/council/REPORT.md). Observation and macromutations are implemented within the current reaction DSL. Automatic AI invocation is not enabled. The [Stage 8 tree harness](branching.md) preserves multiple selected cohorts, their ancestry, and repeated continuations, with an offline HTML explorer. The [Stage 9 archive](archive.md) adds immutable selection decisions, Pareto comparisons on measured proxies, and protected behavior cells. [Stage 10](evolvability.md) implements inherited copying strategies, with persistent diversity still an open criterion. Stage 11 concerns environmental coevolution.
 
 ## Experimental Warp solver
 

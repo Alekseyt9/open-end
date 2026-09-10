@@ -1,0 +1,2936 @@
+{
+  "batch": {
+    "Status": "complete",
+    "Workers": 16,
+    "GOMAXPROCS": 1,
+    "Seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "Cases": [
+      "evolvability",
+      "evolvability-fixed",
+      "evolvability-no-mutation"
+    ],
+    "Ticks": 100000,
+    "Every": 1000,
+    "StartedUTC": "2026-09-10T20:02:35.9498292Z",
+    "SourceRevision": "267227f38efc215e0da5573d6f70cc962d6a1b30",
+    "SourceDirty": false,
+    "BinarySHA256": "add7c5d2423b18178085c9a0516d0ac950f278230232ad91de4cb57058168226",
+    "Total": 24,
+    "Completed": 24,
+    "ElapsedSeconds": 78.2051501
+  },
+  "continuation": {
+    "id": "r000001",
+    "parents": [
+      "b000001"
+    ],
+    "children": [
+      "b000002"
+    ],
+    "status": "complete",
+    "options": {
+      "Ticks": 20000,
+      "Every": 1000,
+      "Workers": 16,
+      "Window": 10000
+    },
+    "seconds": 15.792672
+  },
+  "worlds": [
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 1,
+      "tick": 100000,
+      "snapshot_sha256": "d54ca987669669e539a4f72059fa2efdbe4cfec467f7dc4d863ebea3e2c8ecbe",
+      "from_tick": 90000,
+      "population": 669,
+      "genomes": 40,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 2,
+        "persistent_code_policies": 1,
+        "code_copies": 8596,
+        "changed_code": 92,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8596,
+          "changed": 92,
+          "recombined": 0,
+          "persistent_genomes": 5
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8531,
+          "changed": 85,
+          "recombined": 0,
+          "persistent_genomes": 5
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 3,
+            "initial_memory": false
+          },
+          "copies": 1,
+          "changed": 1,
+          "recombined": 0,
+          "persistent_genomes": 0
+        }
+      ],
+      "history": {
+        "code_policies": 4,
+        "code_copies": 96087,
+        "changed_code": 969,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 2,
+      "tick": 100000,
+      "snapshot_sha256": "0f29434038af4783552cb45d5f8676da5cb19360897fd95590b45c2ab3ffb825",
+      "from_tick": 90000,
+      "population": 658,
+      "genomes": 56,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9516,
+        "changed_code": 98,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9516,
+          "changed": 98,
+          "recombined": 0,
+          "persistent_genomes": 5
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 4438,
+          "changed": 38,
+          "recombined": 0,
+          "persistent_genomes": 4
+        }
+      ],
+      "history": {
+        "code_policies": 9,
+        "code_copies": 98672,
+        "changed_code": 941,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 3,
+      "tick": 100000,
+      "snapshot_sha256": "8ce585432e144b9f13328bf6a7b920079fa1e9760c5bba74661a5dcac761fc1e",
+      "from_tick": 90000,
+      "population": 654,
+      "genomes": 53,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 0,
+        "persistent_code_policies": 1,
+        "code_copies": 13823,
+        "changed_code": 139,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 13823,
+          "changed": 139,
+          "recombined": 0,
+          "persistent_genomes": 5
+        }
+      ],
+      "history": {
+        "code_policies": 8,
+        "code_copies": 153741,
+        "changed_code": 1563,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 4,
+      "tick": 100000,
+      "snapshot_sha256": "8ddb340163be31a2860e06c03968f8558881286434b274552e543b615c4a171d",
+      "from_tick": 90000,
+      "population": 666,
+      "genomes": 32,
+      "window": {
+        "model": "evolving",
+        "code_policies": 2,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 13104,
+        "changed_code": 141,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 13103,
+          "changed": 141,
+          "recombined": 0,
+          "persistent_genomes": 5
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 20000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 1,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 6952,
+          "changed": 64,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 6,
+        "code_copies": 140110,
+        "changed_code": 1415,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 5,
+      "tick": 100000,
+      "snapshot_sha256": "819d736ee1546b88a6c9ddf27c8311d9bde31de196394328348dc855e55dd8d4",
+      "from_tick": 90000,
+      "population": 672,
+      "genomes": 53,
+      "window": {
+        "model": "evolving",
+        "code_policies": 2,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 8456,
+        "changed_code": 102,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8319,
+          "changed": 82,
+          "recombined": 0,
+          "persistent_genomes": 7
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 160000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 137,
+          "changed": 20,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 7196,
+          "changed": 80,
+          "recombined": 0,
+          "persistent_genomes": 5
+        }
+      ],
+      "history": {
+        "code_policies": 7,
+        "code_copies": 102075,
+        "changed_code": 1069,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 6,
+      "tick": 100000,
+      "snapshot_sha256": "84795f9f52aa10613175acb0ab7ef3b67ca9d77bb0b8833bad0555186a196ea1",
+      "from_tick": 90000,
+      "population": 676,
+      "genomes": 43,
+      "window": {
+        "model": "evolving",
+        "code_policies": 2,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 7118,
+        "changed_code": 73,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 7117,
+          "changed": 73,
+          "recombined": 0,
+          "persistent_genomes": 3
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 20000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 1,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 3959,
+          "changed": 39,
+          "recombined": 0,
+          "persistent_genomes": 2
+        }
+      ],
+      "history": {
+        "code_policies": 6,
+        "code_copies": 86014,
+        "changed_code": 836,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 7,
+      "tick": 100000,
+      "snapshot_sha256": "cd5c9808cd3dbc918a79b02b26f8915ab803cc6f27edd1194c84609dd542aefe",
+      "from_tick": 90000,
+      "population": 667,
+      "genomes": 45,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9812,
+        "changed_code": 99,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9812,
+          "changed": 99,
+          "recombined": 0,
+          "persistent_genomes": 5
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 5249,
+          "changed": 48,
+          "recombined": 0,
+          "persistent_genomes": 3
+        }
+      ],
+      "history": {
+        "code_policies": 3,
+        "code_copies": 100024,
+        "changed_code": 952,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability",
+      "seed": 8,
+      "tick": 100000,
+      "snapshot_sha256": "c41183b6d9a3815fc0c18e42a67c634a69bf2f59bdf74e0cc394c06e9c339b3d",
+      "from_tick": 90000,
+      "population": 683,
+      "genomes": 55,
+      "window": {
+        "model": "evolving",
+        "code_policies": 3,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 7432,
+        "changed_code": 87,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 7427,
+          "changed": 87,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 160000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 3,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 5000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 2,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 42,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        }
+      ],
+      "history": {
+        "code_policies": 9,
+        "code_copies": 92348,
+        "changed_code": 913,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 1,
+      "tick": 100000,
+      "snapshot_sha256": "779df3e03b550957ac82660147ac771fd6e048857473296ed4112982b8c052fd",
+      "from_tick": 90000,
+      "population": 666,
+      "genomes": 55,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9733,
+        "changed_code": 76,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9733,
+          "changed": 76,
+          "recombined": 0,
+          "persistent_genomes": 8
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 7103,
+          "changed": 65,
+          "recombined": 0,
+          "persistent_genomes": 7
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 103965,
+        "changed_code": 1030,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 2,
+      "tick": 100000,
+      "snapshot_sha256": "a4a9dffd983f96bb5830089ba2eb99ae22576817472343c1fb61dfdae5c341ea",
+      "from_tick": 90000,
+      "population": 656,
+      "genomes": 51,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 12048,
+        "changed_code": 116,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 12048,
+          "changed": 116,
+          "recombined": 0,
+          "persistent_genomes": 2
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8790,
+          "changed": 98,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 125349,
+        "changed_code": 1307,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 3,
+      "tick": 100000,
+      "snapshot_sha256": "3f19060a63b628ba0c95c24ff6932d005c1ec5916011e72bc33c44a321097454",
+      "from_tick": 90000,
+      "population": 669,
+      "genomes": 42,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9262,
+        "changed_code": 102,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9262,
+          "changed": 102,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 2486,
+          "changed": 22,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 108106,
+        "changed_code": 1119,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 4,
+      "tick": 100000,
+      "snapshot_sha256": "0ce3e505691651ad87ad5e91758f9e7cece3f0337f13ed0f67175d603e9a0828",
+      "from_tick": 90000,
+      "population": 661,
+      "genomes": 33,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 16291,
+        "changed_code": 176,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 16291,
+          "changed": 176,
+          "recombined": 0,
+          "persistent_genomes": 6
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9464,
+          "changed": 89,
+          "recombined": 0,
+          "persistent_genomes": 3
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 160736,
+        "changed_code": 1597,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 5,
+      "tick": 100000,
+      "snapshot_sha256": "b69fbf3a49cbb31cea21d27f935f9d517da16b1258b9593f68ee3f6895d47e72",
+      "from_tick": 90000,
+      "population": 678,
+      "genomes": 41,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9165,
+        "changed_code": 88,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9165,
+          "changed": 88,
+          "recombined": 0,
+          "persistent_genomes": 2
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 41,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 103512,
+        "changed_code": 1046,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 6,
+      "tick": 100000,
+      "snapshot_sha256": "3efe3a3627a530545767178a24747666e509cac1a4c16cef4522421590a6688a",
+      "from_tick": 90000,
+      "population": 669,
+      "genomes": 24,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 12337,
+        "changed_code": 137,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 12337,
+          "changed": 137,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 12341,
+          "changed": 134,
+          "recombined": 0,
+          "persistent_genomes": 4
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 126891,
+        "changed_code": 1286,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 7,
+      "tick": 100000,
+      "snapshot_sha256": "ad6f413ba70374e01f0b373c156a37f2831b71f7dbcb7301b0ade87d34985409",
+      "from_tick": 90000,
+      "population": 658,
+      "genomes": 60,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 11211,
+        "changed_code": 100,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 11211,
+          "changed": 100,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 6812,
+          "changed": 67,
+          "recombined": 0,
+          "persistent_genomes": 3
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 121483,
+        "changed_code": 1184,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-fixed",
+      "seed": 8,
+      "tick": 100000,
+      "snapshot_sha256": "4ec50ae9cc407dca575992c2773a673088bed56978b0369f0d3a7d3c4dbf538a",
+      "from_tick": 90000,
+      "population": 665,
+      "genomes": 48,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 10790,
+        "changed_code": 110,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 10790,
+          "changed": 110,
+          "recombined": 0,
+          "persistent_genomes": 7
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8844,
+          "changed": 81,
+          "recombined": 0,
+          "persistent_genomes": 4
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 117261,
+        "changed_code": 1157,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 1,
+      "tick": 100000,
+      "snapshot_sha256": "1983e8b5cec98fafb8f7f194bba0dc68816f6c6a5efb62e91b089e0bab27c79a",
+      "from_tick": 90000,
+      "population": 580,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15797,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15797,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15797,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 156834,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 2,
+      "tick": 100000,
+      "snapshot_sha256": "7132f32ca1ff70d7d1105e072381fdd58675581a23d9ed2ea949fce04e2b0ac7",
+      "from_tick": 90000,
+      "population": 570,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15593,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15593,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15593,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 156430,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 3,
+      "tick": 100000,
+      "snapshot_sha256": "08f8d11d9b784fdac5a3161a505be62471322475b8eb710446e9db7de0bc9ce4",
+      "from_tick": 90000,
+      "population": 584,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15619,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15619,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15618,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 156602,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 4,
+      "tick": 100000,
+      "snapshot_sha256": "05c2e649b1f90319754eb6d141af236c4aaa9e8c66dde1d349f08e817bc45622",
+      "from_tick": 90000,
+      "population": 575,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15651,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15651,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15650,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 157495,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 5,
+      "tick": 100000,
+      "snapshot_sha256": "574627d561002e9a2344a0a8e4f9f4efb517b7190207b0c40fd6fea2c9950ac6",
+      "from_tick": 90000,
+      "population": 571,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15640,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15640,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15644,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 156945,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 6,
+      "tick": 100000,
+      "snapshot_sha256": "c96b021d555c734dc69ed75dc30d5480201fb1634eccae59e5212532c71a272a",
+      "from_tick": 90000,
+      "population": 571,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15454,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15454,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15453,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 156817,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 7,
+      "tick": 100000,
+      "snapshot_sha256": "f472d2a5686bca315a7ccbcfca52d34bed71f4c9992c67c21b2e79d6b6138ecd",
+      "from_tick": 90000,
+      "population": 580,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15706,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15706,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15706,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 156732,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000001",
+      "case": "evolvability-no-mutation",
+      "seed": 8,
+      "tick": 100000,
+      "snapshot_sha256": "cac59e5f0b8f3ec02c4f8ddf0b1232eacdb9208d2c708e46b744305cb0539dad",
+      "from_tick": 90000,
+      "population": 569,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15577,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15577,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15576,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 156592,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 1,
+      "tick": 120000,
+      "snapshot_sha256": "a37ea21cf075c7742ee9c346c0a69dca84eae0faff5a54451ebd0a0c2cd19107",
+      "from_tick": 110000,
+      "population": 673,
+      "genomes": 45,
+      "window": {
+        "model": "evolving",
+        "code_policies": 2,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 8724,
+        "changed_code": 93,
+        "recombined": 1
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8704,
+          "changed": 92,
+          "recombined": 0,
+          "persistent_genomes": 7
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 2500,
+            "operator": 0,
+            "recombine": true,
+            "proofread": true,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 20,
+          "changed": 1,
+          "recombined": 1,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8386,
+          "changed": 102,
+          "recombined": 0,
+          "persistent_genomes": 6
+        }
+      ],
+      "history": {
+        "code_policies": 5,
+        "code_copies": 113450,
+        "changed_code": 1142,
+        "recombined": 1
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 2,
+      "tick": 120000,
+      "snapshot_sha256": "a68e46b9609c8ec31133c704282fb9162db72268cf100c15c829c1de49c45498",
+      "from_tick": 110000,
+      "population": 661,
+      "genomes": 63,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 8750,
+        "changed_code": 92,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8750,
+          "changed": 92,
+          "recombined": 0,
+          "persistent_genomes": 6
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 3741,
+          "changed": 52,
+          "recombined": 0,
+          "persistent_genomes": 4
+        }
+      ],
+      "history": {
+        "code_policies": 9,
+        "code_copies": 116421,
+        "changed_code": 1128,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 3,
+      "tick": 120000,
+      "snapshot_sha256": "8810ac37937ef103f0b906dc0785642b64c0fe86bb4c6058cf2f788a6e0dab12",
+      "from_tick": 110000,
+      "population": 663,
+      "genomes": 54,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 0,
+        "persistent_code_policies": 1,
+        "code_copies": 13776,
+        "changed_code": 107,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 13776,
+          "changed": 107,
+          "recombined": 0,
+          "persistent_genomes": 7
+        }
+      ],
+      "history": {
+        "code_policies": 8,
+        "code_copies": 181165,
+        "changed_code": 1805,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 4,
+      "tick": 120000,
+      "snapshot_sha256": "4c714f4463a01f56d4f52ea64bdeedc2db0cb48beb535ec2a41367f315eeda4d",
+      "from_tick": 110000,
+      "population": 669,
+      "genomes": 29,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 13857,
+        "changed_code": 123,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 13857,
+          "changed": 123,
+          "recombined": 0,
+          "persistent_genomes": 5
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 7281,
+          "changed": 84,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 6,
+        "code_copies": 167771,
+        "changed_code": 1683,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 5,
+      "tick": 120000,
+      "snapshot_sha256": "915139cdda1fa6e62bf4d9b7b6e34f96a7d7d37dcd4c16d2e224e88935bb0af5",
+      "from_tick": 110000,
+      "population": 672,
+      "genomes": 50,
+      "window": {
+        "model": "evolving",
+        "code_policies": 4,
+        "memory_policies": 3,
+        "persistent_code_policies": 1,
+        "code_copies": 8415,
+        "changed_code": 103,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8272,
+          "changed": 82,
+          "recombined": 0,
+          "persistent_genomes": 10
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 160000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 138,
+          "changed": 21,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": true,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 4,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 2500,
+            "operator": 0,
+            "recombine": false,
+            "proofread": true,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 1,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 6809,
+          "changed": 68,
+          "recombined": 0,
+          "persistent_genomes": 6
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 80000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 35,
+          "changed": 4,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 20000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 2,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 0
+        }
+      ],
+      "history": {
+        "code_policies": 9,
+        "code_copies": 118926,
+        "changed_code": 1276,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 6,
+      "tick": 120000,
+      "snapshot_sha256": "db2c1fba598c5cf429893112d69d6ca5b5886bb343b1660f245f70dc917aaf08",
+      "from_tick": 110000,
+      "population": 677,
+      "genomes": 43,
+      "window": {
+        "model": "evolving",
+        "code_policies": 2,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 7210,
+        "changed_code": 59,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 6965,
+          "changed": 57,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 2500,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 245,
+          "changed": 2,
+          "recombined": 0,
+          "persistent_genomes": 0
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 2675,
+          "changed": 31,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 6,
+        "code_copies": 100398,
+        "changed_code": 977,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 7,
+      "tick": 120000,
+      "snapshot_sha256": "c2e3136c9cb61adef836a218f3a71e220e216dd6c59e2feb164f529ae3d2ddbd",
+      "from_tick": 110000,
+      "population": 668,
+      "genomes": 45,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9155,
+        "changed_code": 73,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9155,
+          "changed": 73,
+          "recombined": 0,
+          "persistent_genomes": 6
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 5131,
+          "changed": 59,
+          "recombined": 0,
+          "persistent_genomes": 3
+        }
+      ],
+      "history": {
+        "code_policies": 3,
+        "code_copies": 118695,
+        "changed_code": 1119,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability",
+      "seed": 8,
+      "tick": 120000,
+      "snapshot_sha256": "350585bcee47656d5fc4aa293b25e7d4b0adb134d003811288c128811448f51b",
+      "from_tick": 110000,
+      "population": 675,
+      "genomes": 53,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 0,
+        "persistent_code_policies": 1,
+        "code_copies": 7240,
+        "changed_code": 61,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 7240,
+          "changed": 61,
+          "recombined": 0,
+          "persistent_genomes": 4
+        }
+      ],
+      "history": {
+        "code_policies": 9,
+        "code_copies": 107048,
+        "changed_code": 1032,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 1,
+      "tick": 120000,
+      "snapshot_sha256": "0499f06f229ed999f752e579bda7f043c5e4b0976561af238eae9d0c9b9c9e8a",
+      "from_tick": 110000,
+      "population": 664,
+      "genomes": 55,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9764,
+        "changed_code": 108,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9764,
+          "changed": 108,
+          "recombined": 0,
+          "persistent_genomes": 9
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 6757,
+          "changed": 54,
+          "recombined": 0,
+          "persistent_genomes": 7
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 123391,
+        "changed_code": 1244,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 2,
+      "tick": 120000,
+      "snapshot_sha256": "8a6ab3c3fc67c3bac1d04e3342116e820e350a7a0e3470adbfb90b8c250ac690",
+      "from_tick": 110000,
+      "population": 666,
+      "genomes": 53,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 12166,
+        "changed_code": 132,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 12166,
+          "changed": 132,
+          "recombined": 0,
+          "persistent_genomes": 3
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 8864,
+          "changed": 108,
+          "recombined": 0,
+          "persistent_genomes": 2
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 149864,
+        "changed_code": 1551,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 3,
+      "tick": 120000,
+      "snapshot_sha256": "8de7a6a59ab1a610646df3d434be3ba8f57cdf3326acadce8a0e3831c146884d",
+      "from_tick": 110000,
+      "population": 677,
+      "genomes": 48,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9294,
+        "changed_code": 95,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9294,
+          "changed": 95,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 2609,
+          "changed": 24,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 126667,
+        "changed_code": 1309,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 4,
+      "tick": 120000,
+      "snapshot_sha256": "3d8a9b2200f609917d8d23357abf04541544684dc2f46e279e832441e972f16c",
+      "from_tick": 110000,
+      "population": 664,
+      "genomes": 36,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 16694,
+        "changed_code": 168,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 16694,
+          "changed": 168,
+          "recombined": 0,
+          "persistent_genomes": 6
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9528,
+          "changed": 105,
+          "recombined": 0,
+          "persistent_genomes": 3
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 194084,
+        "changed_code": 1916,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 5,
+      "tick": 120000,
+      "snapshot_sha256": "ef622acd2e8319d26c83780f02d4958aeda1cb5f76deed5ab302f5299a80223a",
+      "from_tick": 110000,
+      "population": 677,
+      "genomes": 38,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 9439,
+        "changed_code": 90,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 9439,
+          "changed": 90,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 17,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 122210,
+        "changed_code": 1214,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 6,
+      "tick": 120000,
+      "snapshot_sha256": "47af77578558d8705b349f6af6d0d6c1fd3014aa5c225615455773aa52dc6680",
+      "from_tick": 110000,
+      "population": 675,
+      "genomes": 29,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 12653,
+        "changed_code": 135,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 12653,
+          "changed": 135,
+          "recombined": 0,
+          "persistent_genomes": 4
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 12655,
+          "changed": 123,
+          "recombined": 0,
+          "persistent_genomes": 4
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 151991,
+        "changed_code": 1536,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 7,
+      "tick": 120000,
+      "snapshot_sha256": "e6ea9524fb902797ffd2ab2a6ffb5aeac0ba49480e142b15a9289d048fb7a76f",
+      "from_tick": 110000,
+      "population": 669,
+      "genomes": 59,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 11567,
+        "changed_code": 118,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 11567,
+          "changed": 118,
+          "recombined": 0,
+          "persistent_genomes": 5
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 6529,
+          "changed": 68,
+          "recombined": 0,
+          "persistent_genomes": 3
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 144500,
+        "changed_code": 1442,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-fixed",
+      "seed": 8,
+      "tick": 120000,
+      "snapshot_sha256": "9ce743f9733f96f0f9fecbeec0fa8eb45b50038af997befb1102f78c2743511c",
+      "from_tick": 110000,
+      "population": 674,
+      "genomes": 53,
+      "window": {
+        "model": "fixed",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 11218,
+        "changed_code": 117,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 11218,
+          "changed": 117,
+          "recombined": 0,
+          "persistent_genomes": 6
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 10000,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 6711,
+          "changed": 65,
+          "recombined": 0,
+          "persistent_genomes": 2
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 139587,
+        "changed_code": 1387,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 1,
+      "tick": 120000,
+      "snapshot_sha256": "b246ca1602274a181301ccbc9f5afafccf11019ad869b219f0cb966457953df0",
+      "from_tick": 110000,
+      "population": 581,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15748,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15748,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15747,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 188257,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 2,
+      "tick": 120000,
+      "snapshot_sha256": "9a85dca6399dcb2e05eb701ab7625f8c563ffc433ae1a0e6d513ba4f1cf46686",
+      "from_tick": 110000,
+      "population": 586,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15737,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15737,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15737,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 187583,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 3,
+      "tick": 120000,
+      "snapshot_sha256": "95ffd3bd7a59838321c26712f927052f761e499fefed5d1e33c7372239293e34",
+      "from_tick": 110000,
+      "population": 566,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15670,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15670,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15669,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 187953,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 4,
+      "tick": 120000,
+      "snapshot_sha256": "5013eed44bb149d6c7df34a770c9d37da925e07eeeb95d31525e2c8abc418702",
+      "from_tick": 110000,
+      "population": 586,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15826,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15826,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15826,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 188892,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 5,
+      "tick": 120000,
+      "snapshot_sha256": "fb268ae52c090990053733f52543cfd0d934ceb06399b865d17852679be6cc28",
+      "from_tick": 110000,
+      "population": 561,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15487,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15487,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15488,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 188146,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 6,
+      "tick": 120000,
+      "snapshot_sha256": "1eeaa1cae8d2cb66eb8a33c375607a4f2b47d613dbf43ea8b73ba60dfbf2e669",
+      "from_tick": 110000,
+      "population": 562,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15594,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15594,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15591,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 187957,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 7,
+      "tick": 120000,
+      "snapshot_sha256": "a964d8f55099b40dd0cbac3a520caf9fa9f3cb3435e8fa5184f7a2a4491c4bd3",
+      "from_tick": 110000,
+      "population": 580,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15566,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15566,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15565,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 187914,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    },
+    {
+      "node": "b000002",
+      "case": "evolvability-no-mutation",
+      "seed": 8,
+      "tick": 120000,
+      "snapshot_sha256": "bd419fc6f2505f7ca48f3d0f3dd5af087d1be8b344e3c38c63a9bcb9878759de",
+      "from_tick": 110000,
+      "population": 571,
+      "genomes": 1,
+      "window": {
+        "model": "evolving",
+        "code_policies": 1,
+        "memory_policies": 1,
+        "persistent_code_policies": 1,
+        "code_copies": 15446,
+        "changed_code": 0,
+        "recombined": 0
+      },
+      "policies": [
+        {
+          "policy": {
+            "kind": "code",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15446,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        },
+        {
+          "policy": {
+            "kind": "memory",
+            "ppm": 0,
+            "operator": 0,
+            "recombine": false,
+            "proofread": false,
+            "layout": 0,
+            "initial_memory": false
+          },
+          "copies": 15448,
+          "changed": 0,
+          "recombined": 0,
+          "persistent_genomes": 1
+        }
+      ],
+      "history": {
+        "code_policies": 1,
+        "code_copies": 187703,
+        "changed_code": 0,
+        "recombined": 0
+      }
+    }
+  ]
+}

@@ -4,6 +4,8 @@ The tree harness preserves multiple evolutionary directions across generations. 
 
 Selection controls which cohorts receive more computation; deselecting a branch never deletes it or declares it unsuccessful. Select manually or apply the [Stage 9 novelty archive and Pareto policy](archive.md), which preserves several directions using measured objectives and behavior cells.
 
+[Stage 10](evolvability.md) worlds retain their inherited copying policies, counters, and donor provenance through tree continuation. Their evidence panels include an offline genome/policy inspector with world, code/memory, and persistence filters. Policy counts are also included in council facts; archive context matching includes the copy-model configuration.
+
 ## Workflow
 
 Run commands from the repository root. The Go implementation uses the standard library and defaults to 16 workers.

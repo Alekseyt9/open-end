@@ -21,6 +21,7 @@ type Fact struct {
 	Value   json.RawMessage `json:"value"`
 }
 type WorldBrief struct {
+	CopyModel    string                `json:"copy_model,omitempty"`
 	ID           string                `json:"id"`
 	Case         string                `json:"case"`
 	Seed         uint64                `json:"seed"`
@@ -198,10 +199,17 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		encoded, _ := json.MarshalIndent(e, "", "  ")
 		encoded = append(encoded, '\n')
 		wb := WorldBrief{ID: id, Case: row.Case, Seed: row.Seed, Tick: w.Tick, MutationPPM: w.Config.MutationPPM, SnapshotHash: kernel.Hash(w), MetricsHash: digest(data), EvidenceHash: digest(encoded), Rules: s.RulesEnd, RuleSource: builtinSource(), Facts: []Fact{}}
+		wb.CopyModel = w.Config.CopyModel
 		if w.RuleState != nil && w.RuleState.Active != nil {
 			wb.RuleSource = w.RuleState.Active.Source
 		}
-		for _, path := range []string{"summary/population", "summary/diversity_end", "summary/dominant_genomes_at_end", "summary/structures_end/largest", "summary/structures_end/linked_components", "summary/structures_end/mixed_genome_components", "summary/resource_flows", "summary/failed_attempts", "summary/copies", "summary/deaths", "dynamics/status", "dynamics/new_genomes_not_used_as_novelty"} {
+		paths := []string{"summary/population", "summary/diversity_end", "summary/dominant_genomes_at_end", "summary/structures_end/largest", "summary/structures_end/linked_components", "summary/structures_end/mixed_genome_components", "summary/resource_flows", "summary/failed_attempts", "summary/copies", "summary/deaths", "dynamics/status", "dynamics/new_genomes_not_used_as_novelty"}
+		if s.Variation != nil {
+			for _, field := range []string{"model", "code_policies", "memory_policies", "persistent_code_policies", "changed_code", "recombined"} {
+				paths = append(paths, "summary/variation/"+field)
+			}
+		}
+		for _, path := range paths {
 			parts := strings.Split(path, "/")
 			value, err := pointerValue(encoded, "/"+path)
 			if err != nil {

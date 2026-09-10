@@ -5,6 +5,7 @@ import (
 	_ "embed"
 	"fmt"
 	"html/template"
+	"open-end/internal/observer"
 	"os"
 	"path/filepath"
 	"strings"
@@ -36,12 +37,29 @@ func ExportTree(dir, dest string) error {
 		return err
 	}
 	var b bytes.Buffer
+	variation := map[string]map[string]*observer.VariationWindow{}
+	for _, n := range v.Nodes {
+		for _, w := range n.Worlds {
+			if w.CopyModel == "" {
+				continue
+			}
+			var e Evidence
+			if err := readJSON(filepath.Join(nodeRound(dir, n.ID), w.ID+".evidence.json"), &e); err != nil {
+				return err
+			}
+			if variation[n.ID] == nil {
+				variation[n.ID] = map[string]*observer.VariationWindow{}
+			}
+			variation[n.ID][w.ID] = e.Summary.Variation
+		}
+	}
 	model := struct {
 		Tree         TreeView
 		Directory    string
 		Archive      *ArchiveDecision
 		ArchiveStale bool
-	}{v, abs, archive, archive != nil && archive.TreeHash != jsonHash(v.Nodes)}
+		Variation    map[string]map[string]*observer.VariationWindow
+	}{v, abs, archive, archive != nil && archive.TreeHash != jsonHash(v.Nodes), variation}
 	if err = t.Execute(&b, model); err != nil {
 		return err
 	}
