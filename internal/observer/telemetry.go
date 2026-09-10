@@ -89,23 +89,24 @@ type RuleIdentity struct {
 	Hash    string `json:"sha256"`
 }
 type Telemetry struct {
-	Seed           uint64         `json:"seed"`
-	SessionHash    string         `json:"session_initial_world_sha256"`
-	Version        int            `json:"version"`
-	SessionStart   uint64         `json:"session_start_tick"`
-	FromTick       uint64         `json:"from_tick"`
-	Complete       bool           `json:"complete_interval"`
-	Diversity      Diversity      `json:"diversity"`
-	AliveAges      Ages           `json:"alive_ages"`
-	Structures     Structures     `json:"structures"`
-	Pools          Pools          `json:"energy_pools"`
-	Flows          Flows          `json:"resource_flows"`
-	Lifetimes      Lifetimes      `json:"completed_lifetimes"`
-	DeathsByGenome []GenomeDeaths `json:"deaths_by_genome"`
-	Interactions   []Edge         `json:"interaction_graph"`
-	Discoveries    []Discovery    `json:"new_genomes"`
-	ActiveRules    RuleIdentity   `json:"active_rules"`
-	RuleEvents     []dsl.Event    `json:"rule_events"`
+	Collectives    *CollectiveFrame `json:"collectives,omitempty"`
+	Seed           uint64           `json:"seed"`
+	SessionHash    string           `json:"session_initial_world_sha256"`
+	Version        int              `json:"version"`
+	SessionStart   uint64           `json:"session_start_tick"`
+	FromTick       uint64           `json:"from_tick"`
+	Complete       bool             `json:"complete_interval"`
+	Diversity      Diversity        `json:"diversity"`
+	AliveAges      Ages             `json:"alive_ages"`
+	Structures     Structures       `json:"structures"`
+	Pools          Pools            `json:"energy_pools"`
+	Flows          Flows            `json:"resource_flows"`
+	Lifetimes      Lifetimes        `json:"completed_lifetimes"`
+	DeathsByGenome []GenomeDeaths   `json:"deaths_by_genome"`
+	Interactions   []Edge           `json:"interaction_graph"`
+	Discoveries    []Discovery      `json:"new_genomes"`
+	ActiveRules    RuleIdentity     `json:"active_rules"`
+	RuleEvents     []dsl.Event      `json:"rule_events"`
 }
 
 func instantaneous(w *world.World, m Metrics, t *Telemetry) {

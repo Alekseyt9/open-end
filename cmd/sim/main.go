@@ -42,6 +42,8 @@ func run(args []string, out io.Writer) error {
 	save := fs.String("save", "", "write final snapshot via a temporary file")
 	load := fs.String("load", "", "resume snapshot including its config and RNG state")
 	metricsPath := fs.String("metrics", "", "write JSONL metrics (new file only)")
+	groups := fs.Bool("groups", false, "record collective persistence and daughter-group candidates; requires metrics")
+	groupAge := fs.Uint64("group-age", 100, "minimum unchanged-membership age for collective tracking")
 	rulesPath := fs.String("rules", "", "initial JSON reaction module (requires ecology)")
 	var changes ruleChanges
 	fs.Var(&changes, "rule-change", "scheduled tick=JSON-path; repeatable, frozen in snapshot")
@@ -57,6 +59,9 @@ func run(args []string, out io.Writer) error {
 	}
 	if *ticks < 0 || *every < 1 {
 		return fmt.Errorf("ticks must be nonnegative and every positive")
+	}
+	if *groupAge == 0 || *groups && *metricsPath == "" {
+		return fmt.Errorf("groups requires metrics and positive group-age")
 	}
 	var w *world.World
 	var err error
@@ -142,6 +147,11 @@ func run(args []string, out io.Writer) error {
 	var tracker *observer.Tracker
 	if *metricsPath != "" {
 		tracker = observer.NewTracker(w)
+		if *groups {
+			if err := tracker.EnableCollectives(w, w, *groupAge); err != nil {
+				return err
+			}
+		}
 	}
 	previous := observer.Observe(w)
 	report := func() error {

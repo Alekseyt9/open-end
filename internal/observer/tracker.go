@@ -16,6 +16,7 @@ type edgeKey struct{ kind, source, target string }
 // Tracker is an external interval accumulator. A new tracker starts a new
 // observation session, including when a physical snapshot is resumed.
 type Tracker struct {
+	collectives       *collectiveTracker
 	sessionHash       string
 	start, from, last uint64
 	complete          bool
@@ -57,8 +58,14 @@ func (t *Tracker) TickCompleted(tick uint64) {
 		t.complete = false
 	}
 	t.last = tick
+	if t.collectives != nil {
+		t.collectives.step()
+	}
 }
 func (t *Tracker) Interaction(e rules.Interaction) {
+	if t.collectives != nil {
+		t.collectives.interaction(e)
+	}
 	if e.Tick != t.last+1 {
 		t.complete = false
 	}
@@ -75,6 +82,9 @@ func (t *Tracker) Interaction(e rules.Interaction) {
 	}
 }
 func (t *Tracker) Death(d rules.Death) {
+	if t.collectives != nil {
+		delete(t.collectives.tags, d.ID)
+	}
 	if d.Tick != t.last+1 || d.Created > d.Tick {
 		t.complete = false
 		return
@@ -100,6 +110,9 @@ func (t *Tracker) Frame(w *world.World) Metrics {
 	x.Seed = w.Config.Seed
 	x.SessionHash = t.sessionHash
 	instantaneous(w, m, x)
+	if t.collectives != nil {
+		x.Collectives = t.collectives.frame()
+	}
 	a, b := t.previous, w.Accounting
 	x.Flows = Flows{Injected: b.Injected - a.Injected, Dissipated: b.Dissipated - a.Dissipated, Absorbed: b.Absorbed - a.Absorbed, Transferred: b.Transferred - a.Transferred, Taken: b.Taken - a.Taken, Allocated: int64(b.Allocations-a.Allocations) * 12, Charged: b.Charged - a.Charged, DSL: map[string]uint64{}}
 	for i := range x.Flows.Converted {

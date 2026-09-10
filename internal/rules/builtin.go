@@ -42,6 +42,9 @@ func Evaluate(w *world.World, p *world.Particle) Event {
 			sensed = w.Cells[w.Neighbor(p.Position, intent.A-12)].Signal
 		}
 	}
+	if w.Config.CollectiveAblation == "signal-reading" && (intent.A == 7 || intent.A >= 12 && intent.A <= 15) {
+		sensed = 0
+	}
 	return Event{Actor: p.ID, Intent: intent, Sensed: sensed}
 }
 
@@ -119,7 +122,7 @@ func DecayObserved(w *world.World, id uint64, sink Observer) {
 	dissipate(w, p, min(p.Energy, w.Config.Maintenance))
 	if p.Energy == 0 {
 		if sink != nil {
-			sink.Death(Death{Tick: w.Tick + 1, Created: p.Created, Genome: p.Genome})
+			sink.Death(Death{Tick: w.Tick + 1, Created: p.Created, Genome: p.Genome, ID: p.ID})
 		}
 		w.Unlink(id)
 		c := &w.Cells[p.Position]
@@ -201,6 +204,7 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		c.Energy -= n
 		p.Energy += n
 		w.Accounting.Absorbed += int64(n)
+		acquired(sink, p, n)
 		if n == 0 {
 			w.Accounting.FailedAbsorb++
 		}
@@ -317,6 +321,11 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		if q == nil {
 			return
 		}
+		if w.Config.CollectiveAblation == "sharing" {
+			if _, bonded := w.Relations[world.RelationKey(p.ID, q.ID)]; bonded {
+				return
+			}
+		}
 		n := max(0, min(i.A, p.Energy-1, w.Config.EnergyCapacity-q.Energy))
 		p.Energy -= n
 		q.Energy += n
@@ -329,7 +338,9 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		}
 	case vm.CONVERT:
 		if w.Config.Ecology {
+			before := p.Energy
 			convert(w, p, i.A, i.B)
+			acquired(sink, p, p.Energy-before)
 		}
 	case vm.TARGET:
 		p.Target = 0
@@ -363,6 +374,9 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 			r.Taken += int64(n)
 		}
 	case vm.BIND:
+		if w.Config.CollectiveAblation == "bonds" {
+			return
+		}
 		q := target(w, p)
 		if q == nil {
 			return

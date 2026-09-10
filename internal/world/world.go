@@ -10,21 +10,22 @@ import (
 )
 
 type Config struct {
-	Width             int    `json:"width"`
-	Height            int    `json:"height"`
-	MaxEntities       int    `json:"max_entities"`
-	MaxCode           int    `json:"max_code"`
-	CellCapacity      int    `json:"cell_capacity"`
-	EnergyCapacity    int    `json:"energy_capacity"`
-	Inflow            int    `json:"inflow"`
-	Maintenance       int    `json:"maintenance"`
-	MutationPPM       int    `json:"mutation_ppm"`
-	Seed              uint64 `json:"seed"`
-	MatterDiffusion   int    `json:"matter_diffusion"`
-	Ecology           bool   `json:"ecology"`
-	ChemicalDiffusion int    `json:"chemical_diffusion"`
-	CopyModel         string `json:"copy_model,omitempty"`
-	Environment       string `json:"environment,omitempty"`
+	Width              int    `json:"width"`
+	Height             int    `json:"height"`
+	MaxEntities        int    `json:"max_entities"`
+	MaxCode            int    `json:"max_code"`
+	CellCapacity       int    `json:"cell_capacity"`
+	EnergyCapacity     int    `json:"energy_capacity"`
+	Inflow             int    `json:"inflow"`
+	Maintenance        int    `json:"maintenance"`
+	MutationPPM        int    `json:"mutation_ppm"`
+	Seed               uint64 `json:"seed"`
+	MatterDiffusion    int    `json:"matter_diffusion"`
+	Ecology            bool   `json:"ecology"`
+	ChemicalDiffusion  int    `json:"chemical_diffusion"`
+	CopyModel          string `json:"copy_model,omitempty"`
+	Environment        string `json:"environment,omitempty"`
+	CollectiveAblation string `json:"collective_ablation,omitempty"`
 }
 
 func DefaultConfig() Config {
@@ -34,6 +35,12 @@ func DefaultConfig() Config {
 }
 
 func (c Config) Validate() error {
+	if c.CollectiveAblation != "" && c.CollectiveAblation != "bonds" && c.CollectiveAblation != "sharing" && c.CollectiveAblation != "signal-reading" {
+		return fmt.Errorf("invalid collective ablation")
+	}
+	if c.CollectiveAblation == "signal-reading" && c.Environment == "" {
+		return fmt.Errorf("signal-reading ablation requires engineering")
+	}
 	if c.Environment != "" && c.Environment != "coupled" && c.Environment != "inert" {
 		return fmt.Errorf("environment must be empty, coupled, or inert")
 	}
@@ -291,6 +298,9 @@ func (w *World) Unlink(id uint64) {
 }
 
 func (w *World) Validate() error {
+	if w.Config.CollectiveAblation == "bonds" && len(w.Relations) > 0 {
+		return fmt.Errorf("bonds present in bond ablation")
+	}
 	if err := w.ValidateEnvironment(); err != nil {
 		return err
 	}

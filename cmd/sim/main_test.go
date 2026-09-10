@@ -64,6 +64,31 @@ func TestCLICopyModelReplay(t *testing.T) {
 	}
 }
 
+func TestCLIEnvironmentReplay(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "environment.json")
+	var first, resumed, full bytes.Buffer
+	base := []string{"-width", "8", "-height", "8", "-ecology", "-environment", "coupled", "-copy-model", "evolving"}
+	if err := run(append(append([]string{}, base...), "-ticks", "100", "-save", path), &first); err != nil {
+		t.Fatal(err)
+	}
+	if err := run([]string{"-load", path, "-ticks", "100"}, &resumed); err != nil {
+		t.Fatal(err)
+	}
+	if err := run(append(append([]string{}, base...), "-ticks", "200"), &full); err != nil {
+		t.Fatal(err)
+	}
+	hash := func(b *bytes.Buffer) string { s := strings.Split(b.String(), "state_sha256="); return s[len(s)-1] }
+	if hash(&resumed) != hash(&full) {
+		t.Fatal("environment CLI replay differs")
+	}
+	if err := run([]string{"-load", path, "-environment", "inert"}, &first); err == nil {
+		t.Fatal("environment override accepted")
+	}
+	if err := run([]string{"-environment", "coupled"}, &first); err == nil {
+		t.Fatal("engineering without ecology accepted")
+	}
+}
+
 func TestCLIRulesReplayWithoutSourceFiles(t *testing.T) {
 	dir := t.TempDir()
 	base, replacement := filepath.Join(dir, "base.json"), filepath.Join(dir, "replacement.json")

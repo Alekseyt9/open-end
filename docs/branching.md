@@ -6,6 +6,8 @@ Selection controls which cohorts receive more computation; deselecting a branch 
 
 [Stage 10](evolvability.md) worlds retain their inherited copying policies, counters, and donor provenance through tree continuation. Their evidence panels include an offline genome/policy inspector with world, code/memory, and persistence filters. Policy counts are also included in council facts; archive context matching includes the copy-model configuration.
 
+[Stage 11](environment.md) adds a field inspector for sparse terrain and signal maps, engineering counters, and per-genome activity alongside produced copies. World selection and map layers work offline. Environment configuration is preserved in snapshots and included in archive comparison contexts. Use `cmd/env-assay` for explicit matched interventions on terrain feedback.
+
 ## Workflow
 
 Run commands from the repository root. The Go implementation uses the standard library and defaults to 16 workers.

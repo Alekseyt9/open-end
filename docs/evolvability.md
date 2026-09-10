@@ -97,7 +97,7 @@ Open `index.html`, choose **Inspect evidence**, and expand **Inspect executed po
 
 ## Compatibility
 
-Encoded copying uses snapshot **format 4**, with or without DSL state. The configuration and complete ledger are part of the state hash. Formats 2 and 3 retain their existing semantics and serialization. A loaded world's copy model cannot be overridden; create a new experiment to change it.
+Encoded copying uses snapshot **format 4**, with or without DSL state. When combined with [Stage 11 environmental engineering](environment.md), format **5** also includes engineered fields and their ledger. The configuration and complete ledgers are part of the state hash. Formats 2 and 3 retain their existing semantics and serialization. A loaded world's copy model cannot be overridden; create a new experiment to change it.
 
 The new model currently runs in **Go**. The Warp CLI bridge and Python batch API explicitly reject fixed/evolving copy models. Legacy Warp differential tests still pass. No GPU timing for encoded copying is claimed.
 

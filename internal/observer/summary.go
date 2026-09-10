@@ -28,6 +28,7 @@ type Behavior struct {
 	Converted    [2]int64 `json:"converted_by_id"`
 }
 type WindowSummary struct {
+	Collectives     *CollectiveSummary `json:"collectives,omitempty"`
 	Environment     *EnvironmentWindow `json:"environment,omitempty"`
 	Variation       *VariationWindow   `json:"variation,omitempty"`
 	Seed            uint64             `json:"seed"`
@@ -96,6 +97,11 @@ func Summarize(frames []Metrics, requested uint64) (WindowSummary, error) {
 		return r, err
 	}
 	r.Environment = environment
+	collectives, err := summarizeCollectives(frames)
+	if err != nil {
+		return r, err
+	}
+	r.Collectives = collectives
 	first := frames[0]
 	if first.Telemetry == nil || first.Telemetry.Version != 1 {
 		return r, fmt.Errorf("event telemetry v1 is required; old metrics cannot recover exact lifetimes or interactions")

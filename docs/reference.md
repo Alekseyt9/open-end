@@ -23,7 +23,7 @@ go run ./cmd/sim -width 32 -height 32 -seed 1 -ecology -matter-diffusion 4 -chem
 go run ./cmd/sim -load data/world.json -ticks 5000 -save data/continued.json
 ```
 
-`-ticks` always means **additional** ticks. A snapshot contains configuration, both RNGs, chemical fields, bonds, programs, memory, ancestry, and resource counters. World parameters cannot be overridden with `-load`; they come from the snapshot. The final `state_sha256` line compares complete states. Legacy copying uses snapshot format **2** without DSL state and **3** with it. Encoded copying uses format **4** with or without DSL state; rules are **ecology-2**. Stage 1 snapshots (format 1) are rejected as incompatible; there is no implicit migration.
+`-ticks` always means **additional** ticks. A snapshot contains configuration, both RNGs, chemical fields, bonds, programs, memory, ancestry, and resource counters. World parameters cannot be overridden with `-load`; they come from the snapshot. The final `state_sha256` line compares complete states. Legacy copying uses snapshot format **2** without DSL state and **3** with it. Encoded copying uses format **4**. Environmental engineering uses format **5**, optionally with encoded copying and/or DSL state; rules are **ecology-2**. Stage 1 snapshots (format 1) are rejected as incompatible; there is no implicit migration.
 
 JSONL output requires a new file to avoid erasing an earlier experiment. Snapshots are written through a temporary file and rename; an existing destination snapshot may be replaced. Run files under `data/` are excluded from Git.
 
@@ -36,6 +36,8 @@ go run ./cmd/sim -width 64 -height 64 -seed 1 -mutation-ppm 0 -matter-diffusion 
 All options: `go run ./cmd/sim -h`.
 
 Stage 10 is enabled with `-copy-model evolving`; use `-copy-model fixed` for the matching six-operator control. Omitting the flag preserves the original copying semantics and replay. These models add inherited mutation policies, local recombination, a proofreading cost/rate tradeoff, and memory transmission layouts. See [Evolvability](evolvability.md) for encoding, controls, telemetry, and the offline policy inspector. Encoded copying is currently Go-only.
+
+Stage 11 is enabled with `-environment coupled` and requires ecology. `-environment inert` keeps construction, signals, and costs while disabling terrain attenuation of inflow and transport. The new `cmd/env-assay` compares both settings from matched source snapshots with 16 workers. See [Environmental coevolution](environment.md) for the exact mechanics, field inspector, and interpretation. Engineering is currently Go-only.
 
 ## Implemented features
 
@@ -95,6 +97,8 @@ Every instruction attempt costs energy, including blocked actions. If energy is 
 | `TAKE A` | Take up to `A` energy from the neighboring target | 1 |
 | `BIND` | Bond to the selected neighboring target | 1 |
 | `UNBIND A` | Remove the target bond, or all own bonds if `A<0` | 1 |
+| `BUILD A B` | Engineering mode: place/reclaim terrain using local matter; negative A selects own cell, otherwise adjacent direction modulo 4 | 4 |
+| `EMIT A B` | Engineering mode: transfer up to B actor energy into a local signal; same cell selection as BUILD | 2, plus transferred signal energy |
 
 `ALLOCATE` additionally **transfers**, rather than creates, 12 energy units from the source to the empty particle. This reserve provides time to copy memory and code. `COPY` allocates no matter and supplies no initial energy. The target is accessible only while adjacent; `COPYMEM` occurs before the target receives code. Code and memory addresses wrap modulo their size. Default limits are 64 instructions, 256 energy per particle, and 128 energy per cell.
 
@@ -103,10 +107,12 @@ In ecology mode, `SENSE A B` also reads X/Y/Z for `A=3/4/5`. A bond holds both p
 The following identities can be checked after every completed tick:
 
 ```text
-field energy + particle energy + 8×X + 4×Y = initial energy + inflow − dissipation
-field matter + particle count = initial matter
+field energy + particle energy + signal energy + 8×X + 4×Y = initial energy + inflow − dissipation
+field matter + stored terrain + particle count = initial matter
 X + Y + Z = initial chemical amount
 ```
+
+Signal energy and stored terrain are zero when engineering is disabled. Engineering also extends `SENSE` with current-cell terrain/signal (6/7) and adjacent terrain/signal (8–11/12–15). Field mutations are available only in its 19-instruction repertoire; ordinary ecology retains 17 instructions.
 
 `genomes` counts distinct programs, ignoring memory. `lineages` counts active **code + initial inherited memory** variants. Thus `genomes=1` without mutations, but `lineages` may exceed one because the program passes on memory containing SENSE results. Use `genomes` as evidence of genetic variation. The `origins` history stores each variant's first origin and copy count; it is not yet a complete genealogy.
 
@@ -264,7 +270,7 @@ go run ./cmd/council prepare -input data/my-trial -variant solar-y-recycle -out 
 
 The dossier contains identified facts, summaries, and source-snapshot copies. Claims cite facts; hypotheses are separated from observations. Macromutations are full DSL modules with a mechanism, prediction, and risk. Validation checks hashes, references, conservation, and reaction reachability in the current VM. Source worlds remain unchanged; runs produce `comparison.md`, JSONL, snapshots, and branch summaries. No API key is required.
 
-[Interface and exchange format](council.md) · [Completed round on 16 source worlds](../experiments/council/REPORT.md). Observation and macromutations are implemented within the current reaction DSL. Automatic AI invocation is not enabled. The [Stage 8 tree harness](branching.md) preserves multiple selected cohorts, their ancestry, and repeated continuations, with an offline HTML explorer. The [Stage 9 archive](archive.md) adds immutable selection decisions, Pareto comparisons on measured proxies, and protected behavior cells. [Stage 10](evolvability.md) implements inherited copying strategies, with persistent diversity still an open criterion. Stage 11 concerns environmental coevolution.
+[Interface and exchange format](council.md) · [Completed round on 16 source worlds](../experiments/council/REPORT.md). Observation and macromutations are implemented within the current reaction DSL. Automatic AI invocation is not enabled. The [Stage 8 tree harness](branching.md) preserves multiple selected cohorts, their ancestry, and repeated continuations, with an offline HTML explorer. The [Stage 9 archive](archive.md) adds immutable selection decisions, Pareto comparisons on measured proxies, and protected behavior cells. [Stage 10](evolvability.md) implements inherited copying strategies, with persistent diversity still an open criterion. [Stage 11](environment.md) implements environmental engineering and matched feedback interventions, with new niches still unproven. Stage 12 concerns proto-multicellularity.
 
 ## Experimental Warp solver
 

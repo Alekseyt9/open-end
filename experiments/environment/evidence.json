@@ -1,0 +1,2227 @@
+{
+  "batch": {
+    "Status": "complete",
+    "Workers": 16,
+    "GOMAXPROCS": 1,
+    "Seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "Cases": [
+      "environment",
+      "environment-inert",
+      "environment-no-mutation"
+    ],
+    "Ticks": 100000,
+    "Every": 1000,
+    "StartedUTC": "2026-09-10T20:32:01.0129139Z",
+    "SourceRevision": "0b7b566f913f2a5666c9189613442bedbc7e2066",
+    "SourceDirty": true,
+    "BinarySHA256": "c5bc90ec1f229cd8d4b7294eb6ce628b8200e8219c4359ada7a77e105d8bf49f",
+    "Total": 24,
+    "Completed": 24,
+    "ElapsedSeconds": 80.8188593
+  },
+  "assay": {
+    "case": "environment",
+    "completed": 16,
+    "every": 1000,
+    "input": "data/environment-stage11",
+    "seconds": 5.0958867,
+    "started_utc": "2026-09-10T20:35:08Z",
+    "status": "complete",
+    "ticks": 10000,
+    "total": 16,
+    "workers": 16
+  },
+  "worlds": [
+    {
+      "case": "environment",
+      "seed": 1,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 675,
+      "copies": 15014,
+      "snapshot_sha256": "54af5096f7c1200bc7cdad869d39cb9e2d6f2b4b81e1c89611d98d9cdf9751a2",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 1,
+        "reclaimed": 0,
+        "eroded": 1,
+        "emitted": 38,
+        "decayed": 38,
+        "blocked_light": 17,
+        "attenuated_transfer": 6,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "99f55cd2487b5639d84cbe8eddc5fe46ecbcc6591357ac6a10519006c94498e6",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "0c9b4020cd0dce1af7bc65d43559fdc014e73cc8a95c96020bac92a8cca4ca14",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 14,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "481b98bb723de6cd3ea809441f45b8bddf6074296e6fd86f62ca550341eba03c",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 2,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "a02320891a4336b87b3b8acf13e1e32812d947f614b506292dcace0aa2e531ab",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 4,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "af77455b9954d4215a2face05ed763ab8d7542198fe5499e33a9fea7489416d2",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 4,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "b31fda16c6cf45d4e09864e983750cf0d22f516d8f8332fa1fcca59fdd7448b9",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 14,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 22,
+        "reclaimed": 0,
+        "eroded": 22,
+        "emitted": 341,
+        "decayed": 341,
+        "blocked_light": 247,
+        "attenuated_transfer": 177,
+        "sensed": 70
+      }
+    },
+    {
+      "case": "environment",
+      "seed": 2,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 662,
+      "copies": 10436,
+      "snapshot_sha256": "7fcab458e2a64b0cea93b0a876f93b5c1d3ae67f96fff8377747474cd4abd4be",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 1429,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "2fb3d0446bf17fcde55fcebd8b5e2ed2b69f01f87d27939c9c93b160a507dd2e",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 1429,
+            "population_at_end": 1,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 75,
+        "reclaimed": 0,
+        "eroded": 75,
+        "emitted": 1679,
+        "decayed": 1679,
+        "blocked_light": 2924,
+        "attenuated_transfer": 1006,
+        "sensed": 13893
+      }
+    },
+    {
+      "case": "environment",
+      "seed": 3,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 674,
+      "copies": 10469,
+      "snapshot_sha256": "a1e7115b87abc757c2887865b1768fa46cd4ecfd79a9b96feb0852e668880a90",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 3,
+        "reclaimed": 0,
+        "eroded": 3,
+        "emitted": 636,
+        "decayed": 636,
+        "blocked_light": 91,
+        "attenuated_transfer": 50,
+        "sensed": 163
+      }
+    },
+    {
+      "case": "environment",
+      "seed": 4,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 662,
+      "copies": 16008,
+      "snapshot_sha256": "e4ef6a248b2471c7589f7b25a456ed448b29007372f0cf9c1b053beba0bd9d36",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 8,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 156,
+        "reclaimed": 0,
+        "eroded": 156,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 22257,
+        "sensed": 0,
+        "fields_at_end": [
+          {
+            "position": 927,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "be1955f0aecae7a8f35f18045478e810ba7486a67a74308b676a3c8e7889a937",
+            "built": 156,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 1466,
+        "reclaimed": 0,
+        "eroded": 1458,
+        "emitted": 3840,
+        "decayed": 3840,
+        "blocked_light": 122,
+        "attenuated_transfer": 205450,
+        "sensed": 16
+      }
+    },
+    {
+      "case": "environment",
+      "seed": 5,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 665,
+      "copies": 13367,
+      "snapshot_sha256": "a5329bc17c6fea3ce6bc4ca752adb08b538cfc6e9bbae2b062c5926348417f49",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 7,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 158,
+        "reclaimed": 0,
+        "eroded": 157,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 30016,
+        "attenuated_transfer": 23203,
+        "sensed": 0,
+        "fields_at_end": [
+          {
+            "position": 550,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "db8682bab33d8a801ece9270ec69c67886d57d4dabc302d027655fe6b3ad8146",
+            "built": 157,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "ed845a85f115c4f3751c09a6e8ba16f2c698e682087d0c2ee3fe4d49a5200134",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 1362,
+        "reclaimed": 0,
+        "eroded": 1354,
+        "emitted": 1558,
+        "decayed": 1558,
+        "blocked_light": 248605,
+        "attenuated_transfer": 185193,
+        "sensed": 10
+      }
+    },
+    {
+      "case": "environment",
+      "seed": 6,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 673,
+      "copies": 8291,
+      "snapshot_sha256": "3311165b0640e4dc4b0c6e44fed3164b5816fce550de13c96ae071db0e9c08dd",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 61,
+        "reclaimed": 0,
+        "eroded": 61,
+        "emitted": 558,
+        "decayed": 558,
+        "blocked_light": 1721,
+        "attenuated_transfer": 820,
+        "sensed": 152
+      }
+    },
+    {
+      "case": "environment",
+      "seed": 7,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 675,
+      "copies": 12437,
+      "snapshot_sha256": "3c38ace251a3b3a2d27123db0b81b3e9e534428c2d862acce7f22822793aa68d",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 19,
+        "decayed": 19,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "d25399ca226ed253e1b67e7fb49f93c461974f9d949eb3043eaf08968fea7cd5",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 19,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 123,
+        "reclaimed": 0,
+        "eroded": 123,
+        "emitted": 630,
+        "decayed": 630,
+        "blocked_light": 3969,
+        "attenuated_transfer": 1520,
+        "sensed": 1059
+      }
+    },
+    {
+      "case": "environment",
+      "seed": 8,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 663,
+      "copies": 7824,
+      "snapshot_sha256": "7b08fa474870361bb13563df638d80121ba9c9b1503175ea6a580d2d19240211",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 6,
+        "reclaimed": 0,
+        "eroded": 6,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 92,
+        "attenuated_transfer": 36,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "4ee6b6109afa8c750aa04d990bb54d2be24d0a0164a54060c0451de7a03616ed",
+            "built": 6,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 1
+          }
+        ]
+      },
+      "history": {
+        "built": 43,
+        "reclaimed": 0,
+        "eroded": 43,
+        "emitted": 1824,
+        "decayed": 1824,
+        "blocked_light": 865,
+        "attenuated_transfer": 465,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 1,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 676,
+      "copies": 14906,
+      "snapshot_sha256": "9fd249a26b07c12ccaf76ca05c0e528ebd06cae80caf6d4c60f0332851a0c8e9",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 55,
+        "decayed": 55,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 2799,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "3deb769479680641ee9d54e4d68fdea61dec53cd805f034d019c36d3bb7bf349",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 2799,
+            "population_at_end": 2,
+            "produced_copies": 103
+          },
+          {
+            "genome": "6ddaac64bd6b71d997be4af562fdb3fd85c73f68e2bb29d444e6695282b857dd",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 7,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "c5d9c391138f3b2d92c6c2c6b3133dadb65b65d633d8c4e8f5d5a318269aa9f8",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 9,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "c6018d96513237cc6dc40a028cc66ce60bdc9f220d112b5d6b8fe4601f1215a4",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 14,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "c74b868dda2e0f17a8b7a2e5c3e52fceab4737d45c3672a65f18716b6f1c7742",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 20,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "d1bbc57de58d606271c90af6068a78daf5b63efa476d5ea24a3b31d8da881b04",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 5,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 19,
+        "reclaimed": 0,
+        "eroded": 19,
+        "emitted": 1330,
+        "decayed": 1330,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 10174
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 2,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 670,
+      "copies": 10381,
+      "snapshot_sha256": "449bf42c01f6f3a6a41c862d2713805a0df36b35c9ed3b9c3b7b8f5fdf0d8f5b",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 2,
+        "reclaimed": 0,
+        "eroded": 2,
+        "emitted": 188,
+        "decayed": 188,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 1429,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "2a9a3c8b62344b4c3317e36eb1453a2e7c35ea24a11e761f86287e1db8a480d7",
+            "built": 2,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "2fb3d0446bf17fcde55fcebd8b5e2ed2b69f01f87d27939c9c93b160a507dd2e",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 1429,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "82ef57b8e26871d10ad4af0492a60a619bbb0b3b7cfbf4c2fa7b3556e40fb344",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 128,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "d3efcebc1e93dbed00c421750c1f93aca2726d0cf6c5b3789b219263d4021605",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 60,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 361,
+        "reclaimed": 0,
+        "eroded": 361,
+        "emitted": 1829,
+        "decayed": 1829,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 14506
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 3,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 672,
+      "copies": 10012,
+      "snapshot_sha256": "cf4df3d1fda8b127b4aea2e23907e6fb86013278b9b4b86ef13c3904da2d13dc",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 6,
+        "decayed": 6,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 12,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "5441c2a807ddc049a4764859d88480e0c3af121e23f45d0521817a6feb185681",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 6,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "5d9fe775fc68fb760cedafb41aa685f9aacac1ee4fc2d8c386d4771ee0b97afc",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 12,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 8,
+        "reclaimed": 0,
+        "eroded": 8,
+        "emitted": 778,
+        "decayed": 778,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 170
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 4,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 671,
+      "copies": 13110,
+      "snapshot_sha256": "1e584b0e424351314ea66bb7c409cfabe63bac5859e9b66ce73570bbbcd2c51c",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 3,
+        "signal_energy_at_end": 0,
+        "built": 204,
+        "reclaimed": 0,
+        "eroded": 201,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 569,
+        "fields_at_end": [
+          {
+            "position": 96,
+            "terrain": 3,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "69e0d22b30186bf5c80e5537d8f48f6f41913f581e041ffc2ba4bdf7e9c605a1",
+            "built": 202,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 262
+          },
+          {
+            "genome": "f9c3705b71a2058a0f4fbfa11110cd89a73cfbaca3752568c443c90550c2f606",
+            "built": 2,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "82d2b61a7711e2771278edd5e826e9e6640b5fcf32921a21c25544651c19e4e1",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 566,
+            "population_at_end": 2,
+            "produced_copies": 0
+          },
+          {
+            "genome": "9ad653ecbc5f6c2582569e6ce1e253c7c3be565fb2e0b3bcf6cc385f1445f389",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 3,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 634,
+        "reclaimed": 0,
+        "eroded": 631,
+        "emitted": 5592,
+        "decayed": 5592,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 1679
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 5,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 647,
+      "copies": 10354,
+      "snapshot_sha256": "df2ff184d4cea412dbb2c0ffc0848d4514ebe26ad92c809269b64103adf13388",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 3,
+        "terrain_at_end": 6,
+        "signal_energy_at_end": 0,
+        "built": 193,
+        "reclaimed": 0,
+        "eroded": 190,
+        "emitted": 67,
+        "decayed": 67,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [
+          {
+            "position": 871,
+            "terrain": 6,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "f8129e22c2dc6e3346f0ba159b628d406bc404e2aec6ac7844e7baa2f1506ec0",
+            "built": 107,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "490fe4e768a2e6d75b2f354f451395a45e3f70da8be38e501f24c27eb4024295",
+            "built": 79,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "476509d73cda6d9a6183c4cc3c216706350772ebaf8935ea3a8ed535e8983f65",
+            "built": 5,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "c2158427c6903ab782719bbac847ff6d1ab3b7055b337a9d27921cd22df2ca82",
+            "built": 2,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "b19259c5ed2b6175bf4acf07b04e6e1cf9cca94694d966990e7015b1bbfedcd8",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 64,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "b3cb0b95c291ebdd20ac399eea206c338806d9a441a54a725c49f6b8c35af176",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 3,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 933,
+        "reclaimed": 0,
+        "eroded": 927,
+        "emitted": 1735,
+        "decayed": 1735,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 1
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 6,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 671,
+      "copies": 9107,
+      "snapshot_sha256": "5f43589fcdca02770d5df5764be711a4ff4c6af1067586e4c90b8360af609a75",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 2,
+        "reclaimed": 0,
+        "eroded": 2,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "4e89e446a23a3f058357793be50b6588f335e4b9b06a0d4b775571ef7efef945",
+            "built": 2,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 814,
+        "reclaimed": 0,
+        "eroded": 814,
+        "emitted": 530,
+        "decayed": 530,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 51
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 7,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 679,
+      "copies": 8741,
+      "snapshot_sha256": "594e455061a0985e63b027071400b0bbd178cac91f23a10d0ed5489a92558d69",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 8,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 156,
+        "reclaimed": 0,
+        "eroded": 156,
+        "emitted": 17,
+        "decayed": 17,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [
+          {
+            "position": 545,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "13bebf03e7967384dc8ce1ef1da1dd948dcee5c76fb47f70991bd433a2d7419c",
+            "built": 156,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "cae632a1d384c074e7a14b3dd10c2db8aa3264262991762c995943b63baa011c",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 17,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 1693,
+        "reclaimed": 0,
+        "eroded": 1685,
+        "emitted": 511,
+        "decayed": 511,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 351
+      }
+    },
+    {
+      "case": "environment-inert",
+      "seed": 8,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 680,
+      "copies": 6790,
+      "snapshot_sha256": "cdd284e885191c07f7725d351c363f47470c3e95a75cf43a9b77f3891a5cd060",
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 5,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 159,
+        "reclaimed": 0,
+        "eroded": 156,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [
+          {
+            "position": 800,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "8754909235a5f3654da7d4f40b7b6db457c466feba04b6bf4a2a2854d8e42c2b",
+            "built": 159,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          }
+        ]
+      },
+      "history": {
+        "built": 1561,
+        "reclaimed": 0,
+        "eroded": 1553,
+        "emitted": 2260,
+        "decayed": 2260,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 146
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 1,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 580,
+      "copies": 15797,
+      "snapshot_sha256": "e3704365d29c415fe041f3a70f574642089113f5200ba7fe309b0b8f412bcf09",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 2,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 570,
+      "copies": 15593,
+      "snapshot_sha256": "d26982674739649300cb3a5ef2ede321234797ad694834e7efc8116f060e9c4d",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 3,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 584,
+      "copies": 15619,
+      "snapshot_sha256": "a97ceaedaa3185caeb43f87069b811814714c199646491a7e2ba6b863a5b87dd",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 4,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 575,
+      "copies": 15651,
+      "snapshot_sha256": "f6283a9d3d9dfe2b53ddf8b366a30b22301da062e9a87a8a3d269aec6bc04c97",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 5,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 571,
+      "copies": 15640,
+      "snapshot_sha256": "c73c38c300b8fb1ab87a232785b30e13325040e8756c1bc89d9484218478d4f8",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 6,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 571,
+      "copies": 15454,
+      "snapshot_sha256": "865317dfca1390cf426c6c6f658798427c1699ba931f788dc0393aa8b543a94c",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 7,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 580,
+      "copies": 15706,
+      "snapshot_sha256": "53b61408b86b006fb4256e1c7aae81c7a2676c7ad5cbc437715e0402d6292e3d",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    },
+    {
+      "case": "environment-no-mutation",
+      "seed": 8,
+      "from_tick": 90000,
+      "to_tick": 100000,
+      "population": 569,
+      "copies": 15577,
+      "snapshot_sha256": "e3c5b52107261eccce43aeb4cc31277bd6ce81c2a16c7038a78fb8a72d4a47d9",
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": []
+      },
+      "history": {
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0
+      }
+    }
+  ],
+  "matched_pairs": [
+    {
+      "seed": 1,
+      "variant": "coupled",
+      "source_sha256": "54af5096f7c1200bc7cdad869d39cb9e2d6f2b4b81e1c89611d98d9cdf9751a2",
+      "initial_sha256": "54af5096f7c1200bc7cdad869d39cb9e2d6f2b4b81e1c89611d98d9cdf9751a2",
+      "final_sha256": "db44afdee9fea6fde8bd25085ad442824d5ef5321f3e825bb435004104e22c47",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 660,
+      "copies": 15268,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 2,
+        "reclaimed": 0,
+        "eroded": 2,
+        "emitted": 16,
+        "decayed": 16,
+        "blocked_light": 20,
+        "attenuated_transfer": 18,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "865bba25fa5f127b6b53a53cedcb5a1927e785a5257a805b192e84085bfcf90e",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "d380e88d5f5a5c370878c3f6d286ea67c65ecb3a68fa4fd98978cf92325bac57",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "c3a3550f0814b61b51bcb1329b33100f63164feb3d72f0a137da62054c4d0198",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 16,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "inert",
+      "source_sha256": "54af5096f7c1200bc7cdad869d39cb9e2d6f2b4b81e1c89611d98d9cdf9751a2",
+      "initial_sha256": "2a4cd5d6ab17500c420a13ffa869927552ddb6f8cebb0c42c727c15026622d2f",
+      "final_sha256": "0642e122fa11cfc7bb2729319922ee4e6de9d9ece50113a87014a2d3fcb0d4c6",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 662,
+      "copies": 15138,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 1,
+        "reclaimed": 0,
+        "eroded": 1,
+        "emitted": 80,
+        "decayed": 80,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "865bba25fa5f127b6b53a53cedcb5a1927e785a5257a805b192e84085bfcf90e",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "0cb4d8583b692456ba7d11867c789b44b5ac0169ae4a6d68881f2ab4e8c30c76",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 64,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "c3a3550f0814b61b51bcb1329b33100f63164feb3d72f0a137da62054c4d0198",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 16,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "variant": "coupled",
+      "source_sha256": "7fcab458e2a64b0cea93b0a876f93b5c1d3ae67f96fff8377747474cd4abd4be",
+      "initial_sha256": "7fcab458e2a64b0cea93b0a876f93b5c1d3ae67f96fff8377747474cd4abd4be",
+      "final_sha256": "fcd7d113b43bc34bc09bf6d7c8c0449844d1342525bcb358a1ea945bbef494cf",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 673,
+      "copies": 10556,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 1432,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "2fb3d0446bf17fcde55fcebd8b5e2ed2b69f01f87d27939c9c93b160a507dd2e",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 1429,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "a1c373989d5071c5e8cb6101aa533dd0e03a9d0bb5cf545e94cefb3842df3028",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 3,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "variant": "inert",
+      "source_sha256": "7fcab458e2a64b0cea93b0a876f93b5c1d3ae67f96fff8377747474cd4abd4be",
+      "initial_sha256": "a2a10f8835942f730de96cde27ac4827d227d023fe66a469a94d7a108762376a",
+      "final_sha256": "113fcabb8beb8fc120aa6b7a62cfc47778702a8d45120b53aff0112046c7c3d3",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 673,
+      "copies": 10556,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 1432,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "2fb3d0446bf17fcde55fcebd8b5e2ed2b69f01f87d27939c9c93b160a507dd2e",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 1429,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "a1c373989d5071c5e8cb6101aa533dd0e03a9d0bb5cf545e94cefb3842df3028",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 3,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "variant": "coupled",
+      "source_sha256": "a1e7115b87abc757c2887865b1768fa46cd4ecfd79a9b96feb0852e668880a90",
+      "initial_sha256": "a1e7115b87abc757c2887865b1768fa46cd4ecfd79a9b96feb0852e668880a90",
+      "final_sha256": "6f0641f905e1735fecb04d53e77b49981311979c9a8ff3cff593f85656028a2f",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 672,
+      "copies": 10001,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 16,
+        "decayed": 16,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "c43baa3c88c7e9f94ac7f41bee60347842a777d841bcc743ccfb3284b4e87e71",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 16,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "variant": "inert",
+      "source_sha256": "a1e7115b87abc757c2887865b1768fa46cd4ecfd79a9b96feb0852e668880a90",
+      "initial_sha256": "1b9908c605b7d1c35065ea48328b300c97710c55eaffa5edfd435e6c09f43c53",
+      "final_sha256": "a6ab4c2d653c524be40b16a29c96152f02a6a4a84a156983067874ab2bcf4f69",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 672,
+      "copies": 10001,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 0,
+        "reclaimed": 0,
+        "eroded": 0,
+        "emitted": 16,
+        "decayed": 16,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "c43baa3c88c7e9f94ac7f41bee60347842a777d841bcc743ccfb3284b4e87e71",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 16,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 4,
+      "variant": "coupled",
+      "source_sha256": "e4ef6a248b2471c7589f7b25a456ed448b29007372f0cf9c1b053beba0bd9d36",
+      "initial_sha256": "e4ef6a248b2471c7589f7b25a456ed448b29007372f0cf9c1b053beba0bd9d36",
+      "final_sha256": "c01e96b2dd323d33e13c9900662dcf4427cd103ba8bab498a945d87e07d02084",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 658,
+      "copies": 16164,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 8,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 156,
+        "reclaimed": 0,
+        "eroded": 156,
+        "emitted": 91,
+        "decayed": 91,
+        "blocked_light": 0,
+        "attenuated_transfer": 22241,
+        "sensed": 1,
+        "fields_at_end": [
+          {
+            "position": 927,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "be1955f0aecae7a8f35f18045478e810ba7486a67a74308b676a3c8e7889a937",
+            "built": 156,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "553f9955279bbf5e5af15ce0a8e78d4f294f8bd43f0c38fa51084fa8cb40a581",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 1,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "758d09a4c10a856e32b4199ced87da725fef1a83bc2c996e67156fe6182cd5b5",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 12,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "99ff8129f497af49e5665b598fcfda2f9b42c1ec9f47e6bd870ee573c149967d",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 73,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "f0f32de323b707794f455a9af161b007234319d1412ce4b8b7aa62a0574dad86",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 6,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 4,
+      "variant": "inert",
+      "source_sha256": "e4ef6a248b2471c7589f7b25a456ed448b29007372f0cf9c1b053beba0bd9d36",
+      "initial_sha256": "ce958c2710721831eefbe77bfc599d731bef5ce6b121f721434b4d8adbc0c20c",
+      "final_sha256": "4987b7b3eb4460577ad304db1ef29363bb667ceca128fc62835c5133286c9728",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 662,
+      "copies": 16282,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 8,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 156,
+        "reclaimed": 0,
+        "eroded": 156,
+        "emitted": 6,
+        "decayed": 6,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 1,
+        "fields_at_end": [
+          {
+            "position": 927,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "be1955f0aecae7a8f35f18045478e810ba7486a67a74308b676a3c8e7889a937",
+            "built": 156,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "729004f5bee0ccd3c91092be3a32ef4f73cc330b33e6e1c6d52682262025e61b",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 1,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "835610936e373262049ba22dc4573548ea5e4c8aa0bbef732936c6d84ead5b67",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 6,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 5,
+      "variant": "coupled",
+      "source_sha256": "a5329bc17c6fea3ce6bc4ca752adb08b538cfc6e9bbae2b062c5926348417f49",
+      "initial_sha256": "a5329bc17c6fea3ce6bc4ca752adb08b538cfc6e9bbae2b062c5926348417f49",
+      "final_sha256": "bc30b675566e21cad60d0a470e205c131e3a576d1bfb86650d543bdaee7026f8",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 666,
+      "copies": 13364,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 8,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 166,
+        "reclaimed": 0,
+        "eroded": 166,
+        "emitted": 80,
+        "decayed": 80,
+        "blocked_light": 30154,
+        "attenuated_transfer": 23582,
+        "sensed": 103,
+        "fields_at_end": [
+          {
+            "position": 550,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "db8682bab33d8a801ece9270ec69c67886d57d4dabc302d027655fe6b3ad8146",
+            "built": 156,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "0a011b07b96359d0133ed543f9082769ef21416619be21f945b73e97fa5f38d3",
+            "built": 7,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 15
+          },
+          {
+            "genome": "07ee08c159c17140eee6fcd880d7dbcd1df2f6b46662cd62a1090930c0e6bb61",
+            "built": 3,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "17988823bdb14fb68fc76434e31886f24bef753af1673ec4c8118dbab9a88216",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 103,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "a7d4c153949ec6e8b75264360f78533cba110d92e1b214226f908ab7d4fa306a",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 8,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "b87e332ca6b7a08878c423b23cc2a6166910968a4d14c4451557b226d0fc5b70",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 56,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "ed042e47d52945fe19d2abe2d406e3217a748b454555f2ebbb5d945d63fe0745",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 16,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 5,
+      "variant": "inert",
+      "source_sha256": "a5329bc17c6fea3ce6bc4ca752adb08b538cfc6e9bbae2b062c5926348417f49",
+      "initial_sha256": "6baaa120305d2cb83fe2e6ff9b936ad5696bcc45e961367220b2daaefdcc8683",
+      "final_sha256": "1c6e3f44503b56ad20004421deeaaa327212afd540317eb04702838bb92c4242",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 663,
+      "copies": 12879,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 8,
+        "terrain_at_end": 8,
+        "signal_energy_at_end": 0,
+        "built": 156,
+        "reclaimed": 0,
+        "eroded": 156,
+        "emitted": 28,
+        "decayed": 28,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [
+          {
+            "position": 550,
+            "terrain": 8,
+            "signal": 0
+          }
+        ],
+        "activity": [
+          {
+            "genome": "db8682bab33d8a801ece9270ec69c67886d57d4dabc302d027655fe6b3ad8146",
+            "built": 156,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 0
+          },
+          {
+            "genome": "9495336f2eb0cc50c36351934850f3927b04f1cc26bf19b5f138f16c7f631d4e",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 6,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "f74f22e8d5c5369096d11f2b7f32924f88affcd767367c91d424699db05ef8c4",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 22,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 6,
+      "variant": "coupled",
+      "source_sha256": "3311165b0640e4dc4b0c6e44fed3164b5816fce550de13c96ae071db0e9c08dd",
+      "initial_sha256": "3311165b0640e4dc4b0c6e44fed3164b5816fce550de13c96ae071db0e9c08dd",
+      "final_sha256": "b2f621b89e14729d13be746028a51ad108ed716a7bd13d60f2af20696318b6e6",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 685,
+      "copies": 8192,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 1,
+        "reclaimed": 0,
+        "eroded": 1,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 3,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "ac5d9c6d1b28a8c697740a97b82e91d2248cac3ffc25f26482860d972a4c059a",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 6,
+      "variant": "inert",
+      "source_sha256": "3311165b0640e4dc4b0c6e44fed3164b5816fce550de13c96ae071db0e9c08dd",
+      "initial_sha256": "65aade5adfe79ffed8f37e28070ad3ce4e0ae1236b893d52a0ea37dfd2f8634b",
+      "final_sha256": "0f1524c56d84c8aff69ddb801226d71e82ddbea1b615ccdbafe7b2554b61b417",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 679,
+      "copies": 8213,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 1,
+        "reclaimed": 0,
+        "eroded": 1,
+        "emitted": 0,
+        "decayed": 0,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "ac5d9c6d1b28a8c697740a97b82e91d2248cac3ffc25f26482860d972a4c059a",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 7,
+      "variant": "coupled",
+      "source_sha256": "3c38ace251a3b3a2d27123db0b81b3e9e534428c2d862acce7f22822793aa68d",
+      "initial_sha256": "3c38ace251a3b3a2d27123db0b81b3e9e534428c2d862acce7f22822793aa68d",
+      "final_sha256": "6bee399f84661b580fe5a1e48d28992644a08764188dc0b674442ca1a7dfe0c9",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 670,
+      "copies": 12050,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 2,
+        "reclaimed": 0,
+        "eroded": 2,
+        "emitted": 106,
+        "decayed": 106,
+        "blocked_light": 58,
+        "attenuated_transfer": 37,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "c28ad418d3cf8db8e5b351bde211abb72555002a2905c0d03851e2401ad93286",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 2
+          },
+          {
+            "genome": "e5e0d76272f7b628155440ec0f07f5734f70b61cc5a54c6607d5c3ae02812dc3",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "1bf33a81e7353db010e103c6a5d5058d4c21dcd04b04922c2f21ac8622f2f019",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 64,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "5d386750cbed831f39200abaa557387b57c479afa6f27667985910f7850c415a",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 10,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "957bfd4ad57c75a78a3aac06e92eb2cab7fd958f1489d385508738a986131ae1",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 14,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "a581344413dbc6dd4a101a66548a4d1bf1e2c4d029370fcc214a041dab796783",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 18,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 7,
+      "variant": "inert",
+      "source_sha256": "3c38ace251a3b3a2d27123db0b81b3e9e534428c2d862acce7f22822793aa68d",
+      "initial_sha256": "ed0d68555c8e190dae33f3400c174712c728b74c45ad86effcbb12de879bd8ed",
+      "final_sha256": "5015d72db77f5f923f18e9c7fb26c755d6dbbea6a009102fc77a4d5f62edc343",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 675,
+      "copies": 12066,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 9,
+        "reclaimed": 0,
+        "eroded": 9,
+        "emitted": 10,
+        "decayed": 10,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "c28ad418d3cf8db8e5b351bde211abb72555002a2905c0d03851e2401ad93286",
+            "built": 9,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 1,
+            "produced_copies": 2
+          },
+          {
+            "genome": "5d386750cbed831f39200abaa557387b57c479afa6f27667985910f7850c415a",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 10,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 8,
+      "variant": "coupled",
+      "source_sha256": "7b08fa474870361bb13563df638d80121ba9c9b1503175ea6a580d2d19240211",
+      "initial_sha256": "7b08fa474870361bb13563df638d80121ba9c9b1503175ea6a580d2d19240211",
+      "final_sha256": "42a4553f30995e0514230dcfa2bef4508308a40c2fe5866c0ecc2054ce1dab6d",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 673,
+      "copies": 7939,
+      "environment": {
+        "model": "coupled",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 1,
+        "reclaimed": 0,
+        "eroded": 1,
+        "emitted": 23,
+        "decayed": 23,
+        "blocked_light": 44,
+        "attenuated_transfer": 20,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "72802801067819e1d23c0f6267992a5cca1e5d2b16e783cd0d50b8d88ca72e6c",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "26ec92e07718850316db745b85628af0b9c96eed8718f6eea88804897a66c02d",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 23,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    },
+    {
+      "seed": 8,
+      "variant": "inert",
+      "source_sha256": "7b08fa474870361bb13563df638d80121ba9c9b1503175ea6a580d2d19240211",
+      "initial_sha256": "98d4cb8687d81c621b6486dceba2b7045dbf01284d42e3c8597ed2acae344019",
+      "final_sha256": "9877e95cb51b22ba3066f63beec81ded0eebf4bfc8a3e8c74b5f1d993f17d970",
+      "from_tick": 100000,
+      "to_tick": 110000,
+      "population": 671,
+      "copies": 7931,
+      "environment": {
+        "model": "inert",
+        "width": 32,
+        "height": 32,
+        "terrain_at_start": 0,
+        "terrain_at_end": 0,
+        "signal_energy_at_end": 0,
+        "built": 1,
+        "reclaimed": 0,
+        "eroded": 1,
+        "emitted": 23,
+        "decayed": 23,
+        "blocked_light": 0,
+        "attenuated_transfer": 0,
+        "sensed": 0,
+        "fields_at_end": [],
+        "activity": [
+          {
+            "genome": "72802801067819e1d23c0f6267992a5cca1e5d2b16e783cd0d50b8d88ca72e6c",
+            "built": 1,
+            "reclaimed": 0,
+            "emitted": 0,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          },
+          {
+            "genome": "26ec92e07718850316db745b85628af0b9c96eed8718f6eea88804897a66c02d",
+            "built": 0,
+            "reclaimed": 0,
+            "emitted": 23,
+            "sensed": 0,
+            "population_at_end": 0,
+            "produced_copies": 0
+          }
+        ]
+      }
+    }
+  ]
+}

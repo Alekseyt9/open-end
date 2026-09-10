@@ -9,13 +9,16 @@ type Observer interface {
 	Death(Death)
 }
 type Interaction struct {
-	Tick           uint64
-	Kind           string
-	Source, Target string // genome hashes; empty means unprogrammed matter
-	Energy         int64
-	NewGenome      bool
+	SourceID, TargetID uint64
+	DirectBond         bool
+	Tick               uint64
+	Kind               string
+	Source, Target     string // genome hashes; empty means unprogrammed matter
+	Energy             int64
+	NewGenome          bool
 }
 type Death struct {
+	ID            uint64
 	Tick, Created uint64
 	Genome        string
 }
@@ -28,7 +31,20 @@ func emit(s Observer, w *world.World, kind string, p, q *world.Particle, energy 
 	if kind == "copy" {
 		fresh = w.Genomes[q.Genome].Births == 1
 	}
-	s.Interaction(Interaction{Tick: w.Tick + 1, Kind: kind, Source: p.Genome, Target: q.Genome, Energy: int64(energy), NewGenome: fresh})
+	_, bonded := w.Relations[world.RelationKey(p.ID, q.ID)]
+	s.Interaction(Interaction{Tick: w.Tick + 1, Kind: kind, Source: p.Genome, Target: q.Genome, Energy: int64(energy), NewGenome: fresh, SourceID: p.ID, TargetID: q.ID, DirectBond: bonded})
+}
+
+type AcquisitionObserver interface {
+	Acquired(id uint64, genome string, energy int)
+}
+
+func acquired(s Observer, p *world.Particle, energy int) {
+	if energy > 0 {
+		if a, ok := s.(AcquisitionObserver); ok {
+			a.Acquired(p.ID, p.Genome, energy)
+		}
+	}
 }
 func unlinkObserved(s Observer, w *world.World, p *world.Particle) {
 	if s != nil {

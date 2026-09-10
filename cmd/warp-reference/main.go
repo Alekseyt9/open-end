@@ -185,6 +185,9 @@ func run() error {
 		}
 	}
 	for _, w := range worlds {
+		if w != nil && w.Config.CollectiveAblation != "" {
+			return fmt.Errorf("Warp does not support collective ablations; use Go")
+		}
 		if w != nil && w.Config.Environment != "" {
 			return fmt.Errorf("Warp does not support environment engineering; use the Go simulator")
 		}

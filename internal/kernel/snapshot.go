@@ -34,7 +34,7 @@ func Load(in io.Reader) (*world.World, error) {
 	if err := d.Decode(&extra); err != io.EOF {
 		return nil, fmt.Errorf("snapshot must contain one JSON object")
 	}
-	if (s.Format < 2 || s.Format > 5) || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil || (s.Format == 2 && s.World.RuleState != nil) || (s.Format == 3 && s.World.RuleState == nil) || (s.Format < 5 && (s.Format == 4) != (s.World.Config.CopyModel != "")) || (s.Format == 5) != (s.World.Config.Environment != "") {
+	if (s.Format < 2 || s.Format > 6) || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil || (s.Format == 2 && s.World.RuleState != nil) || (s.Format == 3 && s.World.RuleState == nil) || (s.Format < 5 && (s.Format == 4) != (s.World.Config.CopyModel != "")) || (s.Format < 6 && (s.Format == 5) != (s.World.Config.Environment != "")) || (s.Format == 6) != (s.World.Config.CollectiveAblation != "") {
 		return nil, fmt.Errorf("incompatible snapshot version")
 	}
 	if err := s.World.Validate(); err != nil {
@@ -60,6 +60,9 @@ func envelope(w *world.World) snapshot {
 	}
 	if w.Config.Environment != "" {
 		format = 5
+	}
+	if w.Config.CollectiveAblation != "" {
+		format = 6
 	}
 	return snapshot{format, Version, RuleVersion, w}
 }
