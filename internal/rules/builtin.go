@@ -6,6 +6,7 @@ import (
 	"open-end/internal/evolution"
 	"open-end/internal/vm"
 	"open-end/internal/world"
+	"slices"
 )
 
 const Version = "ecology-2"
@@ -47,6 +48,9 @@ func ResolveObserved(w *world.World, e Event, sink Observer) {
 		cost = 4
 	case vm.COPY:
 		cost = max(1, len(p.Code))
+		if w.Config.CopyModel != "" && evolution.DecodePolicy(e.Intent.Instruction, w.Config.MutationPPM, w.Config.CopyModel == "evolving").Proofread {
+			cost += 2
+		}
 	case vm.COPYMEM:
 		cost = 8
 	case vm.CONVERT:
@@ -216,9 +220,15 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		if q == nil || len(q.Code) != 0 {
 			return
 		}
-		q.Memory = p.Memory
-		if w.RNG.Chance(w.Config.MutationPPM) {
-			q.Memory[w.RNG.Intn(8)] = w.RNG.Intn(257) - 128
+		if w.Config.CopyModel == "" {
+			q.Memory = p.Memory
+			if w.RNG.Chance(w.Config.MutationPPM) {
+				q.Memory[w.RNG.Intn(8)] = w.RNG.Intn(257) - 128
+			}
+		} else {
+			policy := evolution.DecodePolicy(i, w.Config.MutationPPM, w.Config.CopyModel == "evolving")
+			q.Memory = evolution.CopyMemory(p.Memory, p.InitialMemory, &w.RNG, policy)
+			w.RecordCopy(p.Genome, policy, q.Memory != p.Memory, "")
 		}
 		q.InitialMemory = q.Memory
 	case vm.COPY:
@@ -230,7 +240,25 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		if w.Config.Ecology {
 			ops = int(vm.OpcodeCount)
 		}
-		q.Code = evolution.MutateWithOpcodes(p.Code, &w.RNG, w.Config.MutationPPM, w.Config.MaxCode, ops)
+		if w.Config.CopyModel == "" {
+			q.Code = evolution.MutateWithOpcodes(p.Code, &w.RNG, w.Config.MutationPPM, w.Config.MaxCode, ops)
+		} else {
+			policy := evolution.DecodePolicy(i, w.Config.MutationPPM, w.Config.CopyModel == "evolving")
+			code, donor := p.Code, ""
+			if policy.Recombine && w.RNG.Chance(policy.PPM) {
+				start := w.RNG.Intn(4)
+				for d := 0; d < 4; d++ {
+					other := w.Particles[w.Cells[w.Neighbor(p.Position, start+d)].Occupant]
+					if other != nil && other.ID != p.ID && other.ID != q.ID && len(other.Code) > 0 {
+						code = evolution.Recombine(code, other.Code, &w.RNG)
+						donor = other.Genome
+						break
+					}
+				}
+			}
+			q.Code = evolution.MutatePolicy(code, &w.RNG, policy, w.Config.MaxCode, ops)
+			w.RecordCopy(p.Genome, policy, !slices.Equal(q.Code, p.Code), donor)
+		}
 		w.RegisterGenome(q, p.Genome)
 		if r := w.Genomes[p.Genome]; r != nil {
 			r.Copies++

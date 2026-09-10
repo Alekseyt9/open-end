@@ -34,7 +34,7 @@ func Load(in io.Reader) (*world.World, error) {
 	if err := d.Decode(&extra); err != io.EOF {
 		return nil, fmt.Errorf("snapshot must contain one JSON object")
 	}
-	if (s.Format != 2 && s.Format != 3) || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil || (s.Format == 2 && s.World.RuleState != nil) || (s.Format == 3 && s.World.RuleState == nil) {
+	if (s.Format != 2 && s.Format != 3 && s.Format != 4) || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil || (s.Format == 2 && s.World.RuleState != nil) || (s.Format == 3 && s.World.RuleState == nil) || (s.Format == 4) != (s.World.Config.CopyModel != "") {
 		return nil, fmt.Errorf("incompatible snapshot version")
 	}
 	if err := s.World.Validate(); err != nil {
@@ -54,6 +54,9 @@ func envelope(w *world.World) snapshot {
 	format := 2
 	if w.RuleState != nil {
 		format = 3
+	}
+	if w.Config.CopyModel != "" {
+		format = 4
 	}
 	return snapshot{format, Version, RuleVersion, w}
 }

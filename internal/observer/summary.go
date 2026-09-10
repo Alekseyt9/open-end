@@ -28,6 +28,7 @@ type Behavior struct {
 	Converted    [2]int64 `json:"converted_by_id"`
 }
 type WindowSummary struct {
+	Variation       *VariationWindow  `json:"variation,omitempty"`
 	Seed            uint64            `json:"seed"`
 	SessionHash     string            `json:"session_initial_world_sha256"`
 	Version         int               `json:"version"`
@@ -84,6 +85,11 @@ func Summarize(frames []Metrics, requested uint64) (WindowSummary, error) {
 		start = i
 	}
 	frames = frames[start:]
+	variation, err := summarizeVariation(frames)
+	if err != nil {
+		return r, err
+	}
+	r.Variation = variation
 	first := frames[0]
 	if first.Telemetry == nil || first.Telemetry.Version != 1 {
 		return r, fmt.Errorf("event telemetry v1 is required; old metrics cannot recover exact lifetimes or interactions")

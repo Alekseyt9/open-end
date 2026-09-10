@@ -2,6 +2,8 @@
 package observer
 
 import (
+	"maps"
+	"open-end/internal/evolution"
 	"open-end/internal/world"
 	"sort"
 )
@@ -12,37 +14,39 @@ type Lineage struct {
 }
 
 type Metrics struct {
-	Telemetry           *Telemetry `json:"telemetry,omitempty"`
-	Tick                uint64     `json:"tick"`
-	Entities            int        `json:"entities"`
-	Executable          int        `json:"executable"`
-	Genomes             int        `json:"genomes"`
-	Lineages            int        `json:"lineages"`
-	OriginsSeen         int        `json:"origins_seen"`
-	Energy              int64      `json:"energy"`
-	Matter              int64      `json:"matter"`
-	Allocations         uint64     `json:"allocations"`
-	Copies              uint64     `json:"copies"`
-	Deaths              uint64     `json:"deaths"`
-	Absorbed            int64      `json:"absorbed"`
-	Transferred         int64      `json:"transferred"`
-	MeanAge             float64    `json:"mean_age_ticks"`
-	ActiveLineages      []Lineage  `json:"active_lineages"`
-	ActiveGenomes       []Genome   `json:"active_genomes"`
-	Converted           [2]int64   `json:"converted"`
-	Relations           int        `json:"relations"`
-	Chemicals           [3]int64   `json:"chemicals"`
-	LitMatter           int64      `json:"lit_matter"`
-	DarkMatter          int64      `json:"dark_matter"`
-	LitEmptyMatterCells int        `json:"lit_empty_matter_cells"`
-	FailedMatter        uint64     `json:"failed_matter"`
-	FailedSpace         uint64     `json:"failed_space"`
-	FailedReserve       uint64     `json:"failed_reserve"`
-	FailedLimit         uint64     `json:"failed_limit"`
-	FailedAbsorb        uint64     `json:"failed_absorb"`
-	FailedReaction      uint64     `json:"failed_reaction"`
-	InstructionStarved  uint64     `json:"instruction_starved"`
-	Interval            Interval   `json:"interval"`
+	CopyModel           string                 `json:"copy_model,omitempty"`
+	Variation           []evolution.CopyRecord `json:"variation,omitempty"`
+	Telemetry           *Telemetry             `json:"telemetry,omitempty"`
+	Tick                uint64                 `json:"tick"`
+	Entities            int                    `json:"entities"`
+	Executable          int                    `json:"executable"`
+	Genomes             int                    `json:"genomes"`
+	Lineages            int                    `json:"lineages"`
+	OriginsSeen         int                    `json:"origins_seen"`
+	Energy              int64                  `json:"energy"`
+	Matter              int64                  `json:"matter"`
+	Allocations         uint64                 `json:"allocations"`
+	Copies              uint64                 `json:"copies"`
+	Deaths              uint64                 `json:"deaths"`
+	Absorbed            int64                  `json:"absorbed"`
+	Transferred         int64                  `json:"transferred"`
+	MeanAge             float64                `json:"mean_age_ticks"`
+	ActiveLineages      []Lineage              `json:"active_lineages"`
+	ActiveGenomes       []Genome               `json:"active_genomes"`
+	Converted           [2]int64               `json:"converted"`
+	Relations           int                    `json:"relations"`
+	Chemicals           [3]int64               `json:"chemicals"`
+	LitMatter           int64                  `json:"lit_matter"`
+	DarkMatter          int64                  `json:"dark_matter"`
+	LitEmptyMatterCells int                    `json:"lit_empty_matter_cells"`
+	FailedMatter        uint64                 `json:"failed_matter"`
+	FailedSpace         uint64                 `json:"failed_space"`
+	FailedReserve       uint64                 `json:"failed_reserve"`
+	FailedLimit         uint64                 `json:"failed_limit"`
+	FailedAbsorb        uint64                 `json:"failed_absorb"`
+	FailedReaction      uint64                 `json:"failed_reaction"`
+	InstructionStarved  uint64                 `json:"instruction_starved"`
+	Interval            Interval               `json:"interval"`
 }
 
 type Genome struct {
@@ -93,6 +97,16 @@ func Observe(w *world.World) Metrics {
 		Allocations: a.Allocations, Copies: a.Copies, Deaths: a.Deaths, Absorbed: a.Absorbed, Transferred: a.Transferred,
 		ActiveLineages: make([]Lineage, 0)}
 	r.Converted = a.Converted
+	r.CopyModel = w.Config.CopyModel
+	for _, record := range w.Variation {
+		copy := *record
+		copy.Donors = maps.Clone(record.Donors)
+		r.Variation = append(r.Variation, copy)
+	}
+	sort.Slice(r.Variation, func(i, j int) bool {
+		a, b := r.Variation[i], r.Variation[j]
+		return evolution.PolicyKey(a.Genome, a.Policy) < evolution.PolicyKey(b.Genome, b.Policy)
+	})
 	r.Relations = len(w.Relations)
 	r.FailedMatter = a.FailedMatter
 	r.FailedSpace = a.FailedSpace

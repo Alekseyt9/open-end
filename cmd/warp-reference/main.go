@@ -185,6 +185,9 @@ func run() error {
 		}
 	}
 	for _, w := range worlds {
+		if w != nil && w.Config.CopyModel != "" {
+			return fmt.Errorf("Warp does not support copy-model %q; use the Go simulator", w.Config.CopyModel)
+		}
 		if err := w.Validate(); err != nil {
 			return err
 		}

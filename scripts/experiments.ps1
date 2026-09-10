@@ -4,7 +4,7 @@ param(
     [ValidateRange(1, 2147483647)][int]$Every = 10000,
     [ValidateRange(1, 256)][int]$Workers = 16,
     [int[]]$Seeds = @(1, 7, 42),
-    [ValidateSet('control', 'transport', 'transport-no-mutation', 'ecology', 'ecology-no-mutation', 'ecology-no-chemical-diffusion')]
+    [ValidateSet('control', 'transport', 'transport-no-mutation', 'ecology', 'ecology-no-mutation', 'ecology-no-chemical-diffusion', 'evolvability', 'evolvability-fixed', 'evolvability-no-mutation')]
     [string[]]$Cases = @('control', 'transport', 'transport-no-mutation', 'ecology')
 )
 
@@ -21,6 +21,9 @@ if (Test-Path -LiteralPath $experimentRoot) { throw "Output directory already ex
 New-Item -ItemType Directory -Path $experimentRoot | Out-Null
 
 $definitions = @{
+    'evolvability' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving') }
+    'evolvability-fixed' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'fixed') }
+    'evolvability-no-mutation' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-mutation-ppm', '0') }
     'control' = @{ Size = 64; Extra = @() }
     'transport' = @{ Size = 64; Extra = @('-matter-diffusion', '4') }
     'transport-no-mutation' = @{ Size = 64; Extra = @('-matter-diffusion', '4', '-mutation-ppm', '0') }

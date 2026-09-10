@@ -23,6 +23,7 @@ type Config struct {
 	MatterDiffusion   int    `json:"matter_diffusion"`
 	Ecology           bool   `json:"ecology"`
 	ChemicalDiffusion int    `json:"chemical_diffusion"`
+	CopyModel         string `json:"copy_model,omitempty"`
 }
 
 func DefaultConfig() Config {
@@ -32,6 +33,9 @@ func DefaultConfig() Config {
 }
 
 func (c Config) Validate() error {
+	if c.CopyModel != "" && c.CopyModel != "fixed" && c.CopyModel != "evolving" {
+		return fmt.Errorf("copy_model must be empty, fixed, or evolving")
+	}
 	if c.Width < 2 || c.Height < 2 || c.Width > 1024 || c.Height > 1024 {
 		return fmt.Errorf("grid dimensions must be in [2,1024]")
 	}
@@ -141,18 +145,19 @@ type Relation struct {
 }
 
 type World struct {
-	Config       Config                   `json:"config"`
-	Tick         uint64                   `json:"tick"`
-	RNG          evolution.RNG            `json:"rng"`
-	NextID       uint64                   `json:"next_id"`
-	Cells        []Cell                   `json:"cells"`
-	Particles    map[uint64]*Particle     `json:"particles"`
-	Origins      map[string]*Origin       `json:"origins"`
-	Accounting   Accounting               `json:"accounting"`
-	TransportRNG evolution.RNG            `json:"transport_rng"`
-	Genomes      map[string]*GenomeRecord `json:"genomes"`
-	Relations    map[string]Relation      `json:"relations"`
-	RuleState    *dsl.State               `json:"rule_state,omitempty"`
+	Config       Config                           `json:"config"`
+	Tick         uint64                           `json:"tick"`
+	RNG          evolution.RNG                    `json:"rng"`
+	NextID       uint64                           `json:"next_id"`
+	Cells        []Cell                           `json:"cells"`
+	Particles    map[uint64]*Particle             `json:"particles"`
+	Origins      map[string]*Origin               `json:"origins"`
+	Accounting   Accounting                       `json:"accounting"`
+	TransportRNG evolution.RNG                    `json:"transport_rng"`
+	Genomes      map[string]*GenomeRecord         `json:"genomes"`
+	Relations    map[string]Relation              `json:"relations"`
+	RuleState    *dsl.State                       `json:"rule_state,omitempty"`
+	Variation    map[string]*evolution.CopyRecord `json:"variation,omitempty"`
 }
 
 func New(c Config) (*World, error) {
@@ -163,6 +168,9 @@ func New(c Config) (*World, error) {
 		Cells: make([]Cell, c.Width*c.Height), Particles: make(map[uint64]*Particle), Origins: make(map[string]*Origin)}
 	w.TransportRNG = evolution.RNG{State: c.Seed ^ 0x6a09e667f3bcc909}
 	w.Genomes = make(map[string]*GenomeRecord)
+	if c.CopyModel != "" {
+		w.Variation = make(map[string]*evolution.CopyRecord)
+	}
 	w.Relations = make(map[string]Relation)
 	for i := range w.Cells {
 		w.Cells[i] = Cell{Energy: c.CellCapacity / 2, Matter: 1}
@@ -268,6 +276,9 @@ func (w *World) Unlink(id uint64) {
 }
 
 func (w *World) Validate() error {
+	if err := w.ValidateVariation(); err != nil {
+		return err
+	}
 	if w.RuleState != nil && !w.Config.Ecology {
 		return fmt.Errorf("DSL state requires ecology")
 	}
