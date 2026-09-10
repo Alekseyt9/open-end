@@ -3,6 +3,7 @@ package kernel
 
 import (
 	"open-end/internal/rules"
+	"open-end/internal/vm"
 	"open-end/internal/world"
 	"sort"
 )
@@ -23,6 +24,16 @@ func Step(w *world.World) {
 }
 
 func StepObserved(w *world.World, sink Observer) {
+	step(w, sink, nil)
+}
+
+// StepWithPerception is an explicit experimental intervention, not observation.
+// The caller must record/replay the filter protocol; snapshots do not persist it.
+func StepWithPerception(w *world.World, filter func(*world.Particle, *rules.Event)) {
+	step(w, nil, filter)
+}
+
+func step(w *world.World, sink Observer, filter func(*world.Particle, *rules.Event)) {
 	if s := w.RuleState; s != nil && len(s.Pending) > 0 && s.Pending[0].Tick == w.Tick {
 		change := s.Pending[0]
 		s.Pending = s.Pending[1:]
@@ -35,7 +46,11 @@ func StepObserved(w *world.World, sink Observer) {
 		id := ids[(j+int(w.Tick%uint64(len(ids))))%len(ids)]
 		p := w.Particles[id]
 		if len(p.Code) > 0 {
-			events = append(events, rules.Evaluate(w, p))
+			e := rules.Evaluate(w, p)
+			if filter != nil && (e.Intent.Op == vm.SENSE || e.Intent.Op == vm.LISTEN) {
+				filter(p, &e)
+			}
+			events = append(events, e)
 		}
 	}
 	for _, e := range events {
