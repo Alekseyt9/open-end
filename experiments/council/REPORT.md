@@ -1,68 +1,68 @@
-# Первый раунд AI-наблюдателя и макромутаций
+# First AI observer and macromutation round
 
-Дата: 2026-09-10. Роли этапов 6 и 7 выполнял Codex в текущем чате. Обвязка `cmd/council` подготовила данные, проверила структурированный ответ и провела эксперимент; внешнего AI API не было.
+Date: 2026-09-10. Codex in the current chat performed the Stage 6 and 7 roles. `cmd/council` prepared data, validated the structured response, and ran the experiment; no external AI API was used.
 
-## Входные данные и вывод наблюдателя
+## Inputs and observer findings
 
-16 исходных снимков этапа 5 на тике 100 000: ecology и ecology-no-mutation, seed 1–8. Для наблюдения использовано окно 50 000–100 000. Досье проверено по исходной телеметрии, manifest и конечным снимкам.
+Sixteen Stage 5 source snapshots at tick 100,000: ecology and ecology-no-mutation, seeds 1–8. Observation used ticks 50,000–100,000. The dossier was checked against original telemetry, the manifest, and final snapshots.
 
-Ответ наблюдателя выделил различия доминирования, возможные способы получения энергии, связанные структуры и ограничения детектора стагнации. Ниши и причины стагнации сформулированы как гипотезы. Например, в ecology seed 1 крупнейшая компонента содержит 338 частиц; это не объявляется многоклеточным организмом. В ecology seed 2 прямое поглощение энергии значительно больше, чем в seed 1; для доказательства отдельных ниш предложены изоляционные проверки.
+The observer described differences in dominance, possible energy-acquisition strategies, bonded structures, and stagnation-detector limitations. Niches and stagnation causes were stated as hypotheses. For example, ecology seed 1 has a largest component of 338 particles; it is not declared a multicellular organism. Direct energy absorption is much greater in ecology seed 2 than seed 1; isolation tests were proposed to establish separate niches.
 
-[Проверенный ответ с фактами](review.md) · [Машинный ответ](response.json) · [Досье](request.json).
+[Validated response with facts](review.md) · [Machine-readable response](response.json) · [Dossier](request.json).
 
-## Предложенный механизм
+## Proposed mechanism
 
-`solar-y-recycle` сохраняет реакцию 0 и заменяет реакцию 1:
+`solar-y-recycle` retains reaction 0 and replaces reaction 1:
 
 ```text
-ID 0: X → Y + 4 энергии частицы
-ID 1: Y + 4 энергии поля → X
+ID 0: X → Y + 4 particle energy
+ID 1: Y + 4 field energy → X
 ```
 
-Цена каждой попытки — 1, максимальная партия — 64. Сохраняются число химических единиц и энергетический потенциал. Изменение классифицировано как структурное: меняются потребляемые и производимые ресурсы, а не только коэффициенты цены.
+Each attempt costs 1; the maximum batch is 64. Chemical-unit count and energy potential are conserved. This is classified as a structural change: consumed and produced resources change, not just cost coefficients.
 
-ID 1 доступен существующим программам и мутациям. Новый ID без поддержки в генераторе мутаций мог бы остаться неиспользуемым, поэтому такой вариант не выбран. Геномы, особи и ресурсы не редактировались. До эксперимента явно зафиксирован риск потери прежнего энергетического пути Y → Z и снижения жизнеспособности.
+ID 1 is available to existing programs and mutations. A new ID unsupported by the mutation generator could remain unused, so that option was not chosen. Genomes, individuals, and resources were not edited. Loss of the former Y → Z energy pathway and reduced viability were recorded as risks before the experiment.
 
-## Пробное сравнение
+## Trial comparison
 
-Для каждого исходного снимка: контроль без смены правил и ветвь с предложением. **32 продолжения × 20 000 тиков**, 16 рабочих горутин, `GOMAXPROCS=16`, запись каждые 1000 тиков. Весь trial занял **17,05 с**, включая запись результатов. Итоговое окно анализа — 110 000–120 000 тиков.
+For each source snapshot: an unchanged-rule control and a proposal branch. **32 continuations × 20,000 ticks**, 16 worker goroutines, `GOMAXPROCS=16`, recording every 1000 ticks. The entire trial took **17.05 s**, including result output. Final analysis window: ticks 110,000–120,000.
 
-| Группа, 8 исходных миров | Контроль | Предложение |
+| Group, 8 source worlds | Control | Proposal |
 |---|---:|---:|
-| С мутациями: среднее эффективное разнообразие в конце | 7,849 | 6,644 |
-| Без мутаций: среднее эффективное разнообразие в конце | 1,000 | 1,000 |
-| С мутациями: суммарные копии за окно, относительно контроля | 100% | 64,29% |
-| Без мутаций: суммарные копии за окно, относительно контроля | 100% | 92,29% |
+| With mutations: mean final effective diversity | 7.849 | 6.644 |
+| Without mutations: mean final effective diversity | 1.000 | 1.000 |
+| With mutations: total window copies relative to control | 100% | 64.29% |
+| Without mutations: total window copies relative to control | 100% | 92.29% |
 
-Новая реакция фактически используется во всех 16 изменённых ветвях. В группе с мутациями эффективное разнообразие выросло относительно парного контроля в 3 из 8 миров и снизилось в 5; число копирований снизилось во всех восьми. Вымираний к концу эксперимента нет. В группе без мутаций новые геномы не появились, как и ожидалось.
+The new reaction is used in all 16 modified branches. With mutations, effective diversity increased relative to paired control in 3 of 8 worlds and decreased in 5; copying decreased in all eight. No world was extinct at the end. Without mutations, no new genomes appeared, as expected.
 
-Решение по этому раунду: **сохранить предложение как эксперимент, не принимать его как улучшение базовых правил**. Среднее разнообразие и число копирований снизились. Отдельные улучшения не доказывают долгосрочного эффекта; сравнение короткое, без оценки адаптивной ценности. Переход детектора между `mixed` и `stagnating` не используется как автоматический критерий победы.
+Decision: **retain the proposal as an experiment, not as an improvement to baseline rules**. Mean diversity and copying declined. Individual improvements do not establish long-term benefit; this is a short comparison without adaptive-value assessment. Detector transitions between `mixed` and `stagnating` are not an automatic winning criterion.
 
-[Все парные результаты](comparison.md) · [Компактные данные и физические хеши](results-compact.json) · [Правила](solar-y-recycle.rules.json) · [Параметры trial](manifest.json).
+[All paired results](comparison.md) · [Compact data and physical hashes](results-compact.json) · [Rules](solar-y-recycle.rules.json) · [Trial parameters](manifest.json).
 
-## Проверка обвязки
+## Harness validation
 
-Пройдены `go test ./...`, `go vet ./...`, `go build ./...`. Проверены:
+`go test ./...`, `go vet ./...`, and `go build ./...` passed. Checks covered:
 
-- отказ при незавершённом batch, неверном seed, подмене evidence, факта и снимка;
-- устаревший ответ, отсутствующий источник, обязательные темы и пояснения гипотез;
-- повторяющиеся ключи JSON, неверный базовый модуль, создание энергии, чистое переименование и недоступный новый ID;
-- ответ только наблюдателя без предложений;
-- совпадение физических хешей при 1 и 2 рабочих потоках, совпадение контроля с прямым продолжением `kernel.Step`;
-- сохранность исходных снимков, запрет перезаписи каталога, публикация полного manifest;
-- подготовка следующего раунда из выбранной ветви trial.
+- incomplete batches, incorrect seeds, and modified evidence, facts, or snapshots;
+- stale responses, missing sources, required topics, and hypothesis caveats;
+- duplicate JSON keys, wrong base modules, energy creation, cosmetic renaming, and unreachable new IDs;
+- observer-only responses with no proposals;
+- identical physical hashes with 1 and 2 workers, and control parity with direct `kernel.Step` continuation;
+- source-snapshot preservation, output-overwrite rejection, and complete manifests;
+- preparing the next round from a selected trial variant.
 
-На реальных данных также подготовлено `data/council-round2` из 16 ветвей `solar-y-recycle`. Это проверка повторного использования протокола, а не принятие патча. Второй ответ AI и новый эксперимент ещё не выполнялись.
+Using real data, `data/council-round2` was also prepared from 16 `solar-y-recycle` branches. This validates protocol reuse; it does not accept the patch. A second AI response and experiment have not been performed.
 
-## Воспроизведение
+## Reproduction
 
 ```powershell
 go run ./cmd/council prepare -input data/novelty-stage5 -out data/council-replay-round -window 50000
-# Скопировать response.json этого архива в созданный раунд.
-# При точно тех же входах request_sha256 совпадает; иначе ответ нужно подготовить заново.
+# Copy this archive's response.json into the prepared round.
+# Identical inputs yield the same request_sha256; otherwise prepare a new response.
 go run ./cmd/council check -round data/council-replay-round
 go run ./cmd/council trial -round data/council-replay-round -out data/council-replay-trial -ticks 20000 -every 1000 -window 10000 -workers 16
 go run ./cmd/council prepare -input data/council-replay-trial -variant solar-y-recycle -out data/council-replay-next -window 10000
 ```
 
-Полные evidence-файлы, JSONL и снимки сохранены локально в `data/council-round1` и `data/council-trial1`. В архиве — досье, ответ, проверка, принятый модуль, manifest, таблица, компактные результаты и хеши исходников. Проверка ссылок на источники не является автоматической проверкой смысла всех утверждений AI.
+Full evidence files, JSONL, and snapshots are stored locally in `data/council-round1` and `data/council-trial1`. The archive contains the dossier, response, review, validated module, manifest, table, compact results, and source hashes. Source-reference checks do not automatically verify the meaning of all AI claims. This English document translates the report; hash-bound machine-readable records retain their original contents.

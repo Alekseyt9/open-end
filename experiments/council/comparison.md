@@ -1,8 +1,8 @@
-# Пробное сравнение правил
+# Trial rule comparison
 
-Контроль и предложение продолжают один исходный snapshot с одинаковым начальным RNG. После расхождения состояний одинаковый RNG не означает одинаковые события. Автоматического победителя и изменения исходных миров нет.
+Control and proposal continue the same source snapshot with identical initial RNG state. Once states diverge, identical initial RNGs do not imply identical events. No automatic winner is selected and source worlds remain unchanged.
 
-| Мир | Вариант | Популяция | Эффективное разнообразие | Крупнейшая структура | Копии за окно | Статус |
+| World | Variant | Population | Effective diversity | Largest structure | Window copies | Status |
 |---|---|---:|---:|---:|---:|---|
 | w001 (ecology, seed 1) | control | 677 | 2.615 | 338 | 9030 | mixed |
 | w001 (ecology, seed 1) | solar-y-recycle | 690 | 2.697 | 102 | 6536 | mixed |
@@ -37,4 +37,4 @@
 | w016 (ecology-no-mutation, seed 8) | control | 571 | 1.000 | 1 | 15446 | mixed |
 | w016 (ecology-no-mutation, seed 8) | solar-y-recycle | 566 | 1.000 | 1 | 14481 | stagnating |
 
-Числа относятся к последнему запрошенному окну; его реальные границы сохранены в `results.json`. Различия требуют интерпретации, повторов и более длинных прогонов. Поведенческие хеши разных физических правил напрямую не ранжируются.
+Values refer to the last requested window; actual boundaries are stored in the original trial's `results.json`. Differences require interpretation, repetitions, and longer runs. Behavioral hashes from different physical rule sets are not directly ranked.

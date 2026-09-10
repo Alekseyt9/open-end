@@ -1,130 +1,130 @@
 # Open-Ended Evolution + External AI Agent
-## Концепция, архитектура и поэтапный план реализации
+## Concept, architecture, and phased implementation plan
 
 ---
 
-## 0. Краткая идея
+## 0. Core idea
 
-Создать цифровой мир, в котором эволюция не ограничивается:
+Create a digital world in which evolution is not limited to:
 
-- мутацией фиксированного генома;
-- заранее заданными видами;
-- одной fitness-функцией;
-- заранее определёнными сущностями вроде `Agent`, `Species`, `Predator`, `Weapon`, `Economy`;
-- фиксированным набором законов мира.
+- mutations of a fixed genome;
+- predefined species;
+- a single fitness function;
+- predefined entities such as `Agent`, `Species`, `Predator`, `Weapon`, or `Economy`;
+- a fixed set of world laws.
 
-Ключевая идея проекта:
+The project's central idea:
 
-> локальная эволюция происходит внутри симуляции, а внешний AI-агент получает телеметрию мира и может предлагать изменения кода, правил, примитивов, механизмов наследования и даже самой онтологии мира.
+> Local evolution takes place inside the simulation, while an external AI agent receives world telemetry and can propose changes to code, rules, primitives, inheritance mechanisms, and even the world's ontology.
 
-Получается коэволюционирующая система:
+The result is a coevolving system:
 
 ```text
-мир
+world
 ↓
-возникают новые структуры / проблемы / стагнация
+new structures / problems / stagnation emerge
 ↓
-внешний AI анализирует состояние
+an external AI analyzes the state
 ↓
-предлагает макромутации правил
+it proposes rule macromutations
 ↓
-создаются параллельные ветви миров
+parallel world branches are created
 ↓
-изменения проверяются самой симуляцией
+the simulation itself tests the changes
 ↓
-успешные ветви сохраняются
+successful branches are retained
 ↓
-новые механизмы создают новые возможности и новые давления отбора
+new mechanisms create new opportunities and selection pressures
 ↓
-цикл повторяется
+the cycle repeats
 ```
 
-Главный исследовательский вопрос:
+The central research question:
 
-> Может ли комбинация локальной дарвиновской эволюции, коэволюционирующей среды и внешнего AI-агента, способного менять пространство правил, поддерживать долговременный рост адаптивной новизны?
+> Can a combination of local Darwinian evolution, a coevolving environment, and an external AI agent capable of changing the rule space sustain long-term growth in adaptive novelty?
 
 ---
 
-# 1. Что именно считать Open-Ended Evolution
+# 1. What counts as Open-Ended Evolution?
 
-Важно не путать OEE с обычной процедурной генерацией.
+OEE should not be confused with ordinary procedural generation.
 
-Процедурная генерация:
+Procedural generation:
 
 ```text
-AI придумал новый биом
-AI придумал нового монстра
-AI придумал новое оружие
+AI invents a new biome
+AI invents a new monster
+AI invents a new weapon
 ```
 
 Open-ended evolution:
 
 ```text
-появился новый механизм
+a new mechanism appears
 ↓
-он стал частью мира
+it becomes part of the world
 ↓
-другие сущности начали его использовать
+other entities start using it
 ↓
-изменились селективные давления
+selection pressures change
 ↓
-возникли новые типы взаимодействий
+new types of interaction emerge
 ↓
-появились новые уровни организации
+new levels of organization appear
 ↓
-это открыло ещё одно пространство возможностей
+this opens another space of possibilities
 ```
 
-Сильная OEE — это не только:
+Strong OEE is more than:
 
 ```text
 x ∈ S
 ```
 
-где эволюция ищет новые точки внутри фиксированного пространства `S`.
+where evolution searches for new points within a fixed space `S`.
 
-А скорее:
+It is closer to:
 
 ```text
 S0 → S1 → S2 → S3 → ...
 ```
 
-где меняется само пространство возможных состояний.
+where the space of possible states itself changes.
 
-Пример:
+Example:
 
 ```text
-S0 = физика
-S1 = физика + репликация
-S2 = S1 + организмы
-S3 = S2 + коммуникация
-S4 = S3 + символы
-S5 = S4 + культура
-S6 = S5 + технология
-S7 = S6 + новые вычислительные миры
+S0 = physics
+S1 = physics + replication
+S2 = S1 + organisms
+S3 = S2 + communication
+S4 = S3 + symbols
+S5 = S4 + culture
+S6 = S5 + technology
+S7 = S6 + new computational worlds
 ...
 ```
 
 ---
 
-# 2. Основная архитектура
+# 2. Overall architecture
 
-Систему лучше разделить на два слоя.
+The system is best divided into two layers.
 
 ```text
 ┌────────────────────────────────────────────┐
 │              IMMUTABLE KERNEL              │
 │                                            │
-│ время                                      │
-│ память                                     │
+│ time                                      │
+│ memory                                    │
 │ sandbox                                    │
-│ лимиты ресурсов                            │
+│ resource limits                           │
 │ snapshots                                  │
 │ rollback                                   │
-│ загрузка модулей                           │
-│ версии                                     │
+│ module loading                            │
+│ versions                                  │
 │ branch management                          │
-│ детерминированный replay                   │
+│ deterministic replay                      │
 └────────────────────┬───────────────────────┘
                      │
                      ▼
@@ -145,35 +145,35 @@ S7 = S6 + новые вычислительные миры
 └────────────────────────────────────────────┘
 ```
 
-Kernel менять нельзя.
+The kernel must remain immutable.
 
-Почти всё, что относится к самому миру, потенциально можно менять.
+Almost everything specific to the world can potentially change.
 
 ---
 
-# 3. Почему kernel должен быть неизменяемым
+# 3. Why the kernel must be immutable
 
-Если разрешить внешнему AI менять вообще весь исполняемый процесс:
+Allowing an external AI to change the entire running process would:
 
-- становится трудно воспроизводить эксперименты;
-- сложно понять причинность;
-- невозможно гарантировать rollback;
-- появляется риск повредить сам runtime;
-- теряется различие между "эволюцией мира" и "переписыванием программы разработчиком".
+- make experiments difficult to reproduce;
+- make causality difficult to establish;
+- prevent guaranteed rollback;
+- risk damaging the runtime itself;
+- blur the distinction between world evolution and a developer rewriting the program.
 
-Kernel должен задавать только:
+The kernel should define only:
 
 ```text
-что считается вычислением
-как распределяются ресурсы
-как хранится состояние
-как запускается патч
-как создаётся новая ветвь
-как ограничивается выполнение
-как воспроизводится прошлый эксперимент
+what counts as computation
+how resources are allocated
+how state is stored
+how a patch is executed
+how a new branch is created
+how execution is bounded
+how a past experiment is reproduced
 ```
 
-Kernel не должен заранее знать:
+The kernel should not have prior knowledge of:
 
 ```text
 Species
@@ -188,11 +188,11 @@ Technology
 
 ---
 
-# 4. Минимальная цифровая физика
+# 4. Minimal digital physics
 
-Начальный мир должен быть очень простым.
+The initial world should be very simple.
 
-Примитивы:
+Primitives:
 
 ```text
 Matter
@@ -204,7 +204,7 @@ Memory
 ExecutableRule
 ```
 
-Минимальные операции:
+Minimal operations:
 
 ```text
 move
@@ -221,17 +221,17 @@ destroy
 transform
 ```
 
-Вместо заранее заданного организма должны существовать структуры, которые могут собираться из этих примитивов.
+Instead of predefined organisms, there should be structures that can assemble from these primitives.
 
 ---
 
 # 5. Executable Matter
 
-Одна из ключевых идей:
+One of the central ideas:
 
-> информация внутри мира должна быть физически действенной.
+> Information inside the world must have physical effects.
 
-То есть структура может хранить программу:
+A structure can therefore store a program:
 
 ```text
 LOAD
@@ -244,26 +244,26 @@ SEND
 EXEC
 ```
 
-Такая программа может:
+Such a program can:
 
-- читать локальную среду;
-- менять состояние;
-- перемещать материю;
-- управлять потоками энергии;
-- копировать себя;
-- передавать сигналы;
-- создавать новые структуры;
-- запускать другие программы.
+- read its local environment;
+- change state;
+- move matter;
+- control energy flows;
+- copy itself;
+- transmit signals;
+- create new structures;
+- execute other programs.
 
-Тогда "геном" — это не просто набор параметров, а исполняемая программа.
+A genome is then an executable program, rather than merely a set of parameters.
 
 ---
 
-# 6. DSL / виртуальная машина
+# 6. DSL / virtual machine
 
-Вместо прямого изменения Go/C++-кода лучше создать безопасный DSL.
+A safe DSL is preferable to directly modifying Go/C++ code.
 
-Пример:
+Example:
 
 ```text
 rule Photosynthesis {
@@ -280,7 +280,7 @@ rule Photosynthesis {
 }
 ```
 
-Другой пример:
+Another example:
 
 ```text
 rule Phototaxis {
@@ -292,25 +292,25 @@ rule Phototaxis {
 }
 ```
 
-Преимущества:
+Advantages:
 
 - sandbox;
 - hot reload;
 - rollback;
 - versioning;
-- быстрый запуск множества ветвей;
-- возможность эволюции кода;
-- удобная генерация правил внешним AI.
+- fast execution of many branches;
+- the ability to evolve code;
+- straightforward rule generation by an external AI.
 
 ---
 
-# 7. Эволюция собственных примитивов
+# 7. Evolution of new primitives
 
-Очень важный механизм:
+A particularly important mechanism:
 
-> система должна уметь создавать новые reusable building blocks.
+> The system must be able to create new reusable building blocks.
 
-Например:
+For example:
 
 ```text
 FOO :=
@@ -319,9 +319,9 @@ FOO :=
     BIND
 ```
 
-После появления `FOO` он становится новым примитивом.
+Once `FOO` appears, it becomes a new primitive.
 
-Позже:
+Later:
 
 ```text
 BAR :=
@@ -330,7 +330,7 @@ BAR :=
     EXEC
 ```
 
-Получается:
+This produces:
 
 ```text
 primitive
@@ -346,15 +346,15 @@ higher-level primitive
 ...
 ```
 
-Это один из возможных механизмов настоящего роста сложности.
+This is one possible mechanism for genuine growth in complexity.
 
 ---
 
-# 8. Три уровня эволюции
+# 8. Three levels of evolution
 
-## 8.1. Микроэволюция
+## 8.1. Microevolution
 
-Происходит постоянно внутри мира:
+This happens continuously inside the world:
 
 ```text
 mutation
@@ -365,23 +365,23 @@ inheritance
 local selection
 ```
 
-AI здесь не нужен.
+AI is not needed here.
 
 ---
 
-## 8.2. Макроэволюция механизмов
+## 8.2. Macroevolution of mechanisms
 
-Когда мир:
+When the world:
 
-- стагнирует;
-- теряет разнообразие;
-- приходит к одной доминирующей стратегии;
-- переживает массовое вымирание;
-- обнаруживает необычную устойчивую структуру;
+- stagnates;
+- loses diversity;
+- converges on one dominant strategy;
+- experiences a mass extinction;
+- develops an unusual persistent structure;
 
-внешний агент получает агрегированное описание мира.
+the external agent receives an aggregated description.
 
-Он предлагает не "интересный контент", а изменения типа:
+It proposes changes such as the following, rather than merely interesting content:
 
 ```text
 sexual reproduction
@@ -398,13 +398,13 @@ new mutation operator
 
 ---
 
-## 8.3. Эволюция онтологии
+## 8.3. Evolution of ontology
 
-Самый сильный уровень.
+The most ambitious level.
 
-Система может обнаружить, что в мире появилась новая стабильная категория.
+The system may detect a new stable category emerging in the world.
 
-Например было:
+For example, the starting point was:
 
 ```text
 Matter
@@ -413,25 +413,25 @@ Connection
 Signal
 ```
 
-Но со временем возникло:
+But over time the following appeared:
 
 ```text
-устойчивые сигнальные последовательности
+persistent signal sequences
 +
-хранение паттернов
+pattern storage
 +
-повторное использование
+reuse
 +
-контекстная интерпретация
+contextual interpretation
 ```
 
-AI может предложить новый абстрактный primitive:
+AI can propose a new abstract primitive:
 
 ```text
 Symbol
 ```
 
-После чего символы можно:
+Symbols can then be:
 
 ```text
 copy
@@ -442,7 +442,7 @@ interpret
 transform
 ```
 
-И потенциально появляется:
+This may eventually lead to:
 
 ```text
 signals
@@ -460,11 +460,11 @@ technology
 
 ---
 
-# 9. Эволюция evolvability
+# 9. Evolution of evolvability
 
-Система должна уметь менять не только геномы, но и сами механизмы эволюции.
+The system should be able to change both genomes and the mechanisms of evolution themselves.
 
-Потенциально изменяемые параметры:
+Potentially variable parameters:
 
 ```text
 mutation rate
@@ -479,7 +479,7 @@ error correction
 reproduction strategy
 ```
 
-То есть:
+In other words:
 
 ```text
 evolution
@@ -491,7 +491,7 @@ evolution of evolution
 
 # 10. Major Evolutionary Transitions
 
-Хотелось бы, чтобы система могла сама переходить через новые уровни индивидуальности:
+Ideally, the system should be able to cross new levels of individuality on its own:
 
 ```text
 replicators
@@ -513,21 +513,21 @@ collective decision making
 culture-like inheritance
 ```
 
-Ключевой критерий:
+The key criterion:
 
-> новая единица отбора должна возникать внутри мира, а не быть заранее задана классом.
+> A new unit of selection must emerge inside the world, rather than being predefined as a class.
 
 ---
 
-# 11. Коэволюция среды
+# 11. Environmental coevolution
 
-Не использовать фиксированную fitness-функцию:
+Do not use a fixed fitness function:
 
 ```text
 fitness = f(agent)
 ```
 
-Вместо этого:
+Instead:
 
 ```text
 fitness_t = f(
@@ -538,7 +538,7 @@ fitness_t = f(
 )
 ```
 
-Среда тоже меняется:
+The environment changes too:
 
 ```text
 environment_{t+1}
@@ -549,31 +549,31 @@ g(
 )
 ```
 
-Пример:
+Example:
 
 ```text
-появился фотосинтез
+photosynthesis appears
 ↓
-изменилась атмосфера
+the atmosphere changes
 ↓
-появились новые ниши
+new niches emerge
 ↓
-возник новый метаболизм
+a new metabolism evolves
 ↓
-он снова изменил среду
+it changes the environment again
 ```
 
-Ключевой принцип:
+The key principle:
 
-> решение одной эволюционной задачи должно создавать новые задачи.
+> Solving one evolutionary problem should create new problems.
 
 ---
 
-# 12. Внешний AI-агент
+# 12. The external AI agent
 
-AI не должен быть "богом", который проектирует конечные формы жизни.
+AI should not act as a god designing finished life forms.
 
-Лучше роль:
+A better role is:
 
 ```text
 observe
@@ -593,17 +593,17 @@ compare outcomes
 retain promising branches
 ```
 
-AI расширяет пространство возможностей.
+AI expands the space of possibilities.
 
-Эволюция решает, будет ли новый механизм использоваться.
+Evolution determines whether a new mechanism will be used.
 
 ---
 
-# 13. Что получает AI
+# 13. What AI receives
 
-Не весь мир, а иерархическую telemetry.
+Hierarchical telemetry, rather than the entire world.
 
-## Базовые метрики
+## Basic metrics
 
 ```text
 population count
@@ -615,7 +615,7 @@ genetic diversity
 behavioral diversity
 ```
 
-## Структурные метрики
+## Structural metrics
 
 ```text
 persistent structures
@@ -625,7 +625,7 @@ hierarchy depth
 community structure
 ```
 
-## Информационные метрики
+## Information metrics
 
 ```text
 entropy
@@ -636,7 +636,7 @@ memory usage
 information flow
 ```
 
-## Эволюционные метрики
+## Evolutionary metrics
 
 ```text
 novelty rate
@@ -659,9 +659,9 @@ lack of new interactions
 
 ---
 
-# 14. Формат запроса к внешнему агенту
+# 14. Request format for the external agent
 
-Пример:
+Example:
 
 ```json
 {
@@ -689,11 +689,11 @@ lack of new interactions
 
 ---
 
-# 15. Формат ответа агента
+# 15. Agent response format
 
-AI должен возвращать структурированный patch proposal.
+AI should return a structured patch proposal.
 
-Например:
+For example:
 
 ```json
 {
@@ -719,7 +719,7 @@ AI должен возвращать структурированный patch pr
 
 # 16. Patch Lifecycle
 
-Каждое изменение:
+Each change:
 
 ```text
 1. detect trigger
@@ -737,15 +737,15 @@ AI должен возвращать структурированный patch pr
 
 ---
 
-# 17. AI как генератор архитектурных мутаций
+# 17. AI as a generator of architectural mutations
 
-Обычная мутация:
+Ordinary mutation:
 
 ```text
 0.31 → 0.34
 ```
 
-LLM может сделать:
+An LLM can:
 
 ```text
 independent cells
@@ -759,25 +759,25 @@ stable colony
 specialization
 ```
 
-То есть иногда:
+Thus, sometimes:
 
 ```text
 Δparameter
 ```
 
-заменяется на:
+is replaced by:
 
 ```text
 Δarchitecture
 ```
 
-Это может быть одним из главных преимуществ LLM в OEE-системе.
+This could be one of the main advantages of LLMs in an OEE system.
 
 ---
 
-# 18. Дерево миров
+# 18. A tree of worlds
 
-Не выбирать одну "лучшую" ветвь.
+Do not select a single best branch.
 
 ```text
                     World 0
@@ -789,7 +789,7 @@ specialization
                      W8
 ```
 
-Сохранять разные миры по разным критериям:
+Retain different worlds according to different criteria:
 
 ```text
 maximum novelty
@@ -805,7 +805,7 @@ maximum persistence
 
 # 19. Novelty Archive
 
-Хранить не только текущих победителей, но и открытия:
+Store discoveries as well as current winners:
 
 ```text
 new structures
@@ -820,11 +820,11 @@ new representations
 
 ---
 
-# 20. Как измерять новизну
+# 20. Measuring novelty
 
-Не только "стал ли мир эффективнее".
+Ask more than whether the world became more efficient.
 
-Возможные критерии:
+Possible criteria:
 
 ```text
 behavioral novelty
@@ -836,21 +836,21 @@ representation novelty
 information-processing novelty
 ```
 
-Особенно сильный признак:
+A particularly strong signal:
 
-> новая структура открывает тип взаимодействий, которого раньше не существовало.
+> A new structure enables a type of interaction that did not previously exist.
 
 ---
 
 # 21. Causal Emergence
 
-Можно использовать causal emergence как аналитический инструмент.
+Causal emergence can be used as an analytical tool.
 
-Идея:
+The idea:
 
-> искать coarse-graining, на котором макроописание имеет больше причинной предсказательной силы, чем микроописание.
+> Find a coarse-graining at which the macrodescription has greater causal predictive power than the microdescription.
 
-Потенциальная цепочка:
+A potential sequence:
 
 ```text
 particles
@@ -864,19 +864,19 @@ colony
 society
 ```
 
-Это может стать механизмом автоматического поиска новых уровней организации.
+This could provide a way to discover new levels of organization automatically.
 
 ---
 
 # 22. Viability / Free Energy Perspective
 
-Организм можно определять не классом, а как систему, которая удерживает себя в области жизнеспособных состояний.
+An organism can be defined as a system that keeps itself within a region of viable states, rather than as a class.
 
 ```text
 state(t) ∈ viability region
 ```
 
-Внутренние ограничения:
+Internal constraints:
 
 ```text
 energy reserves
@@ -886,15 +886,15 @@ resource balance
 signal coherence
 ```
 
-Система может изменять мир, чтобы оставаться жизнеспособной.
+The system can change the world to remain viable.
 
 ---
 
 # 23. Physics of Life
 
-Мир должен быть неравновесным.
+The world must be out of equilibrium.
 
-Нужны постоянные потоки:
+Continuous flows are needed:
 
 ```text
 energy source
@@ -906,13 +906,13 @@ work
 waste / dissipation
 ```
 
-Если энергетический градиент исчезает, сложность должна деградировать.
+If the energy gradient disappears, complexity should degrade.
 
 ---
 
-# 24. Культурная эволюция
+# 24. Cultural evolution
 
-После появления сложной коммуникации можно допустить отдельный канал наследования:
+Once complex communication emerges, a separate inheritance channel can be introduced:
 
 ```text
 ideas
@@ -923,7 +923,7 @@ strategies
 construction programs
 ```
 
-Тогда существуют:
+There are then:
 
 ```text
 genetic inheritance
@@ -931,7 +931,7 @@ genetic inheritance
 cultural inheritance
 ```
 
-И со временем:
+And over time:
 
 ```text
 genetic evolution
@@ -941,11 +941,11 @@ cultural evolution
 
 ---
 
-# 25. Внешние артефакты
+# 25. External artifacts
 
-Существа должны потенциально уметь создавать долговечные внешние объекты.
+Creatures should potentially be able to create persistent external objects.
 
-Не хардкодить понятия:
+Do not hardcode concepts such as:
 
 ```text
 nest
@@ -955,15 +955,15 @@ trap
 machine
 ```
 
-Пусть это будут просто устойчивые физические структуры.
+Let these simply be persistent physical structures.
 
-Если они начнут использоваться функционально — семантику можно обнаружить позже.
+If they acquire functional uses, their semantics can be discovered later.
 
 ---
 
-# 26. Технологическая эволюция
+# 26. Technological evolution
 
-Особенно интересный переход:
+A particularly interesting transition:
 
 ```text
 tool
@@ -977,17 +977,17 @@ factory-like system
 programmable machine
 ```
 
-Если такие уровни возникают без заранее прописанной "technology tree", это сильный признак open-endedness.
+If such levels emerge without a predefined technology tree, this is a strong sign of open-endedness.
 
 ---
 
-# 27. Внутренние виртуальные машины
+# 27. Internal virtual machines
 
-Радикальная идея:
+A radical idea:
 
-> существа внутри мира могут построить собственную VM.
+> Creatures inside the world can build their own VM.
 
-Например:
+For example:
 
 ```text
 base physics
@@ -1003,7 +1003,7 @@ they build VM-B
 ...
 ```
 
-Аналогия:
+Analogy:
 
 ```text
 biology
@@ -1021,13 +1021,13 @@ computers
 AI
 ```
 
-Каждый слой создаёт новое пространство эволюции.
+Each layer creates a new space for evolution.
 
 ---
 
-# 28. Самомодифицирующийся код
+# 28. Self-modifying code
 
-Разрешить менять:
+Allow changes to:
 
 ```text
 behavior programs
@@ -1041,38 +1041,38 @@ resource cycles
 local physics modules
 ```
 
-Но не immutable kernel.
+But not to the immutable kernel.
 
 ---
 
-# 29. Безопасность AI-патчей
+# 29. AI patch safety
 
-AI-generated code должен выполняться:
+AI-generated code must run:
 
-- без доступа к host OS;
-- без произвольного filesystem;
-- без сети;
-- с лимитом CPU;
-- с лимитом RAM;
-- с instruction budget;
-- с timeout;
-- с deterministic replay там, где возможно.
+- without host OS access;
+- without arbitrary filesystem access;
+- without network access;
+- with a CPU limit;
+- with a RAM limit;
+- with an instruction budget;
+- with a timeout;
+- with deterministic replay wherever possible.
 
-Предпочтительно:
+Prefer:
 
 ```text
 custom DSL
-или
+or
 WASM-like sandbox
 ```
 
-а не native-code hot patch.
+rather than native-code hot patching.
 
 ---
 
 # 30. Reproducibility
 
-Каждое изменение хранит:
+Each change records:
 
 ```text
 world_id
@@ -1087,11 +1087,11 @@ metrics_after
 branch_result
 ```
 
-Любую ветвь можно воспроизвести.
+Any branch can be reproduced.
 
 ---
 
-# 31. Архитектура сервисов
+# 31. Service architecture
 
 ```text
 World Runner
@@ -1119,7 +1119,7 @@ Novelty Archive
 
 ---
 
-# 32. Возможная структура репозитория
+# 32. Possible repository layout
 
 ```text
 /cmd
@@ -1158,9 +1158,9 @@ Novelty Archive
 
 ---
 
-# 33. Технологический стек
+# 33. Technology stack
 
-Для быстрого MVP:
+For a quick MVP:
 
 ```text
 Simulation core: Go
@@ -1173,46 +1173,46 @@ Visualization: Web UI
 Branching: processes / containers
 ```
 
-Если симуляция станет CPU-bound:
+If the simulation becomes CPU-bound:
 
 ```text
 core → Rust/C++
 ```
 
-GPU имеет смысл подключать позже.
+GPU acceleration makes sense at a later stage.
 
 ---
 
-# 34. Этапы реализации
+# 34. Implementation stages
 
 ---
 
-## Этап 0. Исследовательский каркас
+## Stage 0. Research framework
 
-### Цель
+### Goal
 
-Получить минимальный воспроизводимый мир.
+Build a minimal reproducible world.
 
-### Сделать
+### Implement
 
 - tick-based simulation;
 - seeded RNG;
 - snapshot;
 - replay;
-- базовую карту;
-- базовую энергию;
+- a basic map;
+- basic energy;
 - resource accounting;
 - benchmark.
 
-### Критерий завершения
+### Completion criterion
 
-Один и тот же snapshot + seed даёт одинаковое продолжение.
+The same snapshot and seed produce the same continuation.
 
 ---
 
-## Этап 1. Исполняемые репликаторы
+## Stage 1. Executable replicators
 
-### Добавить
+### Add
 
 ```text
 executable genome
@@ -1222,7 +1222,7 @@ death
 resource consumption
 ```
 
-### Не использовать
+### Do not use
 
 ```text
 Species
@@ -1230,34 +1230,34 @@ Predator
 FitnessScore
 ```
 
-### Критерий
+### Criterion
 
-Появляются разные наследуемые линии.
+Different heritable lineages emerge.
 
 ---
 
-## Этап 2. Мини-экология
+## Stage 2. Mini-ecology
 
-Добавить:
+Add:
 
 ```text
-несколько ресурсов
-локальную конкуренцию
-возможность отбирать ресурсы
-связи между структурами
+multiple resources
+local competition
+the ability to take resources
+bonds between structures
 ```
 
-### Критерий
+### Criterion
 
-Возникает минимум несколько устойчивых стратегий.
+At least several persistent strategies emerge.
 
 ---
 
-## Этап 3. DSL / VM
+## Stage 3. DSL / VM
 
-Вынести изменяемые правила мира в DSL.
+Move mutable world rules into a DSL.
 
-### Реализовать
+### Implement
 
 - parser;
 - bytecode;
@@ -1267,15 +1267,15 @@ FitnessScore
 - hot reload;
 - rollback.
 
-### Критерий
+### Criterion
 
-Новое правило можно загрузить без перезапуска kernel.
+A new rule can be loaded without restarting the kernel.
 
 ---
 
-## Этап 4. Telemetry
+## Stage 4. Telemetry
 
-Собирать:
+Collect:
 
 ```text
 population
@@ -1288,15 +1288,15 @@ structure sizes
 interaction graph
 ```
 
-### Критерий
+### Criterion
 
-Можно автоматически объяснить, что происходило в мире последние N тысяч ticks.
+Automatically explain what happened in the world over the last N thousand ticks.
 
 ---
 
-## Этап 5. Novelty + Stagnation Detector
+## Stage 5. Novelty + Stagnation Detector
 
-Сначала простые эвристики:
+Start with simple heuristics:
 
 ```text
 diversity plateau
@@ -1305,44 +1305,44 @@ repeated behavioral hashes
 structural plateau
 ```
 
-Позже добавить embedding / graph-based novelty.
+Add embedding-based or graph-based novelty later.
 
-### Критерий
+### Criterion
 
-Система умеет автоматически сказать:
+The system can automatically report:
 
 ```text
-"мир развивается"
-или
-"мир застрял"
+"the world is developing"
+or
+"the world is stuck"
 ```
 
 ---
 
-## Этап 6. AI Observer
+## Stage 6. AI Observer
 
-AI пока ничего не меняет.
+AI does not change anything yet.
 
-Он получает telemetry summary и отвечает:
+It receives a telemetry summary and explains:
 
 ```text
-что доминирует
-какие ниши существуют
-какие структуры появились
-почему могла возникнуть стагнация
+what dominates
+which niches exist
+which structures have appeared
+why stagnation may have occurred
 ```
 
-### Критерий
+### Criterion
 
-Вывод AI можно сопоставить с реальными логами и визуализацией.
+AI conclusions can be compared with actual logs and visualizations.
 
 ---
 
-## Этап 7. AI Macro-Mutations
+## Stage 7. AI Macro-Mutations
 
-Разрешить агенту предлагать новые правила.
+Allow the agent to propose new rules.
 
-Например:
+For example:
 
 ```text
 new sensor
@@ -1351,37 +1351,37 @@ new binding rule
 new communication channel
 ```
 
-### Главное правило
+### Main rule
 
-AI не создаёт готовую адаптацию.
+AI does not create a finished adaptation.
 
-Плохо:
-
-```text
-дать всем существам крылья
-```
-
-Хорошо:
+Bad:
 
 ```text
-добавить физический механизм подъёмной силы
+give every creature wings
 ```
 
-и посмотреть, воспользуется ли им эволюция.
+Good:
+
+```text
+add a physical mechanism for lift
+```
+
+and see whether evolution makes use of it.
 
 ---
 
-## Этап 8. Branching Worlds
+## Stage 8. Branching Worlds
 
-Для каждого AI patch:
+For each AI patch:
 
 ```text
 N variants × M seeds
 ```
 
-Запускать параллельно.
+Run in parallel.
 
-### Оценивать
+### Evaluate
 
 ```text
 novelty
@@ -1391,17 +1391,17 @@ structural complexity
 niche count
 ```
 
-### Критерий
+### Criterion
 
-Система умеет хранить несколько перспективных ветвей вместо одного winner.
+The system retains several promising branches instead of a single winner.
 
 ---
 
-## Этап 9. Novelty Archive + Pareto Selection
+## Stage 9. Novelty Archive + Pareto Selection
 
-Не сводить всё к одной fitness-функции.
+Do not reduce everything to a single fitness function.
 
-Хранить Pareto-front по:
+Maintain a Pareto front over:
 
 ```text
 novelty
@@ -1412,15 +1412,15 @@ new hierarchy
 new information processing
 ```
 
-### Критерий
+### Criterion
 
-Редкие странные ветви не исчезают только потому, что они пока "менее эффективны".
+Rare, unusual branches do not disappear merely because they are currently less efficient.
 
 ---
 
-## Этап 10. Эволюция evolvability
+## Stage 10. Evolution of evolvability
 
-Разрешить геномам менять:
+Allow genomes to change:
 
 ```text
 mutation rate
@@ -1430,15 +1430,15 @@ copy fidelity
 inheritance format
 ```
 
-### Критерий
+### Criterion
 
-Разные линии используют разные стратегии собственной изменчивости.
+Different lineages use different strategies for their own variability.
 
 ---
 
-## Этап 11. Коэволюция среды
+## Stage 11. Environmental coevolution
 
-Существа получают возможность заметно менять мир:
+Creatures gain the ability to substantially change the world:
 
 ```text
 resource distribution
@@ -1448,15 +1448,15 @@ terrain-like state
 signal fields
 ```
 
-### Критерий
+### Criterion
 
-Новая адаптация меняет среду так, что появляются новые ниши.
+A new adaptation changes the environment in ways that create new niches.
 
 ---
 
-## Этап 12. Протомногоклеточность
+## Stage 12. Proto-multicellularity
 
-Добавить только минимальные механизмы:
+Add only minimal mechanisms:
 
 ```text
 persistent binding
@@ -1465,17 +1465,17 @@ signals
 local specialization
 ```
 
-Не вводить класс `MulticellularOrganism`.
+Do not introduce a `MulticellularOrganism` class.
 
-### Критерий
+### Criterion
 
-Некоторые группы устойчивее отдельного репликатора и начинают воспроизводиться как целое.
+Some groups persist better than individual replicators and begin reproducing as wholes.
 
 ---
 
-## Этап 13. Automatic Entity Discovery
+## Stage 13. Automatic Entity Discovery
 
-Искать:
+Look for:
 
 ```text
 persistent boundaries
@@ -1485,9 +1485,9 @@ common reproduction
 information closure
 ```
 
-### Результат
+### Result
 
-Иерархия:
+A hierarchy:
 
 ```text
 micro entity
@@ -1501,29 +1501,29 @@ higher-level individual
 
 ---
 
-## Этап 14. Causal Emergence Analysis
+## Stage 14. Causal Emergence Analysis
 
-Пытаться найти макроуровень, который лучше предсказывает будущее системы.
+Try to find a macrolevel that better predicts the system's future.
 
-### Цель
+### Goal
 
-Автоматически отличать:
+Automatically distinguish:
 
 ```text
-случайную группу
+a random group
 ```
 
-от:
+from:
 
 ```text
-новой причинно значимой сущности
+a new causally significant entity
 ```
 
 ---
 
-## Этап 15. Символический слой
+## Stage 15. Symbolic layer
 
-Разрешить:
+Allow:
 
 ```text
 persistent signals
@@ -1533,15 +1533,15 @@ arbitrary mapping
 context-sensitive interpretation
 ```
 
-### Критерий
+### Criterion
 
-Появляются сигнальные структуры, значение которых определяется не только физическим стимулом.
+Signal structures emerge whose meaning is not determined solely by the physical stimulus.
 
 ---
 
-## Этап 16. Cultural Evolution
+## Stage 16. Cultural Evolution
 
-Добавить горизонтальное копирование:
+Add horizontal copying of:
 
 ```text
 behavior programs
@@ -1550,31 +1550,31 @@ symbol sequences
 construction recipes
 ```
 
-### Критерий
+### Criterion
 
-Информация распространяется независимо от генетической линии.
-
----
-
-## Этап 17. Persistent Artifacts
-
-Разрешить долгоживущие внешние структуры.
-
-### Критерий
-
-Возникают объекты, которые:
-
-- переживают создателя;
-- используются другими;
-- становятся частью адаптивной стратегии.
+Information spreads independently of genetic lineage.
 
 ---
 
-## Этап 18. Technology-like Evolution
+## Stage 17. Persistent Artifacts
 
-Разрешить конструкциям создавать конструкции.
+Allow long-lived external structures.
 
-### Цепочка
+### Criterion
+
+Objects emerge that:
+
+- outlive their creators;
+- are used by others;
+- become part of an adaptive strategy.
+
+---
+
+## Stage 18. Technology-like Evolution
+
+Allow constructions to create constructions.
+
+### Sequence
 
 ```text
 tool
@@ -1586,17 +1586,17 @@ machine
 construction network
 ```
 
-### Критерий
+### Criterion
 
-Внешние артефакты начинают создавать новое пространство эволюционных возможностей.
+External artifacts begin creating a new space of evolutionary possibilities.
 
 ---
 
-## Этап 19. Self-Hosted VM
+## Stage 19. Self-Hosted VM
 
-Самая амбициозная стадия.
+The most ambitious stage.
 
-Существа должны иметь возможность реализовать:
+Creatures must be able to implement:
 
 ```text
 memory
@@ -1605,15 +1605,15 @@ decoder
 execution loop
 ```
 
-### Критерий
+### Criterion
 
-В мире появляется новый вычислительный слой поверх исходной VM.
+A new computational layer appears in the world on top of the original VM.
 
 ---
 
-## Этап 20. Recursive Evolution
+## Stage 20. Recursive Evolution
 
-Если появилась внутренняя VM:
+If an internal VM has appeared:
 
 ```text
 world
@@ -1627,7 +1627,7 @@ VM-B
 ...
 ```
 
-Исследовать возможность:
+Investigate the possibility of:
 
 ```text
 evolution inside evolution
@@ -1635,11 +1635,11 @@ evolution inside evolution
 
 ---
 
-## Этап 21. Strong OEE Experiment
+## Stage 21. Strong OEE Experiment
 
-Длительные эксперименты.
+Long-running experiments.
 
-Следить:
+Monitor:
 
 ```text
 does novelty saturate?
@@ -1649,26 +1649,26 @@ do new levels of organization emerge?
 does evolvability continue changing?
 ```
 
-Главный критерий:
+The main criterion:
 
-> рост разнообразия и адаптивной новизны не останавливается на очевидном потолке, непосредственно заданном разработчиком.
+> Growth in diversity and adaptive novelty does not stop at an obvious ceiling directly imposed by the developer.
 
 ---
 
-# 35. Основной сравнительный эксперимент
+# 35. Main comparative experiment
 
-Сделать три режима.
+Implement three modes.
 
 ## A. Control
 
 ```text
-обычная внутренняя эволюция
-без AI
+ordinary internal evolution
+without AI
 ```
 
 ## B. Parameter AI
 
-AI меняет только числа:
+AI changes only numbers:
 
 ```text
 mutation rate
@@ -1678,7 +1678,7 @@ energy cost
 
 ## C. Structural AI
 
-AI может создавать:
+AI can create:
 
 ```text
 new rules
@@ -1687,7 +1687,7 @@ new inheritance mechanisms
 new representations
 ```
 
-Сравнивать:
+Compare:
 
 ```text
 novelty over time
@@ -1698,68 +1698,68 @@ niche count
 major transitions
 ```
 
-Если C стабильно превосходит A/B — есть сильное основание развивать подход.
+If C consistently outperforms A/B, there is a strong reason to continue developing the approach.
 
 ---
 
-# 36. Критерии успеха
+# 36. Success criteria
 
-## Минимальный
+## Minimal
 
-- мир живёт долго;
-- линии конкурируют;
-- разнообразие не исчезает мгновенно;
-- возникают неожиданные стратегии.
+- the world persists for a long time;
+- lineages compete;
+- diversity does not disappear immediately;
+- unexpected strategies emerge.
 
-## Средний
+## Intermediate
 
-- новые ecological niches;
-- новые способы наследования;
-- кооперация;
-- паразитизм;
-- устойчивые коллективы.
+- new ecological niches;
+- new inheritance mechanisms;
+- cooperation;
+- parasitism;
+- persistent collectives.
 
-## Сильный
+## Strong
 
-- новые уровни индивидуальности;
+- new levels of individuality;
 - symbol-like representations;
 - cultural inheritance;
 - persistent artifacts;
-- новые вычислительные абстракции.
+- new computational abstractions.
 
-## Очень сильный
+## Very strong
 
 - self-created VM;
-- новые языки;
-- повторяющиеся major transitions;
-- длительная novelty без saturation.
+- new languages;
+- repeated major transitions;
+- sustained novelty without saturation.
 
 ---
 
-# 37. Что не делать в MVP
+# 37. What not to build in the MVP
 
-Не начинать с:
+Do not start with:
 
 - Unreal Engine;
 - 3D;
 - realistic fluid physics;
-- красивой графики;
-- LLM у каждого NPC;
-- политики;
-- экономики;
-- огромного мира;
-- миллионов агентов;
+- attractive graphics;
+- an LLM for every NPC;
+- politics;
+- economics;
+- a huge world;
+- millions of agents;
 - CUDA.
 
-Главная неизвестная:
+The main unknown:
 
-> возникает ли вообще интересная open-ended динамика?
+> Does interesting open-ended dynamics emerge at all?
 
-Сначала доказать это.
+Establish that first.
 
 ---
 
-# 38. Самый маленький MVP
+# 38. The smallest MVP
 
 ```text
 2D grid
@@ -1789,9 +1789,9 @@ parallel branches
 novelty archive
 ```
 
-Цель:
+Goal:
 
-> проверить, способен ли внешний AI систематически выводить эволюцию из локальных тупиков, не задавая конечное решение напрямую.
+> Test whether an external AI can systematically move evolution out of local dead ends without directly specifying the final solution.
 
 ---
 
@@ -1847,11 +1847,11 @@ novelty archive
 
 ---
 
-# 40. Визуализация
+# 40. Visualization
 
-Сначала scientific UI.
+Start with a scientific UI.
 
-Показывать:
+Display:
 
 ```text
 world map
@@ -1866,7 +1866,7 @@ major transition events
 AI patch history
 ```
 
-Особенно интересен UI истории онтологии:
+An ontology-history UI is particularly interesting:
 
 ```text
 S0
@@ -1878,21 +1878,21 @@ S2
 ...
 ```
 
-с пояснением:
+with explanations such as:
 
 ```text
-"в этой точке впервые возник persistent signaling"
-"здесь появился новый inheritance channel"
-"здесь collective стал единицей отбора"
+"persistent signaling first appeared here"
+"a new inheritance channel appeared here"
+"the collective became a unit of selection here"
 ```
 
 ---
 
-# 41. Игровой вариант
+# 41. A game version
 
-После исследовательского прототипа из системы можно сделать игру.
+After the research prototype, the system could become a game.
 
-Роль игрока:
+The player's role:
 
 ```text
 observer
@@ -1902,11 +1902,11 @@ explorer
 intervention agent
 ```
 
-Самый интересный вариант:
+The most interesting option:
 
-> игрок физически существует внутри мира, но мир продолжает собственную OEE вокруг него.
+> The player physically exists inside the world while the world continues its own OEE around them.
 
-Тогда прохождения могут радикально отличаться:
+Playthroughs could then differ radically:
 
 ```text
 World A → symbiotic super-organisms
@@ -1917,30 +1917,30 @@ World D → symbolic civilization
 
 ---
 
-# 42. Игровая мета-механика
+# 42. Game metamechanics
 
-Игрок не обязан "побеждать".
+The player does not have to win.
 
-Он может:
+They can:
 
-- обнаруживать новые формы жизни;
-- исследовать странные ветви эволюции;
-- вмешиваться;
-- сравнивать параллельные миры;
-- восстанавливать причины major transition;
-- путешествовать между branch worlds;
-- сохранять редкие линии;
-- запускать controlled perturbations.
+- discover new life forms;
+- explore unusual evolutionary branches;
+- intervene;
+- compare parallel worlds;
+- reconstruct the causes of a major transition;
+- travel between world branches;
+- preserve rare lineages;
+- run controlled perturbations.
 
-По сути:
+In effect:
 
-> "No Man's Sky", но генерируются не только формы мира — генерируются новые законы, экологии и уровни организации.
+> No Man's Sky, but generating new laws, ecologies, and levels of organization as well as world forms.
 
 ---
 
-# 43. Самая сильная версия идеи
+# 43. The most ambitious version of the idea
 
-Стартовый разработчик создаёт только:
+The initial developer creates only:
 
 ```text
 space
@@ -1952,7 +1952,7 @@ execution
 resource limits
 ```
 
-А потом наблюдает:
+Then observes:
 
 ```text
 replication
@@ -1976,22 +1976,22 @@ new computation layers
 ???
 ```
 
-Последний `???` — главный результат проекта.
+The final `???` is the project's central outcome.
 
-Если заранее известно всё, что может появиться, это слабая версия OEE.
+If everything that can appear is known in advance, this is a weak form of OEE.
 
-Если система начинает порождать категории, которые разработчик не проектировал непосредственно, эксперимент становится действительно интересным.
+If the system starts producing categories that the developer did not directly design, the experiment becomes truly interesting.
 
 ---
 
-# 44. Итоговая схема
+# 44. Overall diagram
 
 ```text
 MICRO EVOLUTION
-миллионы дешёвых локальных изменений
+millions of inexpensive local changes
         ↓
 WORLD DYNAMICS
-экология + изменение среды
+ecology + environmental change
         ↓
 NOVELTY / STAGNATION DETECTOR
         ↓
@@ -2009,15 +2009,15 @@ new evolutionary possibilities
         └──────────────↺
 ```
 
-Главный принцип:
+The main principle:
 
-> внешний AI не проектирует конечные формы жизни. Он расширяет пространство возможных механизмов, а естественный отбор внутри симуляции решает, что из этого действительно закрепится.
+> The external AI does not design finished life forms. It expands the space of possible mechanisms, while natural selection inside the simulation determines what actually persists.
 
 ---
 
-# 45. Первый практический спринт
+# 45. First practical sprint
 
-Если начинать реализацию прямо сейчас, первый спринт можно ограничить следующим.
+If implementation starts now, the first sprint can be limited to the following.
 
 ## 1. Kernel
 
@@ -2030,9 +2030,9 @@ Tick
 Snapshot
 ```
 
-## 2. Репликатор
+## 2. Replicator
 
-Минимальный genome:
+Minimal genome:
 
 ```text
 SENSE_RESOURCE
@@ -2041,7 +2041,7 @@ ABSORB
 COPY
 ```
 
-## 3. Мутации
+## 3. Mutations
 
 ```text
 replace instruction
@@ -2050,7 +2050,7 @@ delete instruction
 duplicate block
 ```
 
-## 4. Метрики
+## 4. Metrics
 
 ```text
 population
@@ -2063,29 +2063,29 @@ behavior hash
 
 ## 5. Stagnation
 
-Если:
+If:
 
 ```text
 novelty_rate < threshold
 ```
 
-на протяжении большого окна:
+over a long window:
 
 ```text
 trigger external agent
 ```
 
-## 6. Первый AI patch
+## 6. First AI patch
 
-AI разрешено добавить ровно один новый DSL primitive.
+AI may add exactly one new DSL primitive.
 
-Например:
+For example:
 
 ```text
 SEND_SIGNAL
 ```
 
-Создать:
+Create:
 
 ```text
 control branch
@@ -2093,15 +2093,15 @@ control branch
 patch branch
 ```
 
-и сравнить их.
+and compare them.
 
-Это уже будет минимальный законченный эксперимент всей идеи.
+This would already be a minimal complete experiment of the whole idea.
 
 ---
 
-# 46. Дальнейший главный milestone
+# 46. The next major milestone
 
-После первого working loop:
+After the first working loop:
 
 ```text
 world
@@ -2111,54 +2111,54 @@ world
 → selection
 ```
 
-следующий действительно значимый milestone:
+the next truly significant milestone is:
 
-> получить первое новое устойчивое взаимодействие, которое не было конечной целью AI-патча.
+> Obtain the first new persistent interaction that was not the intended final outcome of the AI patch.
 
-Например:
+For example:
 
-AI добавил сигнализацию ради кооперации,
+AI adds signaling to encourage cooperation,
 
-а эволюция использовала её для:
+but evolution uses it for:
 
 ```text
-паразитической имитации
-или
-обмана
-или
-территориальной маркировки
+parasitic imitation
+or
+deception
+or
+territorial marking
 ```
 
-Вот такой результат будет гораздо более интересным, чем если мир просто использует механизм ровно так, как предполагал агент.
+That result would be much more interesting than the world using the mechanism exactly as the agent intended.
 
 ---
 
-# 47. Конечная исследовательская цель
+# 47. Ultimate research goal
 
-В идеале система должна перейти от:
+Ideally, the system should move from:
 
 ```text
-"AI придумывает новые правила"
+"AI invents new rules"
 ```
 
-к:
+to:
 
 ```text
-"AI замечает, что эволюция сама приблизилась к новому уровню,
-и лишь делает этот уровень доступным для дальнейшего исследования"
+"AI notices that evolution has approached a new level on its own,
+and merely makes that level accessible to further exploration"
 ```
 
-То есть внешний агент постепенно превращается из дизайнера в:
+The external agent gradually changes from a designer into:
 
 ```text
-наблюдателя
+an observer
 +
-гипотезогенератор
+a hypothesis generator
 +
-оператор расширения пространства возможностей
+an operator that expands the possibility space
 ```
 
-И именно эта архитектура наиболее интересна как возможный мост между:
+This architecture is particularly interesting as a possible bridge between:
 
 - classical evolutionary computation;
 - artificial life;
@@ -2172,71 +2172,71 @@ AI добавил сигнализацию ради кооперации,
 
 ---
 
-# 48. Уточнение: в мире нет "проблем", есть только последствия
+# 48. Clarification: the world has no "problems," only consequences
 
-В базовой модели не должно существовать объекта или признака:
+The base model should not contain an object or attribute such as:
 
 ```text
 Problem
 ```
 
-Сама эволюция ничего не "считает проблемой".
+Evolution itself does not consider anything a problem.
 
-Внутри мира происходят только:
+Inside the world, there are only:
 
 ```text
-изменения среды
+environmental changes
 ↓
-изменения вероятности сохранения структур
+changes in the probability of structures persisting
 ↓
-изменения вероятности репликации
+changes in the probability of replication
 ↓
-изменение состава популяции
+changes in population composition
 ```
 
-Например:
+For example:
 
 ```text
-ресурсов стало меньше
+resources become scarcer
 ↓
-часть репликаторов исчезла
+some replicators disappear
 ↓
-другие продолжили существовать
+others persist
 ```
 
-Для мира это не "проблема нехватки ресурсов".
+For the world, this is not a "resource shortage problem."
 
-Это просто динамика.
+It is simply dynamics.
 
-Понятие проблемы появляется только у внешнего наблюдателя.
+The notion of a problem arises only for an external observer.
 
-Поэтому правильнее говорить не:
+It is therefore more accurate to replace:
 
 ```text
-эволюция решает проблему
+evolution solves a problem
 ```
 
-а:
+with:
 
 ```text
-изменились условия
+conditions changed
 ↓
-изменились селективные давления
+selection pressures changed
 ↓
-некоторые структуры оказались более устойчивыми
+some structures proved more persistent
 ```
 
 ---
 
-# 49. Минимальная направленность без fitness-функции
+# 49. Minimal directionality without a fitness function
 
-Естественный отбор не требует явной функции:
+Natural selection does not require an explicit function:
 
 ```text
 fitness(x)
 ```
 
-Достаточно трёх свойств:
+Three properties are sufficient:
 
 ```text
 variation
@@ -2246,47 +2246,47 @@ inheritance
 differential persistence / reproduction
 ```
 
-Если:
+If:
 
 ```text
-A существует 10 ticks и исчезает
+A exists for 10 ticks and disappears
 
-B копирует себя
+B copies itself
 
-C копирует себя ещё эффективнее
+C copies itself even more efficiently
 ```
 
-то через длительное время потомки B/C присутствуют, а A — нет.
+then, after a long time, descendants of B/C remain while A does not.
 
-Никто не задавал:
+Nobody specified:
 
 ```text
 goal = reproduce
 ```
 
-Направленность возникает статистически:
+Directionality emerges statistically:
 
-> структуры, которые не оставляют причинных продолжений, перестают присутствовать в будущем состоянии мира.
+> Structures that leave no causal continuations cease to be present in future world states.
 
 ---
 
-# 50. Фундаментально все состояния нейтральны
+# 50. Fundamentally, all states are neutral
 
-С точки зрения базовой физики:
-
-```text
-организм продолжает существовать
-```
-
-и:
+From the perspective of basic physics:
 
 ```text
-организм распался
+an organism continues to exist
 ```
 
-— просто два возможных состояния.
+and:
 
-Вселенная не присваивает им:
+```text
+an organism disintegrates
+```
+
+are simply two possible states.
+
+The universe assigns neither:
 
 ```text
 good
@@ -2295,66 +2295,66 @@ success
 failure
 ```
 
-Это означает:
+This means:
 
-> "выживание" не должно быть встроенной моральной или целевой функцией мира.
+> Survival should not be a built-in moral value or objective function of the world.
 
-Оно возникает как наблюдаемая статистическая асимметрия.
+It emerges as an observable statistical asymmetry.
 
-Мы видим долгоживущие структуры именно потому, что короткоживущие структуры уже исчезли.
+We observe long-lived structures precisely because short-lived ones have already disappeared.
 
 ---
 
-# 51. Affordances вместо "проблем"
+# 51. Affordances rather than "problems"
 
-Более полезное понятие для OEE:
+A more useful concept for OEE:
 
 ```text
 affordance
 ```
 
-Affordance — возможность взаимодействия, которая существует относительно конкретной структуры.
+An affordance is an opportunity for interaction that exists relative to a particular structure.
 
-Например один и тот же объект может быть:
+For example, the same object can be:
 
 ```text
-для организма A → источник энергии
-для организма B → токсин
-для организма C → сигнал
-для организма D → нейтральный фон
+for organism A → an energy source
+for organism B → a toxin
+for organism C → a signal
+for organism D → neutral background
 ```
 
-То есть нет:
+There is no:
 
 ```text
 environment.problem = X
 ```
 
-Есть:
+Instead, there is:
 
 ```text
 Affordance(agent, environment)
 ```
 
-Новая динамика мира создаёт новые affordances.
+New world dynamics creates new affordances.
 
-Пример:
+Example:
 
 ```text
-организм A производит вещество X
+organism A produces substance X
 ↓
-X накапливается
+X accumulates
 ↓
-организм B случайно способен использовать X
+organism B happens to be able to use X
 ↓
-появляется новая экологическая ниша
+a new ecological niche emerges
 ↓
-B меняет среду
+B changes the environment
 ↓
-возникают новые affordances
+new affordances arise
 ```
 
-Никто не объявлял:
+Nobody declared:
 
 ```text
 Problem: use X
@@ -2362,41 +2362,41 @@ Problem: use X
 
 ---
 
-# 52. Значение возникает относительно структуры
+# 52. Meaning emerges relative to a structure
 
-До появления фототаксиса:
-
-```text
-градиент света
-```
-
-— просто физическая величина.
-
-После появления соответствующего механизма:
+Before phototaxis appears:
 
 ```text
-градиент света
+a light gradient
 ```
 
-становится информацией.
+is simply a physical quantity.
 
-До появления копирующей machinery:
+Once the corresponding mechanism appears:
 
 ```text
-последовательность
+a light gradient
 ```
 
-— просто структура.
+becomes information.
 
-После появления наследования:
+Before copying machinery appears:
 
 ```text
-последовательность
+a sequence
 ```
 
-становится генетической информацией.
+is simply a structure.
 
-То есть семантика возникает не как свойство среды самой по себе, а как отношение:
+Once inheritance appears:
+
+```text
+a sequence
+```
+
+becomes genetic information.
+
+Semantics therefore emerges as a relation, rather than as an intrinsic property of the environment:
 
 ```text
 structure ↔ environment
@@ -2404,11 +2404,11 @@ structure ↔ environment
 
 ---
 
-# 53. Внешний AI не должен быть Problem Solver
+# 53. The external AI should not be a Problem Solver
 
-Первоначальную архитектуру лучше изменить.
+The original architecture should be revised.
 
-Плохо:
+Bad:
 
 ```text
 world has problem
@@ -2416,9 +2416,9 @@ world has problem
 AI finds solution
 ```
 
-Потому что это скрытая телеология.
+Because this introduces hidden teleology.
 
-Лучше:
+Better:
 
 ```text
 world develops new dynamics
@@ -2430,13 +2430,13 @@ AI expands possibility space
 evolution exploits or ignores new mechanisms
 ```
 
-Роль AI:
+The role of AI:
 
 ```text
 AI Possibility Expander
 ```
 
-а не:
+rather than:
 
 ```text
 AI Problem Solver
@@ -2444,9 +2444,9 @@ AI Problem Solver
 
 ---
 
-# 54. Нейтральные расширения мира
+# 54. Neutral extensions of the world
 
-AI можно периодически просить создавать:
+AI can periodically be asked to create:
 
 ```text
 new local interaction primitive
@@ -2457,132 +2457,132 @@ new state transition
 new storage mechanism
 ```
 
-При этом запрещать:
+While prohibiting requests such as:
 
 ```text
-"помоги виду X"
-"реши проблему Y"
-"сделай организм сильнее"
+"help species X"
+"solve problem Y"
+"make the organism stronger"
 ```
 
-Хороший prompt:
+A good prompt:
 
 ```text
-Предложи минимальное локальное расширение физики мира,
-которое:
-- имеет стоимость;
-- не даёт прямого преимущества ни одной линии;
-- допускает несколько потенциальных применений;
-- не задаёт конечную функцию;
-- может быть использовано или проигнорировано эволюцией.
+Propose a minimal local extension to the world's physics
+that:
+- has a cost;
+- gives no lineage a direct advantage;
+- allows several potential uses;
+- does not prescribe a final function;
+- can be used or ignored by evolution.
 ```
 
 ---
 
-# 55. Мир должен сам задавать направление расширения
+# 55. The world should guide its own expansion
 
-Ещё более сильный вариант:
+An even stronger approach:
 
-AI не генерирует случайные новые механизмы.
+AI does not generate random new mechanisms.
 
-Он ищет структуры, которые уже начали возникать снизу.
+It looks for structures that have already begun emerging from the bottom up.
 
-Например:
+For example:
 
 ```text
-тысячи локальных связей
+thousands of local bonds
 ↓
-возникает повторяющийся устойчивый паттерн
+a recurring persistent pattern emerges
 ↓
-AI обнаруживает latent structure
+AI detects a latent structure
 ↓
-предлагает сделать её новым primitive
+it proposes making that structure a new primitive
 ```
 
-Пример:
+Example:
 
 ```text
-сложная повторяющаяся граница
+a complex recurring boundary
 ↓
 candidate "membrane"
 ↓
-Membrane становится оптимизированным primitive
+Membrane becomes an optimized primitive
 ↓
-эволюция начинает строить структуры из Membrane
+evolution starts building structures from Membrane
 ```
 
-Позже:
+Later:
 
 ```text
 Membrane + metabolism + replication
 ↓
 candidate higher-level unit
 ↓
-новый primitive
+a new primitive
 ```
 
 ---
 
 # 56. Emergent Ontology Compilation
 
-Эту идею можно формализовать как:
+This idea can be formalized as:
 
 ```text
 emergent ontology compilation
 ```
 
-Схема:
+Diagram:
 
 ```text
-микродинамика
+microdynamics
 ↓
-устойчивая повторяющаяся макроструктура
+a persistent recurring macrostructure
 ↓
-обнаружение causal / functional coherence
+detection of causal / functional coherence
 ↓
-AI предлагает абстракцию
+AI proposes an abstraction
 ↓
-абстракция компилируется в новый primitive
+the abstraction is compiled into a new primitive
 ↓
-новый primitive становится строительным блоком
+the new primitive becomes a building block
 ↓
-возникают ещё более сложные структуры
+even more complex structures emerge
 ```
 
-То есть:
+In other words:
 
 ```text
 S0 → S1 → S2 → S3
 ```
 
-где каждый следующий язык мира частично строится из устойчивых закономерностей предыдущего.
+where each successive world language is built partly from persistent regularities in the previous one.
 
 ---
 
-# 57. Но внешний метакритерий всё равно нужен
+# 57. An external metacriterion is still needed
 
-Если разрешить множество ветвей миров, часть из них будет:
+If many world branches are allowed, some will:
 
 ```text
-деградировать
-упрощаться
-переходить в хаос
-замыкаться в одном паттерне
-терять разнообразие
-создавать случайный шум
+degrade
+simplify
+become chaotic
+lock into a single pattern
+lose diversity
+produce random noise
 ```
 
-Поэтому исследовательскому слою нужна оценка.
+The research layer therefore needs an evaluation method.
 
-Но это не должна быть одна fitness-функция вроде:
+But it should not be a single fitness function such as:
 
 ```text
 score = complexity
 ```
 
-Иначе вся система начнёт оптимизировать наш измеритель.
+Otherwise, the entire system will start optimizing our measurement.
 
-Нужен:
+What is needed:
 
 ```text
 multi-objective evaluation
@@ -2596,35 +2596,35 @@ novelty detection
 
 ---
 
-# 58. Почему одной "сложности" недостаточно
+# 58. Why "complexity" alone is insufficient
 
-Можно создать систему с огромной сложностью, которая не обладает интересной эволюцией.
+A system can be enormously complex without exhibiting interesting evolution.
 
-Например:
-
-```text
-случайный шум
-```
-
-может иметь:
+For example:
 
 ```text
-высокую энтропию
-низкую сжимаемость
-много различных состояний
+random noise
 ```
 
-но почти нулевую устойчивую структуру.
-
-С другой стороны:
+can have:
 
 ```text
-идеальный кристалл
+high entropy
+low compressibility
+many different states
 ```
 
-очень структурирован, но почти не создаёт новизны.
+but almost no persistent structure.
 
-Поэтому желаемая область находится между:
+Conversely:
+
+```text
+a perfect crystal
+```
+
+is highly structured but produces almost no novelty.
+
+The desired region therefore lies between:
 
 ```text
 rigid order
@@ -2636,9 +2636,9 @@ random chaos
 
 ---
 
-# 59. Три класса деградации
+# 59. Three classes of degradation
 
-## 59.1. Коллапс
+## 59.1. Collapse
 
 ```text
 population → 0
@@ -2646,16 +2646,16 @@ energy loops disappear
 persistent structures disappear
 ```
 
-## 59.2. Замораживание
+## 59.2. Freezing
 
 ```text
-одна стратегия доминирует
+one strategy dominates
 diversity → low
 novelty → 0
 world repeats itself
 ```
 
-## 59.3. Хаотизация
+## 59.3. Chaotization
 
 ```text
 entropy high
@@ -2664,13 +2664,13 @@ inheritance low
 causal persistence low
 ```
 
-Все три режима могут считаться нежелательными для OEE-эксперимента.
+All three regimes may be undesirable for an OEE experiment.
 
 ---
 
-# 60. Вместо одной оценки — вектор качества мира
+# 60. A world-quality vector instead of a single score
 
-Для каждой ветви считать:
+For each branch, compute:
 
 ```text
 Q(world) = [
@@ -2689,15 +2689,15 @@ Q(world) = [
 ]
 ```
 
-Не сводить этот вектор сразу к одному числу.
+Do not immediately reduce this vector to a single number.
 
 ---
 
 # 61. Viability
 
-Показывает, существует ли вообще достаточно устойчивый процесс.
+Indicates whether a sufficiently persistent process exists at all.
 
-Возможные показатели:
+Possible measures:
 
 ```text
 population persistence
@@ -2707,21 +2707,21 @@ mean lineage duration
 fraction of persistent structures
 ```
 
-Это baseline-фильтр.
+This is a baseline filter.
 
-Если:
+If:
 
 ```text
 viability < minimum
 ```
 
-ветвь можно не развивать дальше.
+the branch need not be developed further.
 
 ---
 
 # 62. Diversity
 
-Несколько типов разнообразия:
+Several types of diversity:
 
 ```text
 genetic diversity
@@ -2731,37 +2731,37 @@ ecological diversity
 functional diversity
 ```
 
-Важно не считать разнообразием просто случайные различия.
+Random differences alone should not count as diversity.
 
 ---
 
 # 63. Persistence
 
-Новизна должна жить достаточно долго.
+Novelty must persist long enough.
 
-Например новый паттерн, существовавший:
+For example, a new pattern that existed for:
 
 ```text
 3 ticks
 ```
 
-скорее шум.
+is more likely to be noise.
 
-А паттерн, который:
+Whereas a pattern that:
 
 ```text
-появился
+appeared
 ↓
-распространился
+spread
 ↓
-повлиял на другие структуры
+affected other structures
 ↓
-сохранился 100000 ticks
+persisted for 100000 ticks
 ```
 
-гораздо интереснее.
+is much more interesting.
 
-Можно определить:
+One possible definition:
 
 ```text
 persistence_score =
@@ -2772,11 +2772,11 @@ lifetime × descendants × ecological_impact
 
 # 64. Raw Novelty
 
-Измеряет:
+Measures:
 
-> насколько новое состояние отличается от архива прошлого.
+> How much the new state differs from the archive of past states.
 
-Можно использовать:
+Possible approaches:
 
 ```text
 behavior embeddings
@@ -2786,7 +2786,7 @@ structure descriptors
 interaction graphs
 ```
 
-Например:
+For example:
 
 ```text
 novelty(x)
@@ -2797,27 +2797,27 @@ distance(
 )
 ```
 
-Но raw novelty легко награждает бессмысленный шум.
+However, raw novelty can easily reward meaningless noise.
 
 ---
 
 # 65. Adaptive Novelty
 
-Поэтому нужна более сильная метрика:
+A stronger metric is therefore needed:
 
 ```text
 adaptive novelty
 ```
 
-Новая структура считается интересной, если она:
+A new structure is interesting if it:
 
-1. раньше не наблюдалась;
-2. сохраняется;
-3. влияет на собственную устойчивость или воспроизводство;
-4. меняет взаимодействия с другими структурами;
-5. потенциально создаёт новые affordances.
+1. has not been observed before;
+2. persists;
+3. affects its own persistence or reproduction;
+4. changes interactions with other structures;
+5. potentially creates new affordances.
 
-Условно:
+Conceptually:
 
 ```text
 AdaptiveNovelty
@@ -2827,25 +2827,25 @@ Novelty
 × FunctionalImpact
 ```
 
-Не как окончательная формула, а как идея.
+This is an idea, not a final formula.
 
 ---
 
 # 66. Functional Complexity
 
-Нужно различать:
+Distinguish:
 
 ```text
-сложность структуры
+structural complexity
 ```
 
-и:
+from:
 
 ```text
-сложность причинно полезной организации
+the complexity of causally useful organization
 ```
 
-Например считать:
+For example, measure:
 
 ```text
 number of interacting subsystems
@@ -2859,17 +2859,17 @@ conditional behavior complexity
 
 # 67. Causal Structure
 
-Очень важный анти-шумовой фильтр.
+An important filter against noise.
 
-Сложная система должна иметь:
+A complex system should have:
 
 ```text
-устойчивые причинные зависимости
+persistent causal dependencies
 ```
 
-а не просто случайную вариативность.
+rather than merely random variation.
 
-Возможные метрики:
+Possible metrics:
 
 ```text
 predictive information
@@ -2879,13 +2879,13 @@ causal graph stability
 macro-level predictive gain
 ```
 
-Если структура сложна, но её части почти не влияют друг на друга устойчивым образом, это подозрение на шум.
+A complex structure whose parts have little persistent influence on one another may simply be noise.
 
 ---
 
 # 68. Hierarchy Depth
 
-Open-ended evolution особенно интересна, если появляются новые уровни:
+Open-ended evolution is particularly interesting when new levels appear:
 
 ```text
 primitive
@@ -2899,13 +2899,13 @@ collective
 society-like unit
 ```
 
-Можно измерять:
+Possible measures:
 
 ```text
 number of stable compositional levels
 ```
 
-или:
+or:
 
 ```text
 depth of reusable abstraction hierarchy
@@ -2915,23 +2915,23 @@ depth of reusable abstraction hierarchy
 
 # 69. Niche Creation
 
-Очень сильная метрика.
+A particularly strong metric.
 
-Новая адаптация интереснее, если она не только занимает нишу, но и создаёт новые.
+A new adaptation is more interesting if it creates niches as well as occupying one.
 
-Пример:
+Example:
 
 ```text
-новая структура
+a new structure
 ↓
-создала новый ресурс
+creates a new resource
 ↓
-другая линия начала использовать ресурс
+another lineage starts using the resource
 ↓
-возникло новое взаимодействие
+a new interaction emerges
 ```
 
-Можно считать:
+One possible measure:
 
 ```text
 new affordances created
@@ -2944,11 +2944,11 @@ new persistent dependent lineages
 
 # 70. Evolvability
 
-Измеряет:
+Measures:
 
-> насколько система способна производить полезную наследуемую вариативность дальше.
+> The system's capacity to continue producing useful heritable variation.
 
-Возможные proxy:
+Possible proxies:
 
 ```text
 fraction of viable mutations
@@ -2958,25 +2958,25 @@ ability to escape local attractors
 number of distinct accessible strategies
 ```
 
-Очень важно:
+Crucially:
 
 ```text
-текущая эффективность
+current efficiency
 ```
 
-не должна уничтожать:
+must not destroy:
 
 ```text
-будущую изменчивость
+future variability
 ```
 
 ---
 
 # 71. Ontology Growth
 
-Самая интересная долгосрочная метрика.
+The most interesting long-term metric.
 
-Считать появление новых reusable abstractions:
+Track the emergence of new reusable abstractions:
 
 ```text
 new primitives
@@ -2987,31 +2987,31 @@ new representation systems
 new levels of computation
 ```
 
-Особенно важно не просто количество.
+Their number alone is not enough.
 
-Новая абстракция должна:
+A new abstraction should be:
 
 ```text
-использоваться
-комбинироваться
-создавать новые производные структуры
+used
+combined
+used to create new derived structures
 ```
 
 ---
 
-# 72. Метрика "Generativity"
+# 72. The "Generativity" metric
 
-Можно ввести отдельную идею:
+A separate concept can be introduced:
 
 ```text
 Generativity
 ```
 
-Вопрос:
+The question:
 
-> насколько новшество увеличило пространство последующих возможных инноваций?
+> How much did an innovation expand the space of subsequent possible innovations?
 
-Условный критерий:
+A conceptual criterion:
 
 ```text
 Generativity(x)
@@ -3020,9 +3020,9 @@ number of new persistent innovations
 that become reachable after x
 ```
 
-Это сложно измерить напрямую.
+This is difficult to measure directly.
 
-Практический proxy:
+A practical proxy:
 
 ```text
 branch world with innovation X
@@ -3030,9 +3030,9 @@ vs
 counterfactual branch without X
 ```
 
-Сравнить последующую novelty через большой горизонт.
+Compare subsequent novelty over a long horizon.
 
-Если после X:
+If, after X:
 
 ```text
 novelty rate ↑
@@ -3041,29 +3041,29 @@ new primitives ↑
 hierarchy depth ↑
 ```
 
-то X было генеративным.
+then X was generative.
 
 ---
 
-# 73. Контрфактуальные ветви
+# 73. Counterfactual branches
 
-Для оценки настоящей ценности нового механизма полезно делать:
-
-```text
-World A = до изменения
-World B = с изменением
-```
-
-Оба запускаются с:
+To evaluate the actual value of a new mechanism, it is useful to create:
 
 ```text
-одинакового snapshot
-одинаковых initial seeds
+World A = before the change
+World B = with the change
 ```
 
-после чего расходятся.
+Both start from:
 
-Можно оценить:
+```text
+the same snapshot
+the same initial seeds
+```
+
+and then diverge.
+
+One can estimate:
 
 ```text
 Δnovelty
@@ -3073,25 +3073,25 @@ World B = с изменением
 Δevolvability
 ```
 
-Это намного лучше, чем просто смотреть на абсолютные значения.
+This is much better than simply looking at absolute values.
 
 ---
 
-# 74. Novelty без деградации
+# 74. Novelty without degradation
 
-Полезно разделить:
+It is useful to distinguish:
 
 ```text
 novelty
 ```
 
-и:
+from:
 
 ```text
 productive novelty
 ```
 
-Пример:
+Example:
 
 ```text
 random mutation explosion
@@ -3101,7 +3101,7 @@ random mutation explosion
 → low productive novelty
 ```
 
-Другой пример:
+Another example:
 
 ```text
 new signaling protocol
@@ -3114,9 +3114,9 @@ new signaling protocol
 
 ---
 
-# 75. Минимальные фильтры ветви
+# 75. Minimum branch filters
 
-Перед попаданием в долгосрочный archive ветвь должна пройти минимальные ограничения:
+Before entering the long-term archive, a branch must satisfy minimum constraints:
 
 ```text
 viability > Vmin
@@ -3124,15 +3124,15 @@ persistence > Pmin
 causal_structure > Cmin
 ```
 
-Это не "цель эволюции".
+This is not the "goal of evolution."
 
-Это фильтр исследовательского эксперимента.
+It is a research-experiment filter.
 
 ---
 
-# 76. Pareto Frontier вместо одного score
+# 76. A Pareto Frontier instead of a single score
 
-Не использовать:
+Do not use:
 
 ```text
 Score =
@@ -3141,11 +3141,11 @@ Score =
 + 0.3 diversity
 ```
 
-Иначе система быстро научится эксплуатировать конкретные веса.
+Otherwise, the system will quickly learn to exploit the particular weights.
 
-Вместо этого использовать Pareto selection.
+Use Pareto selection instead.
 
-Например:
+For example:
 
 World A:
 
@@ -3168,17 +3168,17 @@ low diversity
 very high ontology growth
 ```
 
-Все три можно сохранить.
+All three can be retained.
 
 ---
 
 # 77. Quality-Diversity Archive
 
-Подход похож на quality-diversity / MAP-Elites.
+The approach resembles quality-diversity / MAP-Elites.
 
-Хранить лучшие миры в разных областях пространства характеристик.
+Retain the best worlds in different regions of feature space.
 
-Например оси:
+For example, the axes might be:
 
 ```text
 diversity
@@ -3188,76 +3188,76 @@ communication complexity
 ontology depth
 ```
 
-Это позволяет сохранять странные, но потенциально перспективные линии.
+This preserves unusual but potentially promising lineages.
 
 ---
 
-# 78. Защита от metric gaming
+# 78. Protection against metric gaming
 
-Если AI знает точную функцию:
+If AI knows the exact function:
 
 ```text
 score(world)
 ```
 
-он может начать оптимизировать её формально.
+it may start optimizing it formally.
 
-Например:
+For example:
 
 ```text
-нужно diversity
+diversity is required
 ↓
-AI создаёт миллион бессмысленных случайных типов
+AI creates a million meaningless random types
 ```
 
-Поэтому:
+Therefore:
 
-1. использовать несколько метрик;
-2. часть метрик скрывать от генератора патчей;
-3. регулярно менять evaluator;
-4. использовать human/AI qualitative review только как дополнительный слой;
-5. использовать counterfactual tests;
-6. проверять persistence;
-7. проверять causal impact;
-8. проверять generativity.
+1. use multiple metrics;
+2. hide some metrics from the patch generator;
+3. change the evaluator regularly;
+4. use human/AI qualitative review only as an additional layer;
+5. use counterfactual tests;
+6. test persistence;
+7. test causal impact;
+8. test generativity.
 
 ---
 
 # 79. Surprise vs Novelty vs Progress
 
-Разделять три понятия.
+Distinguish three concepts.
 
 ## Surprise
 
 ```text
-неожиданно относительно модели
+unexpected relative to a model
 ```
 
 ## Novelty
 
 ```text
-раньше такого не было
+something that did not exist before
 ```
 
 ## Progress
 
 ```text
-новшество увеличивает дальнейшие возможности системы
+an innovation increases the system's future possibilities
 ```
 
-OEE интересует прежде всего:
+OEE is primarily concerned with:
 
 ```text
 persistent generative novelty
 ```
 
-а не просто surprise.
+rather than surprise alone.
 
 ---
 
-# 80. Предлагаемая мета-оценка
+# 80. Proposed meta-evaluation
 
-Не одна формула, а pipeline:
+A pipeline, rather than a single formula:
 
 ```text
 candidate branch
@@ -3275,7 +3275,7 @@ GENERATIVITY ESTIMATE
 PARETO ARCHIVE
 ```
 
-Это намного устойчивее, чем:
+This is much more robust than:
 
 ```text
 complexity_score > threshold
@@ -3283,18 +3283,18 @@ complexity_score > threshold
 
 ---
 
-# 81. Как AI должен выбирать ветви
+# 81. How AI should select branches
 
-AI может помогать анализировать:
+AI can help analyze:
 
 ```text
-"что здесь новое?"
-"что здесь функционально?"
-"какие новые affordances появились?"
-"возник ли новый уровень организации?"
+"What is new here?"
+"What is functional here?"
+"What new affordances appeared?"
+"Has a new level of organization emerged?"
 ```
 
-Но финальное решение желательно опирать на:
+However, the final decision should preferably be based on:
 
 ```text
 measured metrics
@@ -3304,11 +3304,11 @@ counterfactual branches
 archive comparison
 ```
 
-а не только на текстовое мнение LLM.
+rather than solely on the LLM's written opinion.
 
 ---
 
-# 82. Эталонная схема внешнего селектора
+# 82. Reference design for the external selector
 
 ```text
                       ┌──────────────┐
@@ -3336,13 +3336,13 @@ archive comparison
 
 ---
 
-# 83. Важное философское разделение
+# 83. An important philosophical distinction
 
-Нужно сохранять два разных уровня.
+Keep two distinct levels.
 
-## Внутри мира
+## Inside the world
 
-Нет:
+There is no:
 
 ```text
 good
@@ -3352,7 +3352,7 @@ progress
 goal
 ```
 
-Есть только:
+There is only:
 
 ```text
 physics
@@ -3362,17 +3362,17 @@ inheritance
 consequences
 ```
 
-## На уровне исследователя
+## At the researcher level
 
-Есть цель эксперимента:
+There is an experimental objective:
 
 ```text
-найти системы,
-которые продолжают создавать
-устойчивую адаптивную новизну
+find systems
+that continue producing
+persistent adaptive novelty
 ```
 
-То есть оценочная функция существует не как закон мира, а как:
+The evaluation function therefore exists as the following, rather than as a world law:
 
 ```text
 experimental selection criterion
@@ -3380,31 +3380,31 @@ experimental selection criterion
 
 ---
 
-# 84. Самая сильная версия внешнего критерия
+# 84. The strongest version of the external criterion
 
-Возможно, лучший вопрос не:
+Perhaps the best question is not:
 
 ```text
-"стала ли система сложнее?"
+"Did the system become more complex?"
 ```
 
-а:
+but:
 
-> "стало ли после этого изменения больше способов стать сложнее в будущем?"
+> "Did this change create more ways for the system to become more complex in the future?"
 
-То есть оценивать не только состояние:
+Evaluate not only the state:
 
 ```text
 Complexity(t)
 ```
 
-а производную возможностей:
+but the rate of change in possibilities:
 
 ```text
 FuturePossibilityGrowth
 ```
 
-Условно:
+Conceptually:
 
 ```text
 OEE quality
@@ -3412,11 +3412,11 @@ OEE quality
 persistent increase in accessible adaptive possibilities
 ```
 
-Это ближе всего к сильной концепции open-ended evolution.
+This comes closest to the strong concept of open-ended evolution.
 
 ---
 
-# 85. Обновлённая архитектура цикла
+# 85. Updated cycle architecture
 
 ```text
 MICRO EVOLUTION
@@ -3443,119 +3443,119 @@ promising worlds continue
         └────────────────────────↺
 ```
 
-Ключевая идея:
+The central idea:
 
-> внутри мира нет "проблем". Снаружи есть только исследовательский критерий: сохранять ветви, которые демонстрируют устойчивую, причинно значимую и генеративную новизну.
+> Inside the world there are no problems. Outside it, the research criterion is to retain branches exhibiting persistent, causally significant, generative novelty.
 
 
 
 ---
 
-# 86. Следующий уровень: оценивать не состояние, а пространство будущих возможностей
+# 86. The next level: evaluate future possibilities, not just the current state
 
-Главная слабость обычных метрик сложности:
+The main weakness of ordinary complexity metrics:
 
 ```text
 complexity(world_t)
 ```
 
-измеряет только текущее состояние.
+measures only the current state.
 
-Для OEE важнее другое:
+For OEE, a different question matters more:
 
-> создаёт ли текущее состояние новые возможные траектории дальнейшей эволюции?
+> Does the current state create new possible trajectories for subsequent evolution?
 
-Поэтому полезно мыслить через:
+It is therefore useful to think in terms of:
 
 ```text
 Future Possibility Space
 ```
 
-Условно:
+Conceptually:
 
 ```text
 FPS(world_t)
 =
-множество качественно различных устойчивых состояний,
-достижимых из текущего мира за горизонт T
+the set of qualitatively distinct persistent states
+reachable from the current world within horizon T
 ```
 
-Тогда интерес представляет не просто:
+The quantity of interest is then not merely:
 
 ```text
 FPS size
 ```
 
-а:
+but:
 
 ```text
 growth(FPS)
 ```
 
-То есть:
+In other words:
 
 ```text
-появляются ли новые классы достижимых будущих состояний
+whether new classes of reachable future states appear
 ```
 
 ---
 
-# 87. Generativity как центральная метрика
+# 87. Generativity as the central metric
 
-Можно формально ввести:
+One can formally introduce:
 
 ```text
 Generativity(X)
 ```
 
-для новшества `X`.
+for an innovation `X`.
 
-Интуиция:
+The intuition:
 
-> насколько появление X увеличило число последующих независимых инноваций?
+> How much did the emergence of X increase the number of subsequent independent innovations?
 
-Пример:
-
-```text
-X = новый тип межклеточной связи
-```
-
-После него становятся возможны:
+Example:
 
 ```text
-кооперация
-специализация
-ресурсный обмен
-колонии
-коллективная память
-паразитирование на коллективе
-защита коллектива
+X = a new type of intercellular bond
 ```
 
-То есть X обладает высокой generativity.
+It makes the following possible:
+
+```text
+cooperation
+specialization
+resource exchange
+colonies
+collective memory
+parasitism of the collective
+collective defense
+```
+
+X therefore has high generativity.
 
 ---
 
-# 88. Практическая оценка Generativity
+# 88. Practical evaluation of Generativity
 
-Точное пространство будущего неизвестно.
+The exact space of future possibilities is unknown.
 
-Поэтому использовать выборку контрфактуальных ветвей.
+Use a sample of counterfactual branches instead.
 
-Для новшества X:
+For innovation X:
 
 ```text
 Snapshot S
 ```
 
-создать:
+create:
 
 ```text
 Branch A: X enabled
 Branch B: X disabled
 ```
 
-Для каждой ветки:
+For each branch:
 
 ```text
 K random seeds
@@ -3563,7 +3563,7 @@ K random seeds
 T future ticks
 ```
 
-После этого сравнить:
+Then compare:
 
 ```text
 new niches
@@ -3574,7 +3574,7 @@ new inheritance mechanisms
 new abstractions
 ```
 
-Условно:
+Conceptually:
 
 ```text
 G(X) =
@@ -3585,29 +3585,29 @@ ExpectedNoveltyFuture(no X)
 
 ---
 
-# 89. Оценивать не только количество, но и независимость новшеств
+# 89. Evaluate the independence of innovations as well as their number
 
-Проблема:
+The problem:
 
-одна новая способность может создать тысячу почти одинаковых вариантов.
+One new capability may create a thousand nearly identical variants.
 
-Например:
-
-```text
-1000 оттенков одного сигнала
-```
-
-Это не то же самое, что:
+For example:
 
 ```text
-сигнализация
-+
-коллективная память
-+
-новый канал наследования
+1000 shades of the same signal
 ```
 
-Поэтому novelty archive должен кластеризовать новшества по:
+This is not equivalent to:
+
+```text
+signaling
++
+collective memory
++
+a new inheritance channel
+```
+
+The novelty archive should therefore cluster innovations by:
 
 ```text
 mechanism
@@ -3617,19 +3617,19 @@ interaction topology
 representation
 ```
 
-И считать:
+And count:
 
 ```text
 independent innovation classes
 ```
 
-а не сырое число вариантов.
+rather than the raw number of variants.
 
 ---
 
-# 90. Open-Endedness Score не должен быть одной цифрой
+# 90. An Open-Endedness Score should not be a single number
 
-Даже если нужен dashboard, лучше отображать несколько временных рядов:
+Even when a dashboard is needed, display several time series:
 
 ```text
 NoveltyRate(t)
@@ -3641,13 +3641,13 @@ Diversity(t)
 Persistence(t)
 ```
 
-А затем отдельно:
+And then, separately:
 
 ```text
 SaturationIndicators(t)
 ```
 
-Например:
+For example:
 
 ```text
 novelty ↓
@@ -3658,59 +3658,59 @@ same interaction patterns repeat
 
 ---
 
-# 91. Детектор насыщения
+# 91. Saturation detector
 
-Нужно различать:
-
-```text
-временное плато
-```
-
-и:
+Distinguish:
 
 ```text
-структурное насыщение мира
+a temporary plateau
 ```
 
-Признаки структурного насыщения:
+from:
 
 ```text
-1. новые геномы продолжают появляться;
-2. поведение слегка меняется;
-3. но новых функций нет;
-4. новых ниш нет;
-5. новых типов взаимодействий нет;
-6. hierarchy depth не растёт;
-7. ontology archive не получает новых классов.
+structural saturation of the world
 ```
 
-Такой мир формально "эволюционирует", но не является open-ended.
+Signs of structural saturation:
+
+```text
+1. new genomes keep appearing;
+2. behavior changes slightly;
+3. but there are no new functions;
+4. no new niches;
+5. no new types of interaction;
+6. hierarchy depth does not increase;
+7. the ontology archive gains no new classes.
+```
+
+Such a world is technically evolving, but is not open-ended.
 
 ---
 
-# 92. Измерение семантической новизны
+# 92. Measuring semantic novelty
 
-Особенно трудная задача:
+A particularly difficult task:
 
-> понять, что новый объект выполняет новую роль.
+> Determine whether a new object performs a new role.
 
-Необходимо анализировать не форму объекта, а его причинное использование.
+Analyze its causal use rather than its form.
 
-Например:
+For example:
 
 ```text
 Structure A
 ```
 
-может быть геометрически новой, но функционально делать то же самое.
+may be geometrically novel but perform the same function.
 
-А:
+Whereas:
 
 ```text
 Structure B
 ```
 
-может выглядеть почти идентично старой, но начать использоваться как:
+may look almost identical to an old structure but start being used as:
 
 ```text
 memory
@@ -3719,7 +3719,7 @@ energy store
 construction template
 ```
 
-Поэтому descriptor должен включать:
+The descriptor should therefore include:
 
 ```text
 inputs
@@ -3734,13 +3734,13 @@ descendant effects
 
 # 93. Functional Signature
 
-Для каждой устойчивой структуры можно строить:
+For each persistent structure, one can build:
 
 ```text
 FunctionalSignature
 ```
 
-Пример:
+Example:
 
 ```text
 inputs:
@@ -3760,7 +3760,7 @@ interactions:
     consumed by lineage_71
 ```
 
-Novelty тогда измеряется не только по morphology, но и по:
+Novelty is then measured not only by morphology, but also by:
 
 ```text
 distance(FunctionalSignature)
@@ -3770,7 +3770,7 @@ distance(FunctionalSignature)
 
 # 94. Affordance Graph
 
-Вместо списка сущностей можно строить граф возможностей:
+Instead of a list of entities, build a graph of possibilities:
 
 ```text
 Entity / Structure
@@ -3782,7 +3782,7 @@ Resource / Signal / Artifact / Other entity
 possible transformation
 ```
 
-Пример:
+Example:
 
 ```text
 A --consume--> X
@@ -3791,7 +3791,7 @@ B --transform--> X
 C --attach--> A
 ```
 
-Когда появляется новый тип ребра:
+When a new edge type appears:
 
 ```text
 store
@@ -3801,13 +3801,13 @@ delegate
 encode
 ```
 
-это сильнее, чем просто появление новой формы объекта.
+this is stronger evidence than a new object shape alone.
 
 ---
 
 # 95. Affordance Expansion Score
 
-Можно оценивать:
+One can estimate:
 
 ```text
 AES(t)
@@ -3816,29 +3816,29 @@ number of new persistent affordance classes
 introduced over window Δt
 ```
 
-Но учитывать только affordances, которые:
+But count only affordances that:
 
 ```text
-реально используются
-сохраняются
-влияют на дальнейшую динамику
+are actually used
+persist
+affect subsequent dynamics
 ```
 
 ---
 
-# 96. Эволюция отношений важнее эволюции объектов
+# 96. Evolution of relations matters more than evolution of objects
 
-Возможный ключевой принцип:
+A possible central principle:
 
-> OEE может расти в первую очередь за счёт появления новых типов отношений, а не новых типов объектов.
+> OEE may grow primarily through new types of relations, rather than new types of objects.
 
-Например:
+For example:
 
 ```text
-есть два организма
+there are two organisms
 ```
 
-но возникают отношения:
+but relations emerge:
 
 ```text
 predation
@@ -3852,71 +3852,71 @@ signaling
 inheritance
 ```
 
-Каждый новый relation type резко увеличивает комбинаторное пространство дальнейшего развития.
+Each new relation type sharply expands the combinatorial space of subsequent development.
 
 ---
 
 # 97. Relation-First Ontology
 
-Поэтому новая онтология может строиться не как:
+A new ontology can therefore be built as follows, instead of:
 
 ```text
 new EntityType
 ```
 
-а как:
+use:
 
 ```text
 new RelationType
 ```
 
-Пример:
+Example:
 
 ```text
 transfer_energy
 ```
 
-позже становится:
+later becomes:
 
 ```text
 share_energy
 ```
 
-потом:
+then:
 
 ```text
 conditional_share
 ```
 
-потом:
+then:
 
 ```text
 reciprocal_exchange
 ```
 
-потом:
+then:
 
 ```text
 credit-like relation
 ```
 
-То есть социально-экономические структуры потенциально могут возникать из эволюции отношений.
+Social and economic structures could therefore emerge from the evolution of relations.
 
 ---
 
 # 98. Meta-Affordances
 
-Особенно интересны affordances, которые создают другие affordances.
+Affordances that create other affordances are particularly interesting.
 
-Например:
+For example:
 
 ```text
 language
 ```
 
-не просто помогает передать сообщение.
+does more than help transmit a message.
 
-Он создаёт возможность:
+It enables:
 
 ```text
 instruction
@@ -3927,49 +3927,49 @@ coordination
 planning
 ```
 
-То есть:
+In other words:
 
 ```text
 affordance → new affordance generator
 ```
 
-Такие механизмы должны иметь особенно высокий generativity score.
+Such mechanisms should have particularly high generativity scores.
 
 ---
 
 # 99. Abstraction as Compression
 
-Новый primitive можно считать полезным, если он позволяет компактнее описать множество повторяющихся процессов.
+A new primitive can be considered useful if it describes many recurring processes more compactly.
 
-Например:
+For example:
 
-до появления `Membrane`:
+before `Membrane`:
 
 ```text
-тысячи отдельных локальных bond rules
+thousands of separate local bond rules
 ```
 
-после:
+after:
 
 ```text
 Membrane(...)
 ```
 
-Если новая абстракция:
+If the new abstraction:
 
 ```text
-сильно уменьшает описание
+substantially reduces description length
 +
-сохраняет предсказательную силу
+preserves predictive power
 ```
 
-это хороший кандидат на ontology compilation.
+it is a good candidate for ontology compilation.
 
 ---
 
-# 100. Minimum Description Length для новых примитивов
+# 100. Minimum Description Length for new primitives
 
-Можно использовать идею MDL:
+The MDL idea can be used:
 
 ```text
 DescriptionLength(before)
@@ -3977,21 +3977,21 @@ vs
 DescriptionLength(after abstraction)
 ```
 
-Если:
+If:
 
 ```text
 DL(after) << DL(before)
 ```
 
-а предсказательная способность не ухудшается,
+and predictive ability does not deteriorate,
 
-новая абстракция может быть настоящей структурой, а не выдумкой AI.
+the new abstraction may correspond to a real structure rather than an AI invention.
 
 ---
 
-# 101. Три условия для компиляции новой онтологии
+# 101. Three conditions for compiling a new ontology
 
-Новый primitive разрешается добавить только если:
+A new primitive may be added only if:
 
 ```text
 1. Compression
@@ -3999,19 +3999,19 @@ DL(after) << DL(before)
 3. Causal usefulness
 ```
 
-То есть он:
+In other words, it:
 
-- сокращает описание мира;
-- устойчиво встречается;
-- помогает предсказывать последствия.
+- compresses the description of the world;
+- occurs persistently;
+- helps predict consequences.
 
-Это снижает риск, что AI будет создавать искусственные категории ради novelty score.
+This reduces the risk of AI creating artificial categories merely to increase a novelty score.
 
 ---
 
 # 102. Causal Emergence + Ontology Compilation
 
-Процесс:
+The process:
 
 ```text
 microstates
@@ -4025,7 +4025,7 @@ macro variable explains dynamics better
 compile macro variable as new primitive
 ```
 
-Получается:
+This produces:
 
 ```text
 causal emergence
@@ -4037,9 +4037,9 @@ new evolutionary building block
 
 ---
 
-# 103. Новая роль AI: ученый-компилятор
+# 103. A new AI role: scientist-compiler
 
-Внешний агент лучше разделить на несколько ролей.
+The external agent should be separated into several roles.
 
 ```text
 Observer
@@ -4050,23 +4050,23 @@ Critic
 Experiment Designer
 ```
 
-Особенно интересен:
+Particularly interesting:
 
 ```text
 Ontology Miner
 ```
 
-Он не придумывает сущности с нуля.
+It does not invent entities from scratch.
 
-Он спрашивает:
+It asks:
 
-> какие повторяющиеся макропаттерны уже существуют, но пока представлены только как тысячи микровзаимодействий?
+> Which recurring macropatterns already exist but are still represented only as thousands of microinteractions?
 
 ---
 
 # 104. Ensemble Evaluator
 
-Нельзя давать одному AI одновременно:
+Do not give one AI all of the following roles simultaneously:
 
 ```text
 generate patch
@@ -4074,9 +4074,9 @@ generate patch
 evaluate patch
 ```
 
-Иначе он начнёт оценивать собственные решения благосклонно.
+Otherwise, it may evaluate its own decisions favorably.
 
-Лучше:
+Prefer:
 
 ```text
 Agent A → proposes
@@ -4086,77 +4086,77 @@ Agent C → interprets
 Archive → decides retention
 ```
 
-Финальный селектор опирается прежде всего на измеримые результаты.
+The final selector relies primarily on measurable results.
 
 ---
 
 # 105. Blind Evaluation
 
-Для части экспериментов evaluator не должен знать:
+For some experiments, the evaluator should not know:
 
 ```text
-какой patch применён
-кто его создал
-какая гипотеза была
+which patch was applied
+who created it
+what the hypothesis was
 ```
 
-Он получает только:
+It receives only:
 
 ```text
 before / after telemetry
 ```
 
-Это уменьшает confirmation bias.
+This reduces confirmation bias.
 
 ---
 
 # 106. Hidden Metrics
 
-Не все метрики следует показывать Patch Generator.
+Not all metrics should be shown to the Patch Generator.
 
-Например generator видит:
+For example, the generator sees:
 
 ```text
 world description
 constraints
 ```
 
-но не знает точную формулу:
+but does not know the exact formula for:
 
 ```text
 GenerativityEvaluator
 ```
 
-Это снижает Goodhart effect.
+This reduces the Goodhart effect.
 
 ---
 
 # 107. Goodhart Resistance
 
-Основное правило:
+The main rule:
 
-> когда метрика становится целью, она перестаёт быть хорошей метрикой.
+> When a measure becomes a target, it ceases to be a good measure.
 
-Поэтому OEE evaluator должен регулярно проверять:
+The OEE evaluator should therefore regularly check:
 
 ```text
 metric gaming
 ```
 
-Примеры:
+Examples:
 
 ```text
 diversity score ↑
-через бессмысленный noise
+through meaningless noise
 
 complexity score ↑
-через огромные бесполезные структуры
+through huge, useless structures
 
 novelty score ↑
-через постоянную случайную смену состояний
+through constant random changes of state
 ```
 
-Антидоты:
+Countermeasures:
 
 ```text
 persistence
@@ -4171,29 +4171,29 @@ multi-objective archive
 
 # 108. Red-Team Evaluator
 
-Отдельный агент может пытаться объяснить:
+A separate agent can try to explain:
 
-> почему якобы новое явление на самом деле не является прогрессом OEE.
+> Why an allegedly new phenomenon is not actually progress toward OEE.
 
-Пример:
-
-```text
-"Новый тип поведения является лишь параметрической вариацией старого механизма."
-```
-
-Или:
+Example:
 
 ```text
-"Рост diversity вызван случайностью и не наследуется."
+"The new behavior is merely a parameter variation of an existing mechanism."
 ```
 
-В archive попадают только кандидаты, выдержавшие такую критику.
+Or:
+
+```text
+"The increase in diversity is caused by randomness and is not inherited."
+```
+
+Only candidates that withstand this criticism enter the archive.
 
 ---
 
 # 109. Novelty Lineage
 
-Каждая инновация должна иметь собственную историю:
+Each innovation should have its own history:
 
 ```text
 InnovationID
@@ -4204,7 +4204,7 @@ dependent innovations
 descendant affordances
 ```
 
-Пример:
+Example:
 
 ```text
 Signal
@@ -4218,13 +4218,13 @@ Specialization
 CollectiveReproduction
 ```
 
-Это позволит измерять не только число инноваций, но и глубину их причинной генеалогии.
+This makes it possible to measure both the number of innovations and the depth of their causal genealogy.
 
 ---
 
 # 110. Innovation DAG
 
-Лучше хранить не дерево, а DAG:
+A DAG is preferable to a tree:
 
 ```text
 Innovation A ─┐
@@ -4232,9 +4232,9 @@ Innovation A ─┐
 Innovation B ─┘
 ```
 
-Потому что многие открытия возникают из комбинации предыдущих.
+Because many discoveries combine previous ones.
 
-Сильная OEE должна показывать:
+Strong OEE should exhibit:
 
 ```text
 increasing DAG depth
@@ -4244,25 +4244,25 @@ increasing recombination
 
 ---
 
-# 111. Reuse как признак настоящей сложности
+# 111. Reuse as evidence of meaningful complexity
 
-Если новый механизм возникает один раз и исчезает — это слабый результат.
+A mechanism that appears once and disappears is a weak result.
 
-Если механизм становится reusable building block:
+If a mechanism becomes a reusable building block:
 
 ```text
 X
 ↓
-используется в 20 независимых линиях
+it is used by 20 independent lineages
 ↓
-комбинируется с Y и Z
+combined with Y and Z
 ↓
-становится основой новых систем
+and becomes the foundation of new systems
 ```
 
-это гораздо сильнее.
+the result is much stronger.
 
-Можно считать:
+One can measure:
 
 ```text
 ReuseScore(X)
@@ -4272,11 +4272,11 @@ ReuseScore(X)
 
 # 112. Compositionality Score
 
-Важный признак open-endedness:
+An important sign of open-endedness:
 
-> новые элементы должны комбинироваться.
+> New elements must be composable.
 
-Например:
+For example:
 
 ```text
 A
@@ -4284,7 +4284,7 @@ B
 C
 ```
 
-дают:
+produce:
 
 ```text
 AB
@@ -4293,42 +4293,42 @@ BC
 ABC
 ```
 
-Если каждая инновация независима и некомпонуема, пространство возможностей растёт медленно.
+If every innovation is independent and noncomposable, the possibility space grows slowly.
 
-Если innovations compositional:
+If innovations are compositional:
 
 ```text
 possibility space
 ```
 
-может расти комбинаторно.
+can grow combinatorially.
 
 ---
 
-# 113. Эволюция модульности
+# 113. Evolution of modularity
 
-Полезно наблюдать, возникает ли:
+It is useful to observe whether the following emerges:
 
 ```text
 module
 ```
 
-то есть часть системы, которая:
+a part of the system that:
 
-- имеет локальную функцию;
-- переиспользуется;
-- относительно независима;
-- может комбинироваться с другими.
+- has a local function;
+- is reused;
+- is relatively independent;
+- can be combined with other parts.
 
-Модульность может оказаться одним из важнейших механизмов OEE.
+Modularity may prove to be one of the most important mechanisms of OEE.
 
 ---
 
 # 114. Complexity Budget
 
-Чтобы AI не создавал безгранично дорогие правила:
+To prevent AI from creating arbitrarily expensive rules:
 
-каждый новый primitive получает цену:
+each new primitive receives a cost:
 
 ```text
 compute cost
@@ -4337,33 +4337,33 @@ energy cost
 description cost
 ```
 
-Новая возможность должна конкурировать за ограниченный бюджет.
+A new capability must compete for a limited budget.
 
-Иначе:
+Otherwise:
 
 ```text
-AI просто добавляет всё подряд
+AI simply adds everything
 ```
 
-и пространство мира искусственно растёт без отбора.
+and the world's possibility space grows artificially, without selection.
 
 ---
 
-# 115. Закон сохранения вычислительных ресурсов
+# 115. Conservation of computational resources
 
-Очень желательно:
+A highly desirable property:
 
 ```text
 new capability ≠ free capability
 ```
 
-Если добавляется:
+If the following is added:
 
 ```text
 long-range signaling
 ```
 
-он должен иметь цену:
+it must have a cost:
 
 ```text
 energy
@@ -4373,15 +4373,15 @@ memory
 bandwidth
 ```
 
-Это создаёт trade-offs.
+This creates trade-offs.
 
-Trade-offs — один из двигателей разнообразия.
+Trade-offs are one of the drivers of diversity.
 
 ---
 
 # 116. Trade-off Generator
 
-Новый primitive должен по возможности создавать:
+A new primitive should, where possible, create:
 
 ```text
 advantage A
@@ -4389,37 +4389,37 @@ advantage A
 cost B
 ```
 
-Примеры:
+Examples:
 
 ```text
-быстрое размножение ↔ низкая точность
+rapid reproduction ↔ low fidelity
 
-дальний сигнал ↔ высокая энергия
+long-range signaling ↔ high energy cost
 
-толстая мембрана ↔ медленный обмен
+thick membrane ↔ slow exchange
 
-большая память ↔ вычислительная стоимость
+large memory ↔ computational cost
 ```
 
-Без trade-offs эволюция легко схлопнется в один универсальный лучший вариант.
+Without trade-offs, evolution can easily collapse into one universally best variant.
 
 ---
 
-# 117. Нет универсально лучшего организма
+# 117. No universally best organism
 
-Архитектура мира должна стремиться к:
+The world's architecture should aim for:
 
 ```text
 context-dependent fitness
 ```
 
-а не:
+rather than:
 
 ```text
 global optimum
 ```
 
-Идеально, если:
+Ideally:
 
 ```text
 Strategy A beats B
@@ -4427,7 +4427,7 @@ B beats C
 C beats A
 ```
 
-или эффективность зависит от:
+or efficiency depends on:
 
 ```text
 environment
@@ -4436,29 +4436,29 @@ history
 local resource structure
 ```
 
-Это поддерживает длительную коэволюцию.
+This supports prolonged coevolution.
 
 ---
 
 # 118. Red Queen Dynamics
 
-Желательный режим:
+A desirable regime:
 
 ```text
-вид A адаптируется к B
+species A adapts to B
 ↓
-B адаптируется к A
+B adapts to A
 ↓
-A снова меняется
+A changes again
 ↓
 ...
 ```
 
-Но важно:
+However:
 
-обычная Red Queen dynamics может бесконечно вращаться внутри одного пространства стратегий.
+Ordinary Red Queen dynamics can cycle indefinitely within a single strategy space.
 
-Для OEE требуется иногда:
+OEE requires occasional:
 
 ```text
 Red Queen cycle
@@ -4472,9 +4472,9 @@ new strategy space
 
 # 119. Major Transition Detector
 
-Автоматически искать признаки нового уровня индивидуальности.
+Automatically look for signs of a new level of individuality.
 
-Кандидат-группа должна иметь:
+A candidate group should have:
 
 ```text
 persistent boundary
@@ -4486,7 +4486,7 @@ reduced internal conflict
 shared fate
 ```
 
-Если эти признаки растут вместе:
+If these properties grow together:
 
 ```text
 candidate major transition
@@ -4494,19 +4494,19 @@ candidate major transition
 
 ---
 
-# 120. Conflict Suppression как признак major transition
+# 120. Conflict Suppression as evidence of a major transition
 
-В истории эволюции новые уровни организации часто требуют подавления внутреннего конфликта.
+In evolutionary history, new levels of organization often require suppression of internal conflict.
 
-Пример:
+Example:
 
 ```text
-клетки организма
+the cells of an organism
 ```
 
-не должны бесконечно конкурировать друг с другом.
+should not compete with one another indefinitely.
 
-Поэтому полезная метрика:
+A useful metric is therefore:
 
 ```text
 internal competition
@@ -4514,13 +4514,13 @@ vs
 collective fitness coupling
 ```
 
-Если группа становится более целостной, внутренний конфликт должен снижаться или регулироваться.
+As a group becomes more integrated, internal conflict should decrease or become regulated.
 
 ---
 
-# 121. Новые каналы наследования
+# 121. New inheritance channels
 
-Система должна отслеживать появление:
+The system should track the emergence of:
 
 ```text
 genetic inheritance
@@ -4532,27 +4532,27 @@ artifact inheritance
 environmental inheritance
 ```
 
-Каждый новый inheritance channel потенциально резко увеличивает evolvability.
+Each new inheritance channel can potentially increase evolvability substantially.
 
 ---
 
 # 122. Environmental Inheritance
 
-Очень интересный вариант:
+A particularly interesting possibility:
 
-организм может передавать потомкам не информацию внутри себя, а изменённую среду.
+An organism can pass an altered environment to its descendants, rather than information stored inside itself.
 
-Например:
+For example:
 
 ```text
-строит структуру
+it builds a structure
 ↓
-умирает
+dies
 ↓
-потомки используют структуру
+its descendants use the structure
 ```
 
-Это уже наследование через:
+This is already inheritance through:
 
 ```text
 niche construction
@@ -4562,9 +4562,9 @@ niche construction
 
 # 123. Ecological Memory
 
-Среда сама может хранить историю.
+The environment itself can store history.
 
-Например:
+For example:
 
 ```text
 chemical traces
@@ -4574,13 +4574,13 @@ constructed channels
 symbol markers
 ```
 
-Таким образом мир становится внешней памятью эволюции.
+The world thus becomes evolution's external memory.
 
 ---
 
 # 124. Evolutionary Memory Stack
 
-Можно представить несколько слоёв памяти:
+Several memory layers can be envisioned:
 
 ```text
 genome
@@ -4598,72 +4598,72 @@ artifacts
 symbolic records
 ```
 
-Появление нового слоя памяти — потенциальный major transition.
+The emergence of a new memory layer is a potential major transition.
 
 ---
 
 # 125. Time-Scale Separation
 
-Важно моделировать разные временные масштабы.
+It is important to model different time scales.
 
-Например:
+For example:
 
 ```text
-physics: каждый tick
-behavior: десятки ticks
-lifetime: тысячи ticks
-ecology: миллионы ticks
-ontology change: десятки миллионов ticks
+physics: every tick
+behavior: tens of ticks
+lifetime: thousands of ticks
+ecology: millions of ticks
+ontology change: tens of millions of ticks
 ```
 
-Если все уровни меняются с одинаковой скоростью, стабильные структуры могут не успевать возникать.
+If all levels change at the same speed, persistent structures may not have time to emerge.
 
 ---
 
 # 126. Slow Macro-Evolution
 
-AI macro-patches должны быть гораздо реже микроэволюции.
+AI macropatches should occur much less frequently than microevolution.
 
-Например:
+For example:
 
 ```text
-micro mutation: постоянно
-macro rule proposal: только после большого окна наблюдения
-ontology compilation: ещё реже
+micro mutation: continuously
+macro rule proposal: only after a long observation window
+ontology compilation: even less frequently
 ```
 
-Иначе внешний AI станет главным автором мира.
+Otherwise, the external AI becomes the world's main author.
 
 ---
 
-# 127. Budget внешнего вмешательства
+# 127. External intervention budget
 
-Ввести:
+Introduce:
 
 ```text
 InterventionBudget
 ```
 
-Например за миллион ticks AI может:
+For example, per million ticks AI may:
 
 ```text
-добавить не более 1 primitive
-изменить не более 0.1% rule space
+add no more than 1 primitive
+change no more than 0.1% of the rule space
 ```
 
-Это позволяет проверить:
+This makes it possible to test:
 
-> может ли маленькое число семантических расширений поддержать огромный объём внутренней эволюции?
+> Can a small number of semantic extensions support a vast amount of internal evolution?
 
 ---
 
-# 128. Минимальное вмешательство как исследовательский принцип
+# 128. Minimal intervention as a research principle
 
-Лучший AI patch:
+The best AI patch:
 
-> минимальное изменение, которое максимально расширяет будущие возможности.
+> The smallest change that expands future possibilities the most.
 
-Это можно оптимизировать как:
+This can be optimized as:
 
 ```text
 Generativity
@@ -4671,7 +4671,7 @@ Generativity
 PatchComplexity
 ```
 
-То есть высокий:
+In other words, a high:
 
 ```text
 Generativity per added rule
@@ -4679,46 +4679,46 @@ Generativity per added rule
 
 ---
 
-# 129. Эквивалент Occam для OEE
+# 129. An Occam principle for OEE
 
-Если два patch дают одинаковую generativity:
+If two patches produce the same generativity:
 
 ```text
 Patch A = 2 new primitives
 Patch B = 50 new primitives
 ```
 
-предпочтительнее A.
+A is preferable.
 
-Это позволяет не превращать AI в бесконечный генератор контента.
+This keeps AI from becoming an endless content generator.
 
 ---
 
-# 130. Открытый мир против расширяемого мира
+# 130. An open world versus an extensible world
 
-Различать:
+Distinguish:
 
 ## Open state space
 
 ```text
-огромное число состояний
+a vast number of states
 ```
 
-и:
+from:
 
 ## Expanding state space
 
 ```text
-появляются новые типы состояний
+new types of states emerge
 ```
 
-Для сильной OEE интереснее второе.
+The latter is more interesting for strong OEE.
 
 ---
 
-# 131. Онтологический event log
+# 131. Ontological event log
 
-Отдельно хранить события:
+Record events separately:
 
 ```text
 first replicator
@@ -4731,13 +4731,13 @@ first external memory
 first self-built interpreter
 ```
 
-Это станет "историей Вселенной".
+This becomes the "history of the universe."
 
 ---
 
 # 132. Automatic Scientific Narration
 
-AI Observer может строить научный журнал:
+The AI Observer can build a scientific journal:
 
 ```text
 Generation 2.4M:
@@ -4753,43 +4753,43 @@ Generation 3.8M:
 Evidence suggests collective reproduction.
 ```
 
-Это особенно полезно, если мир работает неделями или месяцами.
+This is especially useful when the world runs for weeks or months.
 
 ---
 
 # 133. Branch Archaeology
 
-Интересная функция:
+An interesting capability:
 
-> взять современное сложное явление и восстановить цепочку его происхождения.
+> Take a present-day complex phenomenon and reconstruct its chain of origins.
 
-Например:
+For example:
 
 ```text
-современная symbolic system
+a present-day symbolic system
 ↓
-какие innovation nodes были необходимы?
+which innovation nodes were necessary?
 ↓
-какие могли отсутствовать?
+which could have been absent?
 ↓
-какой transition был критическим?
+which transition was critical?
 ```
 
-Можно автоматически запускать counterfactual branches из прошлого.
+Counterfactual branches can be launched automatically from past states.
 
 ---
 
 # 134. Causal Importance of Innovation
 
-Для каждого исторического события X:
+For each historical event X:
 
 ```text
-удалить X из прошлого snapshot
+remove X from a past snapshot
 ↓
-повторить множество прогонов
+repeat many runs
 ```
 
-Если без X дальнейший класс структур почти никогда не возникает:
+If the later class of structures almost never appears without X:
 
 ```text
 X = evolutionary bottleneck / key innovation
@@ -4799,15 +4799,15 @@ X = evolutionary bottleneck / key innovation
 
 # 135. Convergent Evolution Test
 
-Особенно интересный эксперимент:
+A particularly interesting experiment:
 
 ```text
-одинаковый physics
+the same physics
 +
-разные seeds
+different seeds
 ```
 
-Возникают ли независимо:
+Do the following emerge independently:
 
 ```text
 membranes?
@@ -4817,61 +4817,61 @@ multicellularity?
 symbol systems?
 ```
 
-Если да, это говорит о глубоких attractors пространства возможностей.
+If so, this suggests deep attractors in the possibility space.
 
 ---
 
 # 136. Contingency vs Necessity
 
-Запускать тысячи историй.
+Run thousands of histories.
 
-Для каждого major transition считать:
+For each major transition, estimate:
 
 ```text
 P(transition | physics)
 ```
 
-Если событие появляется почти всегда:
+If the event appears almost always:
 
 ```text
 likely structural necessity
 ```
 
-Если чрезвычайно редко:
+If it is extremely rare:
 
 ```text
 historical contingency
 ```
 
-Это уже делает систему интересной как модель фундаментальных вопросов эволюции.
+This already makes the system interesting as a model for fundamental questions about evolution.
 
 ---
 
 # 137. Search for Universal Evolutionary Patterns
 
-Можно искать:
+One can ask:
 
 ```text
-повторяется ли паразитизм?
-возникает ли кооперация?
-нужна ли модульность?
-возникает ли иерархия?
-появляется ли разделение труда?
+does parasitism recur?
+does cooperation emerge?
+is modularity necessary?
+does hierarchy emerge?
+does division of labor appear?
 ```
 
-Если независимые цифровые миры регулярно приходят к одним и тем же абстрактным решениям, это может быть более интересным результатом, чем конкретный красивый организм.
+If independent digital worlds regularly arrive at the same abstract solutions, this may be more interesting than a particular attractive organism.
 
 ---
 
-# 138. Метрика сложности мира как причинной сети
+# 138. World complexity as a causal network
 
-Вместо количества сущностей:
+Instead of entity counts:
 
 ```text
 Complexity ≈ structure of causal dependency graph
 ```
 
-Интересны:
+Quantities of interest:
 
 ```text
 depth
@@ -4885,7 +4885,7 @@ reusable motifs
 
 # 139. Multi-Scale Causal Graph
 
-Хранить:
+Store:
 
 ```text
 micro causal graph
@@ -4893,23 +4893,23 @@ meso causal graph
 macro causal graph
 ```
 
-И смотреть:
+And examine:
 
 ```text
-на каких масштабах появляются устойчивые причинные законы
+the scales at which persistent causal laws emerge
 ```
 
-Это потенциально связывает систему с causal emergence.
+This potentially connects the system to causal emergence.
 
 ---
 
-# 140. Когда абстракция становится "реальной"
+# 140. When an abstraction becomes "real"
 
-Рабочее определение:
+A working definition:
 
-> макрообъект считается реальным уровнем симуляции, если его использование улучшает предсказание и управление по сравнению с чистым микроописанием.
+> A macro-object counts as a real simulation level if using it improves prediction and control compared with a purely microscopic description.
 
-То есть:
+In other words:
 
 ```text
 predictive gain
@@ -4921,7 +4921,7 @@ causal usefulness
 
 ---
 
-# 141. Финальная форма внешнего селектора
+# 141. Final form of the external selector
 
 ```text
 WORLD BRANCH
@@ -4943,17 +4943,17 @@ Ontology Growth
 Quality-Diversity / Pareto Archive
 ```
 
-Ни один отдельный слой не определяет "прогресс".
+No single layer defines "progress."
 
 ---
 
-# 142. Возможный главный критерий OEE
+# 142. A possible main OEE criterion
 
-Рабочая формулировка:
+A working formulation:
 
-> система демонстрирует сильную open-ended evolution, если на длинных временных масштабах она продолжает производить новые устойчивые причинно-функциональные структуры, которые расширяют множество доступных последующих адаптаций и создают новые уровни организации.
+> A system exhibits strong open-ended evolution if, over long time scales, it continues producing new persistent causal-functional structures that expand the set of subsequent available adaptations and create new levels of organization.
 
-В короткой форме:
+In brief:
 
 ```text
 OEE
@@ -4971,16 +4971,16 @@ non-saturating novelty
 
 ---
 
-# 143. Самый важный практический тест
+# 143. The most important practical test
 
-Первый действительно убедительный эксперимент:
+The first truly convincing experiment:
 
-1. Запустить обычный мир без внешнего AI.
-2. Измерить время до структурного saturation.
-3. Запустить тот же мир с AI Possibility Expander.
-4. Ограничить AI маленьким intervention budget.
-5. Не давать AI конечной цели.
-6. Сравнить:
+1. Run an ordinary world without external AI.
+2. Measure the time to structural saturation.
+3. Run the same world with an AI Possibility Expander.
+4. Limit AI to a small intervention budget.
+5. Do not give AI a final objective.
+6. Compare:
    - novelty;
    - generativity;
    - ontology depth;
@@ -4988,37 +4988,37 @@ non-saturating novelty
    - niche creation;
    - time to saturation.
 
-Если при небольшом числе нейтральных семантических расширений:
+If, with a small number of neutral semantic extensions:
 
 ```text
 AI-world
 ```
 
-стабильно дольше создаёт новые функциональные категории, чем:
+consistently produces new functional categories for longer than:
 
 ```text
 control-world
 ```
 
-это будет уже очень интересный результат.
+that would already be a very interesting result.
 
 ---
 
-# 144. Более сильный тест
+# 144. A stronger test
 
-После успешного предыдущего эксперимента:
+After the previous experiment succeeds:
 
-AI разрешено добавлять primitive только тогда, когда:
+AI may add a primitive only when:
 
 ```text
 primitive
 ```
 
-является компиляцией уже возникшего паттерна.
+compiles a pattern that has already emerged.
 
-То есть AI запрещено "изобретать снаружи".
+In other words, AI may not invent mechanisms from outside.
 
-Схема:
+Diagram:
 
 ```text
 world produces latent pattern
@@ -5032,17 +5032,17 @@ experiment validates abstraction
 kernel exposes primitive
 ```
 
-Если и такой режим поддерживает OEE:
+If this mode also sustains OEE:
 
-> направление расширения действительно идёт из мира, а AI лишь ускоряет переход между уровнями.
+> The direction of expansion truly comes from the world, while AI merely accelerates transitions between levels.
 
-Это намного сильнее первоначальной архитектуры.
+This is much stronger than the original architecture.
 
 ---
 
 # 145. Ultimate Experiment
 
-Самая амбициозная версия:
+The most ambitious version:
 
 ```text
 immutable minimal kernel
@@ -5060,11 +5060,11 @@ external AI abstraction engine
 quality-diversity world archive
 ```
 
-И дальше вопрос:
+The question then becomes:
 
-> насколько далеко система сможет построить собственный язык описания мира поверх исходных примитивов?
+> How far can the system build its own language for describing the world on top of the initial primitives?
 
-В идеале:
+Ideally:
 
 ```text
 primitive physics
@@ -5090,32 +5090,32 @@ new computation
 unknown abstractions
 ```
 
-Последние уровни не должны быть заранее названы разработчиком.
+The final levels should not be named in advance by the developer.
 
-Именно появление чего-то, для чего нам после эксперимента придётся придумать новое понятие, было бы самым сильным признаком настоящей open-ended evolution.
+The strongest sign of genuine open-ended evolution would be something for which we must invent a new concept after the experiment.
 
 
 ---
 
-# 146. Как может выглядеть основа мира в коде
+# 146. What the world's foundation might look like in code
 
-Главный принцип:
+The main principle:
 
-> базовый мир не должен знать, что такое организм, вид, хищник, пища, язык, культура или экономика.
+> The base world should not know what an organism, species, predator, food, language, culture, or economy is.
 
-Он должен знать только:
+It should know only:
 
 ```text
-пространство
-материя
-энергия
-состояние
-связи
-память
-исполняемые правила
+space
+matter
+energy
+state
+bonds
+memory
+executable rules
 ```
 
-То есть избегаем:
+In other words, avoid:
 
 ```go
 type Organism struct {
@@ -5128,13 +5128,13 @@ type Organism struct {
 }
 ```
 
-и вместо этого строим универсальные примитивы.
+and build general-purpose primitives instead.
 
 ---
 
-# 147. Базовая сущность
+# 147. Basic entity
 
-Для первой версии:
+For the first version:
 
 ```go
 type EntityID uint64
@@ -5162,13 +5162,13 @@ type Entity struct {
 }
 ```
 
-Ключевой элемент:
+The key element:
 
 ```go
 Properties map[PropertyID]Value
 ```
 
-Не нужно заранее добавлять поля:
+Do not add predefined fields such as:
 
 ```text
 Health
@@ -5178,7 +5178,7 @@ Species
 Intelligence
 ```
 
-Позже новые механизмы могут добавить:
+Later, new mechanisms may add:
 
 ```text
 electrical_charge
@@ -5188,11 +5188,11 @@ chemical_affinity
 symbol_memory
 ```
 
-без изменения базового типа.
+without changing the base type.
 
 ---
 
-# 148. Динамические свойства
+# 148. Dynamic properties
 
 ```go
 type PropertyID uint32
@@ -5203,7 +5203,7 @@ type Value struct {
 }
 ```
 
-В более развитой версии можно перейти к tagged union:
+A more advanced version can use a tagged union:
 
 ```go
 type ValueType uint8
@@ -5247,9 +5247,9 @@ type World struct {
 }
 ```
 
-`World` — только текущее состояние.
+`World` is only the current state.
 
-Он не содержит семантики вроде:
+It contains no semantics such as:
 
 ```text
 population
@@ -5258,11 +5258,11 @@ ecosystem
 society
 ```
 
-Эти понятия должны появляться во внешнем Observer.
+These concepts should emerge in the external Observer.
 
 ---
 
-# 150. Пространственные поля
+# 150. Spatial fields
 
 ```go
 type Fields struct {
@@ -5273,14 +5273,14 @@ type Fields struct {
 }
 ```
 
-Изначально:
+Initially:
 
 ```text
 Energy
 Matter
 ```
 
-Позже можно динамически добавить:
+Later, one can dynamically add:
 
 ```text
 Light
@@ -5293,9 +5293,9 @@ Charge
 
 ---
 
-# 151. Базовый Rule Interface
+# 151. Basic Rule Interface
 
-Kernel не должен знать смысл правил.
+The kernel should not know the meaning of rules.
 
 ```go
 type Rule interface {
@@ -5308,7 +5308,7 @@ type Rule interface {
 }
 ```
 
-Примеры встроенных правил:
+Examples of built-in rules:
 
 ```go
 type MoveRule struct{}
@@ -5328,15 +5328,15 @@ type RuleSet struct {
 }
 ```
 
-Основной принцип:
+The main principle:
 
-> Rule не должен напрямую изменять World.
+> A Rule must not modify the World directly.
 
-Он генерирует события.
+It generates events.
 
 ---
 
-# 153. Event-driven изменение мира
+# 153. Event-driven world changes
 
 ```go
 type Event interface {
@@ -5344,7 +5344,7 @@ type Event interface {
 }
 ```
 
-Примеры:
+Examples:
 
 ```go
 type MoveEvent struct {
@@ -5374,7 +5374,7 @@ type SetPropertyEvent struct {
 }
 ```
 
-Получается:
+This produces:
 
 ```text
 World(t)
@@ -5388,7 +5388,7 @@ Conflict Resolution
 World(t+1)
 ```
 
-Это даёт:
+This provides:
 
 ```text
 replay
@@ -5400,9 +5400,9 @@ counterfactual experiments
 
 ---
 
-# 154. Исполняемая материя
+# 154. Executable matter
 
-Внутри сущности хранится программа.
+An entity stores a program.
 
 ```go
 type Opcode byte
@@ -5431,7 +5431,7 @@ type Program struct {
 }
 ```
 
-Минимальная программа может выглядеть так:
+A minimal program might look like:
 
 ```text
 SENSE ENERGY
@@ -5445,27 +5445,27 @@ COPY
 JUMP 0
 ```
 
-Но операция `COPY` не должна означать:
+However, `COPY` should not mean:
 
 ```text
 reproduce organism
 ```
 
-Она должна означать только:
+It should mean only:
 
-> скопировать структуру / программу при наличии ресурсов.
+> Copy a structure or program when resources are available.
 
 ---
 
-# 155. Репликацию не хардкодить
+# 155. Do not hardcode replication
 
-Избегать:
+Avoid:
 
 ```go
 func (e *Entity) Reproduce() *Entity
 ```
 
-Лучше набор низкоуровневых операций:
+Prefer a set of low-level operations:
 
 ```text
 allocate matter
@@ -5476,25 +5476,25 @@ create bond
 detach
 ```
 
-Тогда эволюция сама может создать алгоритм репликации:
+Evolution can then develop a replication algorithm itself:
 
 ```text
-создать новую структуру
+create a new structure
 ↓
-скопировать код
+copy code
 ↓
-передать энергию
+transfer energy
 ↓
-отсоединить
+detach
 ```
 
-Так эволюционировать сможет не только геном, но и сам механизм размножения.
+The reproduction mechanism itself can then evolve, as well as the genome.
 
 ---
 
-# 156. Entity не обязан быть организмом
+# 156. An Entity does not have to be an organism
 
-Ещё лучше рассматривать `Entity` как атомарный узел:
+Better still, treat `Entity` as an atomic node:
 
 ```go
 type Node struct {
@@ -5513,36 +5513,36 @@ type Node struct {
 }
 ```
 
-Тогда:
+Then:
 
 ```text
 1 Node
 ```
 
-может быть бессмысленным,
+may be meaningless,
 
-а:
+while:
 
 ```text
 100 connected Nodes
 ```
 
-могут образовать:
+may form:
 
 ```text
-репликатор
-мембрану
-машину
-колонию
+a replicator
+a membrane
+a machine
+a colony
 ```
 
-Сам engine этого не знает.
+The engine itself does not know this.
 
 ---
 
-# 157. Relations как first-class citizens
+# 157. Relations as first-class citizens
 
-Связи нужно сделать полноценной частью мира.
+Bonds should be a full-fledged part of the world.
 
 ```go
 type Relation struct {
@@ -5557,7 +5557,7 @@ type Relation struct {
 }
 ```
 
-Потому что OEE может развиваться через новые отношения:
+Because OEE may develop through new relations:
 
 ```text
 mechanical bond
@@ -5573,7 +5573,7 @@ teaching-like relation
 
 # 158. Primitive Registry
 
-Ключевой слой расширяемого мира:
+A central layer of an extensible world:
 
 ```go
 type Registry struct {
@@ -5584,7 +5584,7 @@ type Registry struct {
 }
 ```
 
-Начальный Registry:
+Initial Registry:
 
 ```text
 energy
@@ -5597,7 +5597,7 @@ transfer
 copy
 ```
 
-Поздний Registry потенциально:
+A possible later Registry:
 
 ```text
 energy
@@ -5620,7 +5620,7 @@ interpret
 ...
 ```
 
-Это и есть практическая реализация:
+This is the practical implementation of:
 
 ```text
 S0 → S1 → S2 → ...
@@ -5643,18 +5643,18 @@ type Kernel struct {
 }
 ```
 
-Kernel знает только:
+The kernel knows only:
 
 ```text
-как исполнять инструкции
-как применять события
-как распределять ресурсы
-как создавать snapshot
-как валидировать patch
-как создавать новую ветвь
+how to execute instructions
+how to apply events
+how to allocate resources
+how to create a snapshot
+how to validate a patch
+how to create a new branch
 ```
 
-Он не знает:
+It does not know:
 
 ```text
 organism
@@ -5666,11 +5666,11 @@ technology
 
 ---
 
-# 160. AI Patch должен быть декларативным
+# 160. AI patches must be declarative
 
-Не давать AI писать arbitrary native code в kernel.
+Do not allow AI to write arbitrary native code in the kernel.
 
-Лучше:
+Prefer:
 
 ```yaml
 version: 1
@@ -5712,7 +5712,7 @@ branch world
 
 ---
 
-# 161. AI Patch не применяется сразу к основной ветви
+# 161. AI patches are not applied directly to the main branch
 
 ```go
 func TestPatch(
@@ -5722,7 +5722,7 @@ func TestPatch(
 ) []ExperimentResult
 ```
 
-Схема:
+Diagram:
 
 ```text
              Snapshot W
@@ -5733,13 +5733,13 @@ func TestPatch(
                             P3
 ```
 
-AI создаёт новые ветки.
+AI creates new branches.
 
-Мир не переписывается необратимо.
+The world is not irreversibly rewritten.
 
 ---
 
-# 162. Минимальный Tick Loop
+# 162. Minimal tick loop
 
 ```go
 func (w *World) Step(k *Kernel) {
@@ -5751,34 +5751,34 @@ func (w *World) Step(k *Kernel) {
 
     events := NewEventBuffer()
 
-    // 1. Исполняемый код сущностей.
+    // 1. Executable entity code.
     k.VM.ExecuteAll(ctx, events)
 
-    // 2. Универсальные правила мира.
+    // 2. General world rules.
     for _, rule := range k.Registry.ActiveRules() {
         rule.Evaluate(ctx, events)
     }
 
-    // 3. Разрешение конфликтов.
+    // 3. Conflict resolution.
     resolved := ResolveEvents(events)
 
-    // 4. Изменение состояния мира.
+    // 4. World state changes.
     ApplyEvents(w, resolved)
 
-    // 5. Потери / диссипация.
+    // 5. Losses / dissipation.
     ApplyDissipation(w)
 
     w.Tick++
 }
 ```
 
-Цель:
+Goal:
 
-> всё сложное должно расти поверх максимально маленького loop.
+> All complexity should grow on top of the smallest possible loop.
 
 ---
 
-# 163. Observer вынести за пределы World
+# 163. Keep the Observer outside the World
 
 ```go
 type Observer struct {
@@ -5789,19 +5789,19 @@ type Observer struct {
 }
 ```
 
-Observer может говорить:
+The Observer may report:
 
 ```text
-"похоже, появилась популяция"
-"похоже, появилась мембрана"
-"похоже, возникла новая ниша"
+"a population appears to have emerged"
+"a membrane appears to have emerged"
+"a new niche appears to have emerged"
 ```
 
-Но эти понятия не существуют внутри физики мира.
+But these concepts do not exist inside the world's physics.
 
 ---
 
-# 164. World Summary для внешнего AI
+# 164. World Summary for the external AI
 
 ```go
 type WorldSummary struct {
@@ -5821,11 +5821,11 @@ type WorldSummary struct {
 }
 ```
 
-Даже `CandidateMacroEntities` — только гипотеза Observer.
+Even `CandidateMacroEntities` is only an Observer hypothesis.
 
 ---
 
-# 165. Чистое разделение системы
+# 165. A clear separation of the system
 
 ```text
 ┌─────────────────────────────┐
@@ -5865,9 +5865,9 @@ type WorldSummary struct {
 
 ---
 
-# 166. Самая первая версия кода
+# 166. The very first code version
 
-Для MVP можно ещё сильнее упростить:
+The MVP can be simplified further:
 
 ```go
 type Particle struct {
@@ -5884,7 +5884,7 @@ type Particle struct {
 }
 ```
 
-И всего 8 инструкций:
+With just 8 instructions:
 
 ```text
 NOP
@@ -5897,29 +5897,29 @@ COPY
 JUMP
 ```
 
-Мир:
+World:
 
 ```text
 256 × 256
 ```
 
-Каждая инструкция стоит энергию.
+Each instruction costs energy.
 
-Энергия поступает извне как физический градиент.
+Energy enters from outside as a physical gradient.
 
-Если:
+If:
 
 ```text
 Energy == 0
 ```
 
-структура перестаёт выполняться / распадается.
+the structure stops executing or disintegrates.
 
 ---
 
-# 167. Что НЕ писать
+# 167. What NOT to write
 
-Особенно избегать:
+In particular, avoid:
 
 ```go
 type Agent interface {
@@ -5929,26 +5929,26 @@ type Agent interface {
 }
 ```
 
-Потому что это заранее вводит:
+Because this introduces the following in advance:
 
 ```text
-агентность
-мышление
-действие
-размножение
+agency
+thinking
+action
+reproduction
 ```
 
-Вместо этого:
+Instead:
 
 ```text
 matter executes local transformations
 ```
 
-Агентность должна быть интерпретацией устойчивого паттерна.
+Agency should be an interpretation of a persistent pattern.
 
 ---
 
-# 168. Минимальная структура Go-проекта
+# 168. Minimal Go project layout
 
 ```text
 /internal/kernel
@@ -5997,9 +5997,9 @@ matter executes local transformations
 
 ---
 
-# 169. Следующий этап после базового kernel
+# 169. The next stage after the basic kernel
 
-После того как:
+Once:
 
 ```text
 World
@@ -6013,23 +6013,23 @@ Energy
 Snapshot/Replay
 ```
 
-работают, следующий этап — НЕ подключать AI.
+are working, the next step is NOT to connect AI.
 
-Следующий этап:
+The next step is:
 
-# получить автономную внутреннюю эволюцию без внешней помощи.
+# Establish autonomous internal evolution without external help.
 
-Главный вопрос:
+The main question:
 
-> сможет ли минимальная цифровая физика поддерживать репликацию, мутации, конкуренцию и появление устойчивых линий без понятия Organism?
+> Can minimal digital physics support replication, mutation, competition, and persistent lineages without an Organism concept?
 
 ---
 
-# 170. Этап A — Baseline Digital Evolution
+# 170. Stage A — Baseline Digital Evolution
 
-## Цель
+## Goal
 
-Получить замкнутый эксперимент:
+Build a complete experimental loop:
 
 ```text
 energy gradient
@@ -6047,17 +6047,17 @@ evolution
 
 ---
 
-# 171. Что реализовать на этапе A
+# 171. What to implement in Stage A
 
-## Мир
+## World
 
 ```text
 256 × 256 grid
 ```
 
-## Ресурсы
+## Resources
 
-Минимум:
+At minimum:
 
 ```text
 EnergyField
@@ -6066,7 +6066,7 @@ Matter
 
 ## VM
 
-Инструкции:
+Instructions:
 
 ```text
 NOP
@@ -6083,9 +6083,9 @@ BIND
 UNBIND
 ```
 
-## Ограничения
+## Constraints
 
-Каждая операция имеет:
+Each operation has:
 
 ```text
 energy cost
@@ -6095,15 +6095,15 @@ memory cost
 
 ---
 
-# 172. Репликация на этапе A
+# 172. Replication in Stage A
 
-Не использовать:
+Do not use:
 
 ```text
 Reproduce()
 ```
 
-Нужно, чтобы программа сама выполнила:
+The program itself must execute:
 
 ```text
 allocate / spawn
@@ -6117,13 +6117,13 @@ transfer initial energy
 detach
 ```
 
-Для первой версии допустимо иметь низкоуровневую:
+For the first version, a low-level operation is acceptable:
 
 ```text
 ALLOCATE
 ```
 
-но не высокоуровневую:
+but not a high-level one:
 
 ```text
 REPRODUCE
@@ -6131,9 +6131,9 @@ REPRODUCE
 
 ---
 
-# 173. Мутации
+# 173. Mutations
 
-Минимальный набор:
+The minimal set:
 
 ```text
 instruction replacement
@@ -6144,7 +6144,7 @@ block deletion
 memory initialization mutation
 ```
 
-Позже:
+Later:
 
 ```text
 recombination
@@ -6153,87 +6153,87 @@ horizontal transfer
 
 ---
 
-# 174. Начальный эксперимент
+# 174. Initial experiment
 
-Есть два варианта.
+There are two options.
 
-## Вариант 1 — Seed Replicator
+## Option 1 — Seed Replicator
 
-В мир помещается один очень простой рабочий репликатор.
+Place one very simple working replicator in the world.
 
-Цель:
+Goal:
 
 ```text
-не проверять происхождение жизни,
-а проверить эволюционную динамику.
+test evolutionary dynamics,
+rather than the origin of life.
 ```
 
-Это лучший MVP.
+This is the best MVP.
 
-## Вариант 2 — Abiogenesis Search
+## Option 2 — Abiogenesis Search
 
-Начать со случайного executable matter и ждать появления репликации.
+Start with random executable matter and wait for replication to emerge.
 
-Это намного сложнее.
+This is much harder.
 
-Для первой версии не рекомендуется.
+It is not recommended for the first version.
 
 ---
 
-# 175. Почему лучше начать с Seed Replicator
+# 175. Why start with a Seed Replicator?
 
-Если система не эволюционирует, нужно понимать:
+If the system does not evolve, one must distinguish:
 
 ```text
-проблема в происхождении репликатора?
-или
-проблема в самой эволюционной архитектуре?
+is the problem the origin of the replicator?
+or
+is the problem the evolutionary architecture itself?
 ```
 
-Seed Replicator разделяет эти две задачи.
+A Seed Replicator separates these two questions.
 
-Сначала проверить:
+First test:
 
 ```text
 replication → mutation → ecology
 ```
 
-А происхождение репликации исследовать отдельно позже.
+Investigate the origin of replication separately, later.
 
 ---
 
-# 176. Критерии успеха этапа A
+# 176. Stage A success criteria
 
-Нужно получить:
+Obtain:
 
-1. длительно существующую популяцию;
-2. несколько lineage;
-3. наследуемые различия;
-4. изменение частот lineage со временем;
-5. появление новых устойчивых программ;
-6. отсутствие необходимости вручную назначать fitness.
+1. a long-lived population;
+2. several lineages;
+3. heritable differences;
+4. changes in lineage frequencies over time;
+5. new persistent programs;
+6. no need to assign fitness manually.
 
 ---
 
-# 177. Первый очень интересный результат
+# 177. The first particularly interesting result
 
-Проверять:
+Test:
 
-> возникнет ли паразитизм?
+> Does parasitism emerge?
 
-Например мутант:
-
-```text
-не копирует весь replication machinery
-```
-
-а использует:
+For example, a mutant:
 
 ```text
-ресурсы / copy machinery соседей.
+does not copy the full replication machinery
 ```
 
-Если такая стратегия возникает сама:
+but uses:
+
+```text
+its neighbors' resources or copying machinery.
+```
+
+If this strategy emerges independently:
 
 ```text
 replicator
@@ -6245,39 +6245,39 @@ host defense
 parasite adaptation
 ```
 
-то это уже сильный сигнал, что базовая экология работает.
+that is already a strong sign that basic ecology is working.
 
 ---
 
-# 178. Второй интересный результат
+# 178. A second interesting result
 
-Проверять появление:
+Look for the emergence of:
 
 ```text
 cooperation
 ```
 
-Например одна линия:
+For example, one lineage:
 
 ```text
-собирает энергию
+collects energy
 ```
 
-а другая:
+while another:
 
 ```text
-эффективно реплицируется
+replicates efficiently
 ```
 
-и между ними возникает устойчивый обмен.
+and persistent exchange emerges between them.
 
-Важно:
+Important:
 
 ```text
-не писать CooperationRule
+do not write a CooperationRule
 ```
 
-Достаточно возможности:
+It is enough to enable:
 
 ```text
 transfer_energy
@@ -6285,9 +6285,9 @@ transfer_energy
 
 ---
 
-# 179. Что измерять на этапе A
+# 179. What to measure in Stage A
 
-Минимальная telemetry:
+Minimal telemetry:
 
 ```text
 entity count
@@ -6306,17 +6306,17 @@ interaction graph
 
 # 180. Behavior Hash
 
-Одного genome hash недостаточно.
+A genome hash alone is insufficient.
 
-Два разных генома могут делать одно и то же.
+Two different genomes can do the same thing.
 
-Для каждого lineage считать приблизительный:
+For each lineage, estimate a:
 
 ```text
 BehaviorSignature
 ```
 
-Например:
+For example:
 
 ```text
 energy absorbed
@@ -6327,38 +6327,38 @@ relations created
 signals emitted
 ```
 
-Это даст первую behavioral novelty.
+This provides an initial measure of behavioral novelty.
 
 ---
 
 # 181. Stage A Saturation
 
-Запустить много длинных прогонов и выяснить:
+Run many long experiments and determine:
 
 ```text
-через сколько времени novelty перестаёт расти?
+how long does novelty take to stop growing?
 ```
 
-Это создаёт baseline:
+This establishes a baseline:
 
 ```text
 T_saturation_control
 ```
 
-Позже именно с ним будет сравниваться AI-assisted OEE.
+AI-assisted OEE will later be compared against it.
 
 ---
 
-# 182. Следующий этап после A
+# 182. The next stage after A
 
-Только если baseline evolution действительно работает:
+Only if baseline evolution actually works:
 
-# Этап B — Emergent Ecology
+# Stage B — Emergent Ecology
 
-Добавить:
+Add:
 
 ```text
-несколько ресурсов
+multiple resources
 spatial heterogeneity
 relations
 resource transformation
@@ -6366,15 +6366,15 @@ waste products
 local fields
 ```
 
-Но всё ещё без внешнего AI.
+Still without external AI.
 
-Цель:
+Goal:
 
-> добиться того, чтобы организмы сами создавали друг другу новые affordances.
+> Get organisms to create new affordances for one another.
 
 ---
 
-# 183. Пример Emergent Ecology
+# 183. An Emergent Ecology example
 
 ```text
 Lineage A:
@@ -6384,42 +6384,42 @@ Lineage B:
 Waste Y → Energy
 
 ↓
-A создаёт нишу для B
+A creates a niche for B
 ```
 
-Дальше:
+Next:
 
 ```text
-B меняет концентрацию Y
+B changes the concentration of Y
 ↓
-это влияет на A
+this affects A
 ↓
-возникает коэволюция
+coevolution emerges
 ```
 
-Никакой "задачи" здесь нет.
+There is no "task" here.
 
 ---
 
-# 184. Критерий завершения этапа B
+# 184. Stage B completion criterion
 
-Хотя бы один устойчивый случай:
+At least one persistent case in which:
 
 ```text
-одна линия изменяет среду
+one lineage changes the environment
 ↓
-это создаёт новый affordance
+this creates a new affordance
 ↓
-другая линия его использует
+another lineage uses it
 ↓
-возникает длительная взаимозависимость
+long-term interdependence emerges
 ```
 
 ---
 
-# 185. Только затем — этап C: Observer
+# 185. Only then — Stage C: Observer
 
-После появления внутренней экологии подключить Observer:
+Once internal ecology has emerged, connect an Observer:
 
 ```text
 pattern detection
@@ -6430,19 +6430,19 @@ lineages
 candidate macro-entities
 ```
 
-Observer пока:
+For now, the Observer:
 
 ```text
 read-only
 ```
 
-Он ничего не меняет.
+does not change anything.
 
 ---
 
-# 186. Этап D — Branching Experiments
+# 186. Stage D — Branching Experiments
 
-После Observer добавить:
+After the Observer, add:
 
 ```text
 snapshot
@@ -6456,15 +6456,15 @@ run many seeds
 compare
 ```
 
-Это подготовка к внешнему AI.
+This prepares the system for external AI.
 
 ---
 
-# 187. Этап E — AI Possibility Expander
+# 187. Stage E — AI Possibility Expander
 
-Только здесь подключать внешний AI.
+Connect the external AI only at this point.
 
-Ему разрешено:
+It may:
 
 ```text
 propose new primitive
@@ -6473,7 +6473,7 @@ propose new resource transformation
 propose new local field
 ```
 
-Но не:
+But may not:
 
 ```text
 create species
@@ -6483,7 +6483,7 @@ create intelligence
 
 ---
 
-# 188. Первый AI experiment
+# 188. First AI experiment
 
 Control:
 
@@ -6503,49 +6503,49 @@ Branch:
 World B
 ```
 
-Важно:
+Important:
 
-AI не говорит:
+AI does not say:
 
 ```text
-"используйте сигнал для кооперации"
+"use the signal for cooperation"
 ```
 
-Он просто добавляет возможность.
+It simply adds a possibility.
 
-Дальше эволюция сама решает, что с ней делать.
+Evolution then determines what to do with it.
 
 ---
 
-# 189. Очень сильный первый результат
+# 189. A very strong first result
 
-Например AI добавил:
+For example, AI adds:
 
 ```text
 SEND_SIGNAL
 ```
 
-в расчёте на расширение коммуникации.
+with the intention of expanding communication.
 
-А эволюция использовала его как:
+But evolution uses it as:
 
 ```text
-ложный сигнал
+a false signal
 ↓
-приманку
+a lure
 ↓
-паразитическую стратегию
+a parasitic strategy
 ```
 
-Такой результат интереснее, чем ожидаемое использование.
+This result is more interesting than the expected use.
 
-Он показывает:
+It shows:
 
-> мир действительно исследует новое пространство сам.
+> The world is actually exploring the new space on its own.
 
 ---
 
-# 190. Рекомендуемый порядок следующих этапов
+# 190. Recommended order of subsequent stages
 
 ```text
 0. Kernel + deterministic replay
@@ -6587,13 +6587,13 @@ SEND_SIGNAL
 
 ---
 
-# 191. Ближайший практический milestone
+# 191. The next practical milestone
 
-Самая ближайшая цель после проектирования кода:
+The immediate goal after designing the code:
 
-> запустить мир, в котором один простой seed-replicator самостоятельно размножается, мутирует и образует несколько конкурирующих lineage.
+> Run a world in which one simple seed replicator reproduces, mutates, and forms several competing lineages on its own.
 
-Не нужно пока:
+There is no need yet for:
 
 ```text
 AI
@@ -6603,17 +6603,17 @@ symbols
 culture
 ```
 
-Нужно доказать базовую предпосылку:
+Establish the basic premise:
 
 ```text
-минимальная физика
+minimal physics
 +
-исполняемая материя
+executable matter
 +
-ограниченные ресурсы
+limited resources
 ```
 
-уже создают нормальный дарвиновский процесс.
+already produce a normal Darwinian process.
 
-Только после этого имеет смысл расширять систему к open-ended evolution.
+Only then does it make sense to extend the system toward open-ended evolution.
 

@@ -1,58 +1,58 @@
-# Warp против Go: решатель физики
+# Warp versus Go: physics solver
 
-2026-09-10. **При 256 одновременных мирах прогретый расчёт Warp быстрее Go на 16 потоках в 1,67 раза. При 1–96 мирах быстрее Go.** С подготовкой и выгрузкой данных GPU проигрывает во всех проверенных коротких запусках. Для текущих небольших серий Go остаётся основным решателем.
+2026-09-10. **With 256 simultaneous worlds, warm Warp compute is 1.67× faster than Go with 16 workers. Go is faster for 1–96 worlds.** Including preparation and extraction, GPU execution loses in every tested short run. Go remains the primary solver for current small batches.
 
-Оборудование: Ryzen 7 5700X (8 физических ядер / 16 логических потоков), RTX 5070 12 GiB, Windows, драйвер NVIDIA 616.64. Go 1.26.1, Python 3.13.14, Warp 1.15.0 из уже установленного `F:/src/game_arc/.venv-warp`.
+Hardware: Ryzen 7 5700X (8 physical cores / 16 logical threads), RTX 5070 12 GiB, Windows, NVIDIA driver 616.64. Go 1.26.1, Python 3.13.14, Warp 1.15.0 from the existing `F:/src/game_arc/.venv-warp` environment.
 
-## Время
+## Timing
 
-Каждый мир: 32×32, стандартная экология с мутациями 1%, перенос материи/химии раз в 4 тика. Общий прогрев физического состояния — 300 тиков на Go; затем **1000 измеряемых тиков на мир**, три повтора с одинаковым исходным состоянием. Ниже медианы, секунды на весь пакет.
+Each world: 32×32, standard ecology with 1% mutations, matter/chemical transport every 4 ticks. Shared physical-state warmup: 300 Go ticks, followed by **1000 measured ticks per world**, with three repetitions from identical initial state. Medians below are seconds for the entire batch.
 
-| Миров одновременно | Go, 1 поток | Go, 16 потоков | Warp: расчёт | Warp: подготовка + расчёт + выгрузка |
+| Simultaneous worlds | Go, 1 worker | Go, 16 workers | Warp: compute | Warp: preparation + compute + extraction |
 | ---: | ---: | ---: | ---: | ---: |
 | 1 | 0,161 | 0,169 | 1,663 | 1,714 |
 | 16 | 2,561 | 0,333 | 2,305 | 3,315 |
 | 96 | 15,006 | 1,836 | 2,286 | 8,727 |
 | 256 | 41,279 | 4,659 | 2,786 | 19,094 |
 
-При одном мире пул Go фактически выполняет одну задачу, независимо от лимита 16. В строке 256 миров GPU выдаёт около 91 885 миро-тиков/с, Go на 16 потоках — около 54 950. Это пропускная способность пакета, не ускорение одного мира.
+For one world, the Go pool executes one task regardless of the 16-worker limit. At 256 worlds, GPU throughput is about 91,885 world-ticks/s versus 54,950 for Go with 16 workers. This is batch throughput, not acceleration of an individual world.
 
-Холодная компиляция Warp в отдельном пилоте заняла около 55 секунд и исключена из прогретых времён. В основной серии использовался кеш компиляции. Время Warp включает явную синхронизацию устройства после каждой порции из 8 тиков; асинхронный запуск не принимается за завершённый расчёт.
+Cold Warp compilation took about 55 seconds in a separate pilot and is excluded from warm timings. The main series used the compilation cache. Warp time includes explicit device synchronization after every 8-tick chunk; asynchronous launch is not treated as completed computation.
 
-Последняя колонка дополнительно включает Python-подготовку массивов, передачу на GPU, выгрузку физического состояния и проверку ресурсных инвариантов; запись JSON на диск исключена. CPU-колонки измеряют только штатный `kernel.Step`, без подготовки/разбора снимков, конечной валидации и сериализации. **Полные затраты наблюдателя различаются:** Go ведёт исторические журналы геномов и происхождения, Warp их пока не строит. Поэтому выигрыш расчётного ядра нельзя объявлять ускорением всего приложения.
+The last column additionally includes Python array preparation, GPU transfers, physical-state extraction, and resource-invariant checks; disk JSON output is excluded. CPU columns measure ordinary `kernel.Step` only, excluding preparation/snapshot parsing, final validation, and serialization. **Total observer work differs:** Go maintains genome/origin histories; Warp does not yet build them. Compute-kernel gains therefore cannot be presented as whole-application acceleration.
 
-## Совпадение результатов
+## Result parity
 
-Во всех трёх повторах каждого размера пакета совпали точно:
+All three repetitions at every batch size matched exactly on:
 
-- все клетки и частицы: ресурсы, ID/родитель, код, рабочая и унаследованная память, IP, флаг, цель, тик создания, поколение;
-- связи, номер тика, следующий ID и оба состояния SplitMix64;
-- глобальные счётчики ресурсов, копирований, смертей, реакций и отказов;
-- состояние модулей DSL, расписание, журнал смен и счётчики их исполнения в отдельных проверках DSL.
+- every cell and particle: resources, ID/parent, code, working and inherited memory, IP, flag, target, creation tick, and generation;
+- bonds, tick number, next ID, and both SplitMix64 states;
+- global resource, copy, death, reaction, and failure counters;
+- DSL module state, schedule, transition log, and execution counters in separate DSL checks.
 
-В таблице проверено 1 107 000 GPU-миро-тиков против соответствующих Go-результатов. Хеши здесь относятся к канонической проекции физического состояния, а не к полному Go snapshot с историческими журналами.
+The table covers 1,107,000 GPU world-ticks compared against corresponding Go results. These hashes identify a canonical physical-state projection, not the complete Go snapshot with historical logs.
 
-Шесть дифференциальных тестов дополнительно проверяют все 17 опкодов, голодание по энергии, повышенную частоту мутаций, нечётную сетку с разными интервалами переноса, смесь со связями и повторным использованием слотов, загрузку/откат DSL на границах разных порций тиков и новый ID реакции с расходованием энергии частицы. `go test ./...`, `go vet ./...`, сборка и все Warp-тесты проходят.
+Six differential tests additionally cover all 17 opcodes, energy starvation, elevated mutation rates, odd grids and unequal transport intervals, mixtures with bonds and slot reuse, DSL load/rollback across chunk boundaries, and a new reaction ID consuming particle energy. `go test ./...`, `go vet ./...`, the build, and all Warp tests pass.
 
-CLI Warp также продолжил реальный DSL-снимок с тика 750 до 2000 через запланированный откат. Результат сверяется с физической проекцией полного Go-прогона; исторические журналы не синтезируются и результат не выдаётся за Go snapshot.
+The Warp CLI also continued a real DSL snapshot from tick 750 to 2000 through its scheduled rollback. The result is compared with the physical projection of a full Go run; histories are not synthesized and the result is not presented as a Go snapshot.
 
-## Реализация и практический вывод
+## Implementation and practical conclusion
 
-Порт сохраняет исходный последовательный порядок разрешения конфликтов и условных вызовов RNG внутри каждого мира. Миры выполняются независимо. Используются целочисленные массивы, повторное использование слотов и отдельный список частиц в порядке ID. Все действия VM и локальные DSL-превращения исполняются на GPU.
+The port preserves sequential conflict resolution and conditional RNG calls inside each world. Worlds execute independently. It uses integer arrays, reusable slots, and a separate ID-ordered particle list. All VM actions and local DSL conversions execute on GPU.
 
-В первом варианте соседние миры занимали соседние lane одного CUDA warp. В пилоте 16 миров с мутациями 10% это заняло 16,35 с. Размещение каждого мира в отдельном warp, с одной активной lane, сократило время до 2,03 с при одинаковом конечном физическом хеше. Это два одиночных пилотных измерения, а не медианы основной таблицы: [первый вариант](packed-pilot.json), [изоляция миров](isolated-pilot.json).
+The first version assigned neighboring worlds to neighboring lanes of one CUDA warp. A pilot with 16 worlds and 10% mutations took 16.35 s. Giving each world a separate warp with one active lane reduced this to 2.03 s with the same final physical hash. These are individual pilot measurements, not the main table's medians: [packed version](packed-pilot.json), [isolated worlds](isolated-pilot.json).
 
-Для одного мира последовательные зависимости и обращения к памяти не дают GPU преимущества. Большой пакет скрывает часть этих задержек. Для длинных серий с сотнями миров имеет смысл продолжать измерения Warp, удерживая массивы на GPU между порциями тиков. Длинные серии в 100 000 тиков этим бенчмарком не проверены; линейное ускорение на таком горизонте не утверждается.
+Sequential dependencies and memory accesses prevent a GPU advantage for a single world. Large batches hide some latency. Further Warp measurements make sense for long runs with hundreds of worlds while retaining device arrays between chunks. This benchmark did not test 100,000-tick runs and does not claim linear speedup over that horizon.
 
-Следующие практические оптимизации — убрать лишнее копирование исторических данных при подготовке массива, уменьшить Python-затраты конвертации состояния и определить способ ведения наблюдений без восстановления всех частиц на CPU каждый отчётный тик. Порядок взаимодействий внутри мира при этом требует отдельной проверки воспроизводимости.
+Next practical optimizations include avoiding unnecessary historical-data copying during array preparation, reducing Python state-conversion costs, and collecting observations without reconstructing every particle on CPU each reporting tick. Any change to within-world interaction order requires separate reproducibility checks.
 
-## Воспроизведение и исходные данные
+## Reproduction and source data
 
 ```powershell
 & F:/src/game_arc/.venv-warp/Scripts/python.exe warp-sim/benchmark.py --worlds 1,16,96,256 --size 32 --ticks 1000 --warmup 300 --repeats 3 --workers 16 --scenario ecology --output data/warp-repeat
 & F:/src/game_arc/.venv-warp/Scripts/python.exe -m unittest discover -s warp-sim -p test_solver.py -v
 ```
 
-[summary.json](summary.json) содержит все повторы, параметры, версии, хеши исходников/бинарника и начальных/конечных состояний. Полные исходные и эталонные состояния — в `data/warp-benchmark-32`, вне Git. Пакет 256 миров был прерван и продолжен: два полных CPU-результата использованы после сверки хешей, недостающие CPU-повторы и все GPU-повторы выполнены заново; это отмечено в summary.
+[summary.json](summary.json) contains all repetitions, parameters, versions, source/binary hashes, and initial/final-state hashes. Full initial and reference states are under `data/warp-benchmark-32`, outside Git. The 256-world batch was interrupted and resumed: two complete CPU results were reused after hash verification; missing CPU repetitions and all GPU repetitions were rerun. This is recorded in the summary.
 
-Описание API, отдельного запуска из Go-снимков и ограничений: [warp-sim/README.md](../../warp-sim/README.md).
+API details, independent execution from Go snapshots, and limitations: [warp-sim/README.md](../../warp-sim/README.md).

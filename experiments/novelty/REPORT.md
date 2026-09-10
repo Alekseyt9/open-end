@@ -1,35 +1,35 @@
-# Этап 5: детектор новизны и стагнации
+# Stage 5: novelty and stagnation detector
 
-Дата: 2026-09-10. Проверка эвристик на 16 независимых мирах: 8 seed × 2 режима, по 100 000 тиков, запись телеметрии каждые 1000 тиков. Размер мира 32×32, перенос вещества и химии 4. `ecology` использует стандартные мутации, `ecology-no-mutation` — те же настройки с отключёнными мутациями.
+Date: 2026-09-10. Heuristics tested on 16 independent worlds: 8 seeds × 2 modes, 100,000 ticks each, telemetry every 1000 ticks. World size 32×32; matter and chemical transport intervals 4. `ecology` uses standard mutations; `ecology-no-mutation` uses the same configuration with mutations disabled.
 
-16 процессов, `GOMAXPROCS=1` для каждого. Пакет завершился за **51,96 с** с учётом runner и записи результатов. Это время данного пакета, не отдельный сравнительный benchmark CPU/GPU. Для анализа использован Go; физика и Warp-backend в этапе 5 не менялись.
+Sixteen processes, each with `GOMAXPROCS=1`. The batch completed in **51.96 s**, including the runner and result output. This is the duration of this batch, not a separate CPU/GPU benchmark. Analysis used Go; physics and the Warp backend were unchanged in Stage 5.
 
-## Результаты
+## Results
 
-Детектор анализирует четыре последовательных блока внутри окна. Все параметры сохранены в каждом результате: минимум 10 000 тиков, допуск плато 10%, монокультура 90%, порог повторения 75%, четыре шага квантования на октаву `log2(1+rate)`.
+The detector analyzes four consecutive blocks within the window. Every result records all parameters: at least 10,000 ticks, 10% plateau tolerance, 90% monoculture threshold, 75% repetition threshold, and four quantization bins per octave of `log2(1+rate)`.
 
-| Режим | Окно | Стагнация | Устойчивое развитие | Неоднозначно |
+| Mode | Window | Stagnating | Persistent development | Ambiguous |
 |---|---|---:|---:|---:|
-| С мутациями, seed 1–8 | 80 000–100 000 | 0 | 0 | 8 |
-| Без мутаций, seed 1–8 | 80 000–100 000 | 5 | 0 | 3 |
-| С мутациями, seed 1–8 | 50 000–100 000 | 0 | 0 | 8 |
-| Без мутаций, seed 1–8 | 50 000–100 000 | 7 | 0 | 1 |
+| With mutations, seeds 1–8 | 80,000–100,000 | 0 | 0 | 8 |
+| Without mutations, seeds 1–8 | 80,000–100,000 | 5 | 0 | 3 |
+| With mutations, seeds 1–8 | 50,000–100,000 | 0 | 0 | 8 |
+| Without mutations, seeds 1–8 | 50,000–100,000 | 7 | 0 | 1 |
 
-На коротком окне стагнация отмечена у контроля seed 3–7; на длинном — у всех контрольных seed, кроме 7. В контрольных мирах нет новых геномов, сохраняются монокультура и структурное плато. Неоднозначные контрольные случаи возникают из-за переходов частот действий через границы поведенческого квантования. Расширение окна сглаживает часть этих колебаний, но вывод зависит от масштаба наблюдения.
+The short window detects stagnation in control seeds 3–7; the long window detects it in all control seeds except 7. Controls have no new genomes and retain monoculture and structural plateaus. Ambiguous control cases arise when action rates cross behavioral quantization boundaries. A longer window smooths some fluctuations, but the conclusion depends on observation scale.
 
-В мирах с мутациями продолжают появляться новые геномы, однако само это не доказывает поведенческую или адаптивную новизну. На исследованных окнах недостаточно подтверждений устойчивого развития по выбранной строгой эвристике. `mixed` не означает ни доказанную стагнацию, ни доказанную новизну.
+Mutation worlds keep producing new genomes, but that alone does not prove behavioral or adaptive novelty. The examined windows provide insufficient confirmation of persistent development under the chosen strict heuristic. `mixed` means neither proven stagnation nor proven novelty.
 
-## Проверка ложного сигнала
+## False-signal check
 
-Первый вариант проверки устойчивости требовал только нового одинакового хеша в двух последних блоках. Он отметил ecology seed 4 как развивающийся на окне 20 000 тиков и seed 6 на окне 50 000. При проверке исходных частот выяснилось, что переход через границу округления может создавать такой сигнал без достаточного изменения поведения.
+The initial persistence check required only a new matching hash in the final two blocks. It labeled ecology seed 4 as developing over 20,000 ticks and seed 6 over 50,000. Inspecting raw rates showed that crossing a rounding boundary could create this signal without a sufficient behavioral change.
 
-В итоговом детекторе каждый из двух последних блоков должен отличаться от каждого из двух исходных минимум на полный шаг логарифмической шкалы хотя бы по одному признаку. Добавлен регрессионный тест для почти одинаковых частот, попавших в соседние интервалы квантования. После пересчёта прежние кандидаты имеют статус `mixed`. Параметры плато и квантования не подгонялись под контрольные seed.
+The final detector requires each of the last two blocks to differ from each of the first two by at least one full logarithmic bin on at least one feature. A regression test covers nearly identical rates in adjacent bins. Reanalysis gives the former candidates `mixed` status. Plateau and quantization parameters were not tuned to the control seeds.
 
-Синтетические записи проверяют совместное плато, устойчивый сдвиг поведения, временный всплеск, рост структур, изменение распределения при постоянном максимальном размере, нейтральные геномы, появившиеся и умершие между кадрами, вымирание, краткую и редкую историю, смену/откат правил, разрыв и смешение сессий. Проверены детерминизм, отсутствие изменений входных данных и нормировка на разные длительности интервалов. CLI проверен в JSON и текстовом режимах, включая ошибочную конфигурацию.
+Synthetic recordings test joint plateaus, persistent behavioral shifts, transient spikes, structural growth, distribution changes at constant maximum size, neutral genomes born and lost between frames, extinction, short and sparse history, rule change/rollback, gaps, and mixed sessions. Determinism, input immutability, and normalization across interval lengths were verified. CLI JSON/text output and invalid configurations were checked.
 
-## Воспроизведение
+## Reproduction
 
-Из корня проекта:
+From the repository root:
 
 ```powershell
 ./scripts/experiments.ps1 -Workers 16 -Seeds (1..8) -Cases ecology,ecology-no-mutation -Ticks 100000 -Every 1000 -OutputDirectory data/novelty-stage5-replay
@@ -40,13 +40,13 @@ go vet ./...
 go build ./...
 ```
 
-Файлы архива:
+Archive files:
 
-- `manifest.json` — параметры, время и SHA-256 физического executable;
-- `simulation-summary.json` — финальные физические хеши всех миров;
-- `detection-20k.json`, `detection-50k.json` — компактные результаты с причинами, порогами, исходными частотами и поведенческими хешами;
-- `source-hashes.json` — SHA-256 записей JSONL и исходников детектора.
+- `manifest.json` — parameters, duration, and physical executable SHA-256;
+- `simulation-summary.json` — final physical hashes of all worlds;
+- `detection-20k.json`, `detection-50k.json` — compact results with reasons, thresholds, raw rates, and behavioral hashes;
+- `source-hashes.json` — JSONL and detector-source SHA-256 values.
 
-Полные телеметрия, snapshots и сводки находятся локально в `data/novelty-stage5` и не включены в Git. Идентификатор сессии наблюдения в результатах отличается от физического хеша snapshot, как и на этапе 4.
+Full telemetry, snapshots, and summaries are stored locally under `data/novelty-stage5` and excluded from Git. As in Stage 4, the observation-session identity differs from the physical snapshot hash.
 
-Данный эксперимент проверяет работоспособность эвристики и показывает её чувствительность к окну; это не оценка точности по размеченным примерам адаптивной новизны. Поведенческие признаки агрегированы по миру, структурные — по размерам компонент. Проверка полезности, профили отдельных линий и долгосрочный архив остаются дальнейшей работой.
+This experiment checks the heuristic's operation and window sensitivity; it does not estimate accuracy against labeled examples of adaptive novelty. Behavioral features are world-aggregated, and structural features describe component sizes. Usefulness tests, per-lineage profiles, and a long-term archive remain future work.

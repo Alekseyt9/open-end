@@ -1,271 +1,274 @@
 # Open-End
 
-Работающая реализация по [ТЗ](open_ended_evolution_ai_world_plan.md): **исполняемые репликаторы и мини-экология** (§34, этапы 1–2), включая основу этапа 0. Начат этап 3: DSL локальных реакций, смена версий правил и откат между тиками. Go 1.26+, только стандартная библиотека.
+**A reproducible digital evolution laboratory where programs compete for physical resources and an external AI can propose new mechanisms for the world.**
 
-Реализован этап 4: событийная телеметрия и автоматическое описание выбранного окна тиков. Новые метрики собираются в Go при записи `-metrics`; Warp остаётся экспериментальным решателем физики.
+Open-End explores a research question: can local Darwinian evolution, a changing environment, and occasional AI-proposed rule changes sustain adaptive novelty over long periods?
 
-Один seed-репликатор исполняется в двумерном мире, выделяет материю, копирует память и код, передаёт энергию. Ошибки копирования создают наследуемые варианты. Конкуренция определяется доступным пространством, материей и энергией; fitness-функции нет.
+The current implementation combines a deterministic Go simulator, executable replicators, chemical ecology, event telemetry, stagnation heuristics, and a file-based AI experiment harness. Codex can act as the observer and proposal author directly in chat. An experimental NVIDIA Warp backend provides GPU physics execution.
 
-## Запуск
+[Quick start](#quick-start) · [Concept](#concept) · [Architecture](#architecture) · [AI workflow](#ai-observation-and-rule-proposals) · [Results](#what-the-experiments-show) · [Documentation](#documentation)
 
-Из корня проекта:
+## Concept
 
-```powershell
-go run ./cmd/sim -width 32 -height 32 -seed 1 -ecology -matter-diffusion 4 -chemical-diffusion 4 -ticks 10000 -every 1000
+A world begins with one working seed program on a two-dimensional grid. The program must spend energy, allocate matter, copy its memory and code, and supply energy to its offspring. Copying errors create heritable variants. Space, resources, operation costs, and interactions determine which variants persist and reproduce.
+
+There is no explicit fitness function inside the world. Organisms are not assigned species, ecological roles, or objectives. The initial replicator does contain a working metabolism and copying routine: this project currently studies evolution after replication exists, rather than the origin of life from random matter.
+
+```mermaid
+flowchart LR
+    A[One executable seed] --> B[Resource acquisition]
+    B --> C[Allocate matter and copy]
+    C --> D[Heritable variation]
+    D --> E[Competition and interactions]
+    E --> F[Different persistence and reproduction]
+    F --> B
+    E --> G[Changed local resource availability]
+    G --> B
 ```
 
-Команда включает химические ресурсы и их перенос. Без флагов используется исходный контрольный мир **256×256**, один seed и вероятность мутации 1% отдельно на каждую операцию `COPY` и `COPYMEM`. Для базового мира с устойчивым оборотом материи достаточно `-matter-diffusion 4`. Интервалы переноса задаются в тиках; `0` отключает перенос.
+The longer-term idea is to expand the set of mechanisms evolution can use. An external AI reads evidence, formulates hypotheses, and proposes a bounded change to local physics. The simulator tests that proposal in independent continuations of the same source world. New mechanisms may be adopted, ignored, or harmful.
 
-Сохранение состояния и метрик:
+**Open-ended evolution is the research goal, not an established result.** More genome hashes, larger structures, and higher population counts are not sufficient evidence. The important questions are whether new behaviors persist, have causal effects, create opportunities for further adaptations, and eventually support new levels of organization.
+
+## Current capabilities
+
+| Area | Implemented | Current boundary |
+|---|---|---|
+| Digital physics | Toroidal grid, finite matter, integer energy, local interactions | Fixed basic world representation |
+| Replicators | Executable code, memory, copying, mutation, death | A working seed is supplied |
+| Ecology | X/Y/Z chemistry, transport, energy taking, bonds | Obligatory metabolic interdependence is not established |
+| Rule DSL | Validated reactions, bytecode budgets, versions, scheduled changes, rollback | Local resource reactions only |
+| Observation | Event telemetry, window summaries, interaction graphs | Some structural measures are sampled |
+| Novelty detection | Diversity/structure plateaus and behavioral signatures | Local heuristics, not adaptive-value proof |
+| AI workflow | Evidence dossiers, referenced claims, rule proposals, paired trials | AI participates through chat/files |
+| GPU execution | Warp physics with exact differential checks | No full genome/origin history on GPU |
+
+Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Paired branch execution is available; long-term branching strategy and archive selection remain the next major development areas.
+
+## Quick start
+
+Requirements: **Go 1.26+**. The Go code uses only the standard library. Batch scripts require **PowerShell 7+**. Run all commands from the repository root.
+
+Run a small ecology world:
 
 ```powershell
-go run ./cmd/sim -width 32 -height 32 -seed 1 -ecology -matter-diffusion 4 -chemical-diffusion 4 -ticks 10000 -save data/world.json -metrics data/run.jsonl
-go run ./cmd/sim -load data/world.json -ticks 5000 -save data/continued.json
+go run ./cmd/sim -width 32 -height 32 -seed 1 -ecology -matter-diffusion 4 -chemical-diffusion 4 -ticks 20000 -every 1000 -metrics data/run.jsonl -save data/world.json
 ```
 
-`-ticks` всегда означает число **дополнительных** тиков. Snapshot содержит конфигурацию, оба RNG, химические поля, связи, программы, память, происхождение копий и счётчики ресурсов. При `-load` нельзя переопределять параметры мира: они берутся из snapshot. Последняя строка `state_sha256` позволяет сравнить полные состояния. Текущий формат snapshot — **2**, правила — **ecology-2**. Snapshot этапа 1 (формат 1) отвергаются как несовместимые; скрытой миграции нет.
-
-JSONL создаётся только в новом файле, чтобы случайно не стереть прошлый эксперимент. Snapshot записывается через временный файл с последующим переименованием; указанный существующий snapshot может быть заменён. Файлы прогонов в `data/` исключены из Git.
-
-Контроль без мутаций:
+Explain its recent history and detect possible stagnation:
 
 ```powershell
-go run ./cmd/sim -width 64 -height 64 -seed 1 -mutation-ppm 0 -matter-diffusion 4 -ticks 10000
+go run ./cmd/summarize -input data/run.jsonl -window 10000 -detect
+go run ./cmd/summarize -input data/run.jsonl -window 10000 -detect -format json
 ```
 
-Все параметры: `go run ./cmd/sim -h`.
+Continue from the saved state:
 
-## Что реализовано
+```powershell
+go run ./cmd/sim -load data/world.json -ticks 10000 -every 1000 -metrics data/continued.jsonl -save data/continued.json
+```
 
-- Мир с тороидальной границей, четырьмя соседями и одной частицей на клетку.
-- Целочисленная энергия, внешний пространственный градиент и конечная материя.
-- VM: одна инструкция на частицу за тик, восемь ячеек памяти, ограниченная длина кода.
-- Программа репликации `ALLOCATE → COPYMEM → COPY → TRANSFER`; движение разрывает локальный доступ. Специальной команды размножения нет.
-- Замена, вставка, удаление инструкции, дублирование и удаление блока; мутация начальной памяти.
-- Смерть при исчерпании энергии, возврат материи в клетку, стоимость выполнения и обслуживания.
-- Детерминированный RNG SplitMix64, snapshot/replay и версионирование формата/kernel/rules.
-- Метрики числа частиц, программ, наследуемых вариантов, копий, смертей, потока энергии и возраста; происхождение вариантов в snapshot.
-- Консервативный перенос материи; три химических состояния X/Y/Z и два локальных превращения.
-- Выбор соседней цели, отбор энергии, связи между частицами и разрыв связей.
-- Частоты геномов, поколения, собственное потомство и накопленные действия каждого генома; интервальные скорости копирования и смерти, причины неудачных операций.
-- Тесты воспроизводимости, ресурсных инвариантов, лимитов, мутаций и CLI; benchmark.
+`-ticks` means additional ticks. Loading restores configuration and both RNG states; world parameters cannot be overridden with `-load`. JSONL paths and experiment directories must be new. Snapshot destinations may be replaced by the simulator's temporary-file/rename write. Run output under `data/` is ignored by Git.
 
-## Архитектура
+Without flags, `cmd/sim` uses the original 256×256 control configuration. Use `go run ./cmd/sim -h` for all options.
 
-| Каталог | Ответственность |
-| --- | --- |
-| `internal/kernel` | Порядок тиков, сбор/разрешение событий, snapshot/replay |
-| `internal/world` | Физическое состояние, конфигурация, проверки инвариантов |
-| `internal/vm` | Формат инструкций, переходы, seed-программа |
-| `internal/rules` | Базовые физические эффекты, цены операций, поступление энергии, распад |
-| `internal/dsl` | Парсер реакций, проверка сохранения ресурсов, ограниченный байткод и история версий |
-| `internal/experiment`, `cmd/assay` | Изоляция выделенных геномов, смеси и параллельные контрольные серии |
-| `internal/evolution` | Ошибки копирования, RNG, хеширование наследуемого состояния |
-| `internal/observer` | Чтение метрик без воздействия на симуляцию |
-| `cmd/sim` | CLI и файлы эксперимента |
-| `cmd/analyze` | Анализ устойчивости геномов по завершённой серии JSONL |
-| `cmd/summarize` | Проверка и объяснение последних N тиков по событийной телеметрии |
+## How the world works
 
-В начале тика поступает энергия. Затем частицы упорядочиваются по ID с циклическим сдвигом на номер тика. VM читает состояние до применения событий; SENSE фиксирует значение в событии. Конфликты разрешаются в этом порядке с повторной проверкой доступных ресурсов. Новая частица впервые выполняется на следующем тике. В конце тика оплачивается обслуживание и распадаются частицы с нулевой энергией.
+Each grid cell has four neighbors and can hold one particle. A particle has energy, a bounded program, eight memory cells, and execution state. The VM issues one instruction per particle per tick. Instruction attempts and maintenance consume energy; particles without energy decay and return their matter to the cell.
 
-Базовые правила встроены в Go; DSL может заменить или добавить локальные реакции `CONVERT`. При изменении встроенной семантики следует повысить `rules.Version` или `kernel.Version`: несовместимые snapshot не загружаются. DSL имеет собственные версии и хеши. Перенос полей использует отдельный сериализованный RNG, не расходуя поток случайности мутаций.
-
-## Инструкции и стоимость
-
-Каждая попытка инструкции расходует энергию, включая заблокированное действие. Если энергии недостаточно, остаток рассеивается и инструкция не выполняется. Помимо цены инструкции, каждая частица платит 1 единицу обслуживания за тик.
-
-| Инструкция | Действие | Энергия |
-| --- | --- | ---: |
-| `NOP` | Нет физического эффекта | 1 |
-| `SENSE A B` | Собственная энергия (`A=0`), энергия клетки (`1`), материя клетки (`2`) в память `B` | 1 |
-| `MOVE A` | Движение N/E/S/W (`0..3`); `A<0` — поиск свободного соседа со случайного направления | 1 |
-| `ABSORB A` | Забрать до `A` единиц энергии из клетки | 1 |
-| `ALLOCATE A` | Потратить 1 материю соседней клетки, создать пустую частицу и запомнить её ID | 4 |
-| `COPYMEM` | Скопировать восемь ячеек памяти в пустую соседнюю цель с возможной мутацией | 8 |
-| `COPY` | Скопировать код в пустую соседнюю цель с возможной мутацией | Длина исходного кода |
-| `TRANSFER A` | Передать цели до `A` единиц энергии, оставив себе минимум 1 | 1 |
-| `WRITE A B` | Записать значение `B` в память `A` | 1 |
-| `READ A B` | Скопировать память `A` в память `B` | 1 |
-| `COMPARE A B` | Установить флаг `memory[A] >= B` | 1 |
-| `JUMP A B` | Перейти к `A`: всегда (`B=0`), при флаге (`1`), при отсутствии флага (`-1`) | 1 |
-| `CONVERT A B` | Реакция `A=0`: X→Y, `A=1`: Y→Z; до `B` единиц вещества | 1 |
-| `TARGET A` | Выбрать соседнюю частицу по направлению, при `A<0` искать со случайного направления | 1 |
-| `TAKE A` | Отобрать до `A` энергии у соседней цели | 1 |
-| `BIND` | Связать себя с выбранной соседней целью | 1 |
-| `UNBIND A` | Разорвать связь с целью, при `A<0` — все свои связи | 1 |
-
-`ALLOCATE` дополнительно **переносит**, а не создаёт, 12 единиц энергии от источника к пустой частице. Этот резерв даёт время скопировать память и код. `COPY` не выделяет материю и не передаёт стартовую энергию. Цель доступна только пока остаётся соседней; `COPYMEM` выполняется до заполнения цели кодом. Адреса кода и памяти нормализуются по модулю размера. В базовой конфигурации код ограничен 64 инструкциями, энергия частицы — 256 единицами, энергия клетки — 128.
-
-В режиме экологии `SENSE A B` также читает X/Y/Z при `A=3/4/5`. Связь удерживает обе частицы на месте: перед движением надо разорвать все свои связи. При смерти связи автоматически удаляются. Связи уникальны и возможны только между соседями, поэтому степень ограничена четырьмя. В контрольном режиме новые инструкции не входят в пул мутаций; химические реакции включаются только флагом `-ecology`.
-
-Для каждого завершённого тика проверяемые тождества:
+Replication is a sequence of physical operations:
 
 ```text
-энергия полей + энергия частиц + 8×X + 4×Y = начальная энергия + поступление − рассеяние
-материя полей + число частиц = начальная материя
-X + Y + Z = начальное количество химического вещества
+ALLOCATE → COPYMEM → COPY → TRANSFER
 ```
 
-`genomes` — число различных программ без учёта памяти. `lineages` — число активных вариантов **код + начальная унаследованная память**. Поэтому без мутаций `genomes=1`, но `lineages` может быть больше одного: программа передаёт память с результатами SENSE. Доказательством генетической вариативности служит именно `genomes`. История `origins` хранит первое происхождение каждого варианта и количество его копирований; это пока не полный журнал всех родственных связей.
+`ALLOCATE` consumes neighboring matter and transfers a 12-unit energy reserve. `COPYMEM` and `COPY` can mutate the inherited state. The target must remain adjacent. A newly created particle first executes on the next tick.
 
-`active_genomes` в JSONL содержит частоты и поведение геномов. `births` — число частиц, получивших этот код, `copies` — число копирований, выполненных этим геномом, в том числе с мутацией потомка. `last_copy_tick` помогает отличить воспроизводящуюся линию от долгоживущего остатка. Счётчики поведения накопительные, включая уже умершие частицы этого генома; для анализа окна надо брать разность двух кадров. `interval` содержит глобальные приращения за отчётное окно. Архив происхождения и геномов растёт с числом открытых вариантов и пока не компактизируется.
+Ecology adds three chemical states with energy potentials X=8, Y=4, and Z=0. The baseline energy cycle is:
 
-## Мини-экология
+```mermaid
+flowchart LR
+    F[Field energy] -->|8 units charge Z| X[Chemical X]
+    Z[Chemical Z] -->|Environmental charging| X
+    X -->|CONVERT 0| Y[Chemical Y]
+    Y -->|CONVERT 1| Z
+    X -->|4 units released| P[Particle energy]
+    Y -->|4 units released| P
+    F -->|ABSORB| P
+    P -->|Instructions and maintenance| D[Dissipation]
+```
 
-X/Y/Z обозначают состояния химического вещества с запасом энергии 8/4/0. Энергия поля заряжает Z→X с затратой 8 единиц; программы выполняют X→Y или Y→Z и получают по 4 единицы. Никакой химический переход не создаёт энергию из ничего. Y появляется только после исполнения первой реакции. Перенос между клетками позволяет соседям использовать оставленные продукты.
+The arrows describe resource accounting; they do not assign ecological roles. Chemical transport makes products available to neighboring cells. Programs may also move, choose targets, transfer or take energy, form bonds, and unbind.
 
-В мир помещается **одна** программа, умеющая выполнять обе реакции и копировать себя. Специализированные виды, роли и правила сотрудничества не задаются. В прогоне seed 1 самостоятельно возникли и сосуществовали связанная малоподвижная линия и короткая подвижная программа репликации; их частоты и потомство приведены в [отчёте этапа 2](experiments/ecology/RESULTS.md).
+The implementation checks these resource identities:
 
-Начальный вариант только с X→Y исчерпывал цикл до появления другой реакции. Это был неуспешный пилот, а не доказательство экологии. В текущем seed обе реакции заданы явно; эксперимент исследует дальнейшую эволюцию, а не возникновение метаболизма с нуля.
+```text
+field energy + particle energy + 8×X + 4×Y
+    = initial energy + inflow − dissipation
 
-## Проверка
+field matter + particle count = initial matter
+X + Y + Z = initial chemical amount
+```
+
+See the [simulator reference](docs/reference.md) for all 17 instructions, costs, defaults, inheritance semantics, and resource constraints.
+
+## Architecture
+
+The execution kernel owns deterministic scheduling and state transitions. The current mutable DSL controls local resource reactions. Observation and AI interpretation sit outside the simulated world.
+
+```mermaid
+flowchart TB
+    subgraph Runtime[Deterministic simulation]
+        W[World state and two RNGs] --> K[Kernel tick scheduler]
+        K --> V[Particle VM]
+        V --> E[Events]
+        R[Built-in rules and validated DSL] --> E
+        E --> C[Ordered conflict resolution]
+        C --> W
+    end
+    W --> S[Versioned snapshots and replay]
+    E --> T[Event telemetry]
+    W --> T
+    T --> O[Window summaries and novelty heuristics]
+    S --> H[Council experiment harness]
+    O --> H
+    H --> A[AI observation and proposals in chat]
+    A --> Q[Strict JSON and DSL validation]
+    Q --> B[Control and proposal continuations]
+    B --> O
+```
+
+A tick introduces energy, orders particles by ID with a cyclic tick-dependent offset, gathers VM events, resolves conflicts while rechecking resources, and charges maintenance/decay. SENSE captures the value observed before event application. Field transport has its own serialized random stream, separate from mutations.
+
+| Component | Responsibility |
+|---|---|
+| `internal/world` | State, configuration, and invariants |
+| `internal/kernel` | Tick order, snapshots, replay, and rule installation |
+| `internal/vm`, `internal/evolution` | Instructions, copying errors, and inheritance |
+| `internal/rules`, `internal/dsl` | Physical effects and bounded reaction programs |
+| `internal/observer` | Telemetry, summaries, and stagnation detection |
+| `internal/experiment`, `cmd/assay` | Genome isolation and controlled mixtures |
+| `internal/council`, `cmd/council` | Evidence exchange, proposal validation, and trials |
+| `cmd/sim`, `cmd/analyze`, `cmd/summarize` | Run, analyze persistence, and explain history |
+| `warp-sim`, `cmd/warp-reference` | Experimental GPU backend and Go parity reference |
+
+Physical snapshots include the kernel and rule versions. Format 2 represents worlds without DSL state; format 3 includes DSL modules, history, queued changes, and usage counters. Incompatible snapshots are rejected. A rule rollback changes the rules; a snapshot restore returns the entire physical state.
+
+## AI observation and rule proposals
+
+The current AI interface is a file protocol. Codex reads a prepared dossier, writes observations and hypotheses with evidence references, and proposes complete DSL modules with a mechanism, prediction, and risk. No API key is needed.
+
+```mermaid
+sequenceDiagram
+    participant U as Researcher
+    participant H as Council CLI
+    participant A as Codex in chat
+    participant V as JSON and DSL validator
+    participant S as Simulator workers
+    U->>H: prepare completed experiment
+    H-->>A: brief, facts, evidence, frozen snapshots
+    A-->>H: response.json with claims and proposals
+    U->>H: check response
+    H->>V: Verify references, hashes, and rules
+    V-->>H: Validated response or errors
+    U->>H: trial on copied snapshots
+    H->>S: Paired control and proposal branches
+    S-->>H: Telemetry, snapshots, and comparison
+    H-->>U: Review results
+    U->>H: prepare selected variant for next round
+```
+
+Create a 16-world experiment and prepare its dossier:
+
+```powershell
+./scripts/experiments.ps1 -Workers 16 -Seeds (1..8) -Cases ecology,ecology-no-mutation -Ticks 100000 -Every 1000 -OutputDirectory data/batch
+go run ./cmd/council prepare -input data/batch -out data/round -window 50000
+```
+
+Ask Codex to read `data/round/brief.md` and complete `data/round/response.json`. Then validate and test:
+
+```powershell
+go run ./cmd/council check -round data/round
+go run ./cmd/council trial -round data/round -out data/trial -ticks 20000 -every 1000 -window 10000 -workers 16
+```
+
+Results include `comparison.md`, `results.json`, per-branch JSONL, and final snapshots. Prepare another discussion round from a selected variant:
+
+```powershell
+go run ./cmd/council prepare -input data/trial -variant control -out data/next-round -window 10000
+```
+
+A valid reference confirms where evidence came from; it does not prove the meaning of an AI claim. A valid DSL module satisfies execution and resource constraints; it does not establish that the change benefits evolution. Both questions remain part of experimental review.
+
+The current mutation generator emits reaction IDs 0 and 1. The proposal harness rejects a structural extension that is reachable only through new IDs. Other operations, arbitrary new fields, and ontology changes are future work. See the [complete council protocol](docs/council.md).
+
+## Observation and experiment discipline
+
+- **Measure events and state separately.** Copying, deaths, transfers, and reaction usage are recorded across every tick; population and structural extrema describe sampled frames.
+- **Distinguish genomes from inherited state.** `genomes` counts code variants. `lineages` includes initial inherited memory, so multiple lineages can exist without code mutation.
+- **Treat novelty conservatively.** New genome hashes do not establish new behavior. The detector checks plateaus, repeated behavioral signatures, and persistent changes across four blocks.
+- **Keep comparable starts.** A trial's control and proposal begin from the same frozen state and initial RNGs. Subsequent events diverge with the states.
+- **Retain provenance.** Request/response hashes, snapshots, module versions, and telemetry identities make experiments inspectable and reproducible.
+
+Detector statuses are `stagnating`, `developing`, `mixed`, `insufficient_history`, `extinct`, and `rule_change`. They describe local evidence within one world window. They are not an automatic ranking of different rule sets.
+
+Batch simulation uses up to 16 independent processes with `GOMAXPROCS=1` each. Council trials use 16 worker goroutines with `GOMAXPROCS=16`. Parallelism is across worlds; event ordering within each world remains deterministic.
+
+## What the experiments show
+
+| Experiment | Recorded finding | Interpretation |
+|---|---|---|
+| [Baseline replicators](experiments/baseline/RESULTS.md) | Heritable code variants and exact replay | A working foundation for evolutionary experiments |
+| [Extended ecology](experiments/ecology/parallel-300k/REPORT.md) | 48 runs × 300,000 ticks; distinct behavior groups in 15/16 ordinary ecology worlds | Persistent diversity, without proof of obligatory exchange |
+| [Isolated lineages](experiments/ecology/isolation/REPORT.md) | Both selected lineages reproduce alone | Obligatory interdependence was not detected for that pair |
+| [Stagnation detector](experiments/novelty/REPORT.md) | 7/8 no-mutation controls stagnate over the final 50,000-tick window | Useful heuristics with window sensitivity |
+| [First AI proposal](experiments/council/REPORT.md) | 32 continuations × 20,000 ticks in 17.05 s; mean mutation-world diversity 7.849 → 6.644 | Keep the patch as an experiment, not an accepted improvement |
+
+These are recorded results for specific configurations and horizons, not general performance or OEE guarantees.
+
+## Experimental GPU backend
+
+Warp implements all 17 VM opcodes, mutations, transport, bonds, both RNGs, and scheduled DSL changes. Differential tests compare physical state exactly with Go. Genome/origin histories and complete observer work remain outside the GPU implementation; its output is a physical report, not a resumable Go snapshot.
+
+In the [recorded RTX 5070 / Ryzen 7 5700X benchmark](experiments/warp/REPORT.md), 32×32 worlds ran for 1000 measured ticks each:
+
+| Simultaneous worlds | Go, 16 workers | Warm Warp compute | Interpretation |
+|---:|---:|---:|---|
+| 16 | 0.33 s | 2.31 s | Go is faster |
+| 256 | 4.66 s | 2.79 s | Warp compute is 1.67× faster |
+
+Preparation and state extraction brought the 256-world GPU run to about 19 seconds. Go remains the default for current small batches. See [Warp setup, commands, and limitations](warp-sim/README.md).
+
+## Roadmap
+
+| Stages | Direction |
+|---|---|
+| 0–5 | Deterministic world, replication, ecology, reaction DSL, telemetry, novelty heuristics |
+| 6–7 | AI observation and rule proposals; currently implemented through chat and files |
+| 8–9 | Long-term branching experiments, novelty archives, and Pareto selection |
+| 10–14 | Evolving mutation mechanisms, environmental coevolution, collective entities, causal analysis |
+| 15–18 | Symbols, cultural inheritance, persistent artifacts, and technology-like construction |
+| 19–21 | Internal VMs, recursive evolution, and long-horizon OEE experiments |
+
+Later stages are research directions with acceptance criteria, not promises that these phenomena will emerge. The [full research plan](open_ended_evolution_ai_world_plan.md) preserves both the numbered roadmap and the later refinements to the research philosophy.
+
+## Verification
 
 ```powershell
 go test ./...
 go vet ./...
+go build ./...
 go test ./internal/kernel -run '^$' -bench BenchmarkStep -benchmem
 ```
 
-[Исторические результаты этапа 1](experiments/baseline/RESULTS.md) относятся к правилам `baseline-1`. [Длинные прогоны и этап 2](experiments/ecology/RESULTS.md) фиксируют диагностику, контроль без мутаций и три seed экологии.
+The test suite covers deterministic replay, resource conservation, mutation and VM behavior, DSL validation, telemetry integrity, detector edge cases, evidence provenance, and paired-trial reproducibility. Warp has a separate differential suite documented in its README.
 
-[Расширенная проверка на 16 потоках](experiments/ecology/parallel-300k/REPORT.md): 48 прогонов по 300 000 тиков, 16 seed на конфигурацию. В обычной экологии остаются 3–10 устойчиво воспроизводящихся геномов; разные поведенческие группы сохраняются в 15 из 16 миров. Контроли показывают, что это ещё не доказательство необходимого обмена метаболитами.
+## Documentation
 
-Воспроизвести серии и получить JSONL, snapshot и сводку (PowerShell 7+, несколько минут):
+- [Simulator and experiment reference](docs/reference.md): instructions, costs, snapshots, DSL, telemetry, detector thresholds, and batch commands.
+- [Council interface](docs/council.md): prepare, check, trial, and next-round workflows.
+- [Research plan](open_ended_evolution_ai_world_plan.md): full concept and staged research program.
+- [Warp backend](warp-sim/README.md): setup, execution, benchmarks, and parity checks.
+- [Ecology results](experiments/ecology/RESULTS.md), [DSL validation](experiments/dsl/SMOKE.md), and [telemetry validation](experiments/telemetry/REPORT.md).
 
-```powershell
-./scripts/experiments.ps1 -Workers 16
-```
-
-По умолчанию скрипт запускает четыре конфигурации для seed 1/7/42: исходный контроль, перенос материи, перенос без мутаций и мини-экологию. Пул допускает до 16 независимых процессов, каждый с `GOMAXPROCS=1`. Число процессов задаёт `-Workers`; оно не меняет порядок событий внутри мира. На Ryzen 7 5700X используются 16 логических потоков восьми физических ядер.
-
-Результаты идут в новый каталог `data/experiments-...`: отдельные JSONL, snapshot и stdout каждого мира, упорядоченный `summary.json`, а также `manifest.json` с параметрами, статусом, ревизией исходников, хешем бинарника и временем серии. При ошибке/прерывании запущенные этим скриптом процессы завершаются, частичные данные сохраняются и не помечаются как законченная серия. Повторные seed, одинаковые конфигурации и существующий каталог вывода отвергаются.
-
-Текущий этап, 16 seed и три контрольные конфигурации:
-
-```powershell
-./scripts/experiments.ps1 -Workers 16 -Seeds (1..16) -Cases ecology,ecology-no-mutation,ecology-no-chemical-diffusion -Ticks 300000 -Every 10000 -OutputDirectory data/stage2-run
-go run ./cmd/analyze -input data/stage2-run > data/stage2-run/analysis.json
-```
-
-`cmd/analyze` принимает только завершённую серию. По умолчанию геном считается устойчиво воспроизводящимся, если его численность не ниже 5 на всех границах трёх последних окон и в каждом окне он создал минимум 5 копий. Пропущенные наблюдения исключают кандидата: старые накопленные копии нельзя принять за новые. Порогами управляют `-windows`, `-min-count`, `-min-copies`. Это критерии наблюдателя, не правила отбора внутри мира.
-
-Поведенческие группы описывают только действия в выбранном окне: частые связывания — от 0,25 на копию; частые движения — от 0,01 на инструкцию. При минимум 100 химических превращениях доля реакции Y→Z до 10% означает преобладание X→Y, от 90% — преобладание Y→Z, иначе реакции смешанные. В отчёте остаются сырые счётчики. Одновременное присутствие двух преобладающих реакций даёт лишь кандидата на взаимодополнение, а не доказательство взаимозависимости.
-
-Короткая проверка runner: `./scripts/experiments.ps1 -Ticks 100 -Every 50 -Seeds 1`. Проверка равенства результатов с 1 и 16 процессами: `./scripts/test-experiments.ps1`.
-
-Перенос материи устранил наблюдавшееся угасание копирования на горизонте 100 000 тиков. Несколько воспроизводящихся стратегий наблюдаются; устойчивая взаимозависимость специализированных метаболических линий и рост адаптивной новизны ещё не доказаны.
-
-[Эксперимент с изоляцией двух линий](experiments/ecology/isolation/REPORT.md): 96 прогонов по 100 000 тиков, 16 процессов, 241,2 секунды. Обе линии размножаются по отдельности при двух начальных плотностях и сосуществуют в смеси без химического переноса. Обязательная взаимозависимость этой пары в стандартизированной среде не обнаружена.
-
-## Этап 3: первый срез DSL
-
-Реализованы строгий JSON-парсер, компиляция в байткод потребления/производства ресурсов, бюджет исполнения, версии по SHA-256, смена модуля между тиками и откат правил. Примеры: [базовые реакции](examples/rules/baseline.json) и [прямое X→Z с новой обратной реакцией](examples/rules/direct-x.json). [Контрольный прогон и хеши воспроизведения](experiments/dsl/SMOKE.md).
-
-```powershell
-go run ./cmd/sim -width 32 -height 32 -ecology -matter-diffusion 4 -chemical-diffusion 4 -rules examples/rules/baseline.json -rule-change 500=examples/rules/direct-x.json -rollback-at 1000 -ticks 2000 -every 250 -save data/dsl-world.json
-```
-
-В начале тика 500 `CONVERT 0` начинает превращать X→Z с выходом 8 энергии вместо X→Y с выходом 4. На тике 1000 возвращается исходный модуль. Частицы, память, RNG и ресурсы продолжают существовать. `-rule-change тик=путь` можно повторять; тики должны быть уникальными. Запланированное изменение на тике N выполняется при следующем `Step`, когда `World.Tick == N`: снимок после N шагов ещё содержит его в очереди.
-
-Исходники и байткод всех запланированных модулей замораживаются до запуска и сохраняются в snapshot. Продолжение через `-load` использует их без чтения исходных файлов; переопределить правила флагами при загрузке нельзя. Мир без DSL сохраняет формат 2 и прежний хеш состояния; мир с историей DSL использует формат 3, включая очередь, историю, журнал смен и счётчики. При загрузке исходники заново компилируются и сверяются с сохранённым байткодом и хешем.
-
-API `kernel.ReloadRules`, `kernel.ScheduleRules`, `kernel.RollbackRules` вызывается владельцем мира между шагами, без перезапуска ядра. Установка атомарна: ошибка компиляции, переполнение истории или нарушение будущего плана оставляют мир прежним. API не предназначен для одновременного вызова с `Step` из другой горутины. Откат меняет только модуль правил; для возврата физического состояния нужен snapshot. CLI пока поддерживает заранее заданное расписание, а не наблюдение за изменениями файлов.
-
-DSL ограничен локальными ресурсами X/Y/Z, `field_energy` (энергия клетки) и `energy` (энергия частицы). В документе обязательны `format: 1`, текстовая `version`, `instruction_budget` от 1 до 64 и от 1 до 16 правил. Каждое правило содержит уникальные `id` (0–15) и `name`, непустые `consume`/`produce`, цену попытки `energy_cost` и предел партии `max_batch` (оба 1–64). Коэффициенты целые, 1–64. Модуль замещает перечисленные ID; отсутствующие ID 0/1 продолжают выполнять встроенные реакции, другие отсутствующие ID не выполняются. В примере новый ID 2 заряжает Z→X за энергию частицы. Пул мутаций пока выбирает аргумент реакции только 0/1; новый ID доступен явно записанной программе.
-
-Компилятор требует сохранения X+Y+Z и энергии с потенциалами 8/4/0/1/1. Цена попытки отдельно рассеивается обычным механизмом. Исполнитель сначала проверяет доступные ресурсы и вместимость, затем применяет всю допустимую партию атомарно. Бюджет на вызов — `2 × число инструкций байткода + 5`; размер партии ограничен и не создаёт цикл исполнения. Это ограничение вычислительной работы, отдельное от физической цены операции. Нет переходов, рекурсии, внешних функций, доступа к файлам или сети. Источник ограничен 64 KiB; неизвестные поля, повторяющиеся JSON-ключи и глубина более 12 отвергаются. История ограничена 32 модулями, очередь — 32 изменениями, журнал вместе с очередью — 256 событиями.
-
-Точные применения реакций хранятся в `world.rule_state.usage` по `хеш/имя`, работа интерпретатора — в `instructions`, активации — в `events`. CLI печатает активную версию и хеш. Старые метрики `converted[0/1]` считают партии этих ID; после их замены химический смысл нужно читать из соответствующего модуля. Для новых ID используются счётчики DSL в snapshot.
-
-Проверены отклонение некорректных правил, атомарность отказа, новый ID и цена попытки, сохранение ресурсов, смена/откат без сброса мира, идентичность продолжения из snapshot после удаления файлов правил и совпадение физики базового DSL со встроенными реакциями. Произвольные новые поля мира, DSL остальных операций, интерактивная подача патчей, ветвление миров и внешний AI ещё не реализованы.
-
-## Этап 4: телеметрия и объяснение окна
-
-```powershell
-go run ./cmd/sim -width 32 -height 32 -seed 1 -ecology -matter-diffusion 4 -chemical-diffusion 4 -ticks 20000 -every 1000 -metrics data/telemetry-run.jsonl -save data/telemetry-run.json
-go run ./cmd/summarize -input data/telemetry-run.jsonl -window 10000
-go run ./cmd/summarize -input data/telemetry-run.jsonl -window 10000 -format json
-```
-
-`cmd/sim -metrics` и `cmd/assay` автоматически добавляют блок `telemetry` версии 1. Наблюдатель живёт отдельно от мира: не расходует RNG, не сериализуется в физический snapshot и не меняет его хеш. `observer.Observe` остаётся чтением базовых метрик; для полной записи используется `observer.NewTracker`, `kernel.StepObserved` и `Tracker.Frame`.
-
-Собираются:
-
-- численность, геномы и линии происхождения; Shannon в натуральных логарифмах, эффективное число геномов `exp(H)`, inverse Simpson и доля доминирующего генома;
-- P50/P90/максимальный возраст живых частиц на кадре, отдельно от полных времён жизни частиц, умерших за интервал;
-- количество, среднее, минимум/максимум завершённых жизней и интервалы гистограммы 0, 1, 2–3, 4–7 и далее; смерти между редкими кадрами не теряются;
-- поступление/рассеяние энергии, поглощение, TRANSFER, TAKE, стартовый резерв ALLOCATE, зарядка химии, превращения по ID и использование DSL по хешу/имени;
-- компоненты графа связей, размеры, количество связанных частиц, структуры с несколькими геномами и граф существующих связей между геномами;
-- интервальный граф успешных ALLOCATE/COPY/TRANSFER/TAKE/BIND/UNBIND, смерти по геному и новые геномы, включая появившиеся и исчезнувшие между кадрами.
-
-В графе узлы — **геномы кода**, не отдельные частицы и не `origin` с унаследованной памятью. Пустой хеш обозначает ещё не запрограммированную частицу. TRANSFER и TAKE направлены по фактическому переносу энергии; при TAKE источник — жертва, получатель — исполнитель. ALLOCATE содержит переданные 12 единиц резерва. Нулевые/неуспешные действия не считаются успешными рёбрами. BIND/UNBIND отражают инициированные программой действия; смерть удаляет связи физически, но не выдаётся за добровольный UNBIND. Размеры структур включают одиночные частицы; связанные компоненты имеют размер больше 1.
-
-Время жизни умершей частицы равно границе завершённого тика смерти минус `Created`: создание и распад внутри одного тика дают 1. Среднее относится только к умершим в выбранном окне, включая пустые частицы; живые правосторонне цензурированы и представлены отдельно возрастами. Это не оценка средней жизни всей популяции. Квантили возраста используют ближайший ранг. Химические поля анонимны: перенос вещества между конкретными геномами не приписывается без отдельного механизма отслеживания.
-
-Сводка показывает фактические границы окна, изменения численности/разнообразия, доминирующие геномы и их размножение, новые и отсутствующие в конце геномы, жизни, структуры, потоки ресурсов и отказы. Действия по накопленным счётчикам генома приводятся только когда известен начальный уровень: геном присутствовал на начальном кадре либо впервые появился внутри окна. Для появившегося вновь старого генома неизвестный начальный счётчик не принимается за ноль.
-
-`-window` измеряется в тиках. Берётся последний кадр не позже начала запрошенного окна и все последующие интервалы; интерполяции нет. При недостаточной истории начало ограничено первым доступным кадром. Минимумы/максимумы популяции и структур относятся к отчётным кадрам, а не к каждому тику. Графы, смерти, новые геномы и потоки учитывают события всех тиков.
-
-Каждый кадр содержит seed, начало наблюдения и SHA-256 начального JSON-состояния `World` (без оболочки snapshot). Это идентификатор сессии наблюдения, **не** `kernel.Hash`. Возобновление физического снимка создаёт новую сессию; нельзя незаметно склеить её с прежней. Анализ отклоняет пропущенные интервалы, смешанные сессии, убывающие счётчики, несогласованные рождения/смерти геномов, потоки и графы. Старые JSONL без событийной телеметрии остаются пригодны для `cmd/analyze`, но не позволяют восстановить точные жизни и взаимодействия через `cmd/summarize`.
-
-Пакет на 16 процессах и сводка для каждого мира:
-
-```powershell
-./scripts/experiments.ps1 -Workers 16 -Seeds (1..16) -Cases ecology -Ticks 20000 -Every 1000 -OutputDirectory data/telemetry-batch
-go run ./cmd/summarize -input data/telemetry-batch -window 10000 -format json > data/telemetry-batch/window-summary.json
-```
-
-Для каталога требуется завершённый manifest и совпадение итоговых метрик со сводкой runner. Один JSONL описывается до последнего записанного кадра и не утверждает завершение всего запуска. Границы смен DSL и их версии включаются в описание: одинаковые ID реакций при разных модулях могут означать разную физику.
-
-[Проверка этапа 4 на 16 мирах и пример автоматического объяснения](experiments/telemetry/REPORT.md).
-
-## Этап 5: новизна и стагнация
-
-```powershell
-go run ./cmd/summarize -input data/telemetry-run.jsonl -window 10000 -detect
-./scripts/experiments.ps1 -Workers 16 -Seeds (1..8) -Cases ecology,ecology-no-mutation -Ticks 100000 -Every 1000 -OutputDirectory data/novelty-batch
-go run ./cmd/summarize -input data/novelty-batch -window 20000 -detect -format json
-```
-
-`-detect` добавляет в JSON отдельный блок `dynamics` версии 1 и объяснение в текстовую сводку. По умолчанию нужны минимум 10 000 тиков и реальные границы в каждой из четырёх четвертей окна. Используется та же проверка целостности телеметрии, что и для сводок. Анализ работает после прогона; не меняет мир, snapshot, RNG или физические хеши.
-
-Признаки и решения:
-
-- **Плато разнообразия:** размах эффективного числа геномов `(max-min)/max(1,min)` не больше 10% на всех кадрах окна.
-- **Монокультура:** один и тот же доминирующий геном занимает не менее 90% исполняемых частиц на каждом кадре. Это отдельный диагностический признак; он не заменяет остальные условия стагнации.
-- **Структурное плато:** размах крупнейшей компоненты не больше 10%, а расстояние total variation между распределением размеров на первом и каждом следующем кадре не больше 0,1. Распределение взвешено числом частиц, интервалы размеров — 1, 2–3, 4–7 и далее.
-- **Поведенческий хеш:** успешные ALLOCATE/COPY/TRANSFER/TAKE/BIND/UNBIND, поглощение энергии, превращения X/Y, зарядка Z и суммарные DSL units. События нормируются на 1000 частице-тиков; знаменатель оценивается по численности на кадрах трапециями. Частоты квантуются как `round(4*log2(1+rate))`, затем хешируются SHA-256. Хеш не включает геномы или seed.
-- **Стагнация:** одновременно плато разнообразия, структур и численности, плюс доля повторных поведенческих хешей не меньше 75%. Повтором считается хеш, уже встречавшийся в предыдущем блоке этого окна; первый блок исключён из знаменателя. При четырёх блоках порог 75% фактически требует совпадения всех четырёх.
-- **Устойчивое изменение поведения:** последние два блока имеют одинаковый хеш, отсутствовавший в первых двух. Дополнительно каждый из двух новых блоков должен отличаться от каждого исходного минимум на полный шаг логарифмической шкалы хотя бы по одному признаку: один переход через границу округления недостаточен.
-- **Устойчивый рост структур:** на каждом кадре второй половины после её начальной границы крупнейшая компонента превышает максимум первой половины более чем на `max(2, 10% исходного максимума)` частиц.
-
-Статусы: `stagnating` — совместное плато; `developing` — устойчивое изменение поведения или рост структур; `mixed` — неоднозначная динамика; `insufficient_history` — мало истории или слишком редкие кадры; `extinct` — нет исполняемых частиц; `rule_change` — в достаточном окне менялись правила, поэтому изменения не приписываются внутренней эволюции. Вымирание проверяется раньше минимальной длительности истории.
-
-JSON сохраняет конфигурацию, фактические границы, частоты и хеши четырёх блоков, размахи и причины вывода. Параметры CLI: `-detect-min-ticks`, `-detect-tolerance`, `-detect-resolution`. Полная конфигурация также доступна через `observer.DefaultDynamicsConfig` и `observer.DetectDynamics`.
-
-Это локальные эвристики в пределах окна, не доказательство адаптивной новизны. Новые геномы учитываются отдельно и не повышают оценку развития. Чувствительность зависит от окна, частоты кадров и квантования. Глобальные частоты действий могут скрыть редкую стратегию; движения, сигналы, поведенческие профили отдельных линий и топология графа пока не входят в хеш. Долгосрочный архив новизны относится к этапу 9. `developing` требует последующей проверки устойчивости и полезности, а не автоматически разрешает изменение правил.
-
-[Эксперимент этапа 5: мутации и контроль, 16 миров × 100 000 тиков](experiments/novelty/REPORT.md).
-
-## Этапы 6–7: AI через чат и файловый протокол
-
-Роль наблюдателя и автора предложений выполняет Codex в чате. `cmd/council` собирает досье, проверяет ответ и сравнивает предлагаемые правила с контролем на копиях снимков:
-
-```powershell
-go run ./cmd/council prepare -input data/novelty-stage5 -out data/my-round -window 50000
-# Попросить Codex прочитать brief.md и заполнить response.json.
-go run ./cmd/council check -round data/my-round
-go run ./cmd/council trial -round data/my-round -out data/my-trial -workers 16
-# Подготовить выбранную ветвь для следующего обсуждения:
-go run ./cmd/council prepare -input data/my-trial -variant solar-y-recycle -out data/my-next-round -window 10000
-```
-
-Досье содержит факты с ID, сводки и копии исходных снимков. Утверждения ссылаются на факты; гипотезы отделяются от наблюдений. Макромутации оформляются как полные DSL-модули с механизмом, прогнозом и риском. Проверяются хеши, ссылки, сохранение ресурсов и доступность реакции для текущей VM. Исходные миры не изменяются; результат прогона — `comparison.md`, JSONL, снимки и сводки ветвей. API-ключи не нужны.
-
-[Интерфейс и формат обмена](docs/council.md) · [Проведённый раунд на 16 исходных мирах](experiments/council/REPORT.md). Реализованы наблюдение и макромутации в пределах текущей реакционной DSL. Автоматический вызов AI и долгосрочный отбор ветвей ещё не включены; следующий крупный этап — **8, Branching Worlds**.
-
-## Экспериментальный Warp-решатель
-
-В [warp-sim](warp-sim/README.md) реализован GPU-backend физики: все 17 опкодов, мутации, перенос ресурсов, связи, оба RNG и запланированные смены DSL. Он принимает проверенные Go-снимки и считает независимые миры на GPU. Исторические журналы геномов и происхождения остаются Go-функцией; выход Warp — физический отчёт, не совместимый с `cmd/sim -load`.
-
-[Сравнение на RTX 5070 и Ryzen 7 5700X](experiments/warp/REPORT.md): 32×32, 1000 тиков на мир, медианы трёх повторов. Для 16 миров Go на 16 потоках быстрее (0,33 с против 2,31 с); для 256 миров сам расчёт Warp быстрее в 1,67 раза (2,79 с против 4,66 с). С подготовкой и выгрузкой короткий GPU-запуск занимает около 19 с на 256 миров. Все физические поля, RNG и глобальные счётчики совпадают точно; замена Go по умолчанию не включена.
+Documentation and human-readable archived reports are in English. Historical JSON experiment records retain their original contents, including language-bearing fields, to preserve recorded hashes and provenance. Runtime-generated text follows the current CLI implementation.

@@ -1,76 +1,76 @@
-# AI-наблюдатель и предложения правил через чат
+# AI observation and rule proposals through chat
 
-На этапах 6–7 роль AI выполняет Codex в текущей задаче. Обмен идёт через файлы: другой AI или человек может использовать тот же формат. Ключи, сетевой API и автоматический вызов модели не требуются. Интерфейс — CLI и читаемые Markdown-досье/отчёты.
+In Stages 6–7, Codex in the current task performs the AI role. Files provide the exchange format, so another AI or a person can use the same protocol. No keys, network API, or automatic model invocation are required. The interface consists of a CLI and readable Markdown dossiers/reports.
 
-## Первый раунд
+## First round
 
-Из корня репозитория:
+From the repository root:
 
 ```powershell
 go run ./cmd/council prepare -input data/novelty-stage5 -out data/my-round -window 50000
 ```
 
-Нужен завершённый каталог `scripts/experiments.ps1` с JSONL и финальными снимками. Новые выходные каталоги не должны существовать. `prepare` сверяет manifest, итоговую сводку, seed, физический хеш и конечные метрики снимка. Доступна текущая ecology DSL; миры с запланированными будущими сменами правил сначала должны завершить эти переходы.
+Input must be a completed `scripts/experiments.ps1` directory containing JSONL and final snapshots. Output directories must be new. `prepare` checks the manifest, final summary, seed, physical hash, and final snapshot metrics. The current ecology DSL is supported; worlds with pending future rule changes must complete those transitions first.
 
-В каталоге появляются:
+The directory contains:
 
-| Файл | Назначение |
+| File | Purpose |
 |---|---|
-| `brief.md` | Инструкции для AI и факты по каждому миру |
-| `request.json` | Версия протокола, хеш запроса, ограничения, правила и факты с ID |
-| `response.template.json` | Шаблон ответа наблюдателя; пустой шаблон проверку не проходит |
-| `wNNN.evidence.json` | Полная проверенная сводка окна и результат детектора |
-| `wNNN.snapshot.json` | Копия исходного снимка для пробных продолжений |
+| `brief.md` | Instructions for AI and facts about each world |
+| `request.json` | Protocol version, request hash, limits, rules, and identified facts |
+| `response.template.json` | Observer-response template; the empty template fails validation |
+| `wNNN.evidence.json` | Complete validated window summary and detector result |
+| `wNNN.snapshot.json` | Source-snapshot copy for trial continuations |
 
-Достаточно написать в задаче:
+You can simply ask in the task:
 
-> Прочитай `data/my-round/brief.md`, выполни роли наблюдателя и автора макромутаций. Запиши `data/my-round/response.json`, проверь его и сравни предложение с контролем на 16 рабочих потоках.
+> Read `data/my-round/brief.md` and act as observer and macromutation author. Write `data/my-round/response.json`, validate it, and compare the proposal with control using 16 workers.
 
-AI заполняет четыре темы: `dominance`, `niches`, `structures`, `stagnation`. Каждый пункт имеет тип `observation` или `hypothesis`, текст, список ID фактов и `caveat`. Для гипотез ограничение или способ проверки обязательны. У предложения правила есть механизм, обоснование, прогноз, риск, ссылки на факты и полный DSL-модуль. Допустимо до четырёх предложений; массив может быть пустым для этапа 6.
+AI covers four topics: `dominance`, `niches`, `structures`, and `stagnation`. Each claim has an `observation` or `hypothesis` kind, text, a list of fact IDs, and a `caveat`. Hypotheses require a limitation or proposed test. A rule proposal includes its mechanism, rationale, prediction, risk, evidence references, and full DSL module. Up to four proposals are allowed; the array may be empty for Stage 6.
 
-Пример заполненного ответа: [response.json](../experiments/council/response.json). Он привязан к своему запросу; для другого раунда нужен его собственный `request_sha256` и ссылки на его факты.
+Completed example: [response.json](../experiments/council/response.json). It is bound to its own request; another round requires its own `request_sha256` and fact references. Historical machine-readable records retain their original language and hashes.
 
-## Проверка и эксперимент
+## Validation and experiment
 
 ```powershell
 go run ./cmd/council check -round data/my-round
 go run ./cmd/council trial -round data/my-round -out data/my-trial -ticks 20000 -every 1000 -window 10000 -workers 16
 ```
 
-По умолчанию читается `response.json` в каталоге раунда; `-response` задаёт другой файл. `check` выводит Markdown с текстом ответа и фактическими значениями указанных источников. Его можно сохранить перенаправлением `> data/my-round/review.md`.
+The default input is `response.json` in the round directory; `-response` selects another file. `check` prints Markdown containing the response and actual cited values. Save it with `> data/my-round/review.md`.
 
-Проверяются:
+Validation covers:
 
-- версия и хеш запроса, версия ядра, целостность сохранённых снимков и evidence-файлов;
-- соответствие каждого факта полю исходной сводки, существование и уникальность ссылок;
-- обязательные темы, автор, пояснения гипотез, механизм, прогноз и риски предложений;
-- строгий JSON без повторяющихся ключей и неизвестных полей;
-- базовый хеш правил, компиляция, бюджет, масса и энергия DSL;
-- содержательное изменение правил: простое переименование отклоняется; параметрическое и структурное изменения различаются;
-- доступность структурного изменения через ID 0/1. Одного добавления нового ID пока недостаточно: текущие мутации его не генерируют.
+- request version/hash, kernel version, and integrity of frozen snapshots and evidence files;
+- correspondence of each fact to its source-summary field, and existing, unique references;
+- required topics, author, hypothesis caveats, and proposal mechanism, prediction, and risks;
+- strict JSON with no duplicate keys or unknown fields;
+- base rule hash, compilation, DSL work budget, matter, and energy;
+- substantive rule changes: simple renaming is rejected; parameter and structural changes are distinguished;
+- structural-change reachability through IDs 0/1. Adding a new ID alone is currently insufficient because mutations do not generate it.
 
-Проверка ссылок не доказывает истинность текста, существование ниш или причинность. Смысловую оценку делает наблюдатель, сверяя утверждения с показанными значениями и полными evidence-файлами. Хеши защищают от случайной подмены и смешивания раундов, а не удостоверяют автора криптографической подписью.
+Reference validation does not prove textual claims, niches, or causality. The observer evaluates meaning by comparing claims with cited values and full evidence files. Hashes guard against accidental changes and mixed rounds; they are not a cryptographic author signature.
 
-Один ответ сейчас рассчитан на миры с одинаковым базовым модулем правил. Для разных модулей нужны отдельные раунды. Предложения не содержат команд, исполняемых файлов, путей к патчам, изменений геномов или RNG. Обвязка исполняет только скомпилированную декларативную DSL.
+One response currently applies to worlds sharing the same base rule module. Different modules require separate rounds. Proposals contain no commands, executables, patch paths, genome edits, or RNG edits. The harness executes only compiled declarative DSL.
 
-`trial` создаёт для каждого исходного снимка контроль и по одной ветви на предложение. Все начинают с одинакового состояния и RNG; после расхождения состояний события уже различаются. По умолчанию используются 16 рабочих горутин и `GOMAXPROCS=16`. Исходные снимки остаются доступными для повторов. В новые файлы записываются:
+For every source snapshot, `trial` creates a control and one branch per proposal. All start from identical state and RNG; events differ after states diverge. Defaults are 16 worker goroutines and `GOMAXPROCS=16`. Source snapshots remain available for replay. New files contain:
 
-- `manifest.json` — параметры, идентичность запроса/ответа, состояние `running`/`complete`/`failed`;
-- `request.json`, `response.json`, `*.rules.json` — принятые входные данные;
-- `*.jsonl` и `*.snapshot.json` — телеметрия и конечные состояния всех ветвей;
-- `results.json` — физические хеши, сводки и детектор для каждой ветви;
-- `comparison.md` — таблица контроля и предложений.
+- `manifest.json` — parameters, request/response identity, and `running`/`complete`/`failed` status;
+- `request.json`, `response.json`, `*.rules.json` — accepted inputs;
+- `*.jsonl` and `*.snapshot.json` — telemetry and final states for all branches;
+- `results.json` — physical hashes, summaries, and detector output per branch;
+- `comparison.md` — a table comparing control and proposals.
 
-Финальный `complete` публикуется после записи результатов. Прерванный запуск остаётся `running`, ветви с ошибками дают `failed`; такие каталоги нельзя использовать как завершённый следующий раунд. Критерия автоматического победителя пока нет. Статусы novelty detector относятся к последнему окну внутри ветви и не являются сравнительным рейтингом разных физических правил.
+Final `complete` status is published after results are written. Interrupted runs remain `running`; branch errors produce `failed`. Such directories cannot be used as completed next rounds. There is no automatic winner criterion yet. Novelty-detector statuses describe the last window within a branch, not a comparative ranking of different physical rules.
 
-## Следующий раунд
+## Next round
 
 ```powershell
 go run ./cmd/council prepare -input data/my-trial -variant solar-y-recycle -out data/my-next-round -window 10000
 ```
 
-`-variant control` выбирает контроль; имя предложения выбирает соответствующие продолжения. Выбор ветви для обсуждения не объявляет её улучшением. Для длительного ручного продолжения отдельного мира можно использовать обычный `cmd/sim -load` с нужным конечным снимком и новым путём метрик.
+`-variant control` selects controls; a proposal name selects its continuations. Selecting a branch for discussion does not declare it an improvement. For longer manual continuation of one world, use ordinary `cmd/sim -load` with the desired final snapshot and a new metrics path.
 
-Откат эксперимента состоит в возврате к сохранённому исходному снимку или контролю. Переключение правил само по себе не отменяет уже прошедшие тики. Стратегический отбор многих ветвей, долгосрочный архив и Pareto-отбор относятся к этапам 8–9.
+Rolling back an experiment means returning to the frozen source snapshot or control. Switching rules alone does not undo elapsed ticks. Strategic branch selection, a long-term archive, and Pareto selection belong to Stages 8–9.
 
-[Первый проведённый раунд](../experiments/council/REPORT.md).
+[First completed round](../experiments/council/REPORT.md).

@@ -1,14 +1,14 @@
-# Ответ AI-наблюдателя
+# AI observer response
 
-Автор: Codex, анализ в текущем чате, 2026-09-10. Запрос: `fb1cd7ea02e550f9767277895d522c4170bd390e55305620746be7f66f691c61`. Ответ: `8bdbb200331ac1a75c48260b747e77505304e4b41994a9a756660805f4f31da1`.
+Author: Codex, analysis in the current chat, 2026-09-10. Request: `fb1cd7ea02e550f9767277895d522c4170bd390e55305620746be7f66f691c61`. Original response: `8bdbb200331ac1a75c48260b747e77505304e4b41994a9a756660805f4f31da1`. This document is an English translation of the review; the hash identifies the original machine-readable response.
 
-Проверены происхождение фактов, ссылки и ограничения DSL. Смысл текста и причинные выводы требуют отдельной оценки.
+Fact provenance, references, and DSL constraints were validated. Textual meaning and causal claims require separate assessment.
 
 ## dominance — observation
 
-На конечном кадре контрольный мир w009 имеет эффективное разнообразие 1 и долю доминирующего генома 100%. Среди миров с мутациями картина различается: w001 имеет около 2,56 эффективного генома и доминирование 74%, а w002 — около 8,79 и 33,9% соответственно.
+At the final frame, control world w009 has effective diversity 1 and a 100% dominant-genome share. Mutation worlds differ: w001 has about 2.56 effective genomes and 74% dominance, while w002 has about 8.79 and 33.9%, respectively.
 
-Ограничение / проверка: Это разнообразие геномов кода на конечном кадре, не число независимых экологических ниш. Линии происхождения с одинаковым кодом здесь объединяются.
+Limitation / test: These are final-frame code-genome diversity measures, not counts of independent ecological niches. Ancestry lineages sharing code are grouped together.
 
 - `w009.diversity_end`: {"shannon_nats":0,"effective_genomes":1,"inverse_simpson":1,"dominant_share":1,"lineage_shannon_nats":2.868672328880555}
 - `w001.diversity_end`: {"shannon_nats":0.9382643097151486,"effective_genomes":2.5555419373486203,"inverse_simpson":1.7324527815478425,"dominant_share":0.7396449704142012,"lineage_shannon_nats":0.9642097854673246}
@@ -16,18 +16,18 @@
 
 ## niches — hypothesis
 
-Вероятны разные способы получения энергии: в w002 прямое поглощение энергии за окно составляет около 8,82 млн единиц, а в w001 только 436; при этом в обоих мирах активно идут химические превращения. Это основание искать различия между прямым поглощением и химическим питанием.
+Different energy-acquisition strategies may exist: w002 absorbed about 8.82 million energy units directly during the window, compared with only 436 in w001, while both worlds had active chemical conversions. This motivates investigating direct absorption versus chemical feeding.
 
-Ограничение / проверка: Потоки агрегированы по миру и не доказывают устойчивых ниш или обязательного обмена. Нужны изоляционные прогоны выбранных геномов и проверка их пространственного распределения.
+Limitation / test: World-aggregated flows do not prove persistent niches or obligatory exchange. Isolated runs of selected genomes and analysis of their spatial distribution are needed.
 
 - `w002.resource_flows`: {"injected_energy":83200000,"dissipated_energy":83199282,"absorbed_energy":8821253,"transferred_energy":1052550,"taken_energy":1098,"allocation_reserve_energy":413628,"charged_z_to_x_units":9297310,"converted_by_id":[9297348,9297313],"dsl_units_by_hash_and_name":{}}
 - `w001.resource_flows`: {"injected_energy":83200000,"dissipated_energy":83199147,"absorbed_energy":436,"transferred_energy":1622083,"taken_energy":86,"allocation_reserve_energy":526440,"charged_z_to_x_units":10399920,"converted_by_id":[10399977,10399997],"dsl_units_by_hash_and_name":{}}
 
 ## structures — observation
 
-В конце окна в w001 крупнейшая связанная компонента содержит 338 частиц, всего 51 связанная компонента и 5 компонент с несколькими геномами. В w005 крупнейшая компонента имеет размер 1: на этом кадре устойчивость популяции не сопровождается связанной структурой.
+At the end of the window, w001's largest bonded component contains 338 particles, with 51 bonded components in total and 5 containing multiple genomes. In w005 the largest component has size 1: population persistence at this frame is not accompanied by a bonded structure.
 
-Ограничение / проверка: Связность и смешанный состав не означают кооперации, общей репродукции или многоклеточности. По конечному кадру нельзя установить, когда именно эти компоненты возникли.
+Limitation / test: Connectivity and mixed composition do not establish cooperation, collective reproduction, or multicellularity. The final frame alone does not show when these components emerged.
 
 - `w001.largest`: 338
 - `w001.linked_components`: 51
@@ -36,9 +36,9 @@
 
 ## stagnation — hypothesis
 
-В контрольном w009 отсутствие новых геномов сочетается с монокультурой и статусом stagnating. Возможная причина — исчерпание отбора среди доступных исходных программ при отключённой мутации. Одна смена химического правила не восстановит источник наследственной вариации в таком контроле.
+In control w009, no new genomes appear, alongside monoculture and a stagnating status. A possible cause is exhaustion of selection among available initial programs with mutation disabled. Changing one chemical rule will not restore a source of heritable variation in that control.
 
-Ограничение / проверка: Отключённая мутация записана в конфигурации досье. Это механистическая гипотеза о плато, а не причинное доказательство для всех миров. Контроль без мутаций нужен для отделения немедленного физического эффекта патча от последующей эволюции.
+Limitation / test: Disabled mutation is recorded in the dossier configuration. This is a mechanistic plateau hypothesis, not causal proof for every world. The no-mutation control separates an immediate physical patch effect from subsequent evolution.
 
 - `w009.status`: "stagnating"
 - `w009.new_genomes_not_used_as_novelty`: 0
@@ -46,9 +46,9 @@
 
 ## stagnation — observation
 
-Статус mixed не следует трактовать как доказательство развития: w015 имеет эффективное разнообразие 1, ноль новых геномов и при этом mixed. В w001, напротив, за окно появились 223 новых генома, но детектор также оставил mixed.
+A mixed status is not evidence of development: w015 has effective diversity 1, zero new genomes, and still reports mixed. Conversely, 223 new genomes appeared in w001 during the window, but the detector also retained mixed.
 
-Ограничение / проверка: Эвристика чувствительна к окну и квантованию частот. Ни mixed, ни количество геномов не заменяют проверки адаптивной новизны.
+Limitation / test: The heuristic is sensitive to window size and rate quantization. Neither mixed nor genome count substitutes for adaptive-novelty assessment.
 
 - `w015.status`: "mixed"
 - `w015.diversity_end`: {"shannon_nats":0,"effective_genomes":1,"inverse_simpson":1,"dominant_share":1,"lineage_shannon_nats":2.880290936026083}
@@ -56,15 +56,15 @@
 - `w001.status`: "mixed"
 - `w001.new_genomes_not_used_as_novelty`: 223
 
-## Предложение solar-y-recycle (structural)
+## Proposal solar-y-recycle (structural)
 
-Заменить доступную реакцию ID 1 на локальное восстановление Y в X за счёт четырёх единиц энергии поля. Реакция ID 0 X → Y + 4 энергии остаётся. Так появляется альтернативный короткий химический цикл, зависящий от локальной энергии поля.
+Replace accessible reaction ID 1 with local recovery of Y into X using four units of field energy. Reaction ID 0, X → Y + 4 energy, remains. This creates an alternative short chemical cycle dependent on local field energy.
 
-Основание: Различия потоков в w001 и w002 дают основание проверить иной способ связи химии с локальной энергией. Механизм одинаков для всех частиц, сохраняет вещество и энергию и не назначает готовую стратегию конкретному геному. Используется существующий ID 1, доступный исходным программам и мутациям.
+Rationale: Flow differences between w001 and w002 motivate testing another coupling between chemistry and local energy. The mechanism is identical for all particles, conserves matter and energy, and assigns no finished strategy to a particular genome. Existing ID 1 is used because it is accessible to initial programs and mutations.
 
-Прогноз: В пробных ветвях ожидается ненулевое использование solar-y-recycle и изменение химических потоков по сравнению с продолжением того же снимка без патча. Риск вымирания, численность, эффективное разнообразие, размер структур и частота копирования сравниваются попарно. Рост разнообразия не предполагается заранее; в контроле без мутаций новых геномов не ожидается.
+Prediction: Trial branches should show nonzero solar-y-recycle usage and changed chemical flows relative to unchanged continuation of the same snapshot. Extinction risk, population, effective diversity, structure size, and copy frequency are compared in pairs. Diversity growth is not assumed; no new genomes are expected in the no-mutation control.
 
-Риск: Удаляется прежний источник энергии Y → Z. Существующие программы могут потерять жизнеспособность или сильнее конкурировать за энергию поля. Патч может снизить разнообразие и привести к вымиранию; короткий рост численности не будет основанием для его принятия.
+Risk: The previous Y → Z energy source is removed. Existing programs may lose viability or compete more strongly for field energy. The patch may reduce diversity or cause extinction; short-term population growth will not justify acceptance.
 
 DSL SHA-256: `4253d812e317f01c46c870af066f1d53221526ac2612cd5c1ef4ee7a420ba2ab`.
 
