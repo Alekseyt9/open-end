@@ -34,6 +34,9 @@ func Evaluate(w *world.World, p *world.Particle) Event {
 
 // Resolve validates each intent against the state left by earlier resolutions.
 func Resolve(w *world.World, e Event) {
+	ResolveObserved(w, e, nil)
+}
+func ResolveObserved(w *world.World, e Event, sink Observer) {
 	p := w.Particles[e.Actor]
 	if p == nil {
 		return
@@ -64,7 +67,7 @@ func Resolve(w *world.World, e Event) {
 	if r := w.Genomes[p.Genome]; r != nil {
 		r.Instructions++
 	}
-	apply(w, p, e)
+	applyObserved(w, p, e, sink)
 }
 
 func Inflow(w *world.World) {
@@ -81,9 +84,15 @@ func Inflow(w *world.World) {
 }
 
 func Decay(w *world.World, id uint64) {
+	DecayObserved(w, id, nil)
+}
+func DecayObserved(w *world.World, id uint64, sink Observer) {
 	p := w.Particles[id]
 	dissipate(w, p, min(p.Energy, w.Config.Maintenance))
 	if p.Energy == 0 {
+		if sink != nil {
+			sink.Death(Death{Tick: w.Tick + 1, Created: p.Created, Genome: p.Genome})
+		}
 		w.Unlink(id)
 		c := &w.Cells[p.Position]
 		c.Occupant = 0
@@ -127,7 +136,9 @@ func destination(w *world.World, p *world.Particle, direction int, needMatter bo
 	return -1
 }
 
-func apply(w *world.World, p *world.Particle, e Event) {
+func apply(w *world.World, p *world.Particle, e Event) { applyObserved(w, p, e, nil) }
+
+func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 	i := e.Intent.Instruction
 	switch i.Op {
 	case vm.NOP, vm.JUMP:
@@ -199,6 +210,7 @@ func apply(w *world.World, p *world.Particle, e Event) {
 		w.Cells[pos].Occupant = q.ID
 		w.Particles[q.ID] = q
 		w.Accounting.Allocations++
+		emit(sink, w, "allocate", p, q, 12)
 	case vm.COPYMEM:
 		q := target(w, p)
 		if q == nil || len(q.Code) != 0 {
@@ -232,6 +244,7 @@ func apply(w *world.World, p *world.Particle, e Event) {
 		}
 		o.Copies++
 		w.Accounting.Copies++
+		emit(sink, w, "copy", p, q, 0)
 	case vm.TRANSFER:
 		q := target(w, p)
 		if q == nil {
@@ -241,6 +254,9 @@ func apply(w *world.World, p *world.Particle, e Event) {
 		p.Energy -= n
 		q.Energy += n
 		w.Accounting.Transferred += int64(n)
+		if n > 0 {
+			emit(sink, w, "transfer", p, q, n)
+		}
 		if r := w.Genomes[p.Genome]; r != nil {
 			r.Transferred += int64(n)
 		}
@@ -273,6 +289,9 @@ func apply(w *world.World, p *world.Particle, e Event) {
 		q.Energy -= n
 		p.Energy += n
 		w.Accounting.Taken += int64(n)
+		if n > 0 {
+			emit(sink, w, "take", q, p, n)
+		} // direction is resource flow, victim -> actor
 		if r := w.Genomes[p.Genome]; r != nil {
 			r.Taken += int64(n)
 		}
@@ -284,14 +303,18 @@ func apply(w *world.World, p *world.Particle, e Event) {
 		key := world.RelationKey(p.ID, q.ID)
 		if _, exists := w.Relations[key]; !exists {
 			w.Relations[key] = world.Relation{A: min(p.ID, q.ID), B: max(p.ID, q.ID)}
+			emit(sink, w, "bind", p, q, 0)
 			if r := w.Genomes[p.Genome]; r != nil {
 				r.Binds++
 			}
 		}
 	case vm.UNBIND:
 		if i.A < 0 {
-			w.Unlink(p.ID)
+			unlinkObserved(sink, w, p)
 		} else {
+			if _, ok := w.Relations[world.RelationKey(p.ID, p.Target)]; ok {
+				emit(sink, w, "unbind", p, w.Particles[p.Target], 0)
+			}
 			delete(w.Relations, world.RelationKey(p.ID, p.Target))
 		}
 	}

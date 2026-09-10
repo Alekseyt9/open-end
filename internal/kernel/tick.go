@@ -10,10 +10,19 @@ import (
 const Version = "0.1.0"
 const RuleVersion = rules.Version
 
+type Observer interface {
+	rules.Observer
+	TickCompleted(uint64)
+}
+
 // Step executes at most one instruction per particle present at tick start.
 // IDs are sorted then rotated by tick to avoid permanent ID priority. All
 // intents are evaluated before effects; conflicts use this explicit order.
 func Step(w *world.World) {
+	StepObserved(w, nil)
+}
+
+func StepObserved(w *world.World, sink Observer) {
 	if s := w.RuleState; s != nil && len(s.Pending) > 0 && s.Pending[0].Tick == w.Tick {
 		change := s.Pending[0]
 		s.Pending = s.Pending[1:]
@@ -30,13 +39,16 @@ func Step(w *world.World) {
 		}
 	}
 	for _, e := range events {
-		rules.Resolve(w, e)
+		rules.ResolveObserved(w, e, sink)
 	}
 	// New allocations pay upkeep but first execute on the following tick.
 	for _, id := range orderedIDs(w) {
-		rules.Decay(w, id)
+		rules.DecayObserved(w, id, sink)
 	}
 	w.Tick++
+	if sink != nil {
+		sink.TickCompleted(w.Tick)
+	}
 }
 
 func orderedIDs(w *world.World) []uint64 {

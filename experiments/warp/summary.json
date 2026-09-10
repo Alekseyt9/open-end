@@ -1,0 +1,193 @@
+{
+  "status": "complete",
+  "warp": "1.15.0",
+  "python": "3.13.14",
+  "device": "NVIDIA GeForce RTX 5070",
+  "scenario": "ecology",
+  "size": 32,
+  "ticks": 1000,
+  "warmup": 300,
+  "repeats": 3,
+  "workers": 16,
+  "chunk": 8,
+  "lanes": 32,
+  "parity_scope": "all physical state, both RNGs, global accounting and DSL state; excludes historical genome/origin ledgers",
+  "go_binary_sha256": "9b1333c9cda064e3eac270bd4ae699be68b1570ec9d4d0c5c241d1cad624e26d",
+  "sources_sha256": {
+    "warp-sim/solver.py": "0641cd226bea748f6bcf41b9171674bed83e049f1527834f7bc06ab5e169effc",
+    "warp-sim/benchmark.py": "c1b7c15b6a83fb949684a92e4a7d27356238e59a1cb3c7349da4386da73b98a3",
+    "cmd/warp-reference/main.go": "a594242e46ff93f8e3a945aa76efbd2e693fc56376f00bb6e9a3a7514158138e"
+  },
+  "cpu_processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD",
+  "rows": [
+    {
+      "worlds": 1,
+      "go": {
+        "1": {
+          "samples_seconds": [
+            0.1609581,
+            0.1613935,
+            0.1554572
+          ],
+          "median_seconds": 0.1609581
+        },
+        "16": {
+          "samples_seconds": [
+            0.1636505,
+            0.2114103,
+            0.1693819
+          ],
+          "median_seconds": 0.1693819
+        }
+      },
+      "warp_seconds": [
+        1.605124199999409,
+        1.6668024999999034,
+        1.663335500001267
+      ],
+      "warp_median_seconds": 1.663335500001267,
+      "warp_end_to_end_seconds": [
+        1.6571981000015512,
+        1.7156332999984443,
+        1.7142025000030117
+      ],
+      "compile_and_warm_init_seconds": 0.1059547000004386,
+      "speedup_vs_go_1": 0.09676827074265978,
+      "speedup_vs_go_workers": 0.10183267296337448,
+      "parity": "exact",
+      "physical_sha256": "fd8070523dee6cc04045fd4107a2fb26d92a7d54f30bcefc95faaf11c6d5b149",
+      "initial_sha256": "8d003cf7dd28215608293695872ed0264e4aff8a204da7951c80410ded088616"
+    },
+    {
+      "worlds": 16,
+      "go": {
+        "1": {
+          "samples_seconds": [
+            2.5610583,
+            2.5936352,
+            2.536541
+          ],
+          "median_seconds": 2.5610583
+        },
+        "16": {
+          "samples_seconds": [
+            0.3366221,
+            0.3297082,
+            0.3330641
+          ],
+          "median_seconds": 0.3330641
+        }
+      },
+      "warp_seconds": [
+        2.21429839999837,
+        2.3212136999973154,
+        2.305210399998032
+      ],
+      "warp_median_seconds": 2.305210399998032,
+      "warp_end_to_end_seconds": [
+        3.2270849000015005,
+        3.3270363000010548,
+        3.3148566000018036
+      ],
+      "compile_and_warm_init_seconds": 0.04477000000042608,
+      "speedup_vs_go_1": 1.1109867888858156,
+      "speedup_vs_go_workers": 0.14448316735005376,
+      "parity": "exact",
+      "physical_sha256": "d2e7f5c705a9ecf29ef0d8daf0195d77143ce8fad9ab9421915f7ef9e9d07d5d",
+      "initial_sha256": "3ed35b97bceccccd906c2a08364f9ce513a024273b87fecec2d7cd685d609482"
+    },
+    {
+      "worlds": 96,
+      "go": {
+        "1": {
+          "samples_seconds": [
+            15.0062846,
+            15.1358767,
+            14.9915
+          ],
+          "median_seconds": 15.0062846
+        },
+        "16": {
+          "samples_seconds": [
+            1.9279681,
+            1.7820649,
+            1.8357355
+          ],
+          "median_seconds": 1.8357355
+        }
+      },
+      "warp_seconds": [
+        2.2237563999988197,
+        2.334252100001322,
+        2.2856176999994204
+      ],
+      "warp_median_seconds": 2.2856176999994204,
+      "warp_end_to_end_seconds": [
+        8.727397799997561,
+        8.054927099998167,
+        8.802659199998743
+      ],
+      "compile_and_warm_init_seconds": 0.3652660999978252,
+      "speedup_vs_go_1": 6.5655269470497215,
+      "speedup_vs_go_workers": 0.8031682201273054,
+      "parity": "exact",
+      "physical_sha256": "207aab74ab383b33938ca274f4559a7ab69609d778d15aa509688ea4642a30c1",
+      "initial_sha256": "6a85464aeb258f0614913a5d360bfccdd84b5bc690c186a1e023ae37a1fcd4aa"
+    },
+    {
+      "worlds": 256,
+      "go": {
+        "1": {
+          "samples_seconds": [
+            41.2789832,
+            41.6669512,
+            40.6382995
+          ],
+          "median_seconds": 41.2789832
+        },
+        "16": {
+          "samples_seconds": [
+            4.7457281,
+            4.6588136,
+            4.4695741
+          ],
+          "median_seconds": 4.6588136
+        }
+      },
+      "warp_seconds": [
+        2.8777967999999987,
+        2.7599835000000326,
+        2.78608220000001
+      ],
+      "warp_median_seconds": 2.78608220000001,
+      "warp_end_to_end_seconds": [
+        18.90624299999996,
+        19.56621849999999,
+        19.09401120000001
+      ],
+      "compile_and_warm_init_seconds": 0.1679854000000205,
+      "speedup_vs_go_1": 14.816139739164857,
+      "speedup_vs_go_workers": 1.672173778648736,
+      "parity": "exact",
+      "physical_sha256": "a23a740fbf2acf86dc290b5de141323772c39d9e859b0186e9642cce32db1edd",
+      "initial_sha256": "1c30c7c5f92fe5d9b2bdeeb4f91198621097aa5b02057cfe0f92a6e96edac5c2"
+    }
+  ],
+  "physical_config": {
+    "width": 32,
+    "height": 32,
+    "max_entities": 1024,
+    "max_code": 64,
+    "cell_capacity": 128,
+    "energy_capacity": 256,
+    "inflow": 4,
+    "maintenance": 1,
+    "mutation_ppm": 10000,
+    "seed": 1,
+    "matter_diffusion": 4,
+    "ecology": true,
+    "chemical_diffusion": 4
+  },
+  "go_version": "go1.26.1",
+  "continuation": "256-world batch resumed after interruption; reused two complete CPU outputs only after source, binary, input and output verification; remaining CPU and all GPU repeats executed."
+}

@@ -137,9 +137,21 @@ func run(args []string, out io.Writer) error {
 		metrics = f
 	}
 	enc := json.NewEncoder(metrics)
+	var tracker *observer.Tracker
+	if *metricsPath != "" {
+		tracker = observer.NewTracker(w)
+	}
 	previous := observer.Observe(w)
 	report := func() error {
-		m := observer.Observe(w)
+		var m observer.Metrics
+		if tracker != nil {
+			m = tracker.Frame(w)
+			if !m.Telemetry.Complete {
+				return fmt.Errorf("incomplete telemetry at tick %d", w.Tick)
+			}
+		} else {
+			m = observer.Observe(w)
+		}
 		m.Interval = observer.Since(previous, m)
 		previous = m
 		if err := enc.Encode(m); err != nil {
@@ -159,7 +171,11 @@ func run(args []string, out io.Writer) error {
 		return err
 	}
 	for t := 0; t < *ticks; t++ {
-		kernel.Step(w)
+		if tracker != nil {
+			kernel.StepObserved(w, tracker)
+		} else {
+			kernel.Step(w)
+		}
 		if (t+1)%*every == 0 || t+1 == *ticks {
 			if err := report(); err != nil {
 				return err

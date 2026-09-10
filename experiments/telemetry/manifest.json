@@ -1,0 +1,35 @@
+{
+  "Status": "complete",
+  "Workers": 16,
+  "GOMAXPROCS": 1,
+  "Seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "Cases": [
+    "ecology"
+  ],
+  "Ticks": 20000,
+  "Every": 1000,
+  "StartedUTC": "2026-09-10T15:12:50.5345004Z",
+  "SourceRevision": "5df0791da81a0a128b0a889e8160300e6b7e4138",
+  "SourceDirty": true,
+  "BinarySHA256": "60918c8862456819dcdcf8f9b8c37fc046334bfb8132d53f37738576d548e27f",
+  "Total": 16,
+  "Completed": 16,
+  "ElapsedSeconds": 14.987565
+}

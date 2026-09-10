@@ -266,7 +266,8 @@ func single(pair experiment.Pair, seed uint64, condition string, founders, ticks
 	}
 	defer f.Close()
 	enc := json.NewEncoder(f)
-	if err := enc.Encode(observer.Observe(w)); err != nil {
+	tracker := observer.NewTracker(w)
+	if err := enc.Encode(tracker.Frame(w)); err != nil {
 		return r, err
 	}
 	var beforeA, beforeB uint64
@@ -274,9 +275,9 @@ func single(pair experiment.Pair, seed uint64, condition string, founders, ticks
 		if t == ticks-every {
 			beforeA, beforeB = copies(pair.A.Hash), copies(pair.B.Hash)
 		}
-		kernel.Step(w)
+		kernel.StepObserved(w, tracker)
 		if (t+1)%every == 0 {
-			if err := enc.Encode(observer.Observe(w)); err != nil {
+			if err := enc.Encode(tracker.Frame(w)); err != nil {
 				return r, err
 			}
 		}

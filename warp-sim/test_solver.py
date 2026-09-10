@@ -1,5 +1,7 @@
 """Differential tests against the existing Go kernel, never a Python rewrite."""
 import json
+import copy
+import hashlib
 import os
 from pathlib import Path
 import subprocess
@@ -55,6 +57,34 @@ class SolverParity(unittest.TestCase):
         b.run(101, chunk=11)
         compare(a.project(), fixture["final"])
         compare(b.project(), fixture["final"])
+
+    def test_new_dsl_reaction_consumes_particle_energy(self):
+        fixture = self.fixture("dsl", 12, 1, 0)
+        world = fixture["initial"][0]
+        state = world["rule_state"]
+        state["active"] = state["pending"][0]["module"]
+        state["pending"] = []
+        state["events"][0]["sha256"] = state["active"]["sha256"]
+        particle = world["particles"]["1"]
+        particle["code"][0]["a"] = 2
+        genome = hashlib.sha256(json.dumps({"Code":particle["code"], "Memory":[0]*8}, separators=(",", ":")).encode()).hexdigest()
+        record = copy.deepcopy(next(iter(world["genomes"].values())))
+        record["hash"], record["code"] = genome, copy.deepcopy(particle["code"])
+        world["genomes"] = {genome:record}
+        origin = copy.deepcopy(next(iter(world["origins"].values())))
+        origin["hash"] = genome
+        world["origins"] = {genome:origin}
+        particle["genome"] = particle["origin"] = genome
+        source = Path(self.tmp.name) / "reaction-input.json"
+        result = Path(self.tmp.name) / "reaction-reference.json"
+        source.write_text(json.dumps({"initial":[world]}), encoding="utf-8")
+        # Go validates the modified module and provenance before serving as oracle.
+        subprocess.run([str(self.exe), "-input", str(source), "-ticks", "1", "-output", str(result)], cwd=ROOT, check=True)
+        fixture = json.loads(result.read_text(encoding="utf-8"))
+        batch = Batch(fixture["initial"], self.device)
+        batch.run(1)
+        compare(batch.project(), fixture["final"])
+        self.assertGreater(sum(fixture["final"][0]["rule_state"]["usage"].values()), 0)
 
     def test_isolation_pair_bindings_and_slot_reuse(self):
         fixture = self.fixture("assay", 32, 4, 500, warmup=100)

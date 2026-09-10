@@ -1,0 +1,1363 @@
+[
+  {
+    "seed": 1,
+    "metrics": "telemetry-dsl.jsonl",
+    "summary": {
+      "seed": 1,
+      "session_initial_world_sha256": "dbae25f7eb325b2b70ab97e224b4fba6535e6fc68fa2dbbad03f20bdc1b3f424",
+      "version": 1,
+      "requested_ticks": 1500,
+      "from_tick": 500,
+      "to_tick": 2000,
+      "samples": 7,
+      "population": {
+        "start": 585,
+        "end": 564,
+        "min_observed": 564,
+        "max_observed": 595
+      },
+      "genomes": {
+        "start": 9,
+        "end": 9,
+        "min_observed": 8,
+        "max_observed": 10
+      },
+      "lineages": {
+        "start": 107,
+        "end": 89,
+        "min_observed": 85,
+        "max_observed": 107
+      },
+      "energy": {
+        "start": 75788,
+        "end": 67102,
+        "min_observed": 66361,
+        "max_observed": 75788
+      },
+      "copies": 2364,
+      "deaths": 2385,
+      "new_lineages": 137,
+      "diversity_start": {
+        "shannon_nats": 0.11157726729878852,
+        "effective_genomes": 1.1180401286088102,
+        "inverse_simpson": 1.0316814132245298,
+        "dominant_share": 0.9845094664371773,
+        "lineage_shannon_nats": 3.460547794194569
+      },
+      "diversity_end": {
+        "shannon_nats": 0.1659677984101173,
+        "effective_genomes": 1.1805350860045143,
+        "inverse_simpson": 1.0554484266584392,
+        "dominant_share": 0.9732620320855615,
+        "lineage_shannon_nats": 3.2511881906520674
+      },
+      "alive_ages_at_end": {
+        "count": 564,
+        "median_ticks": 414,
+        "p90_ticks": 1800,
+        "max_ticks": 1995
+      },
+      "completed_lifetimes": {
+        "deaths": 2385,
+        "sum_lifetime_ticks": 664755,
+        "mean_lifetime_ticks": 278.72327044025155,
+        "min_lifetime_ticks": 12,
+        "max_lifetime_ticks": 1880,
+        "histogram": [
+          {
+            "min_ticks": 8,
+            "max_ticks": 15,
+            "count": 46
+          },
+          {
+            "min_ticks": 16,
+            "max_ticks": 31,
+            "count": 22
+          },
+          {
+            "min_ticks": 32,
+            "max_ticks": 63,
+            "count": 564
+          },
+          {
+            "min_ticks": 64,
+            "max_ticks": 127,
+            "count": 564
+          },
+          {
+            "min_ticks": 128,
+            "max_ticks": 255,
+            "count": 376
+          },
+          {
+            "min_ticks": 256,
+            "max_ticks": 511,
+            "count": 405
+          },
+          {
+            "min_ticks": 512,
+            "max_ticks": 1023,
+            "count": 284
+          },
+          {
+            "min_ticks": 1024,
+            "max_ticks": 2047,
+            "count": 124
+          }
+        ]
+      },
+      "resource_flows": {
+        "injected_energy": 2496000,
+        "dissipated_energy": 2504686,
+        "absorbed_energy": 0,
+        "transferred_energy": 113472,
+        "taken_energy": 0,
+        "allocation_reserve_energy": 28368,
+        "charged_z_to_x_units": 312149,
+        "converted_by_id": [
+          311963,
+          207992
+        ],
+        "dsl_units_by_hash_and_name": {
+          "97836395dd7c42429e279c0ba7241377903a5c3a00f472bf9059c5337db71ead/x-to-z": 103958,
+          "aa34583ba4e890cfefd45f849c9df47f1ae1adad1d18ed4839da24c9fa05f020/x-to-y": 208005,
+          "aa34583ba4e890cfefd45f849c9df47f1ae1adad1d18ed4839da24c9fa05f020/y-to-z": 207539
+        }
+      },
+      "structures_start": {
+        "components": 585,
+        "linked_components": 0,
+        "linked_particles": 0,
+        "mixed_genome_components": 0,
+        "largest": 1,
+        "size_histogram": [
+          {
+            "size": 1,
+            "count": 585
+          }
+        ],
+        "genome_binding_graph": []
+      },
+      "structures_end": {
+        "components": 561,
+        "linked_components": 3,
+        "linked_particles": 6,
+        "mixed_genome_components": 0,
+        "largest": 2,
+        "size_histogram": [
+          {
+            "size": 1,
+            "count": 558
+          },
+          {
+            "size": 2,
+            "count": 3
+          }
+        ],
+        "genome_binding_graph": [
+          {
+            "a": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+            "b": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+            "count": 3
+          }
+        ]
+      },
+      "largest_structure_observed": 2,
+      "interaction_graph": [
+        {
+          "kind": "allocate",
+          "source_genome": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "target_genome": "",
+          "events": 4,
+          "energy": 48
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "target_genome": "",
+          "events": 3,
+          "energy": 36
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "target_genome": "",
+          "events": 1,
+          "energy": 12
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "target_genome": "",
+          "events": 16,
+          "energy": 192
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "6749bda33c11c8683f551ffd962efbf42e6ed4db255d7db4f72aa1a8ebea4ad8",
+          "target_genome": "",
+          "events": 4,
+          "energy": 48
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "target_genome": "",
+          "events": 1,
+          "energy": 12
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "9d0649b42c625ee88766be442e25c07ae33f7c8d5a79881e3d61b47c4b5dd602",
+          "target_genome": "",
+          "events": 1,
+          "energy": 12
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "target_genome": "",
+          "events": 1,
+          "energy": 12
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "d5d8cd4b91cdd1b1238da7ad614bd1f40b372e9168d7dd553803dc033c99103e",
+          "target_genome": "",
+          "events": 6,
+          "energy": 72
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "target_genome": "",
+          "events": 4,
+          "energy": 48
+        },
+        {
+          "kind": "allocate",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "",
+          "events": 2323,
+          "energy": 27876
+        },
+        {
+          "kind": "bind",
+          "source_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "target_genome": "",
+          "events": 16,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "target_genome": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "events": 4,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "target_genome": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "events": 3,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "target_genome": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "target_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "events": 16,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "6749bda33c11c8683f551ffd962efbf42e6ed4db255d7db4f72aa1a8ebea4ad8",
+          "target_genome": "6749bda33c11c8683f551ffd962efbf42e6ed4db255d7db4f72aa1a8ebea4ad8",
+          "events": 4,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "target_genome": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "target_genome": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "d5d8cd4b91cdd1b1238da7ad614bd1f40b372e9168d7dd553803dc033c99103e",
+          "target_genome": "d5d8cd4b91cdd1b1238da7ad614bd1f40b372e9168d7dd553803dc033c99103e",
+          "events": 6,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "target_genome": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "events": 4,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "12081dd4bfab75cc5e7c1566800c6b4234bdedca24eee5dcd04bd3793c1dfdc2",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "18e30e85c3b64957965bfe86cdb296b247ab296bf665ba1db440d9b173c785a7",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "1b46fb50f6f9e02475f993ebec9593cd82bb0c1eb48f382f0342c146e8e441c5",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "23590103a980b23781761ab5959850bd0aa31b2e5e30e26a028097475e8dea34",
+          "events": 2,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "events": 2,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "4c0278352388a82cd55d5c26f1435a62b691c77446cd06867be4b57ccfc80f60",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "4c5c154a1fc7b8bf05d395b9f90ec60473a1bde4d50bb0c58e1ea62e43055397",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "59d380be8d5c2d29aec5d759dac8cbdc90ee100b0042dc55e221843ade44f2c1",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "5cde3633d7fd18b878cc78731945a1e45bf082f87f24e6c31390c36f60fc0eb4",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "63ff012c2c103dc41d0baf3c3e6e44d707637a176343caea990bcdbb0b969b87",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "9d0649b42c625ee88766be442e25c07ae33f7c8d5a79881e3d61b47c4b5dd602",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "a0af926c2b9576882e76e2d64ea18fe5b671a9fdba67c65a0164c7eb99d56d80",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "a69330472f7d123ce3a37c4da5e67ee5d00e963e0c76289b0e873b6168eee7c2",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "b0f3a276d25cd0b7324d687d133696e9f19c3c6b931cbfa87ea5cbf72af456d5",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "b23712387398a53609494d9e9bcae86d543e98e4f91f075555aef3c2e798288f",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "d645ca21460095a9bea86406260e02c34ce3949ddeec919dfd382374606accab",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "da9fa5e529b8c39b94961628bedbfc521b64b161b85cccc2ec2bd8124dac97f7",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "e9141fb924ea442591ec852adb33024da299b0bc86ae344b664e20822ca01d79",
+          "events": 1,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "events": 2,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "events": 2295,
+          "energy": 0
+        },
+        {
+          "kind": "copy",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d",
+          "events": 2,
+          "energy": 0
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "target_genome": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "events": 4,
+          "energy": 192
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "target_genome": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "events": 3,
+          "energy": 144
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "target_genome": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "target_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "events": 16,
+          "energy": 768
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "6749bda33c11c8683f551ffd962efbf42e6ed4db255d7db4f72aa1a8ebea4ad8",
+          "target_genome": "6749bda33c11c8683f551ffd962efbf42e6ed4db255d7db4f72aa1a8ebea4ad8",
+          "events": 4,
+          "energy": 192
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "target_genome": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "target_genome": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "d5d8cd4b91cdd1b1238da7ad614bd1f40b372e9168d7dd553803dc033c99103e",
+          "target_genome": "d5d8cd4b91cdd1b1238da7ad614bd1f40b372e9168d7dd553803dc033c99103e",
+          "events": 6,
+          "energy": 288
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "target_genome": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "events": 4,
+          "energy": 192
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "12081dd4bfab75cc5e7c1566800c6b4234bdedca24eee5dcd04bd3793c1dfdc2",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "18e30e85c3b64957965bfe86cdb296b247ab296bf665ba1db440d9b173c785a7",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "1b46fb50f6f9e02475f993ebec9593cd82bb0c1eb48f382f0342c146e8e441c5",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "23590103a980b23781761ab5959850bd0aa31b2e5e30e26a028097475e8dea34",
+          "events": 2,
+          "energy": 96
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "events": 2,
+          "energy": 96
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "4c0278352388a82cd55d5c26f1435a62b691c77446cd06867be4b57ccfc80f60",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "4c5c154a1fc7b8bf05d395b9f90ec60473a1bde4d50bb0c58e1ea62e43055397",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "59d380be8d5c2d29aec5d759dac8cbdc90ee100b0042dc55e221843ade44f2c1",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "5cde3633d7fd18b878cc78731945a1e45bf082f87f24e6c31390c36f60fc0eb4",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "63ff012c2c103dc41d0baf3c3e6e44d707637a176343caea990bcdbb0b969b87",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "9d0649b42c625ee88766be442e25c07ae33f7c8d5a79881e3d61b47c4b5dd602",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "a0af926c2b9576882e76e2d64ea18fe5b671a9fdba67c65a0164c7eb99d56d80",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "a69330472f7d123ce3a37c4da5e67ee5d00e963e0c76289b0e873b6168eee7c2",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "b0f3a276d25cd0b7324d687d133696e9f19c3c6b931cbfa87ea5cbf72af456d5",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "b23712387398a53609494d9e9bcae86d543e98e4f91f075555aef3c2e798288f",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "d645ca21460095a9bea86406260e02c34ce3949ddeec919dfd382374606accab",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "da9fa5e529b8c39b94961628bedbfc521b64b161b85cccc2ec2bd8124dac97f7",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "e9141fb924ea442591ec852adb33024da299b0bc86ae344b664e20822ca01d79",
+          "events": 1,
+          "energy": 48
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "events": 2,
+          "energy": 96
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "events": 2295,
+          "energy": 110160
+        },
+        {
+          "kind": "transfer",
+          "source_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "target_genome": "f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d",
+          "events": 2,
+          "energy": 96
+        }
+      ],
+      "genome_activity": [
+        {
+          "hash": "12081dd4bfab75cc5e7c1566800c6b4234bdedca24eee5dcd04bd3793c1dfdc2",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "18e30e85c3b64957965bfe86cdb296b247ab296bf665ba1db440d9b173c785a7",
+          "start_count": 0,
+          "end_count": 1,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 0,
+          "behavior_when_baseline_known": {
+            "instructions": 1065,
+            "moves": 335,
+            "binds": 0,
+            "converted_by_id": [
+              547,
+              0
+            ]
+          }
+        },
+        {
+          "hash": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 5,
+          "produced_copies": 4,
+          "deaths": 5
+        },
+        {
+          "hash": "1b46fb50f6f9e02475f993ebec9593cd82bb0c1eb48f382f0342c146e8e441c5",
+          "start_count": 0,
+          "end_count": 1,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 0,
+          "behavior_when_baseline_known": {
+            "instructions": 128,
+            "moves": 0,
+            "binds": 0,
+            "converted_by_id": [
+              64,
+              49
+            ]
+          }
+        },
+        {
+          "hash": "23590103a980b23781761ab5959850bd0aa31b2e5e30e26a028097475e8dea34",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 2,
+          "produced_copies": 0,
+          "deaths": 2
+        },
+        {
+          "hash": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "start_count": 1,
+          "end_count": 1,
+          "received_code": 5,
+          "produced_copies": 3,
+          "deaths": 5,
+          "behavior_when_baseline_known": {
+            "instructions": 793,
+            "moves": 60,
+            "binds": 0,
+            "converted_by_id": [
+              330,
+              301
+            ]
+          }
+        },
+        {
+          "hash": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 2,
+          "produced_copies": 1,
+          "deaths": 2
+        },
+        {
+          "hash": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "start_count": 0,
+          "end_count": 8,
+          "received_code": 17,
+          "produced_copies": 16,
+          "deaths": 9,
+          "behavior_when_baseline_known": {
+            "instructions": 2232,
+            "moves": 46,
+            "binds": 16,
+            "converted_by_id": [
+              976,
+              1009
+            ]
+          }
+        },
+        {
+          "hash": "4c0278352388a82cd55d5c26f1435a62b691c77446cd06867be4b57ccfc80f60",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "4c5c154a1fc7b8bf05d395b9f90ec60473a1bde4d50bb0c58e1ea62e43055397",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "59d380be8d5c2d29aec5d759dac8cbdc90ee100b0042dc55e221843ade44f2c1",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "5cde3633d7fd18b878cc78731945a1e45bf082f87f24e6c31390c36f60fc0eb4",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "63ff012c2c103dc41d0baf3c3e6e44d707637a176343caea990bcdbb0b969b87",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "6749bda33c11c8683f551ffd962efbf42e6ed4db255d7db4f72aa1a8ebea4ad8",
+          "start_count": 1,
+          "end_count": 0,
+          "received_code": 4,
+          "produced_copies": 4,
+          "deaths": 5
+        },
+        {
+          "hash": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 2,
+          "produced_copies": 1,
+          "deaths": 2
+        },
+        {
+          "hash": "87e59ff8af22c597b579a13e2be8a4121d9db909290cc06417260faaf6bc5cee",
+          "start_count": 1,
+          "end_count": 0,
+          "received_code": 0,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "8f9f1efae990dc27721ce63fe9330773cdcf2a49aae0b7d2f1107226a4e4d960",
+          "start_count": 1,
+          "end_count": 0,
+          "received_code": 0,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "9d0649b42c625ee88766be442e25c07ae33f7c8d5a79881e3d61b47c4b5dd602",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "a0af926c2b9576882e76e2d64ea18fe5b671a9fdba67c65a0164c7eb99d56d80",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "a26703ca82462d424c13e91018bd6e4970356ca98fcc1a17b1366d7b55866f63",
+          "start_count": 1,
+          "end_count": 0,
+          "received_code": 0,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "a69330472f7d123ce3a37c4da5e67ee5d00e963e0c76289b0e873b6168eee7c2",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "b0f3a276d25cd0b7324d687d133696e9f19c3c6b931cbfa87ea5cbf72af456d5",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "b23712387398a53609494d9e9bcae86d543e98e4f91f075555aef3c2e798288f",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "c2455446f01c5346533c0a9ad5072561ff3778b07d5bcda15513e2ecd7ebfd60",
+          "start_count": 1,
+          "end_count": 1,
+          "received_code": 0,
+          "produced_copies": 0,
+          "deaths": 0,
+          "behavior_when_baseline_known": {
+            "instructions": 1500,
+            "moves": 0,
+            "binds": 0,
+            "converted_by_id": [
+              356,
+              288
+            ]
+          }
+        },
+        {
+          "hash": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 2,
+          "produced_copies": 1,
+          "deaths": 2
+        },
+        {
+          "hash": "d5d8cd4b91cdd1b1238da7ad614bd1f40b372e9168d7dd553803dc033c99103e",
+          "start_count": 2,
+          "end_count": 1,
+          "received_code": 6,
+          "produced_copies": 6,
+          "deaths": 7,
+          "behavior_when_baseline_known": {
+            "instructions": 2956,
+            "moves": 380,
+            "binds": 0,
+            "converted_by_id": [
+              807,
+              538
+            ]
+          }
+        },
+        {
+          "hash": "d645ca21460095a9bea86406260e02c34ce3949ddeec919dfd382374606accab",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "da9fa5e529b8c39b94961628bedbfc521b64b161b85cccc2ec2bd8124dac97f7",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "dab2f7e6dd97c3f34de0b2a41ccd6f1fe2444c342371184d9588df7e40125230",
+          "start_count": 1,
+          "end_count": 1,
+          "received_code": 0,
+          "produced_copies": 0,
+          "deaths": 0,
+          "behavior_when_baseline_known": {
+            "instructions": 1500,
+            "moves": 0,
+            "binds": 0,
+            "converted_by_id": [
+              486,
+              151
+            ]
+          }
+        },
+        {
+          "hash": "e9141fb924ea442591ec852adb33024da299b0bc86ae344b664e20822ca01d79",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 1,
+          "produced_copies": 0,
+          "deaths": 1
+        },
+        {
+          "hash": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "start_count": 0,
+          "end_count": 1,
+          "received_code": 6,
+          "produced_copies": 4,
+          "deaths": 5,
+          "behavior_when_baseline_known": {
+            "instructions": 1735,
+            "moves": 228,
+            "binds": 0,
+            "converted_by_id": [
+              441,
+              437
+            ]
+          }
+        },
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "start_count": 572,
+          "end_count": 546,
+          "received_code": 2295,
+          "produced_copies": 2324,
+          "deaths": 2321,
+          "behavior_when_baseline_known": {
+            "instructions": 844530,
+            "moves": 83771,
+            "binds": 0,
+            "converted_by_id": [
+              306755,
+              204620
+            ]
+          }
+        },
+        {
+          "hash": "f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d",
+          "start_count": 0,
+          "end_count": 0,
+          "received_code": 2,
+          "produced_copies": 0,
+          "deaths": 2
+        }
+      ],
+      "new_genomes": [
+        {
+          "hash": "12081dd4bfab75cc5e7c1566800c6b4234bdedca24eee5dcd04bd3793c1dfdc2",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 612
+        },
+        {
+          "hash": "18e30e85c3b64957965bfe86cdb296b247ab296bf665ba1db440d9b173c785a7",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 934
+        },
+        {
+          "hash": "1b1d077ad531ac54d7e13194ffc6f5024c3b11785841fb6230574b6a8e2e71b3",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 690
+        },
+        {
+          "hash": "1b46fb50f6f9e02475f993ebec9593cd82bb0c1eb48f382f0342c146e8e441c5",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1871
+        },
+        {
+          "hash": "23590103a980b23781761ab5959850bd0aa31b2e5e30e26a028097475e8dea34",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1130
+        },
+        {
+          "hash": "3ac3271bcb483c8e85cfdb086778c8e96cce9a092112626c0675245c379bc4f7",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1348
+        },
+        {
+          "hash": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1167
+        },
+        {
+          "hash": "4c0278352388a82cd55d5c26f1435a62b691c77446cd06867be4b57ccfc80f60",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 696
+        },
+        {
+          "hash": "4c5c154a1fc7b8bf05d395b9f90ec60473a1bde4d50bb0c58e1ea62e43055397",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1756
+        },
+        {
+          "hash": "59d380be8d5c2d29aec5d759dac8cbdc90ee100b0042dc55e221843ade44f2c1",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 715
+        },
+        {
+          "hash": "5cde3633d7fd18b878cc78731945a1e45bf082f87f24e6c31390c36f60fc0eb4",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1575
+        },
+        {
+          "hash": "63ff012c2c103dc41d0baf3c3e6e44d707637a176343caea990bcdbb0b969b87",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1099
+        },
+        {
+          "hash": "77f8e2def76cdae6501ec18d67ae403cc906484593a1247de6bb9214cdae9bf0",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1768
+        },
+        {
+          "hash": "9d0649b42c625ee88766be442e25c07ae33f7c8d5a79881e3d61b47c4b5dd602",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 665
+        },
+        {
+          "hash": "a0af926c2b9576882e76e2d64ea18fe5b671a9fdba67c65a0164c7eb99d56d80",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1884
+        },
+        {
+          "hash": "a69330472f7d123ce3a37c4da5e67ee5d00e963e0c76289b0e873b6168eee7c2",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 516
+        },
+        {
+          "hash": "b0f3a276d25cd0b7324d687d133696e9f19c3c6b931cbfa87ea5cbf72af456d5",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1953
+        },
+        {
+          "hash": "b23712387398a53609494d9e9bcae86d543e98e4f91f075555aef3c2e798288f",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1006
+        },
+        {
+          "hash": "cf13517bafea99cdcfbd734b2014ca4b8a29497b28e19abb1b4ccc56d17d86d2",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1806
+        },
+        {
+          "hash": "d645ca21460095a9bea86406260e02c34ce3949ddeec919dfd382374606accab",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1296
+        },
+        {
+          "hash": "da9fa5e529b8c39b94961628bedbfc521b64b161b85cccc2ec2bd8124dac97f7",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1384
+        },
+        {
+          "hash": "e9141fb924ea442591ec852adb33024da299b0bc86ae344b664e20822ca01d79",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 789
+        },
+        {
+          "hash": "f208eb6c7db49c15e2506ab70c2ceab4b3f3c852cbff28d153564f1f9104f071",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 1142
+        },
+        {
+          "hash": "f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d",
+          "parent_genome": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "first_tick": 507
+        }
+      ],
+      "initial_genomes_absent_at_end": [
+        "6749bda33c11c8683f551ffd962efbf42e6ed4db255d7db4f72aa1a8ebea4ad8",
+        "87e59ff8af22c597b579a13e2be8a4121d9db909290cc06417260faaf6bc5cee",
+        "8f9f1efae990dc27721ce63fe9330773cdcf2a49aae0b7d2f1107226a4e4d960",
+        "a26703ca82462d424c13e91018bd6e4970356ca98fcc1a17b1366d7b55866f63"
+      ],
+      "dominant_genomes_at_end": [
+        {
+          "hash": "f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7",
+          "count": 546,
+          "frequency": 0.9732620320855615,
+          "max_generation": 26,
+          "first_tick": 0,
+          "births": 3548,
+          "copies": 3591,
+          "last_copy_tick": 1999,
+          "instructions": 1093539,
+          "moved": 100244,
+          "absorbed": 0,
+          "converted": [
+            414929,
+            312333
+          ],
+          "taken": 0,
+          "transferred": 172272,
+          "binds": 0
+        },
+        {
+          "hash": "3fac791244299d05d3977ab20e0c54d44c1b49078013fcea04e3ceda4279b2d5",
+          "count": 8,
+          "frequency": 0.0142602495543672,
+          "max_generation": 24,
+          "first_tick": 1167,
+          "births": 17,
+          "copies": 16,
+          "last_copy_tick": 1986,
+          "instructions": 2232,
+          "moved": 46,
+          "absorbed": 0,
+          "converted": [
+            976,
+            1009
+          ],
+          "taken": 0,
+          "transferred": 768,
+          "binds": 16
+        },
+        {
+          "hash": "18e30e85c3b64957965bfe86cdb296b247ab296bf665ba1db440d9b173c785a7",
+          "count": 1,
+          "frequency": 0.0017825311942959,
+          "max_generation": 10,
+          "first_tick": 934,
+          "births": 1,
+          "copies": 0,
+          "last_copy_tick": 0,
+          "instructions": 1065,
+          "moved": 335,
+          "absorbed": 0,
+          "converted": [
+            547,
+            0
+          ],
+          "taken": 0,
+          "transferred": 0,
+          "binds": 0
+        },
+        {
+          "hash": "1b46fb50f6f9e02475f993ebec9593cd82bb0c1eb48f382f0342c146e8e441c5",
+          "count": 1,
+          "frequency": 0.0017825311942959,
+          "max_generation": 17,
+          "first_tick": 1871,
+          "births": 1,
+          "copies": 0,
+          "last_copy_tick": 0,
+          "instructions": 128,
+          "moved": 0,
+          "absorbed": 0,
+          "converted": [
+            64,
+            49
+          ],
+          "taken": 0,
+          "transferred": 0,
+          "binds": 0
+        },
+        {
+          "hash": "319d9220de60302f3068218cc198bbc559ee7dfe88f6d7538021ee889d390c71",
+          "count": 1,
+          "frequency": 0.0017825311942959,
+          "max_generation": 10,
+          "first_tick": 497,
+          "births": 6,
+          "copies": 3,
+          "last_copy_tick": 1477,
+          "instructions": 795,
+          "moved": 60,
+          "absorbed": 0,
+          "converted": [
+            331,
+            302
+          ],
+          "taken": 0,
+          "transferred": 144,
+          "binds": 0
+        }
+      ],
+      "failed_attempts": {
+        "absorb": 0,
+        "instruction_energy": 2366,
+        "limit": 0,
+        "matter": 23569,
+        "reaction": 47381,
+        "reserve": 0,
+        "space": 9151
+      },
+      "rules_start": {
+        "version": "baseline-v1",
+        "sha256": "aa34583ba4e890cfefd45f849c9df47f1ae1adad1d18ed4839da24c9fa05f020"
+      },
+      "rules_end": {
+        "version": "baseline-v1",
+        "sha256": "aa34583ba4e890cfefd45f849c9df47f1ae1adad1d18ed4839da24c9fa05f020"
+      },
+      "rule_events": [
+        {
+          "tick": 500,
+          "action": "load",
+          "sha256": "97836395dd7c42429e279c0ba7241377903a5c3a00f472bf9059c5337db71ead"
+        },
+        {
+          "tick": 1000,
+          "action": "rollback",
+          "sha256": "aa34583ba4e890cfefd45f849c9df47f1ae1adad1d18ed4839da24c9fa05f020"
+        }
+      ],
+      "narrative_ru": [
+        "Тики 500–2000: 7 наблюдений; фактическое окно 1500 тиков при запросе 1500.",
+        "Популяция: 585 → 564; на отчётных кадрах от 564 до 595. Копирований кода: 2364, смертей частиц: 2385.",
+        "Геномов: 9 → 9; эффективное разнообразие: 1.12 → 1.18. Новых геномов за окно: 24; исходных геномов, отсутствующих в конце: 4.",
+        "В конце доминирует f3f399adf92432a67f34e624c21c49a74828467c96fa02356692d8a4da4fe8e7: 546 частиц, 97.3% исполняемых частиц; за окно эта линия выполнила 2324 копирований.",
+        "Действия доминирующей линии за окно: перемещений 83771, новых связей 0, превращений по ID 0/1: 306755/204620.",
+        "Среди умерших в окне среднее полное время жизни 278.72 тика, минимум 12, максимум 1880. Возраст живых в конце: P50=414, P90=1800 тиков.",
+        "Связанных структур в конце: 3; связанных частиц: 6. Самая большая структура на отчётных кадрах: 2 частиц; структур с несколькими геномами в конце: 0.",
+        "Энергия: поступило 2496000, рассеяно 2504686, запас изменился на -8686. Поглощено из поля 0; передано TRANSFER 113472, отобрано TAKE 0, выделено в стартовый резерв 28368.",
+        "Отказы: нет места 9151, материи 23569, стартового резерва 0; недостаточно энергии инструкции 2366; неуспешных реакций 47381.",
+        "За окно зарегистрировано смен/откатов правил: 2. Семантику реакций следует сопоставлять с версией модуля.",
+        "Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость."
+      ]
+    }
+  }
+]

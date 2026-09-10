@@ -1,0 +1,47 @@
+{
+  "status": "complete",
+  "warp": "1.15.0",
+  "python": "3.13.14",
+  "device": "NVIDIA GeForce RTX 5070",
+  "scenario": "mutation",
+  "size": 32,
+  "ticks": 1000,
+  "warmup": 0,
+  "repeats": 1,
+  "workers": 16,
+  "chunk": 8,
+  "lanes": 32,
+  "parity_scope": "all physical state, both RNGs, global accounting and DSL state; excludes historical genome/origin ledgers",
+  "go_binary_sha256": "b117f152b9b2459155488aca40c38c8d0eb6e183d49aa005c4cf949674c2e3c5",
+  "rows": [
+    {
+      "worlds": 16,
+      "go": {
+        "1": {
+          "samples_seconds": [
+            2.8695735
+          ],
+          "median_seconds": 2.8695735
+        },
+        "16": {
+          "samples_seconds": [
+            0.4192743
+          ],
+          "median_seconds": 0.4192743
+        }
+      },
+      "warp_seconds": [
+        2.0260087000024214
+      ],
+      "warp_median_seconds": 2.0260087000024214,
+      "warp_end_to_end_seconds": [
+        2.324803700001212
+      ],
+      "compile_and_warm_init_seconds": 55.370892700000695,
+      "speedup_vs_go_1": 1.4163678073033794,
+      "speedup_vs_go_workers": 0.20694595240360958,
+      "parity": "exact",
+      "physical_sha256": "1e0fb736cc867b8305c0eea0e531972119e17d85adc11f825d5ad209ae69ed6f"
+    }
+  ]
+}
