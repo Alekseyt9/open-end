@@ -60,13 +60,14 @@ type ArchiveDecision struct {
 }
 
 type archiveContext struct {
-	Case     string
-	Seed     uint64
-	Config   world.Config
-	Duration uint64
-	Samples  int
-	Blocks   []uint64
-	Detector observer.DynamicsConfig
+	Case          string
+	Seed          uint64
+	Config        world.Config
+	Duration      uint64
+	Samples       int
+	Blocks        []uint64
+	Detector      observer.DynamicsConfig
+	CollectiveAge uint64 `json:",omitempty"`
 }
 
 func validArchiveOptions(o ArchiveOptions) bool {
@@ -119,7 +120,7 @@ func archivePoint(dir string, n TreeNode, o ArchiveOptions) (ArchivePoint, error
 			return p, err
 		}
 		s, d := e.Summary, e.Dynamics
-		ctx := archiveContext{wb.Case, wb.Seed, w.Config, s.ToTick - s.FromTick, s.Samples, []uint64{}, d.Config}
+		ctx := archiveContext{wb.Case, wb.Seed, w.Config, s.ToTick - s.FromTick, s.Samples, []uint64{}, d.Config, wb.CollectiveAge}
 		for _, b := range d.Behavior {
 			ctx.Blocks = append(ctx.Blocks, b.ToTick-b.FromTick)
 		}

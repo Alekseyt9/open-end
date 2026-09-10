@@ -89,7 +89,7 @@ func checkRound(round, responsePath string, continuation bool) (Checked, error) 
 		if err != nil {
 			return c, err
 		}
-		if kernel.Hash(w) != wb.SnapshotHash || w.Tick != wb.Tick || w.Config.Seed != wb.Seed || w.Config.MutationPPM != wb.MutationPPM || w.Config.CopyModel != wb.CopyModel || w.Config.Environment != wb.Environment {
+		if kernel.Hash(w) != wb.SnapshotHash || w.Tick != wb.Tick || w.Config.Seed != wb.Seed || w.Config.MutationPPM != wb.MutationPPM || w.Config.CopyModel != wb.CopyModel || w.Config.Environment != wb.Environment || w.Config.CollectiveAblation != wb.CollectiveAblation {
 			return c, fmt.Errorf("frozen snapshot changed: %s", wb.ID)
 		}
 		source := builtinSource()
@@ -107,6 +107,20 @@ func checkRound(round, responsePath string, continuation bool) (Checked, error) 
 		}
 		if digest(data) != wb.EvidenceHash {
 			return c, fmt.Errorf("frozen evidence changed: %s", wb.ID)
+		}
+		var evidence Evidence
+		if err := json.Unmarshal(data, &evidence); err != nil {
+			return c, err
+		}
+		age := uint64(0)
+		if g := evidence.Summary.Collectives; g != nil {
+			if g.End == nil {
+				return c, fmt.Errorf("missing collective session")
+			}
+			age = g.End.MinAge
+		}
+		if age != wb.CollectiveAge {
+			return c, fmt.Errorf("collective observation protocol mismatch")
 		}
 		for _, fact := range wb.Facts {
 			v, err := pointerValue(data, fact.Pointer)

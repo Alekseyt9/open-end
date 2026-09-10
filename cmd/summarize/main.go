@@ -163,6 +163,11 @@ func run(args []string, out io.Writer) error {
 				return err
 			}
 		}
+		if c := r.Summary.Collectives; c != nil {
+			if _, err := fmt.Fprintf(out, "Linked groups: mean %.2f; reference members alive: %d; reference groups together: %d; bonded transfer: %d; new daughter candidates: %d (%d productive)\n", c.MeanGroups, c.End.FoundersAlive, c.End.Intact, c.Shared, c.NewCandidates, c.NewProductive); err != nil {
+				return err
+			}
+		}
 	}
 	return nil
 }

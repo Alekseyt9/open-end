@@ -64,6 +64,29 @@ func TestCLICopyModelReplay(t *testing.T) {
 	}
 }
 
+func TestCLICollectiveObservationRequiresMetricsAndPreservesState(t *testing.T) {
+	dir := t.TempDir()
+	var plain, observed bytes.Buffer
+	base := []string{"-width", "8", "-height", "8", "-ticks", "100", "-every", "20"}
+	if err := run(base, &plain); err != nil {
+		t.Fatal(err)
+	}
+	if err := run(append(append([]string{}, base...), "-groups"), &observed); err == nil {
+		t.Fatal("missing metrics accepted")
+	}
+	observed.Reset()
+	if err := run(append(append([]string{}, base...), "-groups", "-group-age", "10", "-metrics", filepath.Join(dir, "groups.jsonl")), &observed); err != nil {
+		t.Fatal(err)
+	}
+	hash := func(b *bytes.Buffer) string { s := strings.Split(b.String(), "state_sha256="); return s[len(s)-1] }
+	if hash(&plain) != hash(&observed) {
+		t.Fatal("observation flags changed state")
+	}
+	if err := run([]string{"-groups", "-group-age", "0", "-metrics", filepath.Join(dir, "bad.jsonl")}, &observed); err == nil {
+		t.Fatal("zero group age accepted")
+	}
+}
+
 func TestCLIEnvironmentReplay(t *testing.T) {
 	path := filepath.Join(t.TempDir(), "environment.json")
 	var first, resumed, full bytes.Buffer

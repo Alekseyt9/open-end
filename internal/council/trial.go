@@ -178,6 +178,11 @@ func runBranch(round, out string, job trialJob, opts TrialOptions) (r TrialRow) 
 		return fail(fmt.Errorf("pending rule changes"))
 	}
 	tracker := observer.NewTracker(w)
+	if job.World.CollectiveAge > 0 {
+		if err := tracker.EnableCollectives(w, w, job.World.CollectiveAge); err != nil {
+			return fail(err)
+		}
+	}
 	frames := []observer.Metrics{tracker.Frame(w)}
 	if job.Module != nil {
 		if err := kernel.ReloadRules(w, job.Module); err != nil {

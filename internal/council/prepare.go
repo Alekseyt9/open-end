@@ -21,19 +21,21 @@ type Fact struct {
 	Value   json.RawMessage `json:"value"`
 }
 type WorldBrief struct {
-	Environment  string                `json:"environment,omitempty"`
-	CopyModel    string                `json:"copy_model,omitempty"`
-	ID           string                `json:"id"`
-	Case         string                `json:"case"`
-	Seed         uint64                `json:"seed"`
-	Tick         uint64                `json:"tick"`
-	MutationPPM  int                   `json:"mutation_ppm"`
-	SnapshotHash string                `json:"snapshot_sha256"`
-	MetricsHash  string                `json:"metrics_file_sha256"`
-	EvidenceHash string                `json:"evidence_file_sha256"`
-	Rules        observer.RuleIdentity `json:"active_rules"`
-	RuleSource   dsl.Document          `json:"active_rule_source"`
-	Facts        []Fact                `json:"facts"`
+	CollectiveAblation string                `json:"collective_ablation,omitempty"`
+	CollectiveAge      uint64                `json:"collective_age,omitempty"`
+	Environment        string                `json:"environment,omitempty"`
+	CopyModel          string                `json:"copy_model,omitempty"`
+	ID                 string                `json:"id"`
+	Case               string                `json:"case"`
+	Seed               uint64                `json:"seed"`
+	Tick               uint64                `json:"tick"`
+	MutationPPM        int                   `json:"mutation_ppm"`
+	SnapshotHash       string                `json:"snapshot_sha256"`
+	MetricsHash        string                `json:"metrics_file_sha256"`
+	EvidenceHash       string                `json:"evidence_file_sha256"`
+	Rules              observer.RuleIdentity `json:"active_rules"`
+	RuleSource         dsl.Document          `json:"active_rule_source"`
+	Facts              []Fact                `json:"facts"`
 }
 type Request struct {
 	Version     int          `json:"version"`
@@ -202,6 +204,10 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		wb := WorldBrief{ID: id, Case: row.Case, Seed: row.Seed, Tick: w.Tick, MutationPPM: w.Config.MutationPPM, SnapshotHash: kernel.Hash(w), MetricsHash: digest(data), EvidenceHash: digest(encoded), Rules: s.RulesEnd, RuleSource: builtinSource(), Facts: []Fact{}}
 		wb.CopyModel = w.Config.CopyModel
 		wb.Environment = w.Config.Environment
+		wb.CollectiveAblation = w.Config.CollectiveAblation
+		if s.Collectives != nil {
+			wb.CollectiveAge = s.Collectives.End.MinAge
+		}
 		if w.RuleState != nil && w.RuleState.Active != nil {
 			wb.RuleSource = w.RuleState.Active.Source
 		}
@@ -214,6 +220,11 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		if s.Environment != nil {
 			for _, field := range []string{"built", "emitted", "blocked_light", "attenuated_transfer", "terrain_at_end", "signal_energy_at_end"} {
 				paths = append(paths, "summary/environment/"+field)
+			}
+		}
+		if s.Collectives != nil {
+			for _, field := range []string{"mean_linked_groups", "bonded_transfer_energy", "new_daughter_candidates", "new_productive_daughter_candidates"} {
+				paths = append(paths, "summary/collectives/"+field)
 			}
 		}
 		for _, path := range paths {

@@ -48,6 +48,20 @@ class SolverParity(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("Warp does not support", result.stderr)
 
+    def test_collective_ablations_are_rejected(self):
+        fixture = self.fixture("ecology", 6, 1, 0)
+        for mode in ("bonds", "sharing", "signal-reading"):
+            fixture["initial"][0]["config"]["collective_ablation"] = mode
+            with self.assertRaisesRegex(ValueError, "collective ablations"):
+                Batch(fixture["initial"], self.device)
+            path = Path(self.tmp.name) / "collective.json"
+            path.write_text(json.dumps(fixture), encoding="utf-8")
+            result = subprocess.run([str(self.exe), "-input", str(path), "-ticks", "0",
+                                     "-output", str(Path(self.tmp.name) / "rejected-group.json")],
+                                    cwd=ROOT, capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("collective ablations", result.stderr)
+
     def test_environment_engineering_is_rejected(self):
         fixture = self.fixture("ecology", 6, 1, 0)
         fixture["initial"][0]["config"]["environment"] = "coupled"
