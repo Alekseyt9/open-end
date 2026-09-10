@@ -158,6 +158,11 @@ func run(args []string, out io.Writer) error {
 				return err
 			}
 		}
+		if s := r.Summary.Symbols; s != nil {
+			if _, err := fmt.Fprintf(out, "Symbols: %s; writes: %d; nonempty reads: %d; pair reads: %d; foreign reads: %d; contextual lookups: %d\n", s.Model, s.Writes, s.NonemptyReads, s.PairReads, s.ForeignReads, s.ContextLookups); err != nil {
+				return err
+			}
+		}
 		if e := r.Summary.Environment; e != nil {
 			if _, err := fmt.Fprintf(out, "Environment: %s; built: %d; emitted energy: %d; terrain at end: %d; blocked light: %d; attenuated transfers: %d\n", e.Model, e.Built, e.Emitted, e.Terrain, e.BlockedLight, e.AttenuatedTransfer); err != nil {
 				return err

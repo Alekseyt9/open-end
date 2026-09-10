@@ -24,11 +24,15 @@ const (
 	UNBIND
 	BUILD
 	EMIT
+	TOKEN
+	LISTEN
+	LOOKUP
 	OpcodeCount
 )
 
 const BaselineOpcodeCount = CONVERT
 const EcologyOpcodeCount = BUILD
+const EngineeringOpcodeCount = TOKEN
 
 type Instruction struct {
 	Op Opcode `json:"op"`

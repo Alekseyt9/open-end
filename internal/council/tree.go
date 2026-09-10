@@ -22,6 +22,7 @@ type TreeNode struct {
 	Worlds     []TreeWorld `json:"worlds"`
 }
 type TreeWorld struct {
+	Symbols                string  `json:"symbols,omitempty"`
 	CollectiveAblation     string  `json:"collective_ablation,omitempty"`
 	CollectiveAge          uint64  `json:"collective_age,omitempty"`
 	Environment            string  `json:"environment,omitempty"`
@@ -128,6 +129,7 @@ func commitNode(dir, id, parent, variant, run string, generation int, r Request)
 func treeWorld(w WorldBrief, e Evidence) TreeWorld {
 	r := TreeWorld{ID: w.ID, Case: w.Case, Seed: w.Seed, From: e.Summary.FromTick, Tick: w.Tick, Population: e.Summary.Population.End, Diversity: e.Summary.DiversityEnd.EffectiveGenomes, Largest: e.Summary.StructuresEnd.Largest, Copies: e.Summary.Copies, Status: e.Dynamics.Status, SnapshotHash: w.SnapshotHash, RulesHash: w.Rules.Hash}
 	r.CollectiveAblation = w.CollectiveAblation
+	r.Symbols = w.Symbols
 	if e.Summary.Collectives != nil {
 		r.CollectiveAge = e.Summary.Collectives.End.MinAge
 	}

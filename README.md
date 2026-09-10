@@ -47,6 +47,7 @@ The longer-term idea is to expand the set of mechanisms evolution can use. An ex
 | Environmental engineering | Matter-funded terrain, energy-funded signals, local feedback, field inspector, matched interventions | New niches and adaptive engineering remain unproven |
 | Collective observation | Per-tick bond membership, founder ancestry, daughter candidates, matched ablations | Whole-group reproduction and obligatory specialization remain unproven |
 | Entity discovery | Bond, reciprocal-transfer and copying-ancestry candidates; containment DAG; subsequent-interval checks | Descriptive boundaries; causal coordination and higher-level individuality remain unmeasured |
+| Causal analysis | Whole-seed forecast evaluation, random grouping controls, local and matched outside bond cuts | Local effects are measurable; a predictive macro advantage and causal emergence are not established |
 | GPU execution | Warp physics with exact differential checks | No full genome/origin history on GPU |
 
 Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. Stage 9 adds a novelty archive and Pareto selection using measured proxies. Stage 10 implements inherited copying strategies; their persistent diversity remains an open experimental criterion. Stage 11 implements environmental engineering and matched causal interventions; new niches remain unproven. Stage 12 adds collective observation and matched ablations; whole-group reproduction remains unproven. Stage 13 proposes entity boundaries and their containment hierarchy, with subsequent-interval activity checks; higher-level individuality remains unproven.
@@ -254,6 +255,7 @@ Archive selection uses novelty distance, effective genome diversity, bonded stru
 | [Novelty archive](experiments/archive/REPORT.md) | Both recommended directions continued; 7 cohorts and two immutable archive decisions | Tradeoffs and rare-cell retention work as research heuristics |
 | [Collective ablations](experiments/collectives/REPORT.md) | 32 matched continuations × 20,000 ticks in 24.94 s; 747/1,022 initial group members survived intact versus 17 without bonds | Bonds affected survival; no qualifying daughter group was observed |
 | [Entity discovery](experiments/entities/REPORT.md) | 32 exact replays in 24.78 s; 83 persistent bond boundaries at the intact endpoints; no reciprocal-transfer candidate | Candidate containment is measurable; causal coordination and higher-level individuality remain unproven |
+| [Predictive and causal analysis](experiments/causal/REPORT.md) | Local cuts harmed survival in 34/83 groups; macro forecast MSE 0.013069 versus micro 0.012424 | Internal bonds can matter without the aggregate description predicting better |
 
 These are recorded results for specific configurations and horizons, not general performance or OEE guarantees.
 
@@ -282,7 +284,7 @@ Preparation and state extraction brought the 256-world GPU run to about 19 secon
 | 11 | Implemented mechanics: environmental engineering and matched feedback tests; new niches remain unproven |
 | 12 | Implemented observation and ablations: linked group survival, ancestry, and daughter candidates; whole-group reproduction remains unproven |
 | 13 | Implemented candidate discovery: multiple boundary hypotheses, containment and overlap, prospective activity checks |
-| 14 | Causal emergence analysis and predictive validation of proposed macro descriptions |
+| 14 | Implemented predictive and intervention harness; local bond effects observed, no predictive macro advantage established |
 | 15–18 | Symbols, cultural inheritance, persistent artifacts, and technology-like construction |
 | 19–21 | Internal VMs, recursive evolution, and long-horizon OEE experiments |
 
@@ -309,6 +311,7 @@ The test suite covers deterministic replay, resource conservation, mutation and 
 - [Environmental coevolution](docs/environment.md): terrain, signals, sensing, conservation, and matched feedback interventions; [experiment results](experiments/environment/REPORT.md).
 - [Proto-multicellularity](docs/collectives.md): group continuity, ancestry, daughter criteria, ablations, and limits; [32-world experiment](experiments/collectives/REPORT.md).
 - [Entity discovery](docs/entities.md): candidate boundaries, inclusion hierarchy, and subsequent-interval evidence; [32 verified replays](experiments/entities/REPORT.md).
+- [Predictive and causal analysis](docs/causal.md): whole-seed evaluation, model/control definitions, local bond interventions, and limitations; [83-group experiment](experiments/causal/REPORT.md).
 - [Research plan](open_ended_evolution_ai_world_plan.md): full concept and staged research program.
 - [Warp backend](warp-sim/README.md): setup, execution, benchmarks, and parity checks.
 - [Ecology results](experiments/ecology/RESULTS.md), [DSL validation](experiments/dsl/SMOKE.md), and [telemetry validation](experiments/telemetry/REPORT.md).

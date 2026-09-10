@@ -280,6 +280,14 @@ go run ./cmd/discover -input data/collectives-stage12 -source data/environment-s
 
 The command replays a completed group assay, verifies every final physical hash, and records bond, reciprocal-transfer, and copying-ancestry candidates. Exact member-set containment forms a DAG; overlaps remain separate alternatives. Following-interval activity evaluates frozen member IDs independently of the interval used for discovery. The outputs are analysis JSON, not physical snapshots or ordinary telemetry. [Protocol and limitations](entities.md) · [Verified replay results](../experiments/entities/REPORT.md). Information closure, causal coordination, and higher-level individuality remain unmeasured or unproven. UI work is deferred.
 
+## Stage 14: predictive and causal analysis
+
+```powershell
+go run ./cmd/causal -input data/entities-stage13-verified -snapshots data/collectives-stage12 -out data/causal -workers 16 -horizon 1000 -blocks 5 -permutations 3 -ridge 0.01
+```
+
+The command selects persistent intact bond components from verified discovery evidence. It evaluates future original-member survival with held-out seeds, limited particle/group predictors, and randomized grouping controls. Independent one-time local and equal-count outside bond removals test survival effects while allowing subsequent rebinding. Sources and world RNGs are preserved; analysis records hashes, features, predictions, exact cuts, and matched outcomes. [Protocol](causal.md) · [Experiment](../experiments/causal/REPORT.md). A local bond effect is not equivalent to a predictive macro advantage or causal emergence. UI work is deferred.
+
 ## Experimental Warp solver
 
 [warp-sim](../warp-sim/README.md) implements a GPU physics backend: all 17 opcodes, mutations, resource transport, bonds, both RNGs, and scheduled DSL transitions. It accepts validated Go snapshots and computes independent worlds on GPU. Genome and origin histories remain a Go feature; Warp outputs a physical report incompatible with `cmd/sim -load`.

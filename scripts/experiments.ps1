@@ -4,7 +4,7 @@ param(
     [ValidateRange(1, 2147483647)][int]$Every = 10000,
     [ValidateRange(1, 256)][int]$Workers = 16,
     [int[]]$Seeds = @(1, 7, 42),
-    [ValidateSet('control', 'transport', 'transport-no-mutation', 'ecology', 'ecology-no-mutation', 'ecology-no-chemical-diffusion', 'evolvability', 'evolvability-fixed', 'evolvability-no-mutation', 'environment', 'environment-inert', 'environment-no-mutation')]
+    [ValidateSet('control', 'transport', 'transport-no-mutation', 'ecology', 'ecology-no-mutation', 'ecology-no-chemical-diffusion', 'evolvability', 'evolvability-fixed', 'evolvability-no-mutation', 'environment', 'environment-inert', 'environment-no-mutation', 'symbols', 'symbols-scrambled', 'symbols-unreadable', 'symbols-no-mutation')]
     [string[]]$Cases = @('control', 'transport', 'transport-no-mutation', 'ecology')
 )
 
@@ -21,6 +21,10 @@ if (Test-Path -LiteralPath $experimentRoot) { throw "Output directory already ex
 New-Item -ItemType Directory -Path $experimentRoot | Out-Null
 
 $definitions = @{
+    'symbols' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-environment', 'coupled', '-symbols', 'persistent') }
+    'symbols-scrambled' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-environment', 'coupled', '-symbols', 'scrambled') }
+    'symbols-unreadable' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-environment', 'coupled', '-symbols', 'unreadable') }
+    'symbols-no-mutation' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-environment', 'coupled', '-symbols', 'persistent', '-mutation-ppm', '0') }
     'environment' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-environment', 'coupled') }
     'environment-inert' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-environment', 'inert') }
     'environment-no-mutation' = @{ Size = 32; Extra = @('-ecology', '-matter-diffusion', '4', '-chemical-diffusion', '4', '-copy-model', 'evolving', '-environment', 'coupled', '-mutation-ppm', '0') }

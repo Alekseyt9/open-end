@@ -26,6 +26,7 @@ type Config struct {
 	CopyModel          string `json:"copy_model,omitempty"`
 	Environment        string `json:"environment,omitempty"`
 	CollectiveAblation string `json:"collective_ablation,omitempty"`
+	Symbols            string `json:"symbols,omitempty"`
 }
 
 func DefaultConfig() Config {
@@ -35,6 +36,12 @@ func DefaultConfig() Config {
 }
 
 func (c Config) Validate() error {
+	if c.Symbols != "" && c.Symbols != "persistent" && c.Symbols != "scrambled" && c.Symbols != "unreadable" {
+		return fmt.Errorf("symbols must be empty, persistent, scrambled, or unreadable")
+	}
+	if c.Symbols != "" && c.Environment == "" {
+		return fmt.Errorf("symbols require environment engineering")
+	}
 	if c.CollectiveAblation != "" && c.CollectiveAblation != "bonds" && c.CollectiveAblation != "sharing" && c.CollectiveAblation != "signal-reading" {
 		return fmt.Errorf("invalid collective ablation")
 	}
@@ -78,6 +85,7 @@ func (c Config) Validate() error {
 }
 
 type Cell struct {
+	Word     *Word  `json:"word,omitempty"`
 	Terrain  int    `json:"terrain,omitempty"`
 	Signal   int    `json:"signal,omitempty"`
 	Energy   int    `json:"energy"`
@@ -175,6 +183,7 @@ type World struct {
 	RuleState    *dsl.State                       `json:"rule_state,omitempty"`
 	Variation    map[string]*evolution.CopyRecord `json:"variation,omitempty"`
 	Environment  *EnvironmentState                `json:"environment,omitempty"`
+	Symbols      *SymbolState                     `json:"symbols,omitempty"`
 }
 
 func New(c Config) (*World, error) {
@@ -185,6 +194,9 @@ func New(c Config) (*World, error) {
 		Cells: make([]Cell, c.Width*c.Height), Particles: make(map[uint64]*Particle), Origins: make(map[string]*Origin)}
 	w.TransportRNG = evolution.RNG{State: c.Seed ^ 0x6a09e667f3bcc909}
 	w.Genomes = make(map[string]*GenomeRecord)
+	if c.Symbols != "" {
+		w.Symbols = &SymbolState{}
+	}
 	if c.Environment != "" {
 		w.Environment = &EnvironmentState{}
 	}
@@ -298,6 +310,9 @@ func (w *World) Unlink(id uint64) {
 }
 
 func (w *World) Validate() error {
+	if err := w.ValidateSymbols(); err != nil {
+		return err
+	}
 	if w.Config.CollectiveAblation == "bonds" && len(w.Relations) > 0 {
 		return fmt.Errorf("bonds present in bond ablation")
 	}
@@ -353,7 +368,7 @@ func (w *World) Validate() error {
 			}
 		}
 		for _, i := range p.Code {
-			if i.Op >= vm.OpcodeCount || w.Config.Environment == "" && i.Op >= vm.EcologyOpcodeCount {
+			if !w.Config.AllowsOpcode(i.Op) {
 				return fmt.Errorf("invalid opcode for %d", id)
 			}
 		}
@@ -366,7 +381,7 @@ func (w *World) Validate() error {
 			return fmt.Errorf("invalid genome record")
 		}
 		for _, i := range r.Code {
-			if i.Op >= vm.OpcodeCount || w.Config.Environment == "" && i.Op >= vm.EcologyOpcodeCount {
+			if !w.Config.AllowsOpcode(i.Op) {
 				return fmt.Errorf("invalid archived opcode")
 			}
 		}

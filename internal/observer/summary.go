@@ -28,6 +28,7 @@ type Behavior struct {
 	Converted    [2]int64 `json:"converted_by_id"`
 }
 type WindowSummary struct {
+	Symbols         *SymbolWindow      `json:"symbols,omitempty"`
 	Collectives     *CollectiveSummary `json:"collectives,omitempty"`
 	Environment     *EnvironmentWindow `json:"environment,omitempty"`
 	Variation       *VariationWindow   `json:"variation,omitempty"`
@@ -97,6 +98,11 @@ func Summarize(frames []Metrics, requested uint64) (WindowSummary, error) {
 		return r, err
 	}
 	r.Environment = environment
+	symbols, err := summarizeSymbols(frames)
+	if err != nil {
+		return r, err
+	}
+	r.Symbols = symbols
 	collectives, err := summarizeCollectives(frames)
 	if err != nil {
 		return r, err

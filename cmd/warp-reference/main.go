@@ -185,6 +185,9 @@ func run() error {
 		}
 	}
 	for _, w := range worlds {
+		if w != nil && w.Config.Symbols != "" {
+			return fmt.Errorf("Warp does not support symbol inscriptions; use the Go simulator")
+		}
 		if w != nil && w.Config.CollectiveAblation != "" {
 			return fmt.Errorf("Warp does not support collective ablations; use Go")
 		}

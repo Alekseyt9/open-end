@@ -12,9 +12,11 @@ import (
 const Version = "ecology-2"
 
 type Event struct {
-	Actor  uint64
-	Intent vm.Intent
-	Sensed int
+	Actor       uint64
+	Intent      vm.Intent
+	Sensed      int
+	WordLength  int
+	ForeignWord bool
 }
 
 // Evaluate reads the tick-start view and emits an intent, without writing state.
@@ -45,7 +47,11 @@ func Evaluate(w *world.World, p *world.Particle) Event {
 	if w.Config.CollectiveAblation == "signal-reading" && (intent.A == 7 || intent.A >= 12 && intent.A <= 15) {
 		sensed = 0
 	}
-	return Event{Actor: p.ID, Intent: intent, Sensed: sensed}
+	e := Event{Actor: p.ID, Intent: intent, Sensed: sensed}
+	if intent.Op == vm.LISTEN && w.Symbols != nil {
+		e.Sensed, e.WordLength, e.ForeignWord = readWord(w, p, intent.A)
+	}
+	return e
 }
 
 // Resolve validates each intent against the state left by earlier resolutions.
@@ -70,7 +76,7 @@ func ResolveObserved(w *world.World, e Event, sink Observer) {
 		cost = 8
 	case vm.BUILD:
 		cost = 4
-	case vm.EMIT:
+	case vm.EMIT, vm.TOKEN:
 		cost = 2
 	case vm.CONVERT:
 		if w.Config.Ecology && w.RuleState != nil {
@@ -94,6 +100,13 @@ func ResolveObserved(w *world.World, e Event, sink Observer) {
 }
 
 func Inflow(w *world.World) {
+	if w.Symbols != nil {
+		for j := range w.Cells {
+			if x := w.Cells[j].Word; x != nil && x.Expires <= w.Tick {
+				w.Cells[j].Word = nil
+			}
+		}
+	}
 	if w.Environment != nil {
 		environmentStep(w)
 	}
@@ -273,6 +286,9 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 			ops = int(vm.EcologyOpcodeCount)
 		}
 		if w.Config.Environment != "" {
+			ops = int(vm.EngineeringOpcodeCount)
+		}
+		if w.Config.Symbols != "" {
 			ops = int(vm.OpcodeCount)
 		}
 		if w.Config.CopyModel == "" {
@@ -311,6 +327,10 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 	case vm.BUILD:
 		if w.Environment != nil {
 			build(w, p, i.A, i.B)
+		}
+	case vm.TOKEN, vm.LISTEN, vm.LOOKUP:
+		if w.Symbols != nil {
+			applySymbol(w, p, e)
 		}
 	case vm.EMIT:
 		if w.Environment != nil {

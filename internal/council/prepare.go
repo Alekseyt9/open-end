@@ -21,6 +21,7 @@ type Fact struct {
 	Value   json.RawMessage `json:"value"`
 }
 type WorldBrief struct {
+	Symbols            string                `json:"symbols,omitempty"`
 	CollectiveAblation string                `json:"collective_ablation,omitempty"`
 	CollectiveAge      uint64                `json:"collective_age,omitempty"`
 	Environment        string                `json:"environment,omitempty"`
@@ -204,6 +205,7 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		wb := WorldBrief{ID: id, Case: row.Case, Seed: row.Seed, Tick: w.Tick, MutationPPM: w.Config.MutationPPM, SnapshotHash: kernel.Hash(w), MetricsHash: digest(data), EvidenceHash: digest(encoded), Rules: s.RulesEnd, RuleSource: builtinSource(), Facts: []Fact{}}
 		wb.CopyModel = w.Config.CopyModel
 		wb.Environment = w.Config.Environment
+		wb.Symbols = w.Config.Symbols
 		wb.CollectiveAblation = w.Config.CollectiveAblation
 		if s.Collectives != nil {
 			wb.CollectiveAge = s.Collectives.End.MinAge
@@ -225,6 +227,11 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		if s.Collectives != nil {
 			for _, field := range []string{"mean_linked_groups", "bonded_transfer_energy", "new_daughter_candidates", "new_productive_daughter_candidates"} {
 				paths = append(paths, "summary/collectives/"+field)
+			}
+		}
+		if s.Symbols != nil {
+			for _, field := range []string{"writes", "nonempty_reads", "pair_reads", "foreign_reads", "context_lookups"} {
+				paths = append(paths, "summary/symbols/"+field)
 			}
 		}
 		for _, path := range paths {

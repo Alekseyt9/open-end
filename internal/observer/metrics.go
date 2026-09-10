@@ -14,6 +14,7 @@ type Lineage struct {
 }
 
 type Metrics struct {
+	Symbols             *SymbolMetrics         `json:"symbols,omitempty"`
 	Environment         *EnvironmentMetrics    `json:"environment,omitempty"`
 	CopyModel           string                 `json:"copy_model,omitempty"`
 	Variation           []evolution.CopyRecord `json:"variation,omitempty"`
@@ -100,6 +101,7 @@ func Observe(w *world.World) Metrics {
 	r.Converted = a.Converted
 	r.CopyModel = w.Config.CopyModel
 	r.Environment = observeEnvironment(w)
+	r.Symbols = observeSymbols(w)
 	for _, record := range w.Variation {
 		copy := *record
 		copy.Donors = maps.Clone(record.Donors)
