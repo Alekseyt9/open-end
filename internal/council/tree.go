@@ -22,18 +22,21 @@ type TreeNode struct {
 	Worlds     []TreeWorld `json:"worlds"`
 }
 type TreeWorld struct {
-	ID           string  `json:"id"`
-	Case         string  `json:"case"`
-	Seed         uint64  `json:"seed"`
-	From         uint64  `json:"from_tick"`
-	Tick         uint64  `json:"tick"`
-	Population   int64   `json:"population"`
-	Diversity    float64 `json:"diversity"`
-	Largest      int     `json:"largest_structure"`
-	Copies       uint64  `json:"copies"`
-	Status       string  `json:"status"`
-	SnapshotHash string  `json:"snapshot_sha256"`
-	RulesHash    string  `json:"rules_sha256"`
+	CopyModel              string  `json:"copy_model,omitempty"`
+	CopyPolicies           int     `json:"copy_policies,omitempty"`
+	PersistentCopyPolicies int     `json:"persistent_copy_policies,omitempty"`
+	ID                     string  `json:"id"`
+	Case                   string  `json:"case"`
+	Seed                   uint64  `json:"seed"`
+	From                   uint64  `json:"from_tick"`
+	Tick                   uint64  `json:"tick"`
+	Population             int64   `json:"population"`
+	Diversity              float64 `json:"diversity"`
+	Largest                int     `json:"largest_structure"`
+	Copies                 uint64  `json:"copies"`
+	Status                 string  `json:"status"`
+	SnapshotHash           string  `json:"snapshot_sha256"`
+	RulesHash              string  `json:"rules_sha256"`
 }
 type TreeRun struct {
 	ID       string       `json:"id"`
@@ -120,7 +123,13 @@ func commitNode(dir, id, parent, variant, run string, generation int, r Request)
 }
 
 func treeWorld(w WorldBrief, e Evidence) TreeWorld {
-	return TreeWorld{ID: w.ID, Case: w.Case, Seed: w.Seed, From: e.Summary.FromTick, Tick: w.Tick, Population: e.Summary.Population.End, Diversity: e.Summary.DiversityEnd.EffectiveGenomes, Largest: e.Summary.StructuresEnd.Largest, Copies: e.Summary.Copies, Status: e.Dynamics.Status, SnapshotHash: w.SnapshotHash, RulesHash: w.Rules.Hash}
+	r := TreeWorld{ID: w.ID, Case: w.Case, Seed: w.Seed, From: e.Summary.FromTick, Tick: w.Tick, Population: e.Summary.Population.End, Diversity: e.Summary.DiversityEnd.EffectiveGenomes, Largest: e.Summary.StructuresEnd.Largest, Copies: e.Summary.Copies, Status: e.Dynamics.Status, SnapshotHash: w.SnapshotHash, RulesHash: w.Rules.Hash}
+	if v := e.Summary.Variation; v != nil {
+		r.CopyModel = v.Model
+		r.CopyPolicies = v.CodePolicies
+		r.PersistentCopyPolicies = v.PersistentCodePolicies
+	}
+	return r
 }
 
 // InitTree freezes the source evidence and snapshots. Moving or deleting the

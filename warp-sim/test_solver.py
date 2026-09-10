@@ -34,6 +34,20 @@ class SolverParity(unittest.TestCase):
         batch.run(6, chunk=3)
         compare(batch.project(), fixture["final"])
 
+    def test_encoded_copy_model_is_rejected(self):
+        fixture = self.fixture("baseline", 6, 1, 0)
+        for model in ("fixed", "evolving"):
+            fixture["initial"][0]["config"]["copy_model"] = model
+            with self.assertRaisesRegex(ValueError, "copy policies"):
+                Batch(fixture["initial"], self.device)
+            path = Path(self.tmp.name) / "encoded.json"
+            path.write_text(json.dumps(fixture), encoding="utf-8")
+            result = subprocess.run([str(self.exe), "-input", str(path), "-ticks", "0",
+                                     "-output", str(Path(self.tmp.name) / "rejected.json")],
+                                    cwd=ROOT, capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("Warp does not support", result.stderr)
+
     def test_baseline_and_mutating_ecology(self):
         for scenario in ("baseline", "mutation"):
             with self.subTest(scenario=scenario):

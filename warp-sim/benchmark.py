@@ -37,6 +37,8 @@ class Batch:
     def __init__(self, worlds: list[dict], device: str):
         if not worlds:
             raise ValueError("empty batch")
+        if any(w["config"].get("copy_model") for w in worlds):
+            raise ValueError("Warp does not support encoded copy policies; use the Go simulator")
         self.initial = copy.deepcopy(worlds)
         self.device = device
         self.count = len(worlds)

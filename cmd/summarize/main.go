@@ -153,6 +153,11 @@ func run(args []string, out io.Writer) error {
 				}
 			}
 		}
+		if v := r.Summary.Variation; v != nil {
+			if _, err := fmt.Fprintf(out, "Copy model: %s; code policies: %d (%d persistent); memory policies: %d; copies: %d; changed code: %d; recombinations: %d\n", v.Model, v.CodePolicies, v.PersistentCodePolicies, v.MemoryPolicies, v.CodeCopies, v.ChangedCode, v.Recombined); err != nil {
+				return err
+			}
+		}
 	}
 	return nil
 }

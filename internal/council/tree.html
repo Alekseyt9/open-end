@@ -91,6 +91,10 @@ function details(n){
  ['Artifacts',n.run?model.Directory+'/runs/'+n.run+'/'+n.parent:model.Directory+'/nodes/'+n.id+'/round']
  ];
  for(const [title,value] of parts){const d=element('div',undefined,'detail');d.append(element('strong',title),element('p',value));$('details').append(d)}
+ const variation=n.worlds.filter(w=>w.copy_model);
+ if(variation.length){const d=element('div',undefined,'detail');d.append(element('strong','Inherited copying strategies'),element('p','Persistent: at least 5 individuals at every sample, with a successful copy in every interval. Policies are counted by decoded behavior.'));
+  const table=element('table'),head=element('tr');['World / model','Expressed policies','Persistent policies'].forEach(s=>head.append(element('th',s)));table.append(head);
+  for(const w of variation){const row=element('tr');[w.case+' · seed '+w.seed+' / '+w.copy_model,w.copy_policies||0,w.persistent_copy_policies||0].forEach(s=>row.append(element('td',s)));table.append(row)}d.append(table);$('details').append(d)}
  const point=pointMap.get(n.id);
  if(point){const d=element('div',undefined,'detail');d.append(element('strong','Archive decision'+(model.ArchiveStale?' (outdated)':'')),element('p',point.reasons.join('; ')||'Preserved historical evidence.'),element('p','Novelty references: '+(point.novelty_reference_nodes.join(', ')||'not available')));$('details').append(d)}
 }
