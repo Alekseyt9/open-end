@@ -1,55 +1,55 @@
-# Этап 4: событийная телеметрия
+# Stage 4: event telemetry
 
-2026-09-10. **Критерий этапа 4 реализован:** команда `cmd/summarize` автоматически описывает последние N тиков по проверенным журналам. Исполнение мира и наблюдение разделены; физические хеши и воспроизводимость сохранены.
+2026-09-10. **The Stage 4 criterion is implemented:** `cmd/summarize` automatically describes the last N ticks from validated logs. World execution and observation are separate; physical hashes and reproducibility are preserved.
 
-## Проверка на реальных мирах
+## Validation on actual worlds
 
-16 seed (1–16), 16 рабочих процессов, сетка 32×32, стандартные мутации 1%, перенос материи и химии каждые 4 тика. Каждый мир прошёл 20 000 тиков, запись каждые 1000. Полная проверочная серия заняла 14,99 секунды, включая runner и запись результатов; это не отдельный бенчмарк накладных расходов телеметрии. Окно анализа — тики 10 000–20 000, 11 кадров на мир.
+16 seeds (1–16), 16 workers, 32×32 grids, standard 1% mutations, and matter and chemical transport every 4 ticks. Each world ran for 20,000 ticks, with records every 1000 ticks. The full validation series took 14.99 seconds, including the runner and writing results; this is not a separate telemetry overhead benchmark. The analysis window is ticks 10,000–20,000, with 11 frames per world.
 
-| Seed | Частиц в конце | Геномов в конце | Эффективное разнообразие | Новых геномов за окно | Средняя жизнь умерших, тики | Крупнейшая структура на кадрах |
+| Seed | Final particles | Final genomes | Effective diversity | New genomes in window | Mean completed lifetime, ticks | Largest structure in sampled frames |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | 666 | 14 | 2,77 | 75 | 346,13 | 379 |
-| 2 | 632 | 31 | 4,23 | 99 | 470,50 | 16 |
-| 3 | 661 | 28 | 3,41 | 71 | 548,67 | 85 |
-| 4 | 651 | 29 | 2,48 | 76 | 496,97 | 1 |
-| 5 | 620 | 37 | 4,47 | 109 | 395,37 | 3 |
-| 6 | 615 | 38 | 4,55 | 112 | 403,55 | 1 |
-| 7 | 628 | 17 | 4,55 | 96 | 377,94 | 22 |
-| 8 | 643 | 22 | 1,59 | 118 | 278,91 | 1 |
-| 9 | 669 | 31 | 6,13 | 96 | 370,82 | 1 |
-| 10 | 636 | 30 | 2,63 | 95 | 448,02 | 1 |
-| 11 | 620 | 29 | 1,64 | 70 | 360,48 | 1 |
-| 12 | 628 | 29 | 7,05 | 145 | 297,52 | 205 |
-| 13 | 634 | 24 | 2,28 | 115 | 279,45 | 3 |
-| 14 | 601 | 27 | 3,11 | 113 | 382,25 | 2 |
-| 15 | 636 | 22 | 3,22 | 119 | 330,59 | 2 |
-| 16 | 621 | 18 | 1,64 | 84 | 391,33 | 1 |
+| 1 | 666 | 14 | 2.77 | 75 | 346.13 | 379 |
+| 2 | 632 | 31 | 4.23 | 99 | 470.50 | 16 |
+| 3 | 661 | 28 | 3.41 | 71 | 548.67 | 85 |
+| 4 | 651 | 29 | 2.48 | 76 | 496.97 | 1 |
+| 5 | 620 | 37 | 4.47 | 109 | 395.37 | 3 |
+| 6 | 615 | 38 | 4.55 | 112 | 403.55 | 1 |
+| 7 | 628 | 17 | 4.55 | 96 | 377.94 | 22 |
+| 8 | 643 | 22 | 1.59 | 118 | 278.91 | 1 |
+| 9 | 669 | 31 | 6.13 | 96 | 370.82 | 1 |
+| 10 | 636 | 30 | 2.63 | 95 | 448.02 | 1 |
+| 11 | 620 | 29 | 1.64 | 70 | 360.48 | 1 |
+| 12 | 628 | 29 | 7.05 | 145 | 297.52 | 205 |
+| 13 | 634 | 24 | 2.28 | 115 | 279.45 | 3 |
+| 14 | 601 | 27 | 3.11 | 113 | 382.25 | 2 |
+| 15 | 636 | 22 | 3.22 | 119 | 330.59 | 2 |
+| 16 | 621 | 18 | 1.64 | 84 | 391.33 | 1 |
 
-Число новых геномов относится ко всем успешным копированиям с впервые встреченным кодом, включая варианты, исчезнувшие до следующего кадра. Оно не означает адаптивность этих изменений. Жизнь умерших и возраст живых — разные величины; компонента размера 1 обозначает отсутствие связанной структуры на соответствующих кадрах.
+The new-genome count includes all successful copies with previously unseen code, including variants that disappear before the next frame. It does not imply that these changes are adaptive. Completed lifetimes and the ages of living particles are different quantities; a component of size 1 indicates the absence of a bonded structure in the corresponding frames.
 
-## Пример объяснения: seed 1
+## Example explanation: seed 1
 
-Команда обнаружила рост популяции **636 → 666**, одновременно со снижением эффективного разнообразия **5,08 → 2,77**. За окно выполнено 9287 копирований кода и зарегистрировано 9269 смертей частиц. Копирование кода не равнозначно выделению новой частицы, поэтому разность копирований и смертей не обязана совпадать с изменением численности.
+The command detected population growth from **636 → 666**, alongside a decline in effective diversity from **5.08 → 2.77**. The window contains 9287 code copies and 9269 particle deaths. Copying code is not equivalent to allocating a new particle, so copies minus deaths need not equal the population change.
 
-В конце доминирует `05b26b88…`: 472 частицы, 71,2% исполняемых частиц; за окно эта линия выполнила 4831 копирование, 5240 перемещений и создала 4832 связи. В конце 41 связанная структура объединяет 490 частиц; крупнейшая наблюдавшаяся компонента за окно — 379 частиц. Одна конечная компонента содержит несколько геномов.
+The final dominant genome is `05b26b88…`: 472 particles, or 71.2% of executable particles; during the window this lineage performed 4831 copies, 5240 moves, and 4832 bonding actions. At the end, 41 bonded structures contain 490 particles; the largest component observed during the window has 379 particles. One final component contains multiple genomes.
 
-Среднее полное время жизни частиц, умерших в окне, — 346,13 тика; возраст живых на конечном кадре имеет P50=6170 и P90=16 269. Таким образом, редкие снимки живых частиц сами по себе сильно исказили бы описание завершённых жизней.
+The mean full lifetime of particles that died during the window is 346.13 ticks; final living-particle ages have P50=6170 and P90=16,269. Sparse snapshots of living particles alone would therefore substantially distort the description of completed lifetimes.
 
-Поступило 16 640 000 энергии, рассеяно 16 639 092; запас увеличился на 908. Через TRANSFER передано 339 472, в стартовые резервы ALLOCATE — 111 588. Зафиксировано 181 046 отказов из-за отсутствия места и 29 363 из-за отсутствия материи. Это прямые счётчики причин отказа инструкций, а не предположение о причинности общего изменения популяции.
+Energy inflow was 16,640,000 and dissipation was 16,639,092; stored energy increased by 908. TRANSFER moved 339,472 energy units, and ALLOCATE assigned 111,588 to startup reserves. There were 181,046 failures due to lack of space and 29,363 due to lack of matter. These are direct counters of instruction failure reasons, not a causal explanation of the overall population change.
 
-Полные автоматически сформированные объяснения всех 16 миров: [window-summary.txt](window-summary.txt). Машинный результат с графами, гистограммами, открытиями и активностью геномов: [window-summary.json](window-summary.json).
+English translations of the complete automatically generated explanations for all 16 worlds: [window-summary.txt](window-summary.txt). Machine-readable results with graphs, histograms, discoveries, and genome activity: [window-summary.json](window-summary.json).
 
-## Проверки корректности
+## Correctness checks
 
-- В тесте одинаковые миры с включённым и выключенным наблюдателем дают один `kernel.Hash`; смена частоты кадров и возобновление из снимка не меняют траекторию.
-- Итоговые хеши всех 16 миров совпали с предыдущей проверочной серией после уточнения формата наблюдений.
-- Завершённые жизни включают частицы, родившиеся/умершие между кадрами; живые учитываются отдельно как цензурированные наблюдения.
-- Потоки TRANSFER/TAKE/ALLOCATE и число COPY сходятся с глобальными счётчиками; для каждого генома начальная численность + получения кода − смерти равна конечной численности.
-- Пропуски кадров, смешанные идентификаторы миров, старые метрики без событий, потерянные рёбра и неверные количества смертей отклоняются.
-- Сценарий DSL со сменой на тике 500 и откатом на 1000 сохранил прежний физический SHA-256 `fae07fd94bd6a8b6418637227ada4fff6e16a06daffbbc72dd03bb898f4ac6a2`. Сводка окна 500–2000 фиксирует обе смены и использование каждого модуля, хотя начальный и конечный модули одинаковы. [DSL-сводка](dsl-summary.json).
-- Все Go-тесты, `go vet`, сборка и шесть дифференциальных Warp-тестов проходят. Новая событийная телеметрия пока реализована в Go; Warp-проверки подтверждают сохранение физической семантики.
+- Tests produce the same `kernel.Hash` for identical worlds with observation enabled or disabled; changing frame frequency or resuming from a snapshot does not change the trajectory.
+- Final hashes for all 16 worlds match the previous validation series after the observation format was refined.
+- Completed lifetimes include particles born and killed between frames; living particles are recorded separately as censored observations.
+- TRANSFER/TAKE/ALLOCATE flows and COPY counts reconcile with global counters; for every genome, initial population + code acquisitions − deaths equals final population.
+- Missing frames, mixed world identities, legacy metrics without events, missing edges, and incorrect death counts are rejected.
+- The DSL scenario with a change at tick 500 and rollback at tick 1000 retained the previous physical SHA-256 `fae07fd94bd6a8b6418637227ada4fff6e16a06daffbbc72dd03bb898f4ac6a2`. The 500–2000 window summary records both changes and usage of each module, although the initial and final modules are identical. [DSL summary](dsl-summary.json).
+- All Go tests, `go vet`, compilation, and six Warp differential tests pass. The new event telemetry is currently implemented in Go; Warp checks confirm that physical semantics are preserved.
 
-## Воспроизведение
+## Reproduction
 
 ```powershell
 ./scripts/experiments.ps1 -Workers 16 -Seeds (1..16) -Cases ecology -Ticks 20000 -Every 1000 -OutputDirectory data/telemetry-repeat
@@ -57,6 +57,6 @@ go run ./cmd/summarize -input data/telemetry-repeat -window 10000
 go run ./cmd/summarize -input data/telemetry-repeat -window 10000 -format json > data/telemetry-repeat/window-summary.json
 ```
 
-[manifest.json](manifest.json) содержит параметры, время серии и SHA-256 бинарника. [summary.json](summary.json) содержит физические хеши конечных миров. Исходные JSONL и снимки этой серии находятся локально в `data/telemetry-stage4-verified/`, вне Git.
+[manifest.json](manifest.json) contains parameters, series duration, and the binary SHA-256. [summary.json](summary.json) contains the final worlds' physical hashes. Raw JSONL and snapshots for this series are stored locally in `data/telemetry-stage4-verified/`, outside Git.
 
-Граф взаимодействий относится к геномам и прямым действиям; анонимные химические поля не дают атрибуции обмена конкретным линиям. Сосуществование, связи и передача энергии не объявляются доказательством обязательной взаимозависимости. Обнаружение новизны и стагнации остаётся следующим этапом.
+The interaction graph represents genomes and direct actions; anonymous chemical fields do not attribute exchange to individual lineages. Coexistence, bonds, and energy transfer are not treated as proof of obligate interdependence. Novelty and stagnation detection remain the next stage.

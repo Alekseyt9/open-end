@@ -1,48 +1,48 @@
-# Мини-экология: 48 прогонов на 16 вычислительных потоках
+# Minimal ecology: 48 runs on 16 compute threads
 
-Дата: 2026-09-10. Выполнены 48 прогонов: три конфигурации × seed 1–16 × 300 000 тиков, всего **14,4 млн тиков**. Пул из 16 процессов, `GOMAXPROCS=1` для каждого; Ryzen 7 5700X имеет 8 физических ядер и 16 логических потоков. Время всей серии, включая сборку и сохранение результатов, — **365,1 с**. Одновременно выполнялись проверки разработки, поэтому это время реальной серии, а не изолированный benchmark.
+Date: 2026-09-10. Completed 48 runs: three configurations × seeds 1–16 × 300,000 ticks, for **14.4 million ticks** in total. A pool of 16 processes used `GOMAXPROCS=1` each; the Ryzen 7 5700X has 8 physical cores and 16 logical threads. The full series, including compilation and saving results, took **365.1 s**. Development checks ran concurrently, so this is the duration of an actual experiment series, not an isolated benchmark.
 
-Физические правила и формат snapshot сохранены: `ecology-2`, format 2. Параллелизм применяется между мирами и не меняет разрешение событий внутри мира.
+Physical rules and snapshot format are unchanged: `ecology-2`, format 2. Parallelism is across worlds and does not alter event resolution within a world.
 
-## Критерий устойчивости
+## Persistence criterion
 
-Метрики записывались каждые 10 000 тиков. Основное окно анализа — тики **270 000–300 000**. Геном входит в результат, только если:
+Metrics were recorded every 10,000 ticks. The primary analysis window is ticks **270,000–300,000**. A genome qualifies only if:
 
-- на каждой из четырёх границ окна имеется минимум 5 частиц с этим кодом;
-- в каждом из трёх интервалов этот геном выполнил минимум 5 новых копирований;
-- геном присутствует в каждом кадре, а накопленные счётчики не убывают.
+- At least 5 particles carry this code at each of the four window boundaries.
+- The genome performs at least 5 new copies in each of the three intervals.
+- The genome appears in every frame and cumulative counters never decrease.
 
-Критерий исключает старые нереплицирующиеся остатки и кратковременные одиночные мутанты. Он измеряет присутствие и новое потомство на выбранном горизонте, а не доказывает бессрочную устойчивость или адаптивность.
+This criterion excludes old non-replicating remnants and transient single mutants. It measures presence and new offspring over the selected horizon; it does not prove indefinite persistence or adaptation.
 
-Поведенческие группы определяются по приращениям счётчиков за окно: связывания на копию, движения на инструкцию и доля каждой химической реакции. Пороги приведены в README и коде `observer.Persistent`. Группы являются описанием наблюдений; внутри физики таких ролей нет.
+Behavioral groups are defined from counter increments over the window: bonds per copy, moves per instruction, and the fraction of each chemical reaction. Thresholds are documented in the [simulator reference](../../../docs/reference.md) and `observer.Persistent`. These groups describe observations; no such roles exist in the physics.
 
-## Результаты
+## Results
 
-Все миры 32×32. Перенос материи включён с интервалом 4 тика. В обычной экологии химический перенос тоже происходит раз в 4 тика, мутации — 1% на COPY/COPYMEM. Контроли меняют ровно один из этих параметров.
+All worlds use 32×32 grids. Matter transport is enabled at an interval of 4 ticks. In ordinary ecology, chemical transport also occurs every 4 ticks, with 1% mutations on COPY/COPYMEM. Controls change exactly one of these parameters.
 
-| Конфигурация | Частицы в конце, диапазон | Устойчивые геномы в мире | Среднее число устойчивых геномов | Миры с ≥2 поведенческими группами |
+| Configuration | Final particle range | Persistent genomes per world | Mean persistent genomes | Worlds with ≥2 behavioral groups |
 | --- | ---: | ---: | ---: | ---: |
-| Экология | 655–684 | 3–10 | 6,44 | 15/16 |
-| Без химического переноса | 652–683 | 2–5 | 2,81 | 16/16 |
-| Без мутаций | 564–585 | 1 | 1,00 | 0/16 |
+| Ecology | 655–684 | 3–10 | 6.44 | 15/16 |
+| No chemical transport | 652–683 | 2–5 | 2.81 | 16/16 |
+| No mutations | 564–585 | 1 | 1.00 | 0/16 |
 
-В обычной экологии за последние 10 000 тиков произошло **5098–14 205 копирований** в каждом мире. Во всех 16 seed существуют несколько разных воспроизводящихся геномов; в 15 seed они различаются и по используемым здесь поведенческим группам.
+In ordinary ecology, each world performed **5098–14,205 copies** in the final 10,000 ticks. Multiple distinct reproducing genomes exist for all 16 seeds; in 15 seeds they also differ under the behavioral grouping used here.
 
-Контроль без мутаций сохраняет ровно один геном во всех 16 мирах. Это согласуется с тем, что новые генетические варианты в основной серии порождаются ошибками копирования.
+The no-mutation control retains exactly one genome in all 16 worlds. This is consistent with copying errors generating the new genetic variants in the main series.
 
-Увеличение окна до **100 000 тиков** (200 000–300 000, десять интервалов) оставляет в обычной экологии **3–8 устойчивых геномов** и несколько поведенческих групп в тех же 15 из 16 миров. Результат не исчезает при таком удлинении наблюдения.
+Extending the window to **100,000 ticks** (200,000–300,000, ten intervals) leaves **3–8 persistent genomes** in ordinary ecology, with multiple behavioral groups in the same 15 of 16 worlds. The result survives this longer observation window.
 
-## Чего эти результаты не доказывают
+## What these results do not prove
 
-Без химического переноса также возникают несколько устойчивых стратегий. Следовательно, их разнообразие нельзя само по себе считать доказательством необходимого обмена метаболитами между линиями. Более высокое среднее число устойчивых геномов при переносе — наблюдение этой серии; механизм различия отдельно не установлен.
+Multiple persistent strategies also emerge without chemical transport. Their diversity alone therefore cannot establish necessary metabolite exchange between lineages. The higher mean number of persistent genomes with transport is an observation from this series; its mechanism has not been established separately.
 
-Анализ не обнаружил одновременно устойчивые линии с преобладанием противоположных реакций по порогу 90% ни в одной из 48 реализаций. Отсутствие таких кандидатов не исключает более тонкие взаимодействия. Но сильный критерий позднего этапа B — возникшая длительная взаимозависимость метаболических линий — **пока не подтверждён**.
+The analysis found no simultaneously persistent lineages dominated by opposite reactions at the 90% threshold in any of the 48 runs. The absence of such candidates does not rule out subtler interactions. However, the stronger criterion from the later Stage B—emergent, lasting interdependence between metabolic lineages—**is not yet supported**.
 
-Ближайшая содержательная проверка такого критерия — испытания выделенных геномов по отдельности и в смеси с контролем ресурсов, а затем избирательное выключение предполагаемого обмена. Принудительно добавлять заранее заданные виды ради положительного результата не требуется.
+The next substantive test of this criterion is to assay extracted genomes separately and in mixtures under controlled resources, then selectively disable the proposed exchange. Predefined species need not be added to force a positive result.
 
-## Проверки и воспроизведение
+## Checks and reproduction
 
-`go test ./...`, `go vet ./...` и сборка прошли. Интеграционная проверка runner сравнила 16 одинаковых seed по 3000 тиков с одним и 16 процессами: **все 16 полных SHA-256 состояния совпали**. Она также доступна через `scripts/test-experiments.ps1`.
+`go test ./...`, `go vet ./...`, and compilation passed. The runner integration check compared the same 16 seeds over 3000 ticks using one process and 16 processes: **all 16 full state SHA-256 hashes matched**. This check is also available through `scripts/test-experiments.ps1`.
 
 ```powershell
 ./scripts/experiments.ps1 -Workers 16 -Seeds (1..16) -Cases ecology,ecology-no-mutation,ecology-no-chemical-diffusion -Ticks 300000 -Every 10000 -OutputDirectory data/stage2-run
@@ -50,11 +50,11 @@ go run ./cmd/analyze -input data/stage2-run > data/stage2-run/analysis.json
 go run ./cmd/analyze -input data/stage2-run -windows 10 > data/stage2-run/analysis-100k.json
 ```
 
-Сохранённые артефакты этой серии:
+Saved artifacts from this series:
 
-- [manifest.json](manifest.json): параметры, статус, время, ревизия и хеш использованного бинарника. `SourceDirty=true` отражает работу над runner во время серии; физические правила не изменялись.
-- [summary.json](summary.json): результаты и SHA-256 всех 48 миров.
-- [analysis.json](analysis.json): геномы, сырые приращения действий и группы за последние 30 000 тиков.
-- [analysis-100k.json](analysis-100k.json): проверка на окне 100 000 тиков.
+- [manifest.json](manifest.json): parameters, status, duration, revision, and the binary hash. `SourceDirty=true` reflects runner development during the series; physical rules did not change.
+- [summary.json](summary.json): results and SHA-256 hashes for all 48 worlds.
+- [analysis.json](analysis.json): genomes, raw action increments, and groups over the final 30,000 ticks.
+- [analysis-100k.json](analysis-100k.json): validation over a 100,000-tick window.
 
-Объёмные snapshot и исходные JSONL остаются в `data/stage2-workers16/`, исключённом из Git. Пути внутри summary обозначают файлы этой исходной серии; для повторного анализа на другом компьютере сначала нужно выполнить команды воспроизведения.
+Large snapshots and raw JSONL remain in `data/stage2-workers16/`, which is excluded from Git. Paths in the summary refer to files from that original series; to repeat the analysis on another computer, first run the reproduction commands.

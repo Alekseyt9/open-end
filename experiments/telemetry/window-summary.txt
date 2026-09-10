@@ -1,191 +1,191 @@
 ecology (seed 1) — ecology-seed1.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 636 → 666; на отчётных кадрах от 636 до 672. Копирований кода: 9287, смертей частиц: 9269.
-Геномов: 16 → 14; эффективное разнообразие: 5.08 → 2.77. Новых геномов за окно: 75; исходных геномов, отсутствующих в конце: 4.
-В конце доминирует 05b26b88e4ed50a7e8a70e8d9bff312b9745526ed99aaf0db984669dec0c8e07: 472 частиц, 71.2% исполняемых частиц; за окно эта линия выполнила 4831 копирований.
-Действия доминирующей линии за окно: перемещений 5240, новых связей 4832, превращений по ID 0/1: 1209307/1218437.
-Среди умерших в окне среднее полное время жизни 346.13 тика, минимум 8, максимум 9147. Возраст живых в конце: P50=6170, P90=16269 тиков.
-Связанных структур в конце: 41; связанных частиц: 490. Самая большая структура на отчётных кадрах: 379 частиц; структур с несколькими геномами в конце: 1.
-Энергия: поступило 16640000, рассеяно 16639092, запас изменился на +908. Поглощено из поля 0; передано TRANSFER 339472, отобрано TAKE 0, выделено в стартовый резерв 111588.
-Отказы: нет места 181046, материи 29363, стартового резерва 5; недостаточно энергии инструкции 9078; неуспешных реакций 63529.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 636 → 666; sampled-frame range 636 to 672. Code copies: 9287, particle deaths: 9269.
+Genomes: 16 → 14; effective diversity: 5.08 → 2.77. New genomes during the window: 75; initial genomes absent at the end: 4.
+Final dominant genome 05b26b88e4ed50a7e8a70e8d9bff312b9745526ed99aaf0db984669dec0c8e07: 472 particles, 71.2% of executable particles; this lineage performed 4831 copies during the window.
+Dominant lineage actions during the window: moves 5240, new bonds 4832, conversions by ID 0/1: 1209307/1218437.
+For particles that died during the window, mean full lifetime was 346.13 ticks, minimum 8, maximum 9147. Final living-particle ages: P50=6170, P90=16269 ticks.
+Final bonded structures: 41; bonded particles: 490. Largest structure in sampled frames: 379 particles; final structures with multiple genomes: 1.
+Energy: inflow 16640000, dissipation 16639092, stored energy change +908. Absorbed from the field 0; moved by TRANSFER 339472, taken by TAKE 0, assigned to startup reserves 111588.
+Failures: no space 181046, no matter 29363, insufficient startup reserve 5; insufficient instruction energy 9078; failed reactions 63529.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 2) — ecology-seed2.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 584 → 632; на отчётных кадрах от 584 до 641. Копирований кода: 11803, смертей частиц: 11836.
-Геномов: 22 → 31; эффективное разнообразие: 3.28 → 4.23. Новых геномов за окно: 99; исходных геномов, отсутствующих в конце: 8.
-В конце доминирует 574b3cda0fbce829bee9eafb6e21b74af74a22cf6dbaa4bb501d303509e29de2: 236 частиц, 37.3% исполняемых частиц; за окно эта линия выполнила 3718 копирований.
-Действия доминирующей линии за окно: перемещений 18380, новых связей 3718, превращений по ID 0/1: 529862/557328.
-Среди умерших в окне среднее полное время жизни 470.50 тика, минимум 2, максимум 9433. Возраст живых в конце: P50=856, P90=5053 тиков.
-Связанных структур в конце: 58; связанных частиц: 218. Самая большая структура на отчётных кадрах: 16 частиц; структур с несколькими геномами в конце: 2.
-Энергия: поступило 16640000, рассеяно 16650541, запас изменился на -10541. Поглощено из поля 254593; передано TRANSFER 557902, отобрано TAKE 77, выделено в стартовый резерв 142608.
-Отказы: нет места 112280, материи 92666, стартового резерва 3; недостаточно энергии инструкции 7481; неуспешных реакций 82650.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 584 → 632; sampled-frame range 584 to 641. Code copies: 11803, particle deaths: 11836.
+Genomes: 22 → 31; effective diversity: 3.28 → 4.23. New genomes during the window: 99; initial genomes absent at the end: 8.
+Final dominant genome 574b3cda0fbce829bee9eafb6e21b74af74a22cf6dbaa4bb501d303509e29de2: 236 particles, 37.3% of executable particles; this lineage performed 3718 copies during the window.
+Dominant lineage actions during the window: moves 18380, new bonds 3718, conversions by ID 0/1: 529862/557328.
+For particles that died during the window, mean full lifetime was 470.50 ticks, minimum 2, maximum 9433. Final living-particle ages: P50=856, P90=5053 ticks.
+Final bonded structures: 58; bonded particles: 218. Largest structure in sampled frames: 16 particles; final structures with multiple genomes: 2.
+Energy: inflow 16640000, dissipation 16650541, stored energy change -10541. Absorbed from the field 254593; moved by TRANSFER 557902, taken by TAKE 77, assigned to startup reserves 142608.
+Failures: no space 112280, no matter 92666, insufficient startup reserve 3; insufficient instruction energy 7481; failed reactions 82650.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 3) — ecology-seed3.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 636 → 661; на отчётных кадрах от 636 до 665. Копирований кода: 9755, смертей частиц: 10140.
-Геномов: 21 → 28; эффективное разнообразие: 3.57 → 3.41. Новых геномов за окно: 71; исходных геномов, отсутствующих в конце: 7.
-В конце доминирует e7543081415a063d33b77b9fdeefb619efe3d6bc87b1b421faa690cf713285d2: 441 частиц, 67.0% исполняемых частиц; за окно эта линия выполнила 5211 копирований.
-Действия доминирующей линии за окно: перемещений 284802, новых связей 0, превращений по ID 0/1: 1474280/1491493.
-Среди умерших в окне среднее полное время жизни 548.67 тика, минимум 4, максимум 10498. Возраст живых в конце: P50=1065, P90=9047 тиков.
-Связанных структур в конце: 9; связанных частиц: 177. Самая большая структура на отчётных кадрах: 85 частиц; структур с несколькими геномами в конце: 1.
-Энергия: поступило 16640000, рассеяно 16637695, запас изменился на +2305. Поглощено из поля 539; передано TRANSFER 468160, отобрано TAKE 18, выделено в стартовый резерв 121980.
-Отказы: нет места 135440, материи 40462, стартового резерва 5; недостаточно энергии инструкции 7875; неуспешных реакций 66553.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 636 → 661; sampled-frame range 636 to 665. Code copies: 9755, particle deaths: 10140.
+Genomes: 21 → 28; effective diversity: 3.57 → 3.41. New genomes during the window: 71; initial genomes absent at the end: 7.
+Final dominant genome e7543081415a063d33b77b9fdeefb619efe3d6bc87b1b421faa690cf713285d2: 441 particles, 67.0% of executable particles; this lineage performed 5211 copies during the window.
+Dominant lineage actions during the window: moves 284802, new bonds 0, conversions by ID 0/1: 1474280/1491493.
+For particles that died during the window, mean full lifetime was 548.67 ticks, minimum 4, maximum 10498. Final living-particle ages: P50=1065, P90=9047 ticks.
+Final bonded structures: 9; bonded particles: 177. Largest structure in sampled frames: 85 particles; final structures with multiple genomes: 1.
+Energy: inflow 16640000, dissipation 16637695, stored energy change +2305. Absorbed from the field 539; moved by TRANSFER 468160, taken by TAKE 18, assigned to startup reserves 121980.
+Failures: no space 135440, no matter 40462, insufficient startup reserve 5; insufficient instruction energy 7875; failed reactions 66553.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 4) — ecology-seed4.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 591 → 651; на отчётных кадрах от 591 до 651. Копирований кода: 11132, смертей частиц: 11388.
-Геномов: 21 → 29; эффективное разнообразие: 1.93 → 2.48. Новых геномов за окно: 76; исходных геномов, отсутствующих в конце: 8.
-В конце доминирует f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d: 475 частиц, 73.3% исполняемых частиц; за окно эта линия выполнила 8359 копирований.
-Действия доминирующей линии за окно: перемещений 351934, новых связей 0, превращений по ID 0/1: 1704900/1738953.
-Среди умерших в окне среднее полное время жизни 496.97 тика, минимум 8, максимум 12686. Возраст живых в конце: P50=1043, P90=5883 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 1 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16639098, запас изменился на +902. Поглощено из поля 6540; передано TRANSFER 536400, отобрано TAKE 0, выделено в стартовый резерв 137376.
-Отказы: нет места 109399, материи 75346, стартового резерва 1; недостаточно энергии инструкции 7880; неуспешных реакций 87989.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 591 → 651; sampled-frame range 591 to 651. Code copies: 11132, particle deaths: 11388.
+Genomes: 21 → 29; effective diversity: 1.93 → 2.48. New genomes during the window: 76; initial genomes absent at the end: 8.
+Final dominant genome f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d: 475 particles, 73.3% of executable particles; this lineage performed 8359 copies during the window.
+Dominant lineage actions during the window: moves 351934, new bonds 0, conversions by ID 0/1: 1704900/1738953.
+For particles that died during the window, mean full lifetime was 496.97 ticks, minimum 8, maximum 12686. Final living-particle ages: P50=1043, P90=5883 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 1 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16639098, stored energy change +902. Absorbed from the field 6540; moved by TRANSFER 536400, taken by TAKE 0, assigned to startup reserves 137376.
+Failures: no space 109399, no matter 75346, insufficient startup reserve 1; insufficient instruction energy 7880; failed reactions 87989.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 5) — ecology-seed5.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 589 → 620; на отчётных кадрах от 584 до 629. Копирований кода: 12764, смертей частиц: 13825.
-Геномов: 18 → 37; эффективное разнообразие: 1.52 → 4.47. Новых геномов за окно: 109; исходных геномов, отсутствующих в конце: 6.
-В конце доминирует f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d: 331 частиц, 53.6% исполняемых частиц; за окно эта линия выполнила 6046 копирований.
-Действия доминирующей линии за окно: перемещений 130874, новых связей 0, превращений по ID 0/1: 853787/881328.
-Среди умерших в окне среднее полное время жизни 395.37 тика, минимум 8, максимум 9705. Возраст живых в конце: P50=807, P90=4233 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 3 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16639003, запас изменился на +997. Поглощено из поля 8427; передано TRANSFER 615173, отобрано TAKE 0, выделено в стартовый резерв 166272.
-Отказы: нет места 88750, материи 132095, стартового резерва 11; недостаточно энергии инструкции 8875; неуспешных реакций 96430.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 589 → 620; sampled-frame range 584 to 629. Code copies: 12764, particle deaths: 13825.
+Genomes: 18 → 37; effective diversity: 1.52 → 4.47. New genomes during the window: 109; initial genomes absent at the end: 6.
+Final dominant genome f7b74b6ad0aef56c22bdc271d4024a6b2115d81a269e31955143564cf053270d: 331 particles, 53.6% of executable particles; this lineage performed 6046 copies during the window.
+Dominant lineage actions during the window: moves 130874, new bonds 0, conversions by ID 0/1: 853787/881328.
+For particles that died during the window, mean full lifetime was 395.37 ticks, minimum 8, maximum 9705. Final living-particle ages: P50=807, P90=4233 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 3 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16639003, stored energy change +997. Absorbed from the field 8427; moved by TRANSFER 615173, taken by TAKE 0, assigned to startup reserves 166272.
+Failures: no space 88750, no matter 132095, insufficient startup reserve 11; insufficient instruction energy 8875; failed reactions 96430.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 6) — ecology-seed6.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 577 → 615; на отчётных кадрах от 577 до 615. Копирований кода: 13744, смертей частиц: 13813.
-Геномов: 26 → 38; эффективное разнообразие: 3.49 → 4.55. Новых геномов за окно: 112; исходных геномов, отсутствующих в конце: 8.
-В конце доминирует e7543081415a063d33b77b9fdeefb619efe3d6bc87b1b421faa690cf713285d2: 327 частиц, 53.4% исполняемых частиц; за окно эта линия выполнила 5765 копирований.
-Действия доминирующей линии за окно: перемещений 176396, новых связей 0, превращений по ID 0/1: 904761/920651.
-Среди умерших в окне среднее полное время жизни 403.55 тика, минимум 8, максимум 10536. Возраст живых в конце: P50=732, P90=3921 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 1 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16638682, запас изменился на +1318. Поглощено из поля 10127; передано TRANSFER 529786, отобрано TAKE 0, выделено в стартовый резерв 166212.
-Отказы: нет места 82314, материи 129494, стартового резерва 2; недостаточно энергии инструкции 13331; неуспешных реакций 97903.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 577 → 615; sampled-frame range 577 to 615. Code copies: 13744, particle deaths: 13813.
+Genomes: 26 → 38; effective diversity: 3.49 → 4.55. New genomes during the window: 112; initial genomes absent at the end: 8.
+Final dominant genome e7543081415a063d33b77b9fdeefb619efe3d6bc87b1b421faa690cf713285d2: 327 particles, 53.4% of executable particles; this lineage performed 5765 copies during the window.
+Dominant lineage actions during the window: moves 176396, new bonds 0, conversions by ID 0/1: 904761/920651.
+For particles that died during the window, mean full lifetime was 403.55 ticks, minimum 8, maximum 10536. Final living-particle ages: P50=732, P90=3921 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 1 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16638682, stored energy change +1318. Absorbed from the field 10127; moved by TRANSFER 529786, taken by TAKE 0, assigned to startup reserves 166212.
+Failures: no space 82314, no matter 129494, insufficient startup reserve 2; insufficient instruction energy 13331; failed reactions 97903.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 7) — ecology-seed7.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 639 → 628; на отчётных кадрах от 621 до 657. Копирований кода: 13462, смертей частиц: 13598.
-Геномов: 19 → 17; эффективное разнообразие: 4.49 → 4.55. Новых геномов за окно: 96; исходных геномов, отсутствующих в конце: 7.
-В конце доминирует 2d7e5032ff49b859b40e4f27c6d3325d41be6363a1176426c82bd5c8c689a465: 265 частиц, 42.5% исполняемых частиц; за окно эта линия выполнила 1546 копирований.
-Действия доминирующей линии за окно: перемещений 62992, новых связей 0, превращений по ID 0/1: 412854/419736.
-Среди умерших в окне среднее полное время жизни 377.94 тика, минимум 8, максимум 10715. Возраст живых в конце: P50=1510, P90=9783 тиков.
-Связанных структур в конце: 31; связанных частиц: 150. Самая большая структура на отчётных кадрах: 22 частиц; структур с несколькими геномами в конце: 1.
-Энергия: поступило 16640000, рассеяно 16638680, запас изменился на +1320. Поглощено из поля 0; передано TRANSFER 101145, отобрано TAKE 0, выделено в стартовый резерв 163044.
-Отказы: нет места 129648, материи 48628, стартового резерва 11; недостаточно энергии инструкции 11913; неуспешных реакций 63293.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 639 → 628; sampled-frame range 621 to 657. Code copies: 13462, particle deaths: 13598.
+Genomes: 19 → 17; effective diversity: 4.49 → 4.55. New genomes during the window: 96; initial genomes absent at the end: 7.
+Final dominant genome 2d7e5032ff49b859b40e4f27c6d3325d41be6363a1176426c82bd5c8c689a465: 265 particles, 42.5% of executable particles; this lineage performed 1546 copies during the window.
+Dominant lineage actions during the window: moves 62992, new bonds 0, conversions by ID 0/1: 412854/419736.
+For particles that died during the window, mean full lifetime was 377.94 ticks, minimum 8, maximum 10715. Final living-particle ages: P50=1510, P90=9783 ticks.
+Final bonded structures: 31; bonded particles: 150. Largest structure in sampled frames: 22 particles; final structures with multiple genomes: 1.
+Energy: inflow 16640000, dissipation 16638680, stored energy change +1320. Absorbed from the field 0; moved by TRANSFER 101145, taken by TAKE 0, assigned to startup reserves 163044.
+Failures: no space 129648, no matter 48628, insufficient startup reserve 11; insufficient instruction energy 11913; failed reactions 63293.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 8) — ecology-seed8.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 616 → 643; на отчётных кадрах от 616 до 643. Копирований кода: 17427, смертей частиц: 17870.
-Геномов: 15 → 22; эффективное разнообразие: 3.49 → 1.59. Новых геномов за окно: 118; исходных геномов, отсутствующих в конце: 3.
-В конце доминирует 3e2f52874e306ef39de5f6f16d3c7546e9a4ac21ca62176c725352dec6fd836e: 582 частиц, 91.8% исполняемых частиц; за окно эта линия выполнила 13609 копирований.
-Действия доминирующей линии за окно: перемещений 223958, новых связей 0, превращений по ID 0/1: 1498857/1520212.
-Среди умерших в окне среднее полное время жизни 278.91 тика, минимум 8, максимум 18228. Возраст живых в конце: P50=1349, P90=10979 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 1 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16632513, запас изменился на +7487. Поглощено из поля 15375; передано TRANSFER 11376, отобрано TAKE 0, выделено в стартовый резерв 214764.
-Отказы: нет места 200507, материи 95176, стартового резерва 14; недостаточно энергии инструкции 16747; неуспешных реакций 72734.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 616 → 643; sampled-frame range 616 to 643. Code copies: 17427, particle deaths: 17870.
+Genomes: 15 → 22; effective diversity: 3.49 → 1.59. New genomes during the window: 118; initial genomes absent at the end: 3.
+Final dominant genome 3e2f52874e306ef39de5f6f16d3c7546e9a4ac21ca62176c725352dec6fd836e: 582 particles, 91.8% of executable particles; this lineage performed 13609 copies during the window.
+Dominant lineage actions during the window: moves 223958, new bonds 0, conversions by ID 0/1: 1498857/1520212.
+For particles that died during the window, mean full lifetime was 278.91 ticks, minimum 8, maximum 18228. Final living-particle ages: P50=1349, P90=10979 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 1 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16632513, stored energy change +7487. Absorbed from the field 15375; moved by TRANSFER 11376, taken by TAKE 0, assigned to startup reserves 214764.
+Failures: no space 200507, no matter 95176, insufficient startup reserve 14; insufficient instruction energy 16747; failed reactions 72734.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 9) — ecology-seed9.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 584 → 669; на отчётных кадрах от 570 до 669. Копирований кода: 13811, смертей частиц: 15205.
-Геномов: 17 → 31; эффективное разнообразие: 1.41 → 6.13. Новых геномов за окно: 96; исходных геномов, отсутствующих в конце: 3.
-В конце доминирует d3d3a22ac52a602cf7e356eada1759a0c9f374d1e9f2d9d699e650ff3d081d4f: 243 частиц, 36.4% исполняемых частиц; за окно эта линия выполнила 1514 копирований.
-Действия доминирующей линии за окно: перемещений 7665, новых связей 0, превращений по ID 0/1: 181043/185916.
-Среди умерших в окне среднее полное время жизни 370.82 тика, минимум 2, максимум 9555. Возраст живых в конце: P50=755, P90=2919 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 1 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16641591, запас изменился на -1591. Поглощено из поля 9493; передано TRANSFER 662885, отобрано TAKE 25326, выделено в стартовый резерв 183480.
-Отказы: нет места 93986, материи 128661, стартового резерва 10; недостаточно энергии инструкции 11330; неуспешных реакций 94961.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 584 → 669; sampled-frame range 570 to 669. Code copies: 13811, particle deaths: 15205.
+Genomes: 17 → 31; effective diversity: 1.41 → 6.13. New genomes during the window: 96; initial genomes absent at the end: 3.
+Final dominant genome d3d3a22ac52a602cf7e356eada1759a0c9f374d1e9f2d9d699e650ff3d081d4f: 243 particles, 36.4% of executable particles; this lineage performed 1514 copies during the window.
+Dominant lineage actions during the window: moves 7665, new bonds 0, conversions by ID 0/1: 181043/185916.
+For particles that died during the window, mean full lifetime was 370.82 ticks, minimum 2, maximum 9555. Final living-particle ages: P50=755, P90=2919 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 1 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16641591, stored energy change -1591. Absorbed from the field 9493; moved by TRANSFER 662885, taken by TAKE 25326, assigned to startup reserves 183480.
+Failures: no space 93986, no matter 128661, insufficient startup reserve 10; insufficient instruction energy 11330; failed reactions 94961.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 10) — ecology-seed10.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 601 → 636; на отчётных кадрах от 587 до 643. Копирований кода: 11755, смертей частиц: 12770.
-Геномов: 21 → 30; эффективное разнообразие: 2.66 → 2.63. Новых геномов за окно: 95; исходных геномов, отсутствующих в конце: 8.
-В конце доминирует 05895cbdf25257b75f5f2b4c43e366be9a0e01fa7dd0c337effd20a1a39de0c8: 490 частиц, 77.7% исполняемых частиц; за окно эта линия выполнила 8457 копирований.
-Действия доминирующей линии за окно: перемещений 316461, новых связей 0, превращений по ID 0/1: 1614645/1639122.
-Среди умерших в окне среднее полное время жизни 448.02 тика, минимум 8, максимум 11560. Возраст живых в конце: P50=955, P90=4186 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 1 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16639368, запас изменился на +632. Поглощено из поля 22407; передано TRANSFER 566967, отобрано TAKE 0, выделено в стартовый резерв 153660.
-Отказы: нет места 96997, материи 86939, стартового резерва 3; недостаточно энергии инструкции 11618; неуспешных реакций 88020.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 601 → 636; sampled-frame range 587 to 643. Code copies: 11755, particle deaths: 12770.
+Genomes: 21 → 30; effective diversity: 2.66 → 2.63. New genomes during the window: 95; initial genomes absent at the end: 8.
+Final dominant genome 05895cbdf25257b75f5f2b4c43e366be9a0e01fa7dd0c337effd20a1a39de0c8: 490 particles, 77.7% of executable particles; this lineage performed 8457 copies during the window.
+Dominant lineage actions during the window: moves 316461, new bonds 0, conversions by ID 0/1: 1614645/1639122.
+For particles that died during the window, mean full lifetime was 448.02 ticks, minimum 8, maximum 11560. Final living-particle ages: P50=955, P90=4186 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 1 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16639368, stored energy change +632. Absorbed from the field 22407; moved by TRANSFER 566967, taken by TAKE 0, assigned to startup reserves 153660.
+Failures: no space 96997, no matter 86939, insufficient startup reserve 3; insufficient instruction energy 11618; failed reactions 88020.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 11) — ecology-seed11.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 603 → 620; на отчётных кадрах от 596 до 626. Копирований кода: 14833, смертей частиц: 15427.
-Геномов: 23 → 29; эффективное разнообразие: 2.75 → 1.64. Новых геномов за окно: 70; исходных геномов, отсутствующих в конце: 4.
-В конце доминирует fe1844a93418f66a8fe7a1d01a5159f3fbb76affe928fd54714b72b5f676d629: 569 частиц, 92.4% исполняемых частиц; за окно эта линия выполнила 13536 копирований.
-Действия доминирующей линии за окно: перемещений 348997, новых связей 0, превращений по ID 0/1: 1736488/1782360.
-Среди умерших в окне среднее полное время жизни 360.48 тика, минимум 4, максимум 10983. Возраст живых в конце: P50=845, P90=4540 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 1 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16641504, запас изменился на -1504. Поглощено из поля 0; передано TRANSFER 42336, отобрано TAKE 2007, выделено в стартовый резерв 185328.
-Отказы: нет места 100092, материи 121311, стартового резерва 37; недостаточно энергии инструкции 13001; неуспешных реакций 86956.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 603 → 620; sampled-frame range 596 to 626. Code copies: 14833, particle deaths: 15427.
+Genomes: 23 → 29; effective diversity: 2.75 → 1.64. New genomes during the window: 70; initial genomes absent at the end: 4.
+Final dominant genome fe1844a93418f66a8fe7a1d01a5159f3fbb76affe928fd54714b72b5f676d629: 569 particles, 92.4% of executable particles; this lineage performed 13536 copies during the window.
+Dominant lineage actions during the window: moves 348997, new bonds 0, conversions by ID 0/1: 1736488/1782360.
+For particles that died during the window, mean full lifetime was 360.48 ticks, minimum 4, maximum 10983. Final living-particle ages: P50=845, P90=4540 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 1 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16641504, stored energy change -1504. Absorbed from the field 0; moved by TRANSFER 42336, taken by TAKE 2007, assigned to startup reserves 185328.
+Failures: no space 100092, no matter 121311, insufficient startup reserve 37; insufficient instruction energy 13001; failed reactions 86956.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 12) — ecology-seed12.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 556 → 628; на отчётных кадрах от 546 до 628. Копирований кода: 15389, смертей частиц: 15441.
-Геномов: 17 → 29; эффективное разнообразие: 1.91 → 7.05. Новых геномов за окно: 145; исходных геномов, отсутствующих в конце: 7.
-В конце доминирует 64c8feea8ba779825f7ee3825c132660f7ec034fc9fa0af6411d2faca6820e0e: 166 частиц, 26.6% исполняемых частиц; за окно эта линия выполнила 3463 копирований.
-Действия доминирующей линии за окно: перемещений 2, новых связей 3463, превращений по ID 0/1: 314263/316425.
-Среди умерших в окне среднее полное время жизни 297.52 тика, минимум 7, максимум 12149. Возраст живых в конце: P50=1259, P90=6819 тиков.
-Связанных структур в конце: 2; связанных частиц: 207. Самая большая структура на отчётных кадрах: 205 частиц; структур с несколькими геномами в конце: 1.
-Энергия: поступило 16640000, рассеяно 16642654, запас изменился на -2654. Поглощено из поля 1831; передано TRANSFER 396321, отобрано TAKE 0, выделено в стартовый резерв 186156.
-Отказы: нет места 108195, материи 114050, стартового резерва 41; недостаточно энергии инструкции 13351; неуспешных реакций 89297.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 556 → 628; sampled-frame range 546 to 628. Code copies: 15389, particle deaths: 15441.
+Genomes: 17 → 29; effective diversity: 1.91 → 7.05. New genomes during the window: 145; initial genomes absent at the end: 7.
+Final dominant genome 64c8feea8ba779825f7ee3825c132660f7ec034fc9fa0af6411d2faca6820e0e: 166 particles, 26.6% of executable particles; this lineage performed 3463 copies during the window.
+Dominant lineage actions during the window: moves 2, new bonds 3463, conversions by ID 0/1: 314263/316425.
+For particles that died during the window, mean full lifetime was 297.52 ticks, minimum 7, maximum 12149. Final living-particle ages: P50=1259, P90=6819 ticks.
+Final bonded structures: 2; bonded particles: 207. Largest structure in sampled frames: 205 particles; final structures with multiple genomes: 1.
+Energy: inflow 16640000, dissipation 16642654, stored energy change -2654. Absorbed from the field 1831; moved by TRANSFER 396321, taken by TAKE 0, assigned to startup reserves 186156.
+Failures: no space 108195, no matter 114050, insufficient startup reserve 41; insufficient instruction energy 13351; failed reactions 89297.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 13) — ecology-seed13.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 602 → 634; на отчётных кадрах от 602 до 647. Копирований кода: 16118, смертей частиц: 18300.
-Геномов: 22 → 24; эффективное разнообразие: 3.38 → 2.28. Новых геномов за окно: 115; исходных геномов, отсутствующих в конце: 9.
-В конце доминирует af4fd802810b1623faf0772bf66f32631699fe3f9e41e89945c2ffca8adecf08: 497 частиц, 79.4% исполняемых частиц; за окно эта линия выполнила 9450 копирований.
-Действия доминирующей линии за окно: перемещений 81781, новых связей 0, превращений по ID 0/1: 769559/784669.
-Среди умерших в окне среднее полное время жизни 279.45 тика, минимум 3, максимум 14308. Возраст живых в конце: P50=1807, P90=7744 тиков.
-Связанных структур в конце: 1; связанных частиц: 3. Самая большая структура на отчётных кадрах: 3 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16621522, запас изменился на +18478. Поглощено из поля 1360; передано TRANSFER 38220, отобрано TAKE 0, выделено в стартовый резерв 219984.
-Отказы: нет места 155505, материи 98457, стартового резерва 6; недостаточно энергии инструкции 7068; неуспешных реакций 79230.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 602 → 634; sampled-frame range 602 to 647. Code copies: 16118, particle deaths: 18300.
+Genomes: 22 → 24; effective diversity: 3.38 → 2.28. New genomes during the window: 115; initial genomes absent at the end: 9.
+Final dominant genome af4fd802810b1623faf0772bf66f32631699fe3f9e41e89945c2ffca8adecf08: 497 particles, 79.4% of executable particles; this lineage performed 9450 copies during the window.
+Dominant lineage actions during the window: moves 81781, new bonds 0, conversions by ID 0/1: 769559/784669.
+For particles that died during the window, mean full lifetime was 279.45 ticks, minimum 3, maximum 14308. Final living-particle ages: P50=1807, P90=7744 ticks.
+Final bonded structures: 1; bonded particles: 3. Largest structure in sampled frames: 3 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16621522, stored energy change +18478. Absorbed from the field 1360; moved by TRANSFER 38220, taken by TAKE 0, assigned to startup reserves 219984.
+Failures: no space 155505, no matter 98457, insufficient startup reserve 6; insufficient instruction energy 7068; failed reactions 79230.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 14) — ecology-seed14.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 569 → 601; на отчётных кадрах от 569 до 616. Копирований кода: 14439, смертей частиц: 14647.
-Геномов: 22 → 27; эффективное разнообразие: 2.48 → 3.11. Новых геномов за окно: 113; исходных геномов, отсутствующих в конце: 7.
-В конце доминирует fe1844a93418f66a8fe7a1d01a5159f3fbb76affe928fd54714b72b5f676d629: 356 частиц, 59.8% исполняемых частиц; за окно эта линия выполнила 5807 копирований.
-Действия доминирующей линии за окно: перемещений 87901, новых связей 0, превращений по ID 0/1: 582114/606782.
-Среди умерших в окне среднее полное время жизни 382.25 тика, минимум 7, максимум 11724. Возраст живых в конце: P50=902, P90=3693 тиков.
-Связанных структур в конце: 1; связанных частиц: 2. Самая большая структура на отчётных кадрах: 2 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16640567, запас изменился на -567. Поглощено из поля 2713; передано TRANSFER 389272, отобрано TAKE 0, выделено в стартовый резерв 176148.
-Отказы: нет места 93718, материи 127203, стартового резерва 8; недостаточно энергии инструкции 13114; неуспешных реакций 89571.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 569 → 601; sampled-frame range 569 to 616. Code copies: 14439, particle deaths: 14647.
+Genomes: 22 → 27; effective diversity: 2.48 → 3.11. New genomes during the window: 113; initial genomes absent at the end: 7.
+Final dominant genome fe1844a93418f66a8fe7a1d01a5159f3fbb76affe928fd54714b72b5f676d629: 356 particles, 59.8% of executable particles; this lineage performed 5807 copies during the window.
+Dominant lineage actions during the window: moves 87901, new bonds 0, conversions by ID 0/1: 582114/606782.
+For particles that died during the window, mean full lifetime was 382.25 ticks, minimum 7, maximum 11724. Final living-particle ages: P50=902, P90=3693 ticks.
+Final bonded structures: 1; bonded particles: 2. Largest structure in sampled frames: 2 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16640567, stored energy change -567. Absorbed from the field 2713; moved by TRANSFER 389272, taken by TAKE 0, assigned to startup reserves 176148.
+Failures: no space 93718, no matter 127203, insufficient startup reserve 8; insufficient instruction energy 13114; failed reactions 89571.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 15) — ecology-seed15.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 582 → 636; на отчётных кадрах от 582 до 636. Копирований кода: 16617, смертей частиц: 16601.
-Геномов: 18 → 22; эффективное разнообразие: 2.82 → 3.22. Новых геномов за окно: 119; исходных геномов, отсутствующих в конце: 8.
-В конце доминирует 8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd: 352 частиц, 56.4% исполняемых частиц; за окно эта линия выполнила 6673 копирований.
-Действия доминирующей линии за окно: перемещений 33461, новых связей 0, превращений по ID 0/1: 392039/395258.
-Среди умерших в окне среднее полное время жизни 330.59 тика, минимум 4, максимум 13060. Возраст живых в конце: P50=954, P90=4306 тиков.
-Связанных структур в конце: 2; связанных частиц: 4. Самая большая структура на отчётных кадрах: 2 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16644170, запас изменился на -4170. Поглощено из поля 1600; передано TRANSFER 342087, отобрано TAKE 0, выделено в стартовый резерв 199860.
-Отказы: нет места 127630, материи 150486, стартового резерва 89; недостаточно энергии инструкции 5104; неуспешных реакций 99143.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 582 → 636; sampled-frame range 582 to 636. Code copies: 16617, particle deaths: 16601.
+Genomes: 18 → 22; effective diversity: 2.82 → 3.22. New genomes during the window: 119; initial genomes absent at the end: 8.
+Final dominant genome 8c7d401df6fd355a32aec84971b922daf32bc86a0cf948683aa3c49e2678b2bd: 352 particles, 56.4% of executable particles; this lineage performed 6673 copies during the window.
+Dominant lineage actions during the window: moves 33461, new bonds 0, conversions by ID 0/1: 392039/395258.
+For particles that died during the window, mean full lifetime was 330.59 ticks, minimum 4, maximum 13060. Final living-particle ages: P50=954, P90=4306 ticks.
+Final bonded structures: 2; bonded particles: 4. Largest structure in sampled frames: 2 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16644170, stored energy change -4170. Absorbed from the field 1600; moved by TRANSFER 342087, taken by TAKE 0, assigned to startup reserves 199860.
+Failures: no space 127630, no matter 150486, insufficient startup reserve 89; insufficient instruction energy 5104; failed reactions 99143.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.
 
 ecology (seed 16) — ecology-seed16.jsonl
-Тики 10000–20000: 11 наблюдений; фактическое окно 10000 тиков при запросе 10000.
-Популяция: 633 → 621; на отчётных кадрах от 619 до 636. Копирований кода: 14301, смертей частиц: 14635.
-Геномов: 16 → 18; эффективное разнообразие: 1.78 → 1.64. Новых геномов за окно: 84; исходных геномов, отсутствующих в конце: 5.
-В конце доминирует fe1844a93418f66a8fe7a1d01a5159f3fbb76affe928fd54714b72b5f676d629: 557 частиц, 90.6% исполняемых частиц; за окно эта линия выполнила 6376 копирований.
-Действия доминирующей линии за окно: перемещений 355896, новых связей 0, превращений по ID 0/1: 1851571/1863919.
-Среди умерших в окне среднее полное время жизни 391.33 тика, минимум 4, максимум 9265. Возраст живых в конце: P50=1132, P90=6429 тиков.
-Связанных структур в конце: 0; связанных частиц: 0. Самая большая структура на отчётных кадрах: 1 частиц; структур с несколькими геномами в конце: 0.
-Энергия: поступило 16640000, рассеяно 16640012, запас изменился на -12. Поглощено из поля 122; передано TRANSFER 672, отобрано TAKE 34557, выделено в стартовый резерв 175476.
-Отказы: нет места 136176, материи 55242, стартового резерва 5; недостаточно энергии инструкции 8796; неуспешных реакций 43346.
-Граф фиксирует действия и прямые передачи энергии между геномами; обмен через химические поля не атрибутирован отдельным линиям. Сосуществование и связи сами по себе не доказывают взаимозависимость.
+Ticks 10000–20000: 11 observations; actual window 10000 ticks, requested 10000.
+Population: 633 → 621; sampled-frame range 619 to 636. Code copies: 14301, particle deaths: 14635.
+Genomes: 16 → 18; effective diversity: 1.78 → 1.64. New genomes during the window: 84; initial genomes absent at the end: 5.
+Final dominant genome fe1844a93418f66a8fe7a1d01a5159f3fbb76affe928fd54714b72b5f676d629: 557 particles, 90.6% of executable particles; this lineage performed 6376 copies during the window.
+Dominant lineage actions during the window: moves 355896, new bonds 0, conversions by ID 0/1: 1851571/1863919.
+For particles that died during the window, mean full lifetime was 391.33 ticks, minimum 4, maximum 9265. Final living-particle ages: P50=1132, P90=6429 ticks.
+Final bonded structures: 0; bonded particles: 0. Largest structure in sampled frames: 1 particles; final structures with multiple genomes: 0.
+Energy: inflow 16640000, dissipation 16640012, stored energy change -12. Absorbed from the field 122; moved by TRANSFER 672, taken by TAKE 34557, assigned to startup reserves 175476.
+Failures: no space 136176, no matter 55242, insufficient startup reserve 5; insufficient instruction energy 8796; failed reactions 43346.
+The graph records actions and direct energy transfers between genomes; exchange through chemical fields is not attributed to individual lineages. Coexistence and bonds alone do not prove interdependence.

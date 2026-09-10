@@ -10,10 +10,10 @@ Each world: 32×32, standard ecology with 1% mutations, matter/chemical transpor
 
 | Simultaneous worlds | Go, 1 worker | Go, 16 workers | Warp: compute | Warp: preparation + compute + extraction |
 | ---: | ---: | ---: | ---: | ---: |
-| 1 | 0,161 | 0,169 | 1,663 | 1,714 |
-| 16 | 2,561 | 0,333 | 2,305 | 3,315 |
-| 96 | 15,006 | 1,836 | 2,286 | 8,727 |
-| 256 | 41,279 | 4,659 | 2,786 | 19,094 |
+| 1 | 0.161 | 0.169 | 1.663 | 1.714 |
+| 16 | 2.561 | 0.333 | 2.305 | 3.315 |
+| 96 | 15.006 | 1.836 | 2.286 | 8.727 |
+| 256 | 41.279 | 4.659 | 2.786 | 19.094 |
 
 For one world, the Go pool executes one task regardless of the 16-worker limit. At 256 worlds, GPU throughput is about 91,885 world-ticks/s versus 54,950 for Go with 16 workers. This is batch throughput, not acceleration of an individual world.
 

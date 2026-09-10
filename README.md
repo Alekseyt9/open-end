@@ -10,7 +10,7 @@ The current implementation combines a deterministic Go simulator, executable rep
 
 ## Concept
 
-A world begins with one working seed program on a two-dimensional grid. The program must spend energy, allocate matter, copy its memory and code, and supply energy to its offspring. Copying errors create heritable variants. Space, resources, operation costs, and interactions determine which variants persist and reproduce.
+A world begins with one working seed program on a two-dimensional grid. Reproduction spends energy and matter: programs allocate particles, copy code, and can also copy memory or transfer extra energy. Copying errors create heritable variants. Space, resources, operation costs, and interactions determine which variants persist and reproduce.
 
 There is no explicit fitness function inside the world. Organisms are not assigned species, ecological roles, or objectives. The initial replicator does contain a working metabolism and copying routine: this project currently studies evolution after replication exists, rather than the origin of life from random matter.
 
@@ -76,7 +76,7 @@ Without flags, `cmd/sim` uses the original 256×256 control configuration. Use `
 
 Each grid cell has four neighbors and can hold one particle. A particle has energy, a bounded program, eight memory cells, and execution state. The VM issues one instruction per particle per tick. Instruction attempts and maintenance consume energy; particles without energy decay and return their matter to the cell.
 
-Replication is a sequence of physical operations:
+The initial seed replicates through a sequence of physical operations:
 
 ```text
 ALLOCATE → COPYMEM → COPY → TRANSFER

@@ -1,68 +1,68 @@
-# Первые проверки этапа 1
+# Initial Stage 1 validation
 
-Дата: 2026-09-10. Windows amd64, Go 1.26.1. Kernel `0.1.0`, rules `baseline-1`.
+Date: 2026-09-10. Windows amd64, Go 1.26.1. Kernel `0.1.0`, rules `baseline-1`.
 
-## Эксперимент
+## Experiment
 
 ```powershell
 go run ./cmd/sim -width 64 -height 64 -seed 1 -ticks 10000 -every 2000
 ```
 
-Повторён с seed 7 и 42. Вероятность мутации — 10 000 ppm (1%) на COPY и отдельно на COPYMEM. Начальное состояние: одна частица, одинаковый seed-код, конечная материя, внешний градиент энергии; фиксированной fitness-функции нет.
+Repeated with seeds 7 and 42. Mutation probability: 10,000 ppm (1%) on COPY and independently on COPYMEM. Initial state: one particle, identical seed code, finite matter, and an external energy gradient; no fixed fitness function.
 
-Состояние на тике 10 000:
+State at tick 10,000:
 
-| Seed | Частицы | Исполняемые частицы | Геномы | Код + начальная память | Копии, накопительно | Смерти, накопительно |
+| Seed | Particles | Executable particles | Genomes | Code + initial memory | Cumulative copies | Cumulative deaths |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 | 519 | 518 | 16 | 65 | 7 857 | 7 354 |
 | 7 | 491 | 491 | 14 | 75 | 7 858 | 7 400 |
 | 42 | 504 | 504 | 11 | 61 | 7 867 | 7 402 |
 
-Частица может временно не иметь кода между ALLOCATE и COPY. Поэтому число частиц иногда больше числа исполняемых программ.
+A particle can temporarily have no code between ALLOCATE and COPY. The particle count can therefore exceed the number of executable programs.
 
-Для seed 1 число частиц на тиках 2 000 / 4 000 / 6 000 / 8 000 / 10 000: **1501 / 1228 / 900 / 675 / 519**. Этот прогон подтверждает копирование, вариативность и продолжение существования разных программ на указанном горизонте. Он не доказывает устойчивое равновесие, полезность каждого варианта или open-ended evolution. Причину снижения численности ещё предстоит исследовать.
+For seed 1, particle counts at ticks 2,000 / 4,000 / 6,000 / 8,000 / 10,000 were **1501 / 1228 / 900 / 675 / 519**. This run demonstrates copying, variation, and the continued existence of different programs over the observed horizon. It does not demonstrate a stable equilibrium, the usefulness of every variant, or open-ended evolution. The population decline still requires investigation.
 
-## Контроль без мутаций
+## Control without mutations
 
 ```powershell
 go run ./cmd/sim -width 64 -height 64 -seed 1 -mutation-ppm 0 -ticks 10000 -every 5000
 ```
 
-На тике 10 000: **518 частиц, 1 геном, 7 630 копий**. Наследуемая память образует 20 вариантов состояния, но новых программ нет. Генетическое разнообразие в основном эксперименте нельзя объяснить только изменением памяти.
+At tick 10,000: **518 particles, 1 genome, 7,630 copies**. Inherited memory produces 20 state variants, but no new programs. Genetic diversity in the main experiment cannot be explained by memory changes alone.
 
 ## Replay
 
-Сравнены:
+Compared:
 
-1. Непрерывный прогон seed 1, 64×64, 10 500 тиков.
-2. Прогон 10 000 тиков → сохранение JSON → загрузка → ещё 500 тиков.
+1. A continuous seed 1 run on a 64×64 grid for 10,500 ticks.
+2. A 10,000-tick run → JSON save → reload → another 500 ticks.
 
-Полный SHA-256 состояния в обоих случаях:
+Full state SHA-256 in both cases:
 
 ```text
 2c04669ea700113bab214259327665efde79a980f1ad722db69f9a84c17ce99a
 ```
 
-Совпадают физическое состояние, RNG, программы, память, происхождение вариантов и счётчики.
+Physical state, RNG, programs, memory, variant ancestry, and counters match.
 
-## Автоматические проверки
+## Automated checks
 
-`go test ./...` и `go vet ./...` прошли. Проверены:
+`go test ./...` and `go vet ./...` passed. Checks cover:
 
-- Одинаковый seed и продолжение из snapshot дают одинаковое состояние.
-- На каждом тике тестовых прогонов соблюдаются энергетический и материальный балансы.
-- Без доступной энергии частицы вымирают; без мутаций геном сохраняется.
-- При копировании код не разделяет изменяемую память с родительским срезом.
-- Мутации сохраняют допустимые инструкции и длину программы в пределах лимита.
-- ALLOCATE создаёт пустую частицу; занятая клетка не может выделяться повторно.
-- Новая частица не выполняется в тик создания; лимит частиц соблюдается.
-- Повреждённый/несовместимый snapshot и конфликтующие параметры CLI отвергаются.
-- Observer не меняет мир и выдаёт стабильный порядок метрик.
+- Identical seeds and snapshot continuation produce identical states.
+- Energy and matter balances hold at every tick of the test runs.
+- Particles go extinct without available energy; the genome is preserved without mutations.
+- Copied code does not share mutable storage with the parent's slice.
+- Mutations preserve valid instructions and keep program length within the limit.
+- ALLOCATE creates an empty particle; an occupied cell cannot be allocated again.
+- A new particle does not execute on its creation tick; the particle limit is respected.
+- Corrupt or incompatible snapshots and conflicting CLI arguments are rejected.
+- The observer does not modify the world and emits metrics in a stable order.
 
-## Производительность
+## Performance
 
-На AMD Ryzen 7 5700X benchmark сетки 24×24 с 300 частицами в начале измеряемого окна: **около 79,9 мкс/тик**, 27 536 байт и 18 выделений памяти на тик. Benchmark повторяет одно и то же окно из 128 тиков, исключая загрузку snapshot из измерения; он не ускоряется искусственно из-за позднего вымирания. Это ориентир для текущей реализации, не оценка производительности больших миров.
+On an AMD Ryzen 7 5700X, a 24×24 grid benchmark with 300 particles at the start of the measured window took **about 79.9 µs/tick**, with 27,536 bytes and 18 allocations per tick. The benchmark repeats the same 128-tick window and excludes snapshot loading from the timing; later extinction cannot artificially improve the result. This is a reference for the current implementation, not a performance estimate for large worlds.
 
-## Границы результата
+## Limits of the result
 
-Критерий этапа 1 «появляются разные наследуемые линии» подтверждён на уровне различных копируемых программ. Строгая оценка адаптивности, устойчивости отдельных новых программ, насыщения новизны и экологических взаимодействий требует следующих экспериментов. Полный этап A из поздних разделов ТЗ ещё не закрыт.
+The Stage 1 criterion that different heritable lineages appear is supported at the level of distinct copied programs. Rigorous evaluation of adaptation, the persistence of individual new programs, novelty saturation, and ecological interactions requires further experiments. The full Stage A described in later sections of the specification is not yet complete.

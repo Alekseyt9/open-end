@@ -1,34 +1,34 @@
-# Выделенные линии: изоляция и смесь
+# Extracted lineages: isolation and mixture
 
-2026-09-10. **96 прогонов по 100 000 тиков**, 16 рабочих процессов, 241,2 секунды на всю серию. Правила `ecology-2`, сетка 32×32, мутации выключены. Взяты две ранее наблюдавшиеся линии из мира seed 1 на тике 100 000: связанная A (`05b26b88…`) и короткая подвижная B (`8c7d401d…`). Точные программы и SHA-256 исходного состояния находятся в [pair.json](pair.json).
+2026-09-10. **96 runs of 100,000 ticks**, 16 workers, 241.2 seconds for the full series. Rules `ecology-2`, 32×32 grid, mutations disabled. Two previously observed lineages were extracted from the seed 1 world at tick 100,000: bonded A (`05b26b88…`) and short mobile B (`8c7d401d…`). Exact programs and the source state SHA-256 are in [pair.json](pair.json).
 
-## Условия
+## Conditions
 
-Для каждого seed 1–16 выбираются одинаковые 32 позиции. В смеси чётные позиции получает A, нечётные — B. Контроли A16/B16 используют те же позиции соответствующей линии, а A32/B32 — все 32 позиции. Каждый основатель получает 128 энергии, нулевую память, IP=0 и не имеет связей. Химические поля и физические параметры одинаковы, кроме явно отключённого переноса в шестом условии. Начальная энергия отличается между 16 и 32 основателями, но одинакова на одну частицу; предусмотрены оба контроля плотности.
+For each seed from 1 to 16, the same 32 positions are selected. In the mixture, A receives even positions and B receives odd positions. Controls A16/B16 use the corresponding lineage's positions; A32/B32 use all 32 positions. Each founder receives 128 energy, zeroed memory, IP=0, and no bonds. Chemical fields and physical parameters are identical except for transport explicitly disabled in the sixth condition. Total initial energy differs between 16 and 32 founders, but energy per particle is identical; both density controls are included.
 
-Это испытание **геномов в стандартизированной среде**, а не продолжение всей исторической экосистемы. Начальные связи, соседние геномы и приобретённое состояние памяти исходного мира не переносятся.
+This tests **genomes in a standardized environment**, rather than continuing the entire historical ecosystem. Initial bonds, neighboring genomes, and acquired memory state from the source world are not carried over.
 
-| Условие | Основатели A/B | A в конце: диапазон (среднее) | B в конце: диапазон (среднее) |
+| Condition | Founders A/B | Final A: range (mean) | Final B: range (mean) |
 | --- | ---: | ---: | ---: |
-| Только A | 32/0 | 669–691 (681,94) | 0 |
-| Только B | 0/32 | 0 | 604–632 (616,81) |
-| A, та же стартовая численность, что в смеси | 16/0 | 668–687 (679,00) | 0 |
-| B, та же стартовая численность, что в смеси | 0/16 | 0 | 608–632 (619,13) |
-| Смесь | 16/16 | 290–427 (354,69) | 240–375 (315,38) |
-| Смесь без химического переноса | 16/16 | 263–397 (337,81) | 264–392 (321,44) |
+| A only | 32/0 | 669–691 (681.94) | 0 |
+| B only | 0/32 | 0 | 604–632 (616.81) |
+| A, same initial count as in the mixture | 16/0 | 668–687 (679.00) | 0 |
+| B, same initial count as in the mixture | 0/16 | 0 | 608–632 (619.13) |
+| Mixture | 16/16 | 290–427 (354.69) | 240–375 (315.38) |
+| Mixture without chemical transport | 16/16 | 263–397 (337.81) | 264–392 (321.44) |
 
-Все присутствующие линии дают потомство в последнем окне 90 000–100 000 тиков. В частности, в A16 минимум 8175 новых копий, в B16 — 17 671. В смеси минимумы соответственно 4795 и 3911. Это не просто долгоживущие остатки.
+Every lineage present produces offspring in the final 90,000–100,000-tick window. In particular, A16 produces at least 8175 new copies, and B16 at least 17,671. In the mixture, the corresponding minima are 4795 and 3911. These are not merely long-lived remnants.
 
-## Вывод
+## Conclusion
 
-**Обязательная зависимость A от B или B от A в этой среде не обнаружена.** Обе программы поддерживают воспроизводство без партнёра при обоих начальных размерах популяции. В смеси каждая достигает меньшей численности, чем в соответствующем изолированном контроле; результат согласуется с конкуренцией за общие ресурсы и пространство. Смесь сохраняется и без переноса химических веществ между клетками.
+**No obligate dependence of A on B or B on A was found in this environment.** Both programs sustain reproduction without a partner at both initial population sizes. In the mixture, each reaches a lower population than in its corresponding isolated control; this is consistent with competition for shared resources and space. The mixture also persists without chemical transport between cells.
 
-Данные не доказывают отсутствие любых полезных воздействий или зависимостей в других средах. Они показывают, что ранее найденное сосуществование этой пары нельзя интерпретировать как доказанную взаимозависимость через метаболиты. Мутации, позволяющие адаптироваться к удалению партнёра во время самого опыта, были отключены.
+The data do not rule out all beneficial effects or dependencies in other environments. They show that the previously observed coexistence of this pair cannot be interpreted as demonstrated metabolite-mediated interdependence. Mutations that could allow adaptation to partner removal during the experiment were disabled.
 
-## Повторение
+## Reproduction
 
 ```powershell
 go run ./cmd/assay -pair experiments/ecology/isolation/pair.json -workers 16 -seeds 16 -ticks 100000 -every 10000 -output data/isolation-repeat
 ```
 
-Каталог вывода должен быть новым, его родитель — существовать. Команда создаёт отдельные JSONL, итоговую сводку и manifest. [summary.json](summary.json) содержит все конечные числа, приращения копий и хеши состояния. [manifest.json](manifest.json) содержит параметры и выбранные программы. Исходные JSONL текущего опыта — в `data/isolation-assay/`, вне Git.
+The output directory must be new and its parent must exist. The command creates separate JSONL files, a final summary, and a manifest. [summary.json](summary.json) contains all final counts, copy increments, and state hashes. [manifest.json](manifest.json) contains parameters and the selected programs. Raw JSONL for this experiment is in `data/isolation-assay/`, outside Git.
