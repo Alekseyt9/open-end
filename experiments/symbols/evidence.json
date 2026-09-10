@@ -1,0 +1,2232 @@
+{
+  "version": 1,
+  "batch_manifest": {
+    "Status": "complete",
+    "Workers": 16,
+    "GOMAXPROCS": 1,
+    "Seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "Cases": [
+      "symbols",
+      "symbols-scrambled",
+      "symbols-unreadable",
+      "symbols-no-mutation"
+    ],
+    "Ticks": 100000,
+    "Every": 1000,
+    "StartedUTC": "2026-09-10T22:21:05.1585590Z",
+    "SourceRevision": "adf74afe1c5ecaada8386e0d05659b275286828b",
+    "SourceDirty": true,
+    "BinarySHA256": "4e4ff273c23c5dc5167133c98868e08cb75a6972bcd9f680e8d44149235aac2d",
+    "Total": 32,
+    "Completed": 32,
+    "ElapsedSeconds": 109.9339411
+  },
+  "assay_manifest": {
+    "case": "symbols",
+    "completed": 24,
+    "every": 1000,
+    "input": "data/symbols-stage15",
+    "seconds": 15.3632713,
+    "started_utc": "2026-09-10T22:23:57Z",
+    "status": "complete",
+    "ticks": 20000,
+    "total": 24,
+    "workers": 16
+  },
+  "normalization": "Remove config.symbols and world.symbols only; retain words, memories, both RNGs and all other fields.",
+  "batch": [
+    {
+      "case": "symbols",
+      "seed": 1,
+      "snapshot_sha256": "0d4e5be89addc1c09c6af6190f3b4b9747c4f6d4250a06ac0b1c42d7c50e9dbc",
+      "metrics_sha256": "07b3ef34a2cf96f84ce047cbbed343a1ce2f24cf85061411b3b8ae78d1b1cc1f",
+      "counts": {
+        "writes": 3489,
+        "reads": 754,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 15163,
+        "context_lookups": 15051
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 652,
+      "readers": []
+    },
+    {
+      "case": "symbols",
+      "seed": 2,
+      "snapshot_sha256": "8eec9b55dd6fa2120492257574875c1499640b514f88c211abe94df915d59f79",
+      "metrics_sha256": "df70de223a1f8bb9e12ec14b01deb8b6f436a61449254d36da67786fb8d43ba8",
+      "counts": {
+        "writes": 11141,
+        "reads": 13364,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 25493,
+        "context_lookups": 19246
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 682,
+      "readers": []
+    },
+    {
+      "case": "symbols",
+      "seed": 3,
+      "snapshot_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+      "metrics_sha256": "9ce59d4166bee4a88fd4f0b9c0454a5b718716de07f0cccea23ef76b679c80d9",
+      "counts": {
+        "writes": 745,
+        "reads": 3270,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5570,
+        "context_lookups": 4
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 674,
+      "readers": []
+    },
+    {
+      "case": "symbols",
+      "seed": 4,
+      "snapshot_sha256": "b6df3acb0e8eac700ddf2d4ea9a8dbd8c15f74d66fef3b44171414c25c11e54a",
+      "metrics_sha256": "cc075cc925b01ab9a4352a734039c7deaa1cd472b4091da002e107ebf7d69e68",
+      "counts": {
+        "writes": 208395,
+        "reads": 51,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 11078,
+        "context_lookups": 11003
+      },
+      "words": 83,
+      "pairs": 50,
+      "entities": 659,
+      "readers": []
+    },
+    {
+      "case": "symbols",
+      "seed": 5,
+      "snapshot_sha256": "dcfdea17ee934c0b5054e827979a362411a9a8df3df6b07d14b9beef847a8ba7",
+      "metrics_sha256": "17d72a71899ae6157933d0ad9af332430f47e59f3615679aa20b687b6e44d43a",
+      "counts": {
+        "writes": 18,
+        "reads": 3839,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 26026,
+        "context_lookups": 26000
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 671,
+      "readers": []
+    },
+    {
+      "case": "symbols",
+      "seed": 6,
+      "snapshot_sha256": "2f3350cf6607ec98ae1e22aaa202fd6de29543abf4fd18de0989b5ba5b760414",
+      "metrics_sha256": "b258ac22d93e29b5f6d23bc1899f91071f161015e2c1c3529c07a26365d2a614",
+      "counts": {
+        "writes": 2936,
+        "reads": 397,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 384,
+        "context_lookups": 242
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 668,
+      "readers": []
+    },
+    {
+      "case": "symbols",
+      "seed": 7,
+      "snapshot_sha256": "a7969d0c48ace1512294dcf47210587e98d6f34400357017baa0e9f2742f5e29",
+      "metrics_sha256": "9d859095727847be79602d153d77b6a16c873e8b7a3c27a57705467218a7ec07",
+      "counts": {
+        "writes": 4113,
+        "reads": 109,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 733,
+        "context_lookups": 471
+      },
+      "words": 3,
+      "pairs": 1,
+      "entities": 681,
+      "readers": []
+    },
+    {
+      "case": "symbols",
+      "seed": 8,
+      "snapshot_sha256": "8872f4c15ee39decec4d208f27872a1d19676744b945a51a2cd644102b040dcf",
+      "metrics_sha256": "e3033950a7fbdf96c88592a32744d030cd120225a766d885750d91043709f1c5",
+      "counts": {
+        "writes": 768,
+        "reads": 249032,
+        "nonempty_reads": 108,
+        "pair_reads": 31,
+        "foreign_reads": 104,
+        "lookups": 118,
+        "context_lookups": 43
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 676,
+      "readers": [
+        {
+          "genome": "10a5f3bf35adc84dfc813abde0684a1f544557bafeecba92c4cd7c224ebc8430",
+          "writes": 3,
+          "reads": 3,
+          "nonempty_reads": 1,
+          "pair_reads": 0,
+          "foreign_reads": 1,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 19,
+              "a": 51,
+              "b": 43
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "4a53806e6f8c6661bb62fed8492400bcbf25dac1de7dceb2af1250dc42997eb0",
+          "writes": 0,
+          "reads": 239167,
+          "nonempty_reads": 97,
+          "pair_reads": 26,
+          "foreign_reads": 97,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "a159a08f59327cbd5d76b0297440487f5cb8621e30ef1ab1ca27ffbd148d47db",
+          "writes": 0,
+          "reads": 258,
+          "nonempty_reads": 1,
+          "pair_reads": 1,
+          "foreign_reads": 1,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "a882ef162e04f564faa0795156fb95cde8d484aa6d71a8e3099aab3e309d66ae",
+          "writes": 0,
+          "reads": 555,
+          "nonempty_reads": 4,
+          "pair_reads": 3,
+          "foreign_reads": 4,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "d90e63d72bb85aa9cab4ea1126a57b8ef01449ce5438af98e5efab6804878a6a",
+          "writes": 0,
+          "reads": 5074,
+          "nonempty_reads": 1,
+          "pair_reads": 0,
+          "foreign_reads": 1,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "de188de3f671a7929758057ceb66c0f4576b698e0c66c8239a26aaab9975786f",
+          "writes": 139,
+          "reads": 139,
+          "nonempty_reads": 4,
+          "pair_reads": 1,
+          "foreign_reads": 0,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 19,
+              "a": 63,
+              "b": 49
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 1,
+      "snapshot_sha256": "4233c8ddf048325f24a352a2f33d761fd6c9d81288395d6d10063a9a1e6201d0",
+      "metrics_sha256": "e3f94c80075c237ec0af03fba9cc9e24ae6d1d787f85bb206799f2f7030c6423",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 580,
+      "readers": []
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 2,
+      "snapshot_sha256": "26822a7a5d4c988639a404e4e45677025649ef232c6c78f117865a5348ae9e6b",
+      "metrics_sha256": "38415e6314665b0e1eb9244047d5c3ca63460fde60192485722897c01ac8f3ad",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 570,
+      "readers": []
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 3,
+      "snapshot_sha256": "525c7b6b01bacb47a0ccaaf1b03065ff4b19beded96a5de3f71e04c38057c585",
+      "metrics_sha256": "37300522b63097f80c78fb9a8159684f0e6e868638f628b930c90a920c2accbf",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 584,
+      "readers": []
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 4,
+      "snapshot_sha256": "605fb622fd3bc8c8be18debb87c515b9ffb825c8d5a439b17286fda943f78165",
+      "metrics_sha256": "600d032014e08b8092f03df59492ab12b9670dd2545c5d0f9d64f8d3b0803c74",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 575,
+      "readers": []
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 5,
+      "snapshot_sha256": "cc5b7c353e6588a40d6ab2f2a3bfe0b56556aa3da4402390d8a7acd46245d59e",
+      "metrics_sha256": "1cf83ef5517eda56674b640753a6957c9382888bc21509cc0fe36303d9186cc0",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 571,
+      "readers": []
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 6,
+      "snapshot_sha256": "e8bde865745111fecad03c0253dc8756aae90ff40b193f004ee5dc94e9e3b2b0",
+      "metrics_sha256": "6143953550093808893b5349c9d221fb7f65888b1434568ab18033228001df67",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 571,
+      "readers": []
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 7,
+      "snapshot_sha256": "3206ef61c769d485b220014121050410e614125ff98fbaa35a9b47b65cbcbbf5",
+      "metrics_sha256": "df2e6ec866a0cce405befca9ec60663de6a5e7c1d3a2c55e19d225ec0d3ac350",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 580,
+      "readers": []
+    },
+    {
+      "case": "symbols-no-mutation",
+      "seed": 8,
+      "snapshot_sha256": "9a19ee87ba978cf646d6aa24cfe163de4d23ccb62383b84bf1a399ef89d88337",
+      "metrics_sha256": "0e428cc66c9539f83e5d624a8768d9d5a01ee8833ba4a8368e8705a83bf762c9",
+      "counts": {
+        "writes": 0,
+        "reads": 0,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 0,
+        "context_lookups": 0
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 569,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 1,
+      "snapshot_sha256": "d695857d67a5b419eb2076ee0009cf7908ea429b0b789fae8ce8b65c422ff27e",
+      "metrics_sha256": "bf729e25f7bfc11dccfc32631ecc815156492f2c3d7a9394ca86d77fe161dd3e",
+      "counts": {
+        "writes": 3489,
+        "reads": 754,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 15163,
+        "context_lookups": 15051
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 652,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 2,
+      "snapshot_sha256": "18245e6eed87477227ea1d9a302b44fb177ee9add7e518e3becda618b5f7597e",
+      "metrics_sha256": "39287885aa565884eb108164c7ca952d040b60ec503c4e223fa5d8d71e8bd343",
+      "counts": {
+        "writes": 11141,
+        "reads": 13364,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 25493,
+        "context_lookups": 19246
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 682,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 3,
+      "snapshot_sha256": "89d7981be8d1e7bab39af3a284efc5e878b1647c6acbc45c61e5bdc95cdd7c63",
+      "metrics_sha256": "6d96356fb16a5883f7bcfc301e8ff96486b1d9602024f9e79660614c79592356",
+      "counts": {
+        "writes": 745,
+        "reads": 3270,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5570,
+        "context_lookups": 4
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 674,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 4,
+      "snapshot_sha256": "423e289eddf31cb9b4e8cdfc3643a77965ceaf9483e8be8f7fe2eb1f3d20c64d",
+      "metrics_sha256": "5331b96f81cbbba8b4868759d48f6ec4f1830dd272c3614964e298fc1b760f03",
+      "counts": {
+        "writes": 208395,
+        "reads": 51,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 11078,
+        "context_lookups": 11003
+      },
+      "words": 83,
+      "pairs": 50,
+      "entities": 659,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 5,
+      "snapshot_sha256": "c60585e63ca79d909cdb1bd418ed8e4dbeba229a9d8a734fd3fcbaf0cc3cafab",
+      "metrics_sha256": "981ceb2001aa270effc2df278ecbf60ada478a10c7c5ca5de6125cbf3994e09b",
+      "counts": {
+        "writes": 18,
+        "reads": 3839,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 26026,
+        "context_lookups": 26000
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 671,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 6,
+      "snapshot_sha256": "2bbddbba4b44552031b25769c8f79575580a1d5beb4d7087e0640fb5550d1b34",
+      "metrics_sha256": "fc95c6b0e35020f107fd52acf36b819cd8f7e54c60bd2dced03e2ef8fd446361",
+      "counts": {
+        "writes": 2936,
+        "reads": 397,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 384,
+        "context_lookups": 242
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 668,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 7,
+      "snapshot_sha256": "bd9be3f2a3908fbe5363b70a1debd89c3be1c8281f828a5bbb74094d443064be",
+      "metrics_sha256": "214aef9f0319132b7474a10d326a03cdde54dac465fe93202c0bfd0288c009fa",
+      "counts": {
+        "writes": 4113,
+        "reads": 109,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 733,
+        "context_lookups": 471
+      },
+      "words": 3,
+      "pairs": 1,
+      "entities": 681,
+      "readers": []
+    },
+    {
+      "case": "symbols-scrambled",
+      "seed": 8,
+      "snapshot_sha256": "ed7183041cf1e8404a5199a89cba50dc0a4279acaec858d3e8614dba98f35fd8",
+      "metrics_sha256": "f62c0c9df40055d4554495e0209cc288d0f203a5fd8c942cd141a7d42e8aafcc",
+      "counts": {
+        "writes": 768,
+        "reads": 249032,
+        "nonempty_reads": 108,
+        "pair_reads": 31,
+        "foreign_reads": 104,
+        "lookups": 118,
+        "context_lookups": 43
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 676,
+      "readers": [
+        {
+          "genome": "10a5f3bf35adc84dfc813abde0684a1f544557bafeecba92c4cd7c224ebc8430",
+          "writes": 3,
+          "reads": 3,
+          "nonempty_reads": 1,
+          "pair_reads": 0,
+          "foreign_reads": 1,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 19,
+              "a": 51,
+              "b": 43
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "4a53806e6f8c6661bb62fed8492400bcbf25dac1de7dceb2af1250dc42997eb0",
+          "writes": 0,
+          "reads": 239167,
+          "nonempty_reads": 97,
+          "pair_reads": 26,
+          "foreign_reads": 97,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "a159a08f59327cbd5d76b0297440487f5cb8621e30ef1ab1ca27ffbd148d47db",
+          "writes": 0,
+          "reads": 258,
+          "nonempty_reads": 1,
+          "pair_reads": 1,
+          "foreign_reads": 1,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "a882ef162e04f564faa0795156fb95cde8d484aa6d71a8e3099aab3e309d66ae",
+          "writes": 0,
+          "reads": 555,
+          "nonempty_reads": 4,
+          "pair_reads": 3,
+          "foreign_reads": 4,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "d90e63d72bb85aa9cab4ea1126a57b8ef01449ce5438af98e5efab6804878a6a",
+          "writes": 0,
+          "reads": 5074,
+          "nonempty_reads": 1,
+          "pair_reads": 0,
+          "foreign_reads": 1,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            }
+          ]
+        },
+        {
+          "genome": "de188de3f671a7929758057ceb66c0f4576b698e0c66c8239a26aaab9975786f",
+          "writes": 139,
+          "reads": 139,
+          "nonempty_reads": 4,
+          "pair_reads": 1,
+          "foreign_reads": 0,
+          "lookups": 0,
+          "context_lookups": 0,
+          "code": [
+            {
+              "op": 12,
+              "a": 0,
+              "b": 8
+            },
+            {
+              "op": 12,
+              "a": 1,
+              "b": 8
+            },
+            {
+              "op": 1,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 10,
+              "a": 0,
+              "b": 100
+            },
+            {
+              "op": 11,
+              "a": 7,
+              "b": 1
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 4,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 20,
+              "a": 4,
+              "b": 81
+            },
+            {
+              "op": 19,
+              "a": 63,
+              "b": 49
+            },
+            {
+              "op": 5,
+              "a": 0,
+              "b": 0
+            },
+            {
+              "op": 7,
+              "a": 48,
+              "b": 0
+            },
+            {
+              "op": 2,
+              "a": -1,
+              "b": 0
+            },
+            {
+              "op": 11,
+              "a": 0,
+              "b": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 1,
+      "snapshot_sha256": "0a3aecdb87eae4d41c1b15ba6d2be7bba73f546a03a6e4bde1268f33ed7a2eff",
+      "metrics_sha256": "21442f684374cedee64596e141ee82c278d73eeb7f7e005dd2155bb92a75cd50",
+      "counts": {
+        "writes": 3489,
+        "reads": 754,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 15163,
+        "context_lookups": 15051
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 652,
+      "readers": []
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 2,
+      "snapshot_sha256": "468e83041fa1ad6146bb9557406bdd2bf8be131216a5cbf6b4b258417514190b",
+      "metrics_sha256": "3557cc2253c0c554dcbaa22e2cce15761bb9c69c59e3663a67dac15f97586c82",
+      "counts": {
+        "writes": 11141,
+        "reads": 13364,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 25493,
+        "context_lookups": 19246
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 682,
+      "readers": []
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 3,
+      "snapshot_sha256": "f875052e4b43b00cde3c349a8801f088df0747d3953a5cf735a0b22950de26de",
+      "metrics_sha256": "d84295d5b138249e940f7f26f9cffa5caff38ca38e2866878da23372b9db21d6",
+      "counts": {
+        "writes": 745,
+        "reads": 3270,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5570,
+        "context_lookups": 4
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 674,
+      "readers": []
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 4,
+      "snapshot_sha256": "d83de47b0cf45cafbe26b1b5cdcbb97e0e903ae223c00673a2496b9cde94b748",
+      "metrics_sha256": "7b6c475ef88c119100b9015d5d72b42583d811b3f6db9ce3a84ba4af958cd00e",
+      "counts": {
+        "writes": 208395,
+        "reads": 51,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 11078,
+        "context_lookups": 11003
+      },
+      "words": 83,
+      "pairs": 50,
+      "entities": 659,
+      "readers": []
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 5,
+      "snapshot_sha256": "17053b66f6094bdf408e758f551fde1588f64b3e65d7bccb54b515c1d4850c2c",
+      "metrics_sha256": "db51e4c92949b93308c6b4c9a08737c50362e83292c5e1159448cb9e770e298e",
+      "counts": {
+        "writes": 18,
+        "reads": 3839,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 26026,
+        "context_lookups": 26000
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 671,
+      "readers": []
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 6,
+      "snapshot_sha256": "332bd77436f8ae17cb97fc33a8aaf0a1000e0ed76a8c3665b43181f12566639c",
+      "metrics_sha256": "d269152d14bc02916479223e459b794233191b5a4102282b17d10ebe824fd72b",
+      "counts": {
+        "writes": 2936,
+        "reads": 397,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 384,
+        "context_lookups": 242
+      },
+      "words": 1,
+      "pairs": 1,
+      "entities": 668,
+      "readers": []
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 7,
+      "snapshot_sha256": "725f468f82f50401a58c2567120f6f74ac08e2d324312811d88bb8bd2fe49fd1",
+      "metrics_sha256": "32372f7aa16b160fb3d81105fe894c433ff474b35d56d3f2f9e5a46391a693d4",
+      "counts": {
+        "writes": 4113,
+        "reads": 109,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 733,
+        "context_lookups": 471
+      },
+      "words": 3,
+      "pairs": 1,
+      "entities": 681,
+      "readers": []
+    },
+    {
+      "case": "symbols-unreadable",
+      "seed": 8,
+      "snapshot_sha256": "9571f5e23062bcf58eae95df7ee5a6d7516f75cce9b553050e059173edd8455a",
+      "metrics_sha256": "fa21d9cf8e1de01725b0de5b59ede123dea5dd0aaf4170409a7f44c65bdfb5f2",
+      "counts": {
+        "writes": 768,
+        "reads": 249032,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 118,
+        "context_lookups": 43
+      },
+      "words": 0,
+      "pairs": 0,
+      "entities": 676,
+      "readers": []
+    }
+  ],
+  "development_comparisons": [
+    {
+      "seed": 1,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 1,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 2,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 2,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 3,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 3,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 4,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 4,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 5,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 5,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 6,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 6,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 7,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 7,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 8,
+      "arm": "symbols-scrambled",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    },
+    {
+      "seed": 8,
+      "arm": "symbols-unreadable",
+      "other_endpoint_fields_equal": true,
+      "other_sampled_metrics_equal": true
+    }
+  ],
+  "continuations": [
+    {
+      "seed": 1,
+      "arm": "persistent",
+      "source_sha256": "0d4e5be89addc1c09c6af6190f3b4b9747c4f6d4250a06ac0b1c42d7c50e9dbc",
+      "initial_sha256": "0d4e5be89addc1c09c6af6190f3b4b9747c4f6d4250a06ac0b1c42d7c50e9dbc",
+      "final_sha256": "de5711de86c118752644d3c36c43a1f4122f091e5de9f2c23d34ed5d79a45bd6",
+      "metrics_sha256": "29e21451ef865628cef2b4ffca70d342a4ae30656b2494a84b30ef779573b1a5",
+      "counts": {
+        "writes": 2965,
+        "reads": 9,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5784,
+        "context_lookups": 5748
+      }
+    },
+    {
+      "seed": 1,
+      "arm": "scrambled",
+      "source_sha256": "0d4e5be89addc1c09c6af6190f3b4b9747c4f6d4250a06ac0b1c42d7c50e9dbc",
+      "initial_sha256": "d695857d67a5b419eb2076ee0009cf7908ea429b0b789fae8ce8b65c422ff27e",
+      "final_sha256": "b9d7f31752017577c3f681446617deea2cffb69b1c9448858d57d4cdba68ce20",
+      "metrics_sha256": "52d328a64570d57a58d3f047f829857aa03512394bfaaa613ad6a28894513314",
+      "counts": {
+        "writes": 2965,
+        "reads": 9,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5784,
+        "context_lookups": 5748
+      }
+    },
+    {
+      "seed": 1,
+      "arm": "unreadable",
+      "source_sha256": "0d4e5be89addc1c09c6af6190f3b4b9747c4f6d4250a06ac0b1c42d7c50e9dbc",
+      "initial_sha256": "0a3aecdb87eae4d41c1b15ba6d2be7bba73f546a03a6e4bde1268f33ed7a2eff",
+      "final_sha256": "4f539a169a896fed41dd30c64e2f523d1576a2e2cc068db633e0570c587c29f5",
+      "metrics_sha256": "5627bdcf12bee1fb940d5792b7037bbca2504eb8af29c90cfc97c132329cd495",
+      "counts": {
+        "writes": 2965,
+        "reads": 9,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5784,
+        "context_lookups": 5748
+      }
+    },
+    {
+      "seed": 2,
+      "arm": "persistent",
+      "source_sha256": "8eec9b55dd6fa2120492257574875c1499640b514f88c211abe94df915d59f79",
+      "initial_sha256": "8eec9b55dd6fa2120492257574875c1499640b514f88c211abe94df915d59f79",
+      "final_sha256": "f4d9bb3e8bd466e60d44ed7d334fde85368a95d263ed0ff532d418c81b8e7d1c",
+      "metrics_sha256": "3110d84fa55b9e5ef8fd0891da7c4455430e97b095794db0cdcff347477dfe09",
+      "counts": {
+        "writes": 2885,
+        "reads": 2863,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 6339,
+        "context_lookups": 4814
+      }
+    },
+    {
+      "seed": 2,
+      "arm": "scrambled",
+      "source_sha256": "8eec9b55dd6fa2120492257574875c1499640b514f88c211abe94df915d59f79",
+      "initial_sha256": "18245e6eed87477227ea1d9a302b44fb177ee9add7e518e3becda618b5f7597e",
+      "final_sha256": "77b7c854f917ac9dfa14c0fc8c26ec2f22c7e845d5352d2f5049ea9e97b34d56",
+      "metrics_sha256": "fcab690da8af82d0fa944dacb54bd5fbe0ff84cdd3d8f910c97a8a6c38bef404",
+      "counts": {
+        "writes": 2885,
+        "reads": 2863,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 6339,
+        "context_lookups": 4814
+      }
+    },
+    {
+      "seed": 2,
+      "arm": "unreadable",
+      "source_sha256": "8eec9b55dd6fa2120492257574875c1499640b514f88c211abe94df915d59f79",
+      "initial_sha256": "468e83041fa1ad6146bb9557406bdd2bf8be131216a5cbf6b4b258417514190b",
+      "final_sha256": "6ebe3617bb40e5631bce915df53d5d2a89da45b31d0cc3bb935576665132997b",
+      "metrics_sha256": "728776652ac65faf9030ba792772f46879df33f94ce8b273a7eac71f477a237f",
+      "counts": {
+        "writes": 2885,
+        "reads": 2863,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 6339,
+        "context_lookups": 4814
+      }
+    },
+    {
+      "seed": 3,
+      "arm": "persistent",
+      "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+      "initial_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+      "final_sha256": "b89d854b2f512d39b9fcb0ec32931efafb0b02875860ed0661c802dbe298acb4",
+      "metrics_sha256": "bbd35a98f0eae0f1af9aa79df5c05908f7c229c1f9a8551a8bb86a967b9efdc5",
+      "counts": {
+        "writes": 48,
+        "reads": 2896,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 11,
+        "context_lookups": 2
+      }
+    },
+    {
+      "seed": 3,
+      "arm": "scrambled",
+      "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+      "initial_sha256": "89d7981be8d1e7bab39af3a284efc5e878b1647c6acbc45c61e5bdc95cdd7c63",
+      "final_sha256": "b42a4aebbe3f5286261db3c83235178763088c4eca4f24f40b0a5cd094da5480",
+      "metrics_sha256": "e86932f0744c38935a882b61440f2716ed42540c608b37acf99620e72e99687c",
+      "counts": {
+        "writes": 48,
+        "reads": 2896,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 11,
+        "context_lookups": 2
+      }
+    },
+    {
+      "seed": 3,
+      "arm": "unreadable",
+      "source_sha256": "1233564f7a08b22da9e8ca34460001d3e7ff90ce138f511c5542abb8d6494e05",
+      "initial_sha256": "f875052e4b43b00cde3c349a8801f088df0747d3953a5cf735a0b22950de26de",
+      "final_sha256": "60effe124633a0c4fdd1cfdcd20ff167b61a934aae7ff896c3034fd859cfa9b5",
+      "metrics_sha256": "110a0bebdae762c0778890b128b7183af724d2544796415cebc6d7386458ac29",
+      "counts": {
+        "writes": 48,
+        "reads": 2896,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 11,
+        "context_lookups": 2
+      }
+    },
+    {
+      "seed": 4,
+      "arm": "persistent",
+      "source_sha256": "b6df3acb0e8eac700ddf2d4ea9a8dbd8c15f74d66fef3b44171414c25c11e54a",
+      "initial_sha256": "b6df3acb0e8eac700ddf2d4ea9a8dbd8c15f74d66fef3b44171414c25c11e54a",
+      "final_sha256": "5f29c893193477bc67ef27ad6fc7a786feb1481ed3e9420258cfa408367c9e0a",
+      "metrics_sha256": "8a22ec70369cb1ec3cbc6927f4c18fcfa417fae57d93ee23cd8a8ab8725e2acc",
+      "counts": {
+        "writes": 75393,
+        "reads": 343,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 2863,
+        "context_lookups": 2859
+      }
+    },
+    {
+      "seed": 4,
+      "arm": "scrambled",
+      "source_sha256": "b6df3acb0e8eac700ddf2d4ea9a8dbd8c15f74d66fef3b44171414c25c11e54a",
+      "initial_sha256": "423e289eddf31cb9b4e8cdfc3643a77965ceaf9483e8be8f7fe2eb1f3d20c64d",
+      "final_sha256": "9483ff404b45b683ae31d351400df802b51f6eda024a2e27d20bc195133a5bc2",
+      "metrics_sha256": "fb940a2aca18c2ef9e0fa9aced5e177b719fba3f202cae7343cbc807cf9f8ca5",
+      "counts": {
+        "writes": 75393,
+        "reads": 343,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 2863,
+        "context_lookups": 2859
+      }
+    },
+    {
+      "seed": 4,
+      "arm": "unreadable",
+      "source_sha256": "b6df3acb0e8eac700ddf2d4ea9a8dbd8c15f74d66fef3b44171414c25c11e54a",
+      "initial_sha256": "d83de47b0cf45cafbe26b1b5cdcbb97e0e903ae223c00673a2496b9cde94b748",
+      "final_sha256": "1b178ff31d1cbd30bb4fe4e0449bb6b34e541a6a6d4a24cff59d224ae0703b39",
+      "metrics_sha256": "65b6e52decfd2ce5709f7ff92621e5149d1744b0058e64dcd1bfe34d9f516802",
+      "counts": {
+        "writes": 75393,
+        "reads": 343,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 2863,
+        "context_lookups": 2859
+      }
+    },
+    {
+      "seed": 5,
+      "arm": "persistent",
+      "source_sha256": "dcfdea17ee934c0b5054e827979a362411a9a8df3df6b07d14b9beef847a8ba7",
+      "initial_sha256": "dcfdea17ee934c0b5054e827979a362411a9a8df3df6b07d14b9beef847a8ba7",
+      "final_sha256": "9e4b988c7399d2f9927e59f2067c2702811a5e1713c2c80abf6c919750e3ea2a",
+      "metrics_sha256": "4e0ce9c07a02dd857eb121665182dd3bb801767c13f3493e900ca0b68b110ff2",
+      "counts": {
+        "writes": 14,
+        "reads": 2910,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5716,
+        "context_lookups": 5714
+      }
+    },
+    {
+      "seed": 5,
+      "arm": "scrambled",
+      "source_sha256": "dcfdea17ee934c0b5054e827979a362411a9a8df3df6b07d14b9beef847a8ba7",
+      "initial_sha256": "c60585e63ca79d909cdb1bd418ed8e4dbeba229a9d8a734fd3fcbaf0cc3cafab",
+      "final_sha256": "6e64a66cf4e6878d1dfc4e37b1abff3fc1826b6c7a1b3b89e26acaec2e986a78",
+      "metrics_sha256": "7ac1fbaca2c60dab79b5a908e8cb8dfd290b526d9170b449ceae802f130a9f1b",
+      "counts": {
+        "writes": 14,
+        "reads": 2910,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5716,
+        "context_lookups": 5714
+      }
+    },
+    {
+      "seed": 5,
+      "arm": "unreadable",
+      "source_sha256": "dcfdea17ee934c0b5054e827979a362411a9a8df3df6b07d14b9beef847a8ba7",
+      "initial_sha256": "17053b66f6094bdf408e758f551fde1588f64b3e65d7bccb54b515c1d4850c2c",
+      "final_sha256": "a578cc53e938970d50009525551a3a41f627b27ac08704ef553adc914763f4e8",
+      "metrics_sha256": "5fe2fc8d8e744a59a061f7486c9de5d9a65b9e5fd11422ed54b0a747b7a32031",
+      "counts": {
+        "writes": 14,
+        "reads": 2910,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 5716,
+        "context_lookups": 5714
+      }
+    },
+    {
+      "seed": 6,
+      "arm": "persistent",
+      "source_sha256": "2f3350cf6607ec98ae1e22aaa202fd6de29543abf4fd18de0989b5ba5b760414",
+      "initial_sha256": "2f3350cf6607ec98ae1e22aaa202fd6de29543abf4fd18de0989b5ba5b760414",
+      "final_sha256": "dc41cb2efc20ed7056f11bcb90acdb31bd7d887b5db7a0c4855718fd8976a791",
+      "metrics_sha256": "9a1801fcf4b83aa0810afe3c517d6ad7e293286063526b6c1c7ceebd285b39ae",
+      "counts": {
+        "writes": 1713,
+        "reads": 8,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 2,
+        "context_lookups": 1
+      }
+    },
+    {
+      "seed": 6,
+      "arm": "scrambled",
+      "source_sha256": "2f3350cf6607ec98ae1e22aaa202fd6de29543abf4fd18de0989b5ba5b760414",
+      "initial_sha256": "2bbddbba4b44552031b25769c8f79575580a1d5beb4d7087e0640fb5550d1b34",
+      "final_sha256": "82309b8c0389e0b499431a3cb95c54b7ff288143f8dabfcca920e72f4534633d",
+      "metrics_sha256": "d268ecd5a5115498d7c6b798f94e7e4073379a6b7dd8f34654885370cd9e5410",
+      "counts": {
+        "writes": 1713,
+        "reads": 8,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 2,
+        "context_lookups": 1
+      }
+    },
+    {
+      "seed": 6,
+      "arm": "unreadable",
+      "source_sha256": "2f3350cf6607ec98ae1e22aaa202fd6de29543abf4fd18de0989b5ba5b760414",
+      "initial_sha256": "332bd77436f8ae17cb97fc33a8aaf0a1000e0ed76a8c3665b43181f12566639c",
+      "final_sha256": "525d0d76cf69f57c796fdf9dac64993a75c077282a7bc5932a9a9e30822672af",
+      "metrics_sha256": "08039ffad289df4ddf4ac87275971514d04d7cf346c69c4f37ca7bef889e92d1",
+      "counts": {
+        "writes": 1713,
+        "reads": 8,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 2,
+        "context_lookups": 1
+      }
+    },
+    {
+      "seed": 7,
+      "arm": "persistent",
+      "source_sha256": "a7969d0c48ace1512294dcf47210587e98d6f34400357017baa0e9f2742f5e29",
+      "initial_sha256": "a7969d0c48ace1512294dcf47210587e98d6f34400357017baa0e9f2742f5e29",
+      "final_sha256": "fe2c6b5890e34db77c4782bb3331cea147a597b4aba2b8f4b073e5881fb517e4",
+      "metrics_sha256": "63c70be2e70e12259369bfff72d3ff9f0acc72525183da83f3df07e32d29e61c",
+      "counts": {
+        "writes": 667,
+        "reads": 154,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 65,
+        "context_lookups": 32
+      }
+    },
+    {
+      "seed": 7,
+      "arm": "scrambled",
+      "source_sha256": "a7969d0c48ace1512294dcf47210587e98d6f34400357017baa0e9f2742f5e29",
+      "initial_sha256": "bd9be3f2a3908fbe5363b70a1debd89c3be1c8281f828a5bbb74094d443064be",
+      "final_sha256": "51403feb856364bf3857e40d4df308bc025535cf086aa6898f821bbfef42c1ba",
+      "metrics_sha256": "e5f50f2a6d2747527c53a489874f1c8c6bca79d736e33ccd0fb82a1d1e0c67b4",
+      "counts": {
+        "writes": 667,
+        "reads": 154,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 65,
+        "context_lookups": 32
+      }
+    },
+    {
+      "seed": 7,
+      "arm": "unreadable",
+      "source_sha256": "a7969d0c48ace1512294dcf47210587e98d6f34400357017baa0e9f2742f5e29",
+      "initial_sha256": "725f468f82f50401a58c2567120f6f74ac08e2d324312811d88bb8bd2fe49fd1",
+      "final_sha256": "99348883455363d2b7fefab08cf55d1e00cb271c058b0416f657023f5c47473a",
+      "metrics_sha256": "0cebb13ea12fc9f64e05b9081108628510d0c3415302403038391ddc1adb1ed0",
+      "counts": {
+        "writes": 667,
+        "reads": 154,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 65,
+        "context_lookups": 32
+      }
+    },
+    {
+      "seed": 8,
+      "arm": "persistent",
+      "source_sha256": "8872f4c15ee39decec4d208f27872a1d19676744b945a51a2cd644102b040dcf",
+      "initial_sha256": "8872f4c15ee39decec4d208f27872a1d19676744b945a51a2cd644102b040dcf",
+      "final_sha256": "3c8c2d659c5b9326b8ec7d4ff90e0b18acfb6123ae61bb2bcdbbc9673e475b5a",
+      "metrics_sha256": "2774c3302b5fadf1820427fc92f71fba8de02c12c0e9ae08023a77c8fd6ea611",
+      "counts": {
+        "writes": 0,
+        "reads": 21123,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 652,
+        "context_lookups": 592
+      }
+    },
+    {
+      "seed": 8,
+      "arm": "scrambled",
+      "source_sha256": "8872f4c15ee39decec4d208f27872a1d19676744b945a51a2cd644102b040dcf",
+      "initial_sha256": "ed7183041cf1e8404a5199a89cba50dc0a4279acaec858d3e8614dba98f35fd8",
+      "final_sha256": "3c68f91ae4d34b046008b209b1fe9dfead885f9416d11418fff905f557bf4fdd",
+      "metrics_sha256": "63ed3beb188ebb276bae0041b26741c5c2cb917f2ad455a200e29dab286f4288",
+      "counts": {
+        "writes": 0,
+        "reads": 21123,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 652,
+        "context_lookups": 592
+      }
+    },
+    {
+      "seed": 8,
+      "arm": "unreadable",
+      "source_sha256": "8872f4c15ee39decec4d208f27872a1d19676744b945a51a2cd644102b040dcf",
+      "initial_sha256": "232a8172401f3371f27ad918ea0d32ef51f92660cc6216075966473d25bd4f21",
+      "final_sha256": "7432a414962790131466115331f76b7a4894c8ad7f9e324a05cafa2bff09d94a",
+      "metrics_sha256": "279bbcd4955ede5f959ec773713df12ad45439c6bd4f10ac4c420447dfb9ab4e",
+      "counts": {
+        "writes": 0,
+        "reads": 21123,
+        "nonempty_reads": 0,
+        "pair_reads": 0,
+        "foreign_reads": 0,
+        "lookups": 652,
+        "context_lookups": 592
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "seed": 1,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 1,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 2,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 2,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 3,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 3,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 4,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 4,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 5,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 5,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 6,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 6,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 7,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 7,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 8,
+      "arm": "scrambled",
+      "other_endpoint_fields_equal": true
+    },
+    {
+      "seed": 8,
+      "arm": "unreadable",
+      "other_endpoint_fields_equal": true
+    }
+  ]
+}

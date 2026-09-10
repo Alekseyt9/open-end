@@ -202,6 +202,13 @@ func run(args []string, out io.Writer) (err error) {
 	if err = save(filepath.Join(*dest, "results.json"), trials); err != nil {
 		return err
 	}
+	batch := []map[string]any{}
+	for _, r := range trials {
+		batch = append(batch, map[string]any{"Case": r.Case + "-" + r.Variant, "Seed": r.Seed, "Tick": r.Summary.ToTick, "Entities": r.Summary.Population.End, "Genomes": r.Summary.Genomes.End, "Snapshot": r.Snapshot, "Metrics": r.Metrics, "StateSHA256": r.FinalHash})
+	}
+	if err = save(filepath.Join(*dest, "summary.json"), batch); err != nil {
+		return err
+	}
 	status["status"] = "complete"
 	status["completed"] = len(trials)
 	status["seconds"] = time.Since(start).Seconds()
