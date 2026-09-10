@@ -14,8 +14,10 @@ const RuleVersion = rules.Version
 // IDs are sorted then rotated by tick to avoid permanent ID priority. All
 // intents are evaluated before effects; conflicts use this explicit order.
 func Step(w *world.World) {
-	if s:=w.RuleState;s!=nil && len(s.Pending)>0 && s.Pending[0].Tick==w.Tick {
-		change:=s.Pending[0];s.Pending=s.Pending[1:];s.Apply(change)
+	if s := w.RuleState; s != nil && len(s.Pending) > 0 && s.Pending[0].Tick == w.Tick {
+		change := s.Pending[0]
+		s.Pending = s.Pending[1:]
+		s.Apply(change)
 	}
 	rules.Inflow(w)
 	ids := orderedIDs(w)

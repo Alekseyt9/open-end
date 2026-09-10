@@ -21,6 +21,9 @@ func cloneRuleState(w *world.World) *dsl.State {
 // ReloadRules is a host API. Installation is transactional, only between ticks;
 // all queued future transitions are revalidated before replacing active state.
 func ReloadRules(w *world.World, m *dsl.Module) error {
+	if !w.Config.Ecology {
+		return fmt.Errorf("DSL reactions require ecology")
+	}
 	if m == nil {
 		return fmt.Errorf("nil rule module")
 	}
@@ -60,6 +63,9 @@ func RollbackRules(w *world.World) error {
 }
 
 func ScheduleRules(w *world.World, c dsl.Change) error {
+	if !w.Config.Ecology {
+		return fmt.Errorf("DSL reactions require ecology")
+	}
 	if c.Module != nil {
 		if err := c.Module.Validate(); err != nil {
 			return err

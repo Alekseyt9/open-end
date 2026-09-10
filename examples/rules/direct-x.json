@@ -1,0 +1,9 @@
+{
+  "format": 1,
+  "version": "direct-x-v1",
+  "instruction_budget": 32,
+  "rules": [
+    {"id": 0, "name": "x-to-z", "consume": {"X": 1}, "produce": {"Z": 1, "energy": 8}, "energy_cost": 1, "max_batch": 64},
+    {"id": 2, "name": "charge-x", "consume": {"Z": 1, "energy": 8}, "produce": {"X": 1}, "energy_cost": 1, "max_batch": 64}
+  ]
+}

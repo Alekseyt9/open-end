@@ -268,6 +268,9 @@ func (w *World) Unlink(id uint64) {
 }
 
 func (w *World) Validate() error {
+	if w.RuleState != nil && !w.Config.Ecology {
+		return fmt.Errorf("DSL state requires ecology")
+	}
 	if err := w.RuleState.Validate(w.Tick); err != nil {
 		return err
 	}

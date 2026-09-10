@@ -1,0 +1,9 @@
+{
+  "format": 1,
+  "version": "baseline-v1",
+  "instruction_budget": 32,
+  "rules": [
+    {"id": 0, "name": "x-to-y", "consume": {"X": 1}, "produce": {"Y": 1, "energy": 4}, "energy_cost": 1, "max_batch": 64},
+    {"id": 1, "name": "y-to-z", "consume": {"Y": 1}, "produce": {"Z": 1, "energy": 4}, "energy_cost": 1, "max_batch": 64}
+  ]
+}

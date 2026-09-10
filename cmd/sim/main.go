@@ -5,11 +5,15 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"open-end/internal/dsl"
 	"open-end/internal/kernel"
 	"open-end/internal/observer"
 	"open-end/internal/world"
 	"os"
 	"path/filepath"
+	"sort"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -36,6 +40,10 @@ func run(args []string, out io.Writer) error {
 	save := fs.String("save", "", "write final snapshot via a temporary file")
 	load := fs.String("load", "", "resume snapshot including its config and RNG state")
 	metricsPath := fs.String("metrics", "", "write JSONL metrics (new file only)")
+	rulesPath := fs.String("rules", "", "initial JSON reaction module (requires ecology)")
+	var changes ruleChanges
+	fs.Var(&changes, "rule-change", "scheduled tick=JSON-path; repeatable, frozen in snapshot")
+	rollback := fs.String("rollback-at", "", "tick at which to restore the previous rule module")
 	if err := fs.Parse(args); err != nil {
 		if err == flag.ErrHelp {
 			return nil
@@ -54,7 +62,7 @@ func run(args []string, out io.Writer) error {
 		var conflict string
 		fs.Visit(func(f *flag.Flag) {
 			switch f.Name {
-			case "seed", "width", "height", "mutation-ppm", "inflow", "matter-diffusion", "ecology", "chemical-diffusion":
+			case "seed", "width", "height", "mutation-ppm", "inflow", "matter-diffusion", "ecology", "chemical-diffusion", "rules", "rule-change", "rollback-at":
 				conflict = f.Name
 			}
 		})
@@ -73,6 +81,41 @@ func run(args []string, out io.Writer) error {
 	}
 	if err != nil {
 		return err
+	}
+	if *rulesPath != "" {
+		m, err := readRules(*rulesPath)
+		if err != nil {
+			return err
+		}
+		if err := kernel.ReloadRules(w, m); err != nil {
+			return err
+		}
+	}
+	var plan []dsl.Change
+	for _, text := range changes {
+		tickText, path, ok := strings.Cut(text, "=")
+		tick, err := strconv.ParseUint(tickText, 10, 64)
+		if !ok || err != nil || path == "" {
+			return fmt.Errorf("invalid -rule-change: expected tick=path")
+		}
+		m, err := readRules(path)
+		if err != nil {
+			return err
+		}
+		plan = append(plan, dsl.Change{Tick: tick, Module: m})
+	}
+	if *rollback != "" {
+		tick, err := strconv.ParseUint(*rollback, 10, 64)
+		if err != nil {
+			return fmt.Errorf("invalid -rollback-at: %w", err)
+		}
+		plan = append(plan, dsl.Change{Tick: tick, Rollback: true})
+	}
+	sort.Slice(plan, func(i, j int) bool { return plan[i].Tick < plan[j].Tick })
+	for _, change := range plan {
+		if err := kernel.ScheduleRules(w, change); err != nil {
+			return err
+		}
 	}
 	var metrics io.Writer = io.Discard
 	if *metricsPath != "" {
@@ -103,6 +146,13 @@ func run(args []string, out io.Writer) error {
 			return err
 		}
 		_, err := fmt.Fprintf(out, "tick=%d entities=%d executable=%d genomes=%d lineages=%d copies=%d deaths=%d energy=%d new_copies=%d reactions=%v\n", m.Tick, m.Entities, m.Executable, m.Genomes, m.Lineages, m.Copies, m.Deaths, m.Energy, m.Interval.Copies, m.Converted)
+		if err == nil && w.RuleState != nil {
+			version, hash := "builtin", "builtin"
+			if a := w.RuleState.Active; a != nil {
+				version, hash = a.Source.Version, a.Hash
+			}
+			_, err = fmt.Fprintf(out, "rules=%s rules_sha256=%s rule_events=%d dsl_instructions=%d\n", version, hash, len(w.RuleState.Events), w.RuleState.Instructions)
+		}
 		return err
 	}
 	if err := report(); err != nil {
@@ -126,6 +176,19 @@ func run(args []string, out io.Writer) error {
 	}
 	_, err = fmt.Fprintf(out, "state_sha256=%s\n", kernel.Hash(w))
 	return err
+}
+
+type ruleChanges []string
+
+func (r *ruleChanges) String() string     { return strings.Join(*r, ",") }
+func (r *ruleChanges) Set(s string) error { *r = append(*r, s); return nil }
+func readRules(path string) (*dsl.Module, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	return dsl.Parse(f)
 }
 
 func writeSnapshot(path string, w *world.World) error {
