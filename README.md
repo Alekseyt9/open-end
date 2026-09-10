@@ -30,6 +30,8 @@ The longer-term idea is to expand the set of mechanisms evolution can use. An ex
 
 **Open-ended evolution is the research goal, not an established result.** More genome hashes, larger structures, and higher population counts are not sufficient evidence. The important questions are whether new behaviors persist, have causal effects, create opportunities for further adaptations, and eventually support new levels of organization.
 
+The current priority is **sustained evolution, functional diversity, and increasing adaptive capability**. Single-particle systems can make progress; multicellularity, mutual exchange and higher-level individuality are possible outcomes, not mandatory gates. A new experimental assay measures benefits of memory and perception under resource challenges and allocates further runs while preserving behavioral alternatives and exploration.
+
 ## Current capabilities
 
 | Area | Implemented | Current boundary |
@@ -48,6 +50,8 @@ The longer-term idea is to expand the set of mechanisms evolution can use. An ex
 | Collective observation | Per-tick bond membership, founder ancestry, daughter candidates, matched ablations | Whole-group reproduction and obligatory specialization remain unproven |
 | Entity discovery | Bond, reciprocal-transfer and copying-ancestry candidates; containment DAG; subsequent-interval checks | Descriptive boundaries; causal coordination and higher-level individuality remain unmeasured |
 | Causal analysis | Whole-seed forecast evaluation, random grouping controls, local and matched outside bond cuts | Local effects are measurable; a predictive macro advantage and causal emergence are not established |
+| Symbolic primitives | Ordered inscriptions, reception controls, context-indexed memory lookup, paired assays | Primitive use observed; a beneficial symbolic convention remains unproven |
+| Adaptive allocation | Matched resource challenges, information-benefit proxy, reserved validation, behavioral diversity and exploration | A provisional world-level metric; first cohort showed no benefit above threshold |
 | GPU execution | Warp physics with exact differential checks | No full genome/origin history on GPU |
 
 Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. Stage 9 adds a novelty archive and Pareto selection using measured proxies. Stage 10 implements inherited copying strategies; their persistent diversity remains an open experimental criterion. Stage 11 implements environmental engineering and matched causal interventions; new niches remain unproven. Stage 12 adds collective observation and matched ablations; whole-group reproduction remains unproven. Stage 13 proposes entity boundaries and their containment hierarchy, with subsequent-interval activity checks; higher-level individuality remains unproven.
@@ -159,7 +163,7 @@ A tick introduces energy, orders particles by ID with a cyclic tick-dependent of
 | `cmd/sim`, `cmd/analyze`, `cmd/summarize` | Run, analyze persistence, and explain history |
 | `warp-sim`, `cmd/warp-reference` | Experimental GPU backend and Go parity reference |
 
-Physical snapshots include the kernel and rule versions. Format 2 represents legacy copying without DSL state; format 3 includes DSL modules, history, queued changes, and usage counters. Format 4 adds encoded copying policies and their ledger. Format 5 adds environmental engineering, with or without DSL state and encoded copying. Incompatible snapshots are rejected. A rule rollback changes the rules; a snapshot restore returns the entire physical state.
+Physical snapshots include the kernel and rule versions. Format 2 represents legacy copying without DSL state; format 3 includes DSL modules, history, queued changes, and usage counters. Format 4 adds encoded copying policies and their ledger. Format 5 adds environmental engineering; format 6 adds collective ablations; format 7 adds symbolic inscriptions. Older formats keep their original mutation repertoires and hashes. Incompatible snapshots are rejected. A rule rollback changes the rules; a snapshot restore returns the entire physical state.
 
 ## AI observation and rule proposals
 
@@ -256,12 +260,14 @@ Archive selection uses novelty distance, effective genome diversity, bonded stru
 | [Collective ablations](experiments/collectives/REPORT.md) | 32 matched continuations × 20,000 ticks in 24.94 s; 747/1,022 initial group members survived intact versus 17 without bonds | Bonds affected survival; no qualifying daughter group was observed |
 | [Entity discovery](experiments/entities/REPORT.md) | 32 exact replays in 24.78 s; 83 persistent bond boundaries at the intact endpoints; no reciprocal-transfer candidate | Candidate containment is measurable; causal coordination and higher-level individuality remain unproven |
 | [Predictive and causal analysis](experiments/causal/REPORT.md) | Local cuts harmed survival in 34/83 groups; macro forecast MSE 0.013069 versus micro 0.012424 | Internal bonds can matter without the aggregate description predicting better |
+| [Symbolic primitives](experiments/symbols/REPORT.md) | 108 nonempty reads, including 31 pairs and 104 foreign reads in one of eight worlds | Reception controls preserved final physical states; no beneficial convention established |
+| [Adaptive allocation](experiments/adaptivity/REPORT.md) | 96 probes; four original worlds continued for 20,000 ticks; verified round 9.23 s | No adaptive score above threshold; selected by behavioral spread and exploration |
 
 These are recorded results for specific configurations and horizons, not general performance or OEE guarantees.
 
 ## Experimental GPU backend
 
-Warp implements the original 17 VM opcodes, legacy mutations, transport, bonds, both RNGs, and scheduled DSL changes. Differential tests compare physical state exactly with Go. Genome/origin histories and complete observer work remain outside the GPU implementation; its output is a physical report, not a resumable Go snapshot. Encoded copying, environmental engineering, and collective ablations currently run in Go and are explicitly rejected by Warp.
+Warp implements the original 17 VM opcodes, legacy mutations, transport, bonds, both RNGs, and scheduled DSL changes. Differential tests compare physical state exactly with Go. Genome/origin histories and complete observer work remain outside the GPU implementation; its output is a physical report, not a resumable Go snapshot. Encoded copying, environmental engineering, collective ablations, and symbolic inscriptions currently run in Go and are explicitly rejected by Warp.
 
 In the [recorded RTX 5070 / Ryzen 7 5700X benchmark](experiments/warp/REPORT.md), 32×32 worlds ran for 1000 measured ticks each:
 
@@ -285,7 +291,9 @@ Preparation and state extraction brought the 256-world GPU run to about 19 secon
 | 12 | Implemented observation and ablations: linked group survival, ancestry, and daughter candidates; whole-group reproduction remains unproven |
 | 13 | Implemented candidate discovery: multiple boundary hypotheses, containment and overlap, prospective activity checks |
 | 14 | Implemented predictive and intervention harness; local bond effects observed, no predictive macro advantage established |
-| 15–18 | Symbols, cultural inheritance, persistent artifacts, and technology-like construction |
+| 15 | Implemented symbolic primitives and reception assays; beneficial conventions remain unproven |
+| Cross-stage priority | Adaptive capability, functional diversity and research allocation; first proxy and continuation harness implemented |
+| 16–18 | Cultural inheritance, persistent artifacts, and technology-like construction |
 | 19–21 | Internal VMs, recursive evolution, and long-horizon OEE experiments |
 
 Later stages are research directions with acceptance criteria, not promises that these phenomena will emerge. The [full research plan](open_ended_evolution_ai_world_plan.md) preserves both the numbered roadmap and the later refinements to the research philosophy.
@@ -312,6 +320,8 @@ The test suite covers deterministic replay, resource conservation, mutation and 
 - [Proto-multicellularity](docs/collectives.md): group continuity, ancestry, daughter criteria, ablations, and limits; [32-world experiment](experiments/collectives/REPORT.md).
 - [Entity discovery](docs/entities.md): candidate boundaries, inclusion hierarchy, and subsequent-interval evidence; [32 verified replays](experiments/entities/REPORT.md).
 - [Predictive and causal analysis](docs/causal.md): whole-seed evaluation, model/control definitions, local bond interventions, and limitations; [83-group experiment](experiments/causal/REPORT.md).
+- [Symbolic primitives](docs/symbols.md): inscriptions, memory lookup, reception controls and telemetry; [32-world experiment and 24 continuations](experiments/symbols/REPORT.md).
+- [Adaptive capability and allocation](docs/adaptivity.md): resource challenges, causal information benefits, diversity and exploration; [first allocation round](experiments/adaptivity/REPORT.md).
 - [Research plan](open_ended_evolution_ai_world_plan.md): full concept and staged research program.
 - [Warp backend](warp-sim/README.md): setup, execution, benchmarks, and parity checks.
 - [Ecology results](experiments/ecology/RESULTS.md), [DSL validation](experiments/dsl/SMOKE.md), and [telemetry validation](experiments/telemetry/REPORT.md).

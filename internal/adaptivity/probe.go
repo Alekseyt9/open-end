@@ -48,6 +48,7 @@ type Probe struct {
 	InitialExecutable   int     `json:"initial_executable"`
 	FinalExecutable     int     `json:"final_executable"`
 	PopulationRetention float64 `json:"mean_capped_population_retention"`
+	ExecutableTrace     []int   `json:"executable_trace"`
 	Copies              uint64  `json:"copies"`
 	ChangedPerceptions  uint64  `json:"changed_perceptions"`
 	ResetParticles      int     `json:"reset_particles"`
@@ -179,7 +180,9 @@ func ProbeWorld(source *world.World, c Config, challenge Challenge, mode string)
 			w.Config.Inflow = baseInflow
 		}
 		kernel.StepWithPerception(w, filter)
-		r.PopulationRetention += math.Min(1, float64(Executable(w))/float64(r.InitialExecutable))
+		n := Executable(w)
+		r.ExecutableTrace = append(r.ExecutableTrace, n)
+		r.PopulationRetention += math.Min(1, float64(n)/float64(r.InitialExecutable))
 		if i%64 == 0 {
 			for key := range frozen {
 				if w.Particles[key.ID] == nil {

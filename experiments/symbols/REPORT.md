@@ -6,7 +6,7 @@
 
 32 worlds: seeds 1–8 in `symbols`, `symbols-scrambled`, `symbols-unreadable`, and `symbols-no-mutation`. Each ran 100,000 ticks on a 32×32 grid with ecology, diffusion intervals 4, evolving copying, and coupled engineering. The normal 13-instruction ecology seed was unchanged. Reporting interval: 1,000 ticks. Sixteen worker processes completed the batch in **109.93 seconds**, including runner overhead. This is a recorded run duration, not an isolated performance benchmark.
 
-From the eight persistent-mode endpoints, a further 24 matched continuations tested persistent, scrambled, and unreadable reception for 20,000 ticks each, again using 16 workers. All source words, memories, programs and both RNGs were preserved at branching. No nonempty word was read in the persistent continuation arms.
+From the eight persistent-mode endpoints, a further 24 matched continuations tested persistent, scrambled, and unreadable reception for 20,000 ticks each, again using 16 workers. The verified continuation batch took **14.78 seconds**. All source words, memories, programs and both RNGs were preserved at branching. No nonempty word was read in the persistent continuation arms.
 
 ## Development observations
 

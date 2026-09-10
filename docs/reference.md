@@ -288,6 +288,17 @@ go run ./cmd/causal -input data/entities-stage13-verified -snapshots data/collec
 
 The command selects persistent intact bond components from verified discovery evidence. It evaluates future original-member survival with held-out seeds, limited particle/group predictors, and randomized grouping controls. Independent one-time local and equal-count outside bond removals test survival effects while allowing subsequent rebinding. Sources and world RNGs are preserved; analysis records hashes, features, predictions, exact cuts, and matched outcomes. [Protocol](causal.md) · [Experiment](../experiments/causal/REPORT.md). A local bond effect is not equivalent to a predictive macro advantage or causal emergence. UI work is deferred.
 
+## Symbolic and adaptive experiments
+
+Stage 15 uses `-symbols persistent` with ecology and environmental engineering, adding TOKEN, LISTEN and LOOKUP. It uses snapshot format **7** while preserving formats 2–6. See [symbol mechanics](symbols.md) and the [recorded experiment](../experiments/symbols/REPORT.md).
+
+```powershell
+go run ./cmd/symbol-assay -input data/symbols-stage15 -out data/my-symbol-controls -workers 16 -ticks 20000 -every 1000
+go run ./cmd/adapt-assay -input data/symbols-stage15 -case symbols -out data/my-adaptive-allocation -workers 16 -ticks 1000 -select 4 -continue-ticks 20000 -every 1000
+```
+
+Adaptive allocation is a cross-stage research priority, not an organism class or physical fitness function. It measures limited benefits of memory and perception under resource changes, reserves validation challenges, and retains behavioral diversity and exploration. Selected original worlds continue with ordinary physics. [Protocol and limits](adaptivity.md) · [First round](../experiments/adaptivity/REPORT.md).
+
 ## Experimental Warp solver
 
 [warp-sim](../warp-sim/README.md) implements a GPU physics backend: all 17 opcodes, mutations, resource transport, bonds, both RNGs, and scheduled DSL transitions. It accepts validated Go snapshots and computes independent worlds on GPU. Genome and origin histories remain a Go feature; Warp outputs a physical report incompatible with `cmd/sim -load`.

@@ -40,7 +40,7 @@ func TestProbeSourceReplayAndUnexercisedPerception(t *testing.T) {
 			t.Fatal("seed without external sensing changed")
 		}
 		r, e := ProbeWorld(w, c, ch, "intact")
-		if e != nil || r != a {
+		if e != nil || !reflect.DeepEqual(r, a) {
 			t.Fatal("probe not reproducible")
 		}
 		if kernel.Hash(w) != hash {
