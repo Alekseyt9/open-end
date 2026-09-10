@@ -45,9 +45,10 @@ The longer-term idea is to expand the set of mechanisms evolution can use. An ex
 | Novelty archive | Immutable decisions, Pareto tips, protected behavior cells, recommended selections | Measured proxies; causal complexity and hierarchy unavailable |
 | Evolvability | Inherited copy rates/operators, local recombination, proofreading, memory transmission, policy inspector | Finite policy repertoire; persistent strategy diversity remains unproven |
 | Environmental engineering | Matter-funded terrain, energy-funded signals, local feedback, field inspector, matched interventions | New niches and adaptive engineering remain unproven |
+| Collective observation | Per-tick bond membership, founder ancestry, daughter candidates, matched ablations | Whole-group reproduction and obligatory specialization remain unproven |
 | GPU execution | Warp physics with exact differential checks | No full genome/origin history on GPU |
 
-Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. Stage 9 adds a novelty archive and Pareto selection using measured proxies. Stage 10 implements inherited copying strategies; their persistent diversity remains an open experimental criterion. Stage 11 implements environmental engineering and matched causal interventions; new niches remain unproven. Stage 12 concerns proto-multicellularity.
+Stages 0–5 provide the research foundation. Stages 6–7 work through the current reaction DSL and chat-based protocol. Stage 8 preserves multiple directions across generations with an offline branch explorer. Stage 9 adds a novelty archive and Pareto selection using measured proxies. Stage 10 implements inherited copying strategies; their persistent diversity remains an open experimental criterion. Stage 11 implements environmental engineering and matched causal interventions; new niches remain unproven. Stage 12 adds collective observation and matched ablations; whole-group reproduction remains unproven.
 
 ## Quick start
 
@@ -250,12 +251,13 @@ Archive selection uses novelty distance, effective genome diversity, bonded stru
 | [First AI proposal](experiments/council/REPORT.md) | 32 continuations × 20,000 ticks in 17.05 s; mean mutation-world diversity 7.849 → 6.644 | Keep the patch as an experiment, not an accepted improvement |
 | [Branching generations](experiments/branching/REPORT.md) | 5 cohorts, 80 stored world states, two retained directions over two generations | Branch history and independent continuation work; no automatic winner |
 | [Novelty archive](experiments/archive/REPORT.md) | Both recommended directions continued; 7 cohorts and two immutable archive decisions | Tradeoffs and rare-cell retention work as research heuristics |
+| [Collective ablations](experiments/collectives/REPORT.md) | 32 matched continuations × 20,000 ticks in 24.94 s; 747/1,022 initial group members survived intact versus 17 without bonds | Bonds affected survival; no qualifying daughter group was observed |
 
 These are recorded results for specific configurations and horizons, not general performance or OEE guarantees.
 
 ## Experimental GPU backend
 
-Warp implements the original 17 VM opcodes, legacy mutations, transport, bonds, both RNGs, and scheduled DSL changes. Differential tests compare physical state exactly with Go. Genome/origin histories and complete observer work remain outside the GPU implementation; its output is a physical report, not a resumable Go snapshot. Encoded copying and environmental engineering currently run in Go and are explicitly rejected by Warp.
+Warp implements the original 17 VM opcodes, legacy mutations, transport, bonds, both RNGs, and scheduled DSL changes. Differential tests compare physical state exactly with Go. Genome/origin histories and complete observer work remain outside the GPU implementation; its output is a physical report, not a resumable Go snapshot. Encoded copying, environmental engineering, and collective ablations currently run in Go and are explicitly rejected by Warp.
 
 In the [recorded RTX 5070 / Ryzen 7 5700X benchmark](experiments/warp/REPORT.md), 32×32 worlds ran for 1000 measured ticks each:
 
@@ -276,7 +278,8 @@ Preparation and state extraction brought the 256-world GPU run to about 19 secon
 | 9 | Implemented: novelty archive, Pareto selection on measured proxies, and behavior-cell retention |
 | 10 | Implemented mechanics: inherited copying strategies; persistent diversity remains unproven |
 | 11 | Implemented mechanics: environmental engineering and matched feedback tests; new niches remain unproven |
-| 12–14 | Collective entities and causal analysis |
+| 12 | Implemented observation and ablations: linked group survival, ancestry, and daughter candidates; whole-group reproduction remains unproven |
+| 13–14 | Automatic entity discovery and causal emergence analysis |
 | 15–18 | Symbols, cultural inheritance, persistent artifacts, and technology-like construction |
 | 19–21 | Internal VMs, recursive evolution, and long-horizon OEE experiments |
 
@@ -301,6 +304,7 @@ The test suite covers deterministic replay, resource conservation, mutation and 
 - [Novelty archive](docs/archive.md): descriptors, admission filters, Pareto comparisons, protected cells, and selection commands.
 - [Evolvability](docs/evolvability.md): inherited copy policies, fixed controls, telemetry, and the policy inspector; [24-world experiment](experiments/evolvability/REPORT.md).
 - [Environmental coevolution](docs/environment.md): terrain, signals, sensing, conservation, and matched feedback interventions; [experiment results](experiments/environment/REPORT.md).
+- [Proto-multicellularity](docs/collectives.md): group continuity, ancestry, daughter criteria, ablations, and limits; [32-world experiment](experiments/collectives/REPORT.md).
 - [Research plan](open_ended_evolution_ai_world_plan.md): full concept and staged research program.
 - [Warp backend](warp-sim/README.md): setup, execution, benchmarks, and parity checks.
 - [Ecology results](experiments/ecology/RESULTS.md), [DSL validation](experiments/dsl/SMOKE.md), and [telemetry validation](experiments/telemetry/REPORT.md).

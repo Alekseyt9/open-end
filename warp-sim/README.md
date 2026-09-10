@@ -6,6 +6,8 @@ Copying here means the legacy model. Stage 10's `copy_model: fixed|evolving` is 
 
 Stage 11's terrain, signals, and 19-instruction engineering repertoire are also Go-only and explicitly rejected. The existing backend retains the original 17-instruction ecology. See [environment engineering](../docs/environment.md).
 
+Stage 12's collective ablations and per-tick ancestry observer run in Go. Both input paths explicitly reject nonempty `collective_ablation`; an unsupported treatment is never silently ignored. See [collective observation](../docs/collectives.md).
+
 The recorded runs used the existing Python environment at `F:/src/game_arc/.venv-warp/Scripts/python.exe`, Warp 1.15.0, and an RTX 5070. Dependencies for other environments are listed in `requirements.txt`.
 
 ## Run from the repository root
