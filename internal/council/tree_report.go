@@ -14,6 +14,11 @@ import (
 //go:embed tree.html
 var treePage string
 
+type environmentView struct {
+	*observer.EnvironmentWindow
+	Copies map[string]uint64 `json:"copies_by_actor"`
+}
+
 // ExportTree emits a self-contained offline report. UI selections only build
 // explicit CLI commands; opening a report never mutates or launches a world.
 func ExportTree(dir, dest string) error {
@@ -38,9 +43,10 @@ func ExportTree(dir, dest string) error {
 	}
 	var b bytes.Buffer
 	variation := map[string]map[string]*observer.VariationWindow{}
+	environment := map[string]map[string]*environmentView{}
 	for _, n := range v.Nodes {
 		for _, w := range n.Worlds {
-			if w.CopyModel == "" {
+			if w.CopyModel == "" && w.Environment == "" {
 				continue
 			}
 			var e Evidence
@@ -51,6 +57,16 @@ func ExportTree(dir, dest string) error {
 				variation[n.ID] = map[string]*observer.VariationWindow{}
 			}
 			variation[n.ID][w.ID] = e.Summary.Variation
+			if environment[n.ID] == nil {
+				environment[n.ID] = map[string]*environmentView{}
+			}
+			if e.Summary.Environment != nil {
+				v := &environmentView{EnvironmentWindow: e.Summary.Environment, Copies: map[string]uint64{}}
+				for _, a := range e.Summary.Activity {
+					v.Copies[a.Hash] = a.Copies
+				}
+				environment[n.ID][w.ID] = v
+			}
 		}
 	}
 	model := struct {
@@ -59,7 +75,8 @@ func ExportTree(dir, dest string) error {
 		Archive      *ArchiveDecision
 		ArchiveStale bool
 		Variation    map[string]map[string]*observer.VariationWindow
-	}{v, abs, archive, archive != nil && archive.TreeHash != jsonHash(v.Nodes), variation}
+		Environment  map[string]map[string]*environmentView
+	}{v, abs, archive, archive != nil && archive.TreeHash != jsonHash(v.Nodes), variation, environment}
 	if err = t.Execute(&b, model); err != nil {
 		return err
 	}

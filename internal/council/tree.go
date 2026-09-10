@@ -22,6 +22,7 @@ type TreeNode struct {
 	Worlds     []TreeWorld `json:"worlds"`
 }
 type TreeWorld struct {
+	Environment            string  `json:"environment,omitempty"`
 	CopyModel              string  `json:"copy_model,omitempty"`
 	CopyPolicies           int     `json:"copy_policies,omitempty"`
 	PersistentCopyPolicies int     `json:"persistent_copy_policies,omitempty"`
@@ -128,6 +129,9 @@ func treeWorld(w WorldBrief, e Evidence) TreeWorld {
 		r.CopyModel = v.Model
 		r.CopyPolicies = v.CodePolicies
 		r.PersistentCopyPolicies = v.PersistentCodePolicies
+	}
+	if v := e.Summary.Environment; v != nil {
+		r.Environment = v.Model
 	}
 	return r
 }

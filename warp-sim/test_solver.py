@@ -48,6 +48,19 @@ class SolverParity(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("Warp does not support", result.stderr)
 
+    def test_environment_engineering_is_rejected(self):
+        fixture = self.fixture("ecology", 6, 1, 0)
+        fixture["initial"][0]["config"]["environment"] = "coupled"
+        with self.assertRaisesRegex(ValueError, "environment engineering"):
+            Batch(fixture["initial"], self.device)
+        path = Path(self.tmp.name) / "engineering.json"
+        path.write_text(json.dumps(fixture), encoding="utf-8")
+        result = subprocess.run([str(self.exe), "-input", str(path), "-ticks", "0",
+                                 "-output", str(Path(self.tmp.name) / "rejected-env.json")],
+                                cwd=ROOT, capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("environment engineering", result.stderr)
+
     def test_baseline_and_mutating_ecology(self):
         for scenario in ("baseline", "mutation"):
             with self.subTest(scenario=scenario):

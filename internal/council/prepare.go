@@ -21,6 +21,7 @@ type Fact struct {
 	Value   json.RawMessage `json:"value"`
 }
 type WorldBrief struct {
+	Environment  string                `json:"environment,omitempty"`
 	CopyModel    string                `json:"copy_model,omitempty"`
 	ID           string                `json:"id"`
 	Case         string                `json:"case"`
@@ -200,6 +201,7 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		encoded = append(encoded, '\n')
 		wb := WorldBrief{ID: id, Case: row.Case, Seed: row.Seed, Tick: w.Tick, MutationPPM: w.Config.MutationPPM, SnapshotHash: kernel.Hash(w), MetricsHash: digest(data), EvidenceHash: digest(encoded), Rules: s.RulesEnd, RuleSource: builtinSource(), Facts: []Fact{}}
 		wb.CopyModel = w.Config.CopyModel
+		wb.Environment = w.Config.Environment
 		if w.RuleState != nil && w.RuleState.Active != nil {
 			wb.RuleSource = w.RuleState.Active.Source
 		}
@@ -207,6 +209,11 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		if s.Variation != nil {
 			for _, field := range []string{"model", "code_policies", "memory_policies", "persistent_code_policies", "changed_code", "recombined"} {
 				paths = append(paths, "summary/variation/"+field)
+			}
+		}
+		if s.Environment != nil {
+			for _, field := range []string{"built", "emitted", "blocked_light", "attenuated_transfer", "terrain_at_end", "signal_energy_at_end"} {
+				paths = append(paths, "summary/environment/"+field)
 			}
 		}
 		for _, path := range paths {

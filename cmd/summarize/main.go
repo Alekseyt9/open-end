@@ -158,6 +158,11 @@ func run(args []string, out io.Writer) error {
 				return err
 			}
 		}
+		if e := r.Summary.Environment; e != nil {
+			if _, err := fmt.Fprintf(out, "Environment: %s; built: %d; emitted energy: %d; terrain at end: %d; blocked light: %d; attenuated transfers: %d\n", e.Model, e.Built, e.Emitted, e.Terrain, e.BlockedLight, e.AttenuatedTransfer); err != nil {
+				return err
+			}
+		}
 	}
 	return nil
 }
