@@ -39,6 +39,7 @@ type Structures struct {
 	Bindings              []Binding   `json:"genome_binding_graph"`
 }
 type Pools struct {
+	Signal   int64 `json:"signal_energy,omitempty"`
 	Field    int64 `json:"field_energy"`
 	Particle int64 `json:"particle_energy"`
 	Chemical int64 `json:"chemical_energy"`
@@ -134,6 +135,7 @@ func instantaneous(w *world.World, m Metrics, t *Telemetry) {
 	}
 	for _, c := range w.Cells {
 		t.Pools.Field += int64(c.Energy)
+		t.Pools.Signal += int64(c.Signal)
 		t.Pools.Chemical += int64(8*c.Chemical[0] + 4*c.Chemical[1])
 	}
 	t.Structures = structures(w)

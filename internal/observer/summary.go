@@ -28,39 +28,40 @@ type Behavior struct {
 	Converted    [2]int64 `json:"converted_by_id"`
 }
 type WindowSummary struct {
-	Variation       *VariationWindow  `json:"variation,omitempty"`
-	Seed            uint64            `json:"seed"`
-	SessionHash     string            `json:"session_initial_world_sha256"`
-	Version         int               `json:"version"`
-	RequestedTicks  uint64            `json:"requested_ticks"`
-	FromTick        uint64            `json:"from_tick"`
-	ToTick          uint64            `json:"to_tick"`
-	Samples         int               `json:"samples"`
-	Population      Range             `json:"population"`
-	Genomes         Range             `json:"genomes"`
-	Lineages        Range             `json:"lineages"`
-	Energy          Range             `json:"energy"`
-	Copies          uint64            `json:"copies"`
-	Deaths          uint64            `json:"deaths"`
-	NewLineages     int               `json:"new_lineages"`
-	DiversityStart  Diversity         `json:"diversity_start"`
-	DiversityEnd    Diversity         `json:"diversity_end"`
-	AliveAges       Ages              `json:"alive_ages_at_end"`
-	Lifetimes       Lifetimes         `json:"completed_lifetimes"`
-	Flows           Flows             `json:"resource_flows"`
-	StructuresStart Structures        `json:"structures_start"`
-	StructuresEnd   Structures        `json:"structures_end"`
-	LargestObserved int               `json:"largest_structure_observed"`
-	Interactions    []Edge            `json:"interaction_graph"`
-	Activity        []GenomeActivity  `json:"genome_activity"`
-	Discoveries     []Discovery       `json:"new_genomes"`
-	AbsentAtEnd     []string          `json:"initial_genomes_absent_at_end"`
-	Dominant        []Genome          `json:"dominant_genomes_at_end"`
-	Failures        map[string]uint64 `json:"failed_attempts"`
-	RulesStart      RuleIdentity      `json:"rules_start"`
-	RulesEnd        RuleIdentity      `json:"rules_end"`
-	RuleEvents      []dsl.Event       `json:"rule_events"`
-	Narrative       []string          `json:"narrative_ru"`
+	Environment     *EnvironmentWindow `json:"environment,omitempty"`
+	Variation       *VariationWindow   `json:"variation,omitempty"`
+	Seed            uint64             `json:"seed"`
+	SessionHash     string             `json:"session_initial_world_sha256"`
+	Version         int                `json:"version"`
+	RequestedTicks  uint64             `json:"requested_ticks"`
+	FromTick        uint64             `json:"from_tick"`
+	ToTick          uint64             `json:"to_tick"`
+	Samples         int                `json:"samples"`
+	Population      Range              `json:"population"`
+	Genomes         Range              `json:"genomes"`
+	Lineages        Range              `json:"lineages"`
+	Energy          Range              `json:"energy"`
+	Copies          uint64             `json:"copies"`
+	Deaths          uint64             `json:"deaths"`
+	NewLineages     int                `json:"new_lineages"`
+	DiversityStart  Diversity          `json:"diversity_start"`
+	DiversityEnd    Diversity          `json:"diversity_end"`
+	AliveAges       Ages               `json:"alive_ages_at_end"`
+	Lifetimes       Lifetimes          `json:"completed_lifetimes"`
+	Flows           Flows              `json:"resource_flows"`
+	StructuresStart Structures         `json:"structures_start"`
+	StructuresEnd   Structures         `json:"structures_end"`
+	LargestObserved int                `json:"largest_structure_observed"`
+	Interactions    []Edge             `json:"interaction_graph"`
+	Activity        []GenomeActivity   `json:"genome_activity"`
+	Discoveries     []Discovery        `json:"new_genomes"`
+	AbsentAtEnd     []string           `json:"initial_genomes_absent_at_end"`
+	Dominant        []Genome           `json:"dominant_genomes_at_end"`
+	Failures        map[string]uint64  `json:"failed_attempts"`
+	RulesStart      RuleIdentity       `json:"rules_start"`
+	RulesEnd        RuleIdentity       `json:"rules_end"`
+	RuleEvents      []dsl.Event        `json:"rule_events"`
+	Narrative       []string           `json:"narrative_ru"`
 }
 
 // Summarize uses complete reporting intervals, never interpolates counts or
@@ -90,6 +91,11 @@ func Summarize(frames []Metrics, requested uint64) (WindowSummary, error) {
 		return r, err
 	}
 	r.Variation = variation
+	environment, err := summarizeEnvironment(frames)
+	if err != nil {
+		return r, err
+	}
+	r.Environment = environment
 	first := frames[0]
 	if first.Telemetry == nil || first.Telemetry.Version != 1 {
 		return r, fmt.Errorf("event telemetry v1 is required; old metrics cannot recover exact lifetimes or interactions")
@@ -290,7 +296,7 @@ func validateInterval(a, b Metrics) error {
 	if b.Deaths-a.Deaths != t.Lifetimes.Count {
 		return fmt.Errorf("death/lifetime count mismatch")
 	}
-	if b.Energy-a.Energy != t.Flows.Injected-t.Flows.Dissipated || b.Matter != a.Matter || t.Pools.Field+t.Pools.Particle+t.Pools.Chemical != b.Energy {
+	if b.Energy-a.Energy != t.Flows.Injected-t.Flows.Dissipated || b.Matter != a.Matter || t.Pools.Field+t.Pools.Particle+t.Pools.Chemical+t.Pools.Signal != b.Energy {
 		return fmt.Errorf("resource budget mismatch")
 	}
 	if t.Flows.Injected < 0 || t.Flows.Dissipated < 0 || t.Flows.Absorbed < 0 || t.Flows.Transferred < 0 || t.Flows.Taken < 0 || t.Flows.Charged < 0 || t.Flows.Converted[0] < 0 || t.Flows.Converted[1] < 0 {

@@ -22,10 +22,13 @@ const (
 	TAKE
 	BIND
 	UNBIND
+	BUILD
+	EMIT
 	OpcodeCount
 )
 
 const BaselineOpcodeCount = CONVERT
+const EcologyOpcodeCount = BUILD
 
 type Instruction struct {
 	Op Opcode `json:"op"`

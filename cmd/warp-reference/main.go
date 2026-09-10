@@ -185,6 +185,9 @@ func run() error {
 		}
 	}
 	for _, w := range worlds {
+		if w != nil && w.Config.Environment != "" {
+			return fmt.Errorf("Warp does not support environment engineering; use the Go simulator")
+		}
 		if w != nil && w.Config.CopyModel != "" {
 			return fmt.Errorf("Warp does not support copy-model %q; use the Go simulator", w.Config.CopyModel)
 		}
@@ -240,7 +243,7 @@ func opcodeFixture(w *world.World, variant int) {
 	p := w.Particles[1]
 	p.Memory[0] = 150
 	p.Memory[7] = -9
-	op := vm.Opcode(variant % int(vm.OpcodeCount))
+	op := vm.Opcode(variant % int(vm.EcologyOpcodeCount))
 	a, b := -1, 0
 	switch op {
 	case vm.SENSE:
@@ -256,7 +259,7 @@ func opcodeFixture(w *world.World, variant int) {
 	case vm.JUMP:
 		a, b = -1, -1
 	case vm.CONVERT:
-		a, b = (variant/int(vm.OpcodeCount))%2, 8
+		a, b = (variant/int(vm.EcologyOpcodeCount))%2, 8
 	}
 	p.Code = []vm.Instruction{{Op: op, A: a, B: b}, {Op: vm.NOP}, {Op: vm.JUMP, A: 0}}
 	p.Origin = evolution.Hash(p.Code, p.InitialMemory)
@@ -273,7 +276,7 @@ func opcodeFixture(w *world.World, variant int) {
 	if op == vm.UNBIND {
 		w.Relations[world.RelationKey(1, 2)] = world.Relation{A: 1, B: 2}
 	}
-	if variant >= int(vm.OpcodeCount) {
+	if variant >= int(vm.EcologyOpcodeCount) {
 		p.Energy = 2
 	}
 	e, m := w.Totals()

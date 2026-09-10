@@ -24,11 +24,11 @@ func transport(w *world.World) {
 	}
 	for pos := range w.Cells {
 		if other, ok := mixNeighbor(w, pos, matterPhase); matter && ok {
-			mix(w, &w.Cells[pos].Matter, &w.Cells[other].Matter)
+			terrainMix(w, &w.Cells[pos].Matter, &w.Cells[other].Matter, pos, other)
 		}
 		if other, ok := mixNeighbor(w, pos, chemicalPhase); chemical && ok {
 			for r := 0; r < 3; r++ {
-				mix(w, &w.Cells[pos].Chemical[r], &w.Cells[other].Chemical[r])
+				terrainMix(w, &w.Cells[pos].Chemical[r], &w.Cells[other].Chemical[r], pos, other)
 			}
 		}
 	}

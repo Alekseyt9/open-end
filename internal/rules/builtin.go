@@ -30,6 +30,18 @@ func Evaluate(w *world.World, p *world.Particle) Event {
 	if intent.A >= 3 && intent.A <= 5 {
 		sensed = w.Cells[p.Position].Chemical[intent.A-3]
 	}
+	if w.Config.Environment != "" {
+		switch {
+		case intent.A == 6:
+			sensed = w.Cells[p.Position].Terrain
+		case intent.A == 7:
+			sensed = w.Cells[p.Position].Signal
+		case intent.A >= 8 && intent.A <= 11:
+			sensed = w.Cells[w.Neighbor(p.Position, intent.A-8)].Terrain
+		case intent.A >= 12 && intent.A <= 15:
+			sensed = w.Cells[w.Neighbor(p.Position, intent.A-12)].Signal
+		}
+	}
 	return Event{Actor: p.ID, Intent: intent, Sensed: sensed}
 }
 
@@ -53,6 +65,10 @@ func ResolveObserved(w *world.World, e Event, sink Observer) {
 		}
 	case vm.COPYMEM:
 		cost = 8
+	case vm.BUILD:
+		cost = 4
+	case vm.EMIT:
+		cost = 2
 	case vm.CONVERT:
 		if w.Config.Ecology && w.RuleState != nil {
 			if r := w.RuleState.Active.Find(e.Intent.A); r != nil {
@@ -75,8 +91,16 @@ func ResolveObserved(w *world.World, e Event, sink Observer) {
 }
 
 func Inflow(w *world.World) {
+	if w.Environment != nil {
+		environmentStep(w)
+	}
 	for i := range w.Cells {
 		rate := w.Config.Inflow * (w.Config.Width - i%w.Config.Width) / w.Config.Width
+		if w.Config.Environment == "coupled" {
+			filtered := rate / (1 + w.Cells[i].Terrain)
+			w.Environment.BlockedLight += int64(min(rate, w.Config.CellCapacity-w.Cells[i].Energy) - min(filtered, w.Config.CellCapacity-w.Cells[i].Energy))
+			rate = filtered
+		}
 		n := min(rate, w.Config.CellCapacity-w.Cells[i].Energy)
 		w.Cells[i].Energy += n
 		w.Accounting.Injected += int64(n)
@@ -148,6 +172,10 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 	case vm.NOP, vm.JUMP:
 	case vm.SENSE:
 		p.Memory[vm.Index(i.B, 8)] = e.Sensed
+		if w.Environment != nil && i.A >= 6 && i.A <= 15 {
+			w.Environment.Sensed++
+			w.EnvironmentActor(p.Genome).Sensed++
+		}
 	case vm.WRITE:
 		p.Memory[vm.Index(i.A, 8)] = i.B
 	case vm.READ:
@@ -238,6 +266,9 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		}
 		ops := int(vm.BaselineOpcodeCount)
 		if w.Config.Ecology {
+			ops = int(vm.EcologyOpcodeCount)
+		}
+		if w.Config.Environment != "" {
 			ops = int(vm.OpcodeCount)
 		}
 		if w.Config.CopyModel == "" {
@@ -273,6 +304,14 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		o.Copies++
 		w.Accounting.Copies++
 		emit(sink, w, "copy", p, q, 0)
+	case vm.BUILD:
+		if w.Environment != nil {
+			build(w, p, i.A, i.B)
+		}
+	case vm.EMIT:
+		if w.Environment != nil {
+			emitSignal(w, p, i.A, i.B)
+		}
 	case vm.TRANSFER:
 		q := target(w, p)
 		if q == nil {

@@ -43,7 +43,7 @@ func randomInstruction(r *RNG, count int) vm.Instruction {
 // Mutate always copies its input. At most one structural mutation per copy,
 // with a hard program-size bound. Memory mutation is applied during COPYMEM.
 func Mutate(code []vm.Instruction, r *RNG, ppm, limit int) []vm.Instruction {
-	return MutateWithOpcodes(code, r, ppm, limit, int(vm.OpcodeCount))
+	return MutateWithOpcodes(code, r, ppm, limit, int(vm.EcologyOpcodeCount))
 }
 
 func MutateWithOpcodes(code []vm.Instruction, r *RNG, ppm, limit, opcodes int) []vm.Instruction {
