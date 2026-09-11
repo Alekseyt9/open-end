@@ -51,7 +51,7 @@ func TestRoleBatchWorkerEquivalenceAndIntegrity(t *testing.T) {
 	if e := save(filepath.Join(input, "manifest.json"), map[string]any{"status": "complete", "total": 1, "completed": 1}); e != nil {
 		t.Fatal(e)
 	}
-	for _, suite := range []string{"roles", "mechanisms"} {
+	for _, suite := range []string{"roles", "mechanisms", "switching"} {
 		var prior []result
 		for _, workers := range []string{"1", "16"} {
 			dir := filepath.Join(t.TempDir(), "output")
@@ -66,6 +66,9 @@ func TestRoleBatchWorkerEquivalenceAndIntegrity(t *testing.T) {
 			want := 7
 			if suite == "mechanisms" {
 				want = 8
+			}
+			if suite == "switching" {
+				want = 4
 			}
 			if len(current) != want {
 				t.Fatal("missing arms")

@@ -34,7 +34,7 @@ func Load(in io.Reader) (*world.World, error) {
 	if err := d.Decode(&extra); err != io.EOF {
 		return nil, fmt.Errorf("snapshot must contain one JSON object")
 	}
-	if (s.Format < 2 || s.Format > 8) || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil || (s.Format == 2 && s.World.RuleState != nil) || (s.Format == 3 && s.World.RuleState == nil) || (s.Format < 5 && (s.Format == 4) != (s.World.Config.CopyModel != "")) || (s.Format < 6 && (s.Format == 5) != (s.World.Config.Environment != "")) || (s.Format < 7 && (s.Format == 6) != (s.World.Config.CollectiveAblation != "")) || (s.Format < 8 && (s.Format == 7) != (s.World.Config.Symbols != "")) || (s.Format == 8) != (s.World.Config.BondMotion != "") {
+	if (s.Format < 2 || s.Format > 9) || s.Kernel != Version || s.Rules != RuleVersion || s.World == nil || (s.Format == 2 && s.World.RuleState != nil) || (s.Format == 3 && s.World.RuleState == nil) || (s.Format < 5 && (s.Format == 4) != (s.World.Config.CopyModel != "")) || (s.Format < 6 && (s.Format == 5) != (s.World.Config.Environment != "")) || (s.Format < 7 && (s.Format == 6) != (s.World.Config.CollectiveAblation != "")) || (s.Format < 8 && (s.Format == 7) != (s.World.Config.Symbols != "")) || (s.Format < 9 && (s.Format == 8) != (s.World.Config.BondMotion != "")) || (s.Format == 9) != (s.World.Config.MetabolicSwitchCost > 0) {
 		return nil, fmt.Errorf("incompatible snapshot version")
 	}
 	if err := s.World.Validate(); err != nil {
@@ -69,6 +69,9 @@ func envelope(w *world.World) snapshot {
 	}
 	if w.Config.BondMotion != "" {
 		format = 8
+	}
+	if w.Config.MetabolicSwitchCost > 0 {
+		format = 9
 	}
 	return snapshot{format, Version, RuleVersion, w}
 }

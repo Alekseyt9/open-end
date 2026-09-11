@@ -21,23 +21,24 @@ type Fact struct {
 	Value   json.RawMessage `json:"value"`
 }
 type WorldBrief struct {
-	BondMotion         string                `json:"bond_motion,omitempty"`
-	Symbols            string                `json:"symbols,omitempty"`
-	CollectiveAblation string                `json:"collective_ablation,omitempty"`
-	CollectiveAge      uint64                `json:"collective_age,omitempty"`
-	Environment        string                `json:"environment,omitempty"`
-	CopyModel          string                `json:"copy_model,omitempty"`
-	ID                 string                `json:"id"`
-	Case               string                `json:"case"`
-	Seed               uint64                `json:"seed"`
-	Tick               uint64                `json:"tick"`
-	MutationPPM        int                   `json:"mutation_ppm"`
-	SnapshotHash       string                `json:"snapshot_sha256"`
-	MetricsHash        string                `json:"metrics_file_sha256"`
-	EvidenceHash       string                `json:"evidence_file_sha256"`
-	Rules              observer.RuleIdentity `json:"active_rules"`
-	RuleSource         dsl.Document          `json:"active_rule_source"`
-	Facts              []Fact                `json:"facts"`
+	BondMotion          string                `json:"bond_motion,omitempty"`
+	MetabolicSwitchCost int                   `json:"metabolic_switch_cost,omitempty"`
+	Symbols             string                `json:"symbols,omitempty"`
+	CollectiveAblation  string                `json:"collective_ablation,omitempty"`
+	CollectiveAge       uint64                `json:"collective_age,omitempty"`
+	Environment         string                `json:"environment,omitempty"`
+	CopyModel           string                `json:"copy_model,omitempty"`
+	ID                  string                `json:"id"`
+	Case                string                `json:"case"`
+	Seed                uint64                `json:"seed"`
+	Tick                uint64                `json:"tick"`
+	MutationPPM         int                   `json:"mutation_ppm"`
+	SnapshotHash        string                `json:"snapshot_sha256"`
+	MetricsHash         string                `json:"metrics_file_sha256"`
+	EvidenceHash        string                `json:"evidence_file_sha256"`
+	Rules               observer.RuleIdentity `json:"active_rules"`
+	RuleSource          dsl.Document          `json:"active_rule_source"`
+	Facts               []Fact                `json:"facts"`
 }
 type Request struct {
 	Version     int          `json:"version"`
@@ -208,6 +209,7 @@ func PrepareVariant(input, out string, window uint64, variant string) (Request, 
 		wb.Environment = w.Config.Environment
 		wb.Symbols = w.Config.Symbols
 		wb.BondMotion = w.Config.BondMotion
+		wb.MetabolicSwitchCost = w.Config.MetabolicSwitchCost
 		wb.CollectiveAblation = w.Config.CollectiveAblation
 		if s.Collectives != nil {
 			wb.CollectiveAge = s.Collectives.End.MinAge

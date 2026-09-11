@@ -62,14 +62,14 @@ func run(args []string, out io.Writer) (err error) {
 	ticks := fs.Int("ticks", 5000, "ticks per matched continuation")
 	every := fs.Int("every", 100, "sampling interval")
 	workers := fs.Int("workers", 16, "parallel worlds")
-	suite := fs.String("suite", "roles", "roles (protocol 1) or mechanisms (protocol 2 chemistry/mobility)")
+	suite := fs.String("suite", "roles", "roles (v1), mechanisms (v2), or switching (v3 costs 0,1,2,4)")
 	if e := fs.Parse(args); e != nil {
 		if e == flag.ErrHelp {
 			return nil
 		}
 		return e
 	}
-	if *dest == "" || *ticks < 1 || *every < 1 || *every > *ticks || *workers < 1 || *workers > 256 || fs.NArg() != 0 || (*suite != "roles" && *suite != "mechanisms") {
+	if *dest == "" || *ticks < 1 || *every < 1 || *every > *ticks || *workers < 1 || *workers > 256 || fs.NArg() != 0 || (*suite != "roles" && *suite != "mechanisms" && *suite != "switching") {
 		return fmt.Errorf("provide out, ticks >= every > 0, workers 1..256")
 	}
 	var manifest struct {
@@ -94,10 +94,16 @@ func run(args []string, out io.Writer) (err error) {
 	}
 	jobs := []job{}
 	version := 1
+	costs := []int{0}
 	modes := []string{"intact", "no-sharing", "no-peer-sharing", "no-signals", "no-bonds", "no-acquisition"}
 	if *suite == "mechanisms" {
 		version = 2
 		modes = []string{"intact", "no-bonds", "anchored", "no-bonds-anchored", "no-reaction0", "no-reaction1"}
+	}
+	if *suite == "switching" {
+		version = 3
+		modes = []string{"intact"}
+		costs = []int{0, 1, 2, 4}
 	}
 	seen := map[string]bool{}
 	for _, row := range witnesses {
@@ -139,7 +145,9 @@ func run(args []string, out io.Writer) (err error) {
 				donors = row.Candidate.Members
 			}
 			for _, donor := range donors {
-				jobs = append(jobs, job{len(jobs), w, row, experiment.RoleProtocol{Version: version, Mode: mode, Donor: donor, Members: row.Candidate.Members, Ticks: *ticks, Every: *every}})
+				for _, cost := range costs {
+					jobs = append(jobs, job{len(jobs), w, row, experiment.RoleProtocol{Version: version, Mode: mode, Donor: donor, Members: row.Candidate.Members, Ticks: *ticks, Every: *every, SwitchCost: cost}})
+				}
 			}
 		}
 	}
@@ -196,6 +204,9 @@ func run(args []string, out io.Writer) (err error) {
 					if loadErr != nil {
 						errors[j.index] = loadErr
 						continue
+					}
+					if j.protocol.Version == 3 {
+						control.Config.MetabolicSwitchCost = j.protocol.SwitchCost
 					}
 					for n := 0; n < *ticks; n++ {
 						kernel.Step(control)

@@ -21,6 +21,9 @@ func cloneRuleState(w *world.World) *dsl.State {
 // ReloadRules is a host API. Installation is transactional, only between ticks;
 // all queued future transitions are revalidated before replacing active state.
 func ReloadRules(w *world.World, m *dsl.Module) error {
+	if w.Config.MetabolicSwitchCost > 0 {
+		return fmt.Errorf("metabolic switching currently requires baseline reactions without DSL")
+	}
 	if !w.Config.Ecology {
 		return fmt.Errorf("DSL reactions require ecology")
 	}
@@ -63,6 +66,9 @@ func RollbackRules(w *world.World) error {
 }
 
 func ScheduleRules(w *world.World, c dsl.Change) error {
+	if w.Config.MetabolicSwitchCost > 0 {
+		return fmt.Errorf("metabolic switching currently requires baseline reactions without DSL")
+	}
 	if !w.Config.Ecology {
 		return fmt.Errorf("DSL reactions require ecology")
 	}

@@ -317,6 +317,12 @@ The assay measures each original member's COPY lineage and runs targeted peer-sh
 
 Add `-suite mechanisms` to run protocol 2: bond/movement controls, reaction-specific interventions and a proportional Y tracer. This suite requires baseline ecology without DSL state. The [mechanisms documentation](multicell-mechanisms.md) explains provenance assumptions and snapshot limits; the [148-trial report](../experiments/multicell-mechanisms/REPORT.md) records the initial results.
 
+### Metabolic switching experiment
+
+`sim -metabolic-switch-cost N` enables a uniform preparation cost for switching between baseline reactions (0..64; positive values require ecology without DSL rules). Zero preserves legacy physics. Positive costs and particle preparation use snapshot format 9 and persist on ordinary resume.
+
+`switch-assay` compares costs 0, 1, 2 and 4 across completed source batches, using 5,000-tick metabolic profiles. `role-assay -suite switching` compares the same physical costs on the preserved witnesses with chemical tracing. See [semantics and commands](metabolic-switch.md) and [the 120-trial screen](../experiments/metabolic-switch/REPORT.md). All experiment output directories must be new.
+
 ## Experimental Warp solver
 
 [warp-sim](../warp-sim/README.md) implements a GPU physics backend: all 17 opcodes, mutations, resource transport, bonds, both RNGs, and scheduled DSL transitions. It accepts validated Go snapshots and computes independent worlds on GPU. Genome and origin histories remain a Go feature; Warp outputs a physical report incompatible with `cmd/sim -load`.

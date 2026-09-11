@@ -37,6 +37,7 @@ func run(args []string, out io.Writer) error {
 	fs.StringVar(&c.Environment, "environment", "", "environment engineering: coupled or inert; requires ecology")
 	fs.StringVar(&c.Symbols, "symbols", "", "symbol inscriptions: persistent, scrambled, or unreadable; requires environment")
 	fs.StringVar(&c.BondMotion, "bond-motion", "", "yielding permits energy-funded bond rupture on successful MOVE")
+	fs.IntVar(&c.MetabolicSwitchCost, "metabolic-switch-cost", 0, "experimental reaction-switch preparation energy: 0..64, baseline ecology only")
 	fs.IntVar(&c.Inflow, "inflow", c.Inflow, "maximum energy input per cell per tick")
 	fs.IntVar(&c.MatterDiffusion, "matter-diffusion", c.MatterDiffusion, "conservative matter mixing interval; 0 disables")
 	fs.BoolVar(&c.Ecology, "ecology", c.Ecology, "enable chemical reactions and ecology instruction mutations")
@@ -71,7 +72,7 @@ func run(args []string, out io.Writer) error {
 		var conflict string
 		fs.Visit(func(f *flag.Flag) {
 			switch f.Name {
-			case "seed", "width", "height", "mutation-ppm", "inflow", "matter-diffusion", "ecology", "chemical-diffusion", "copy-model", "environment", "symbols", "bond-motion", "rules", "rule-change", "rollback-at":
+			case "seed", "width", "height", "mutation-ppm", "inflow", "matter-diffusion", "ecology", "chemical-diffusion", "copy-model", "environment", "symbols", "bond-motion", "metabolic-switch-cost", "rules", "rule-change", "rollback-at":
 				conflict = f.Name
 			}
 		})

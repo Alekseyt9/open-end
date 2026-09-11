@@ -23,6 +23,7 @@ type TreeNode struct {
 }
 type TreeWorld struct {
 	BondMotion             string  `json:"bond_motion,omitempty"`
+	MetabolicSwitchCost    int     `json:"metabolic_switch_cost,omitempty"`
 	Symbols                string  `json:"symbols,omitempty"`
 	CollectiveAblation     string  `json:"collective_ablation,omitempty"`
 	CollectiveAge          uint64  `json:"collective_age,omitempty"`
@@ -132,6 +133,7 @@ func treeWorld(w WorldBrief, e Evidence) TreeWorld {
 	r.CollectiveAblation = w.CollectiveAblation
 	r.Symbols = w.Symbols
 	r.BondMotion = w.BondMotion
+	r.MetabolicSwitchCost = w.MetabolicSwitchCost
 	if e.Summary.Collectives != nil {
 		r.CollectiveAge = e.Summary.Collectives.End.MinAge
 	}

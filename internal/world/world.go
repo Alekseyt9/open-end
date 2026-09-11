@@ -10,24 +10,25 @@ import (
 )
 
 type Config struct {
-	Width              int    `json:"width"`
-	Height             int    `json:"height"`
-	MaxEntities        int    `json:"max_entities"`
-	MaxCode            int    `json:"max_code"`
-	CellCapacity       int    `json:"cell_capacity"`
-	EnergyCapacity     int    `json:"energy_capacity"`
-	Inflow             int    `json:"inflow"`
-	Maintenance        int    `json:"maintenance"`
-	MutationPPM        int    `json:"mutation_ppm"`
-	Seed               uint64 `json:"seed"`
-	MatterDiffusion    int    `json:"matter_diffusion"`
-	Ecology            bool   `json:"ecology"`
-	ChemicalDiffusion  int    `json:"chemical_diffusion"`
-	CopyModel          string `json:"copy_model,omitempty"`
-	Environment        string `json:"environment,omitempty"`
-	CollectiveAblation string `json:"collective_ablation,omitempty"`
-	Symbols            string `json:"symbols,omitempty"`
-	BondMotion         string `json:"bond_motion,omitempty"`
+	Width               int    `json:"width"`
+	Height              int    `json:"height"`
+	MaxEntities         int    `json:"max_entities"`
+	MaxCode             int    `json:"max_code"`
+	CellCapacity        int    `json:"cell_capacity"`
+	EnergyCapacity      int    `json:"energy_capacity"`
+	Inflow              int    `json:"inflow"`
+	Maintenance         int    `json:"maintenance"`
+	MutationPPM         int    `json:"mutation_ppm"`
+	Seed                uint64 `json:"seed"`
+	MatterDiffusion     int    `json:"matter_diffusion"`
+	Ecology             bool   `json:"ecology"`
+	ChemicalDiffusion   int    `json:"chemical_diffusion"`
+	CopyModel           string `json:"copy_model,omitempty"`
+	Environment         string `json:"environment,omitempty"`
+	CollectiveAblation  string `json:"collective_ablation,omitempty"`
+	Symbols             string `json:"symbols,omitempty"`
+	BondMotion          string `json:"bond_motion,omitempty"`
+	MetabolicSwitchCost int    `json:"metabolic_switch_cost,omitempty"`
 }
 
 func DefaultConfig() Config {
@@ -37,6 +38,9 @@ func DefaultConfig() Config {
 }
 
 func (c Config) Validate() error {
+	if c.MetabolicSwitchCost < 0 || c.MetabolicSwitchCost > 64 || c.MetabolicSwitchCost > 0 && !c.Ecology {
+		return fmt.Errorf("metabolic_switch_cost must be 0..64 and requires ecology when positive")
+	}
 	if c.BondMotion != "" && c.BondMotion != "yielding" {
 		return fmt.Errorf("bond_motion must be empty or yielding")
 	}
@@ -106,14 +110,15 @@ type Particle struct {
 	Code     []vm.Instruction `json:"code"`
 	Memory   [8]int           `json:"memory"`
 	// InitialMemory distinguishes inherited state from execution scratch space.
-	InitialMemory [8]int `json:"initial_memory"`
-	IP            int    `json:"ip"`
-	Flag          bool   `json:"flag"`
-	Target        uint64 `json:"target"`
-	Created       uint64 `json:"created"`
-	Origin        string `json:"origin"`
-	Genome        string `json:"genome"`
-	Generation    uint64 `json:"generation"`
+	InitialMemory  [8]int `json:"initial_memory"`
+	IP             int    `json:"ip"`
+	Flag           bool   `json:"flag"`
+	Target         uint64 `json:"target"`
+	Created        uint64 `json:"created"`
+	Origin         string `json:"origin"`
+	Genome         string `json:"genome"`
+	Generation     uint64 `json:"generation"`
+	MetabolicState int    `json:"metabolic_state,omitempty"` // 0 unprepared; 1 reaction 0; 2 reaction 1
 }
 
 // Origin records a copy provenance edge. Multiple origins can share code;
@@ -126,27 +131,30 @@ type Origin struct {
 }
 
 type Accounting struct {
-	InitialEnergy      int64    `json:"initial_energy"`
-	Injected           int64    `json:"injected"`
-	Dissipated         int64    `json:"dissipated"`
-	InitialMatter      int64    `json:"initial_matter"`
-	Allocations        uint64   `json:"allocations"`
-	Copies             uint64   `json:"copies"`
-	Deaths             uint64   `json:"deaths"`
-	Instructions       uint64   `json:"instructions"`
-	Absorbed           int64    `json:"absorbed"`
-	Transferred        int64    `json:"transferred"`
-	InitialChemical    int64    `json:"initial_chemical"`
-	Converted          [2]int64 `json:"converted"`
-	Charged            int64    `json:"charged"`
-	Taken              int64    `json:"taken"`
-	FailedSpace        uint64   `json:"failed_space"`
-	FailedMatter       uint64   `json:"failed_matter"`
-	FailedReserve      uint64   `json:"failed_reserve"`
-	FailedLimit        uint64   `json:"failed_limit"`
-	FailedAbsorb       uint64   `json:"failed_absorb"`
-	FailedReaction     uint64   `json:"failed_reaction"`
-	InstructionStarved uint64   `json:"instruction_starved"`
+	InitialEnergy          int64    `json:"initial_energy"`
+	Injected               int64    `json:"injected"`
+	Dissipated             int64    `json:"dissipated"`
+	InitialMatter          int64    `json:"initial_matter"`
+	Allocations            uint64   `json:"allocations"`
+	Copies                 uint64   `json:"copies"`
+	Deaths                 uint64   `json:"deaths"`
+	Instructions           uint64   `json:"instructions"`
+	Absorbed               int64    `json:"absorbed"`
+	Transferred            int64    `json:"transferred"`
+	InitialChemical        int64    `json:"initial_chemical"`
+	Converted              [2]int64 `json:"converted"`
+	Charged                int64    `json:"charged"`
+	Taken                  int64    `json:"taken"`
+	FailedSpace            uint64   `json:"failed_space"`
+	FailedMatter           uint64   `json:"failed_matter"`
+	FailedReserve          uint64   `json:"failed_reserve"`
+	FailedLimit            uint64   `json:"failed_limit"`
+	FailedAbsorb           uint64   `json:"failed_absorb"`
+	FailedReaction         uint64   `json:"failed_reaction"`
+	InstructionStarved     uint64   `json:"instruction_starved"`
+	MetabolicSwitches      uint64   `json:"metabolic_switches,omitempty"`
+	MetabolicSwitchEnergy  int64    `json:"metabolic_switch_energy,omitempty"`
+	MetabolicSwitchStarved uint64   `json:"metabolic_switch_starved,omitempty"`
 }
 
 // GenomeRecord is a cumulative observation ledger, never consulted by physics.
@@ -335,6 +343,31 @@ func (w *World) Validate() error {
 	if err := w.Config.Validate(); err != nil {
 		return err
 	}
+	a, cost := w.Accounting, w.Config.MetabolicSwitchCost
+	if cost > 0 && w.RuleState != nil {
+		return fmt.Errorf("metabolic switching requires baseline reactions without DSL state")
+	}
+	if a.MetabolicSwitchEnergy < 0 || a.MetabolicSwitchEnergy > a.Dissipated || a.MetabolicSwitches > a.Instructions || a.MetabolicSwitchStarved > a.Instructions-a.MetabolicSwitches {
+		return fmt.Errorf("invalid metabolic switch accounting")
+	}
+	if cost == 0 {
+		if a.MetabolicSwitches != 0 || a.MetabolicSwitchEnergy != 0 || a.MetabolicSwitchStarved != 0 {
+			return fmt.Errorf("switch accounting without switching physics")
+		}
+	} else {
+		spent := uint64(a.MetabolicSwitchEnergy)
+		unit := uint64(cost)
+		ceiling := spent / unit
+		if spent%unit != 0 {
+			ceiling++
+		}
+		if a.MetabolicSwitches > spent/unit || ceiling > a.MetabolicSwitches+a.MetabolicSwitchStarved {
+			return fmt.Errorf("switch work does not match charged energy")
+		}
+		if a.MetabolicSwitchStarved > spent-a.MetabolicSwitches*unit {
+			return fmt.Errorf("starved switches must pay a positive reserve")
+		}
+	}
 	if len(w.Cells) != w.Config.Width*w.Config.Height || len(w.Particles) > w.Config.MaxEntities || w.Particles == nil || w.Origins == nil || w.Genomes == nil || w.Relations == nil {
 		return fmt.Errorf("invalid world storage")
 	}
@@ -362,6 +395,9 @@ func (w *World) Validate() error {
 		}
 		if w.Cells[p.Position].Occupant != id || p.Energy <= 0 || p.Energy > w.Config.EnergyCapacity || len(p.Code) > w.Config.MaxCode || p.Created > w.Tick {
 			return fmt.Errorf("invalid particle state %d", id)
+		}
+		if p.MetabolicState < 0 || p.MetabolicState > 2 || cost == 0 && p.MetabolicState != 0 || len(p.Code) == 0 && p.MetabolicState != 0 {
+			return fmt.Errorf("invalid metabolic preparation for %d", id)
 		}
 		if len(p.Code) > 0 {
 			if p.Genome != evolution.Hash(p.Code, [8]int{}) || w.Genomes[p.Genome] == nil {

@@ -373,6 +373,9 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 		}
 	case vm.CONVERT:
 		if w.Config.Ecology {
+			if !prepareReaction(w, p, i.A, i.B) {
+				return
+			}
 			before := p.Energy
 			chemical := w.Cells[p.Position].Chemical
 			convert(w, p, i.A, i.B)

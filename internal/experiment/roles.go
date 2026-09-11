@@ -13,12 +13,13 @@ import (
 // RoleProtocol is external to physical snapshots. Replay starts from SourceHash
 // with the same members, mode, donor, horizon and this protocol version.
 type RoleProtocol struct {
-	Version int      `json:"version"`
-	Mode    string   `json:"mode"`
-	Donor   uint64   `json:"donor,omitempty"`
-	Members []uint64 `json:"members"`
-	Ticks   int      `json:"ticks"`
-	Every   int      `json:"every"`
+	Version    int      `json:"version"`
+	Mode       string   `json:"mode"`
+	Donor      uint64   `json:"donor,omitempty"`
+	Members    []uint64 `json:"members"`
+	Ticks      int      `json:"ticks"`
+	Every      int      `json:"every"`
+	SwitchCost int      `json:"metabolic_switch_cost,omitempty"`
 }
 type CellRole struct {
 	Founder           uint64               `json:"founder"`
@@ -303,7 +304,7 @@ func (s *roleSink) TickCompleted(tick uint64) {
 
 func ContinueRoles(source *world.World, protocol RoleProtocol) (*world.World, RoleResult, error) {
 	var empty RoleResult
-	if (protocol.Version != 1 && protocol.Version != 2) || protocol.Ticks < 1 || protocol.Every < 1 || protocol.Every > protocol.Ticks {
+	if (protocol.Version < 1 || protocol.Version > 3) || protocol.Ticks < 1 || protocol.Every < 1 || protocol.Every > protocol.Ticks {
 		return nil, empty, fmt.Errorf("invalid role protocol")
 	}
 	if err := ValidateRoleMembers(source, protocol.Members); err != nil {
@@ -312,8 +313,15 @@ func ContinueRoles(source *world.World, protocol RoleProtocol) (*world.World, Ro
 	if source.Config.CollectiveAblation != "" || source.Config.BondMotion != "" {
 		return nil, empty, fmt.Errorf("source already treated")
 	}
-	if protocol.Version == 2 && (!source.Config.Ecology || source.RuleState != nil) {
+	if protocol.Version >= 2 && (!source.Config.Ecology || source.RuleState != nil) {
 		return nil, empty, fmt.Errorf("chemistry protocol requires baseline ecology without DSL state")
+	}
+	if protocol.Version == 3 {
+		if source.Config.MetabolicSwitchCost != 0 || protocol.SwitchCost < 0 || protocol.SwitchCost > 64 || protocol.Mode != "intact" || protocol.Donor != 0 {
+			return nil, empty, fmt.Errorf("switching role assay requires an untreated source and intact mode")
+		}
+	} else if protocol.SwitchCost != 0 {
+		return nil, empty, fmt.Errorf("switch cost override requires protocol 3")
 	}
 	switch protocol.Mode {
 	case "anchored", "no-bonds-anchored":
@@ -343,13 +351,16 @@ func ContinueRoles(source *world.World, protocol RoleProtocol) (*world.World, Ro
 	if err != nil {
 		return nil, empty, err
 	}
+	if protocol.Version == 3 {
+		w.Config.MetabolicSwitchCost = protocol.SwitchCost
+	}
 	protocol.Members = slices.Clone(protocol.Members)
 	s := &roleSink{w: w, r: RoleResult{Protocol: protocol, SourceHash: kernel.Hash(source), Start: w.Tick}, tags: map[uint64]int{}, flows: map[string]*RoleFlow{}, ages: map[string]uint64{}}
 	for i, id := range protocol.Members {
 		s.tags[id] = i + 1
 		s.r.Roles = append(s.r.Roles, CellRole{Founder: id, Genome: w.Particles[id].Genome, Executed: map[vm.Opcode]uint64{}, Suppressed: map[vm.Opcode]uint64{}})
 	}
-	if protocol.Version == 2 {
+	if protocol.Version >= 2 {
 		s.trace = newChemicalTrace(w, protocol.Members)
 	}
 	if protocol.Mode == "no-bonds" || protocol.Mode == "no-bonds-anchored" {
