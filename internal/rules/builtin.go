@@ -59,6 +59,13 @@ func Resolve(w *world.World, e Event) {
 	ResolveObserved(w, e, nil)
 }
 func ResolveObserved(w *world.World, e Event, sink Observer) {
+	ResolveWithIntervention(w, e, sink, nil)
+}
+
+// ResolveWithIntervention is an explicit assay hook after ordinary instruction
+// cost and IP advancement. Returning true suppresses the effect, not its cost.
+// The callback must be recorded/replayed separately; it is not an observer.
+func ResolveWithIntervention(w *world.World, e Event, sink Observer, beforeApply func(*world.Particle, *Event) bool) {
 	p := w.Particles[e.Actor]
 	if p == nil {
 		return
@@ -96,7 +103,9 @@ func ResolveObserved(w *world.World, e Event, sink Observer) {
 	if r := w.Genomes[p.Genome]; r != nil {
 		r.Instructions++
 	}
-	applyObserved(w, p, e, sink)
+	if beforeApply == nil || !beforeApply(p, &e) {
+		applyObserved(w, p, e, sink)
+	}
 }
 
 func Inflow(w *world.World) {

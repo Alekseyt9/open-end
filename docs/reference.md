@@ -307,6 +307,14 @@ go run ./cmd/multicell-assay -input data/environment-stage11 -case environment -
 
 The assay compares original immobile bonds with optional `-bond-motion yielding`, records growth restrictions, and observes one-founder clonal daughter candidates separately from the historical multi-founder criterion. Yielding snapshots use format 8; ordinary worlds retain their existing formats. The [recorded comparison](../experiments/multicell-motion/REPORT.md) and [mechanics](multicell-motion.md) distinguish candidate persistence from inherited function. Mixed-genome qualification states can be preserved with `experiments/multicell-motion/witnesses.py`.
 
+### Cell contribution follow-up
+
+```powershell
+go run ./cmd/role-assay -input data/multicell-mixed-witnesses -out data/my-role-assay -workers 16 -ticks 5000 -every 100
+```
+
+The assay measures each original member's COPY lineage and runs targeted peer-sharing, all-tagged-sharing, signal, bond and per-lineage acquisition controls. Each intact endpoint must equal ordinary replay. Results include the full external protocol; endpoint files are released physical snapshots and do not resume interventions when loaded alone. See [protocol and limitations](multicell-roles.md) and [the 116-trial report](../experiments/multicell-roles/REPORT.md).
+
 ## Experimental Warp solver
 
 [warp-sim](../warp-sim/README.md) implements a GPU physics backend: all 17 opcodes, mutations, resource transport, bonds, both RNGs, and scheduled DSL transitions. It accepts validated Go snapshots and computes independent worlds on GPU. Genome and origin histories remain a Go feature; Warp outputs a physical report incompatible with `cmd/sim -load`.

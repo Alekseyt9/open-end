@@ -7,6 +7,8 @@ Prioritize increasing organizational complexity toward multicellularity: persist
 
 Use external matched experiments to investigate barriers to collective reproduction and the benefits of coordination. Allocate research effort according to evidence of collective heredity and useful differentiation while retaining alternative directions. Memory and perception assays remain supporting diagnostics rather than the sole selection target. Do not install an intelligence score inside organisms or equate longer code with greater intelligence. See [collective reproduction experiments](docs/multicell-motion.md) and [adaptive capability diagnostics](docs/adaptivity.md). Go is the active solver; Warp maintenance is paused.
 
+The [cell contribution assay](experiments/multicell-roles/REPORT.md) now tests preserved mixed-genome groups with COPY-lineage interventions. Its first 116 continuations show offspring provisioning, no energy sharing between original cell lineages, and no targeted signal use. Next, separate bond-imposed immobility from functional integration and measure local chemical contributions before testing inheritance of complementary roles across group generations. Existing genetic differences are not sufficient evidence of useful differentiation.
+
 ---
 
 ## 0. Core idea

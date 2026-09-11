@@ -24,16 +24,22 @@ func Step(w *world.World) {
 }
 
 func StepObserved(w *world.World, sink Observer) {
-	step(w, sink, nil)
+	step(w, sink, nil, nil)
 }
 
 // StepWithPerception is an explicit experimental intervention, not observation.
 // The caller must record/replay the filter protocol; snapshots do not persist it.
 func StepWithPerception(w *world.World, filter func(*world.Particle, *rules.Event)) {
-	step(w, nil, filter)
+	step(w, nil, filter, nil)
 }
 
-func step(w *world.World, sink Observer, filter func(*world.Particle, *rules.Event)) {
+// StepWithIntervention applies an explicitly recorded assay protocol. Snapshot
+// state alone does not preserve the callback or its lineage tags.
+func StepWithIntervention(w *world.World, sink Observer, beforeApply func(*world.Particle, *rules.Event) bool) {
+	step(w, sink, nil, beforeApply)
+}
+
+func step(w *world.World, sink Observer, filter func(*world.Particle, *rules.Event), beforeApply func(*world.Particle, *rules.Event) bool) {
 	if s := w.RuleState; s != nil && len(s.Pending) > 0 && s.Pending[0].Tick == w.Tick {
 		change := s.Pending[0]
 		s.Pending = s.Pending[1:]
@@ -54,7 +60,7 @@ func step(w *world.World, sink Observer, filter func(*world.Particle, *rules.Eve
 		}
 	}
 	for _, e := range events {
-		rules.ResolveObserved(w, e, sink)
+		rules.ResolveWithIntervention(w, e, sink, beforeApply)
 	}
 	// New allocations pay upkeep but first execute on the following tick.
 	for _, id := range orderedIDs(w) {
