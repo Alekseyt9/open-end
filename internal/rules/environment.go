@@ -8,6 +8,10 @@ import (
 // Diffusion is conservative neighbor mixing, on a separate RNG stream from
 // mutation/execution. Interval 0 disables it for an explicit control run.
 func transport(w *world.World) {
+	transportObserved(w, nil)
+}
+func transportObserved(w *world.World, sink Observer) {
+	observer, observed := sink.(ChemicalObserver)
 	matter := w.Config.MatterDiffusion > 0 && w.Tick%uint64(w.Config.MatterDiffusion) == 0
 	chemical := w.Config.Ecology && w.Config.ChemicalDiffusion > 0 && w.Tick%uint64(w.Config.ChemicalDiffusion) == 0
 	if !matter && !chemical {
@@ -28,7 +32,17 @@ func transport(w *world.World) {
 		}
 		if other, ok := mixNeighbor(w, pos, chemicalPhase); chemical && ok {
 			for r := 0; r < 3; r++ {
+				before, otherBefore := w.Cells[pos].Chemical[r], w.Cells[other].Chemical[r]
 				terrainMix(w, &w.Cells[pos].Chemical[r], &w.Cells[other].Chemical[r], pos, other)
+				if observed {
+					n := before - w.Cells[pos].Chemical[r]
+					if n > 0 {
+						observer.ChemicalMoved(pos, other, r, n, before)
+					}
+					if n < 0 {
+						observer.ChemicalMoved(other, pos, r, -n, otherBefore)
+					}
+				}
 			}
 		}
 	}

@@ -39,6 +39,19 @@ type AcquisitionObserver interface {
 	Acquired(id uint64, genome string, energy int)
 }
 
+// ChemicalObserver receives resolved local chemistry, without influencing it.
+// Available is the source amount before a conservative transport operation.
+type ChemicalObserver interface {
+	ChemicalMoved(from, to, species, units, available int)
+	Reacted(ReactionEvent)
+}
+type ReactionEvent struct {
+	Actor              uint64
+	Position, Reaction int
+	Before, After      [3]int
+	Energy             int
+}
+
 func acquired(s Observer, p *world.Particle, energy int) {
 	if energy > 0 {
 		if a, ok := s.(AcquisitionObserver); ok {

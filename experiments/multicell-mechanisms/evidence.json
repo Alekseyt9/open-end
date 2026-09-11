@@ -1,0 +1,4149 @@
+{
+  "manifest": {
+    "binary_sha256": "4d3be8e946ea0b43b473058a2f813443065a3a0b1a4c2c51ce126998ffbb9bcb",
+    "completed": 148,
+    "input": "data/multicell-mixed-witnesses",
+    "protocol_version": 2,
+    "seconds": 68.6635688,
+    "snapshot_semantics": "Released physical states: resuming snapshots alone DOES NOT resume interventions. Replay from witnesses with recorded protocols.",
+    "status": "complete",
+    "suite": "mechanisms",
+    "total": 148,
+    "workers": 16
+  },
+  "results_sha256": "d5dd1c379c75c32316a7aabd16dcac6ff8a7872cc86b05a4bb156c70039c634a",
+  "reference_results_sha256": "abf818d59816004d39a861cf5f107c881eff879c606a45cb8b16397fd8ba3c08",
+  "baseline": [
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "members": [
+        148252,
+        148656,
+        149369
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 148252,
+            "lineage_reaction_units": [
+              2171,
+              2380
+            ],
+            "original_cell_reaction_units": [
+              1112,
+              1244
+            ]
+          },
+          {
+            "founder": 148656,
+            "lineage_reaction_units": [
+              591,
+              624
+            ],
+            "original_cell_reaction_units": [
+              589,
+              621
+            ]
+          },
+          {
+            "founder": 149369,
+            "lineage_reaction_units": [
+              29,
+              29
+            ],
+            "original_cell_reaction_units": [
+              29,
+              29
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          379,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          1034705,
+          2171,
+          591,
+          29
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            373.9999999999992,
+            5,
+            0,
+            0
+          ],
+          [
+            1033792.3906898147,
+            334.7065324074074,
+            81.48611111111111,
+            3.416666666666667
+          ],
+          [
+            120.15231944444446,
+            2027.0976805555556,
+            22.750000000000004,
+            1
+          ],
+          [
+            59.040324074074036,
+            13.19578703703704,
+            518.7638888888889,
+            0
+          ],
+          [
+            3.416666666666667,
+            0,
+            1,
+            24.583333333333332
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          493,
+          0,
+          0,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 1.1641532182693481e-10
+      },
+      "peer_y_units": 37.94578703703704,
+      "own_y_units": 2570.4449027777778,
+      "outside_y_units": 419.60931018518517,
+      "initial_unknown_y_units": 5
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        94344,
+        94597,
+        95800
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 94344,
+            "lineage_reaction_units": [
+              294,
+              289
+            ],
+            "original_cell_reaction_units": [
+              226,
+              224
+            ]
+          },
+          {
+            "founder": 94597,
+            "lineage_reaction_units": [
+              44,
+              41
+            ],
+            "original_cell_reaction_units": [
+              22,
+              21
+            ]
+          },
+          {
+            "founder": 95800,
+            "lineage_reaction_units": [
+              902,
+              897
+            ],
+            "original_cell_reaction_units": [
+              902,
+              897
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          458,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          970555,
+          294,
+          44,
+          902
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            457.9999999999997,
+            0,
+            0,
+            0
+          ],
+          [
+            970050.0250000001,
+            19.666666666666664,
+            0.6666666666666667,
+            77.64166666666667
+          ],
+          [
+            26,
+            263.33333333333337,
+            0.6666666666666667,
+            4
+          ],
+          [
+            2.6666666666666665,
+            1.6666666666666665,
+            39.66666666666667,
+            0
+          ],
+          [
+            82.30833333333334,
+            4.333333333333334,
+            0,
+            815.3583333333333
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          407,
+          0,
+          0,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 1.1641532182693481e-10
+      },
+      "peer_y_units": 10.666666666666668,
+      "own_y_units": 1118.3583333333333,
+      "outside_y_units": 97.975,
+      "initial_unknown_y_units": 0
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        94344,
+        95800
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 94344,
+            "lineage_reaction_units": [
+              245,
+              239
+            ],
+            "original_cell_reaction_units": [
+              177,
+              174
+            ]
+          },
+          {
+            "founder": 95800,
+            "lineage_reaction_units": [
+              852,
+              847
+            ],
+            "original_cell_reaction_units": [
+              852,
+              847
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          312,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          970710,
+          245,
+          852
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            312.0000000000001,
+            0,
+            0
+          ],
+          [
+            970241.6916666669,
+            17.666666666666664,
+            74.64166666666667
+          ],
+          [
+            24.5,
+            218,
+            2.5
+          ],
+          [
+            78.80833333333332,
+            3.3333333333333335,
+            769.8583333333333
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          376,
+          0,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 2.3283064365386963e-10
+      },
+      "peer_y_units": 5.833333333333334,
+      "own_y_units": 987.8583333333333,
+      "outside_y_units": 92.30833333333334,
+      "initial_unknown_y_units": 0
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        92770,
+        93678,
+        95604,
+        95828
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 92770,
+            "lineage_reaction_units": [
+              877,
+              860
+            ],
+            "original_cell_reaction_units": [
+              56,
+              54
+            ]
+          },
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1500,
+              1491
+            ],
+            "original_cell_reaction_units": [
+              1264,
+              1262
+            ]
+          },
+          {
+            "founder": 95604,
+            "lineage_reaction_units": [
+              125,
+              121
+            ],
+            "original_cell_reaction_units": [
+              87,
+              86
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              3166,
+              3165
+            ],
+            "original_cell_reaction_units": [
+              1446,
+              1451
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          336,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          966101,
+          877,
+          1500,
+          125,
+          3166
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            333.99999999999983,
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            965479.4999999998,
+            47.13888888888888,
+            75.77777777777777,
+            5,
+            175.58333333333337
+          ],
+          [
+            57.83333333333333,
+            805.8611111111112,
+            8.555555555555555,
+            2,
+            2.75
+          ],
+          [
+            87.58333333333333,
+            3.9999999999999996,
+            1376,
+            1,
+            28.416666666666664
+          ],
+          [
+            9.000000000000002,
+            2.5,
+            0.5,
+            113,
+            0
+          ],
+          [
+            179.08333333333334,
+            0.5,
+            29.166666666666668,
+            0,
+            2957.2499999999995
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          318,
+          0,
+          3,
+          0,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 2.3283064365386963e-10
+      },
+      "peer_y_units": 79.38888888888889,
+      "own_y_units": 5252.111111111111,
+      "outside_y_units": 303.5,
+      "initial_unknown_y_units": 2
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        92770,
+        93678,
+        95604,
+        95828,
+        96103
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 92770,
+            "lineage_reaction_units": [
+              839,
+              822
+            ],
+            "original_cell_reaction_units": [
+              18,
+              16
+            ]
+          },
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1501,
+              1491
+            ],
+            "original_cell_reaction_units": [
+              1233,
+              1229
+            ]
+          },
+          {
+            "founder": 95604,
+            "lineage_reaction_units": [
+              51,
+              50
+            ],
+            "original_cell_reaction_units": [
+              51,
+              50
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              3241,
+              3240
+            ],
+            "original_cell_reaction_units": [
+              1447,
+              1450
+            ]
+          },
+          {
+            "founder": 96103,
+            "lineage_reaction_units": [
+              15,
+              13
+            ],
+            "original_cell_reaction_units": [
+              15,
+              13
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          363,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          965913,
+          839,
+          1501,
+          51,
+          3241,
+          15
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            360.83333333333337,
+            0.8333333333333333,
+            1.3333333333333335,
+            0,
+            0,
+            0
+          ],
+          [
+            965254.833333333,
+            45.472222222222214,
+            74.1111111111111,
+            4,
+            179.58333333333337,
+            0
+          ],
+          [
+            57.58333333333333,
+            769.3611111111113,
+            7.555555555555555,
+            2,
+            2.5,
+            0
+          ],
+          [
+            89.33333333333334,
+            3.9999999999999996,
+            1379,
+            0,
+            28.166666666666664,
+            0
+          ],
+          [
+            5.499999999999999,
+            2,
+            0,
+            43,
+            0,
+            0.5
+          ],
+          [
+            179.41666666666669,
+            0.3333333333333333,
+            29,
+            0,
+            3029.7499999999995,
+            0
+          ],
+          [
+            1.5,
+            0,
+            0,
+            1,
+            0,
+            12.5
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          355,
+          0,
+          0.5,
+          0,
+          2.5,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 2.3283064365386963e-10
+      },
+      "peer_y_units": 77.05555555555554,
+      "own_y_units": 5233.611111111111,
+      "outside_y_units": 303.1666666666667,
+      "initial_unknown_y_units": 2.166666666666667
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        93678,
+        95828,
+        96417
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1501,
+              1493
+            ],
+            "original_cell_reaction_units": [
+              1116,
+              1114
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              3491,
+              3479
+            ],
+            "original_cell_reaction_units": [
+              1451,
+              1444
+            ]
+          },
+          {
+            "founder": 96417,
+            "lineage_reaction_units": [
+              4,
+              5
+            ],
+            "original_cell_reaction_units": [
+              4,
+              5
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          304,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          966340,
+          1501,
+          3491,
+          4
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            303,
+            0,
+            0,
+            1
+          ],
+          [
+            965726.5416666666,
+            84.41666666666667,
+            190.29166666666669,
+            0
+          ],
+          [
+            93.00000000000001,
+            1382.0833333333333,
+            25.666666666666664,
+            0
+          ],
+          [
+            199.45833333333331,
+            26.500000000000004,
+            3263.0416666666665,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            4
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          338.75,
+          0.25,
+          2,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 1.1641532182693481e-10
+      },
+      "peer_y_units": 52.16666666666667,
+      "own_y_units": 4649.125,
+      "outside_y_units": 274.70833333333337,
+      "initial_unknown_y_units": 1
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        93678,
+        95828,
+        96670
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1443,
+              1433
+            ],
+            "original_cell_reaction_units": [
+              1037,
+              1035
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              3727,
+              3708
+            ],
+            "original_cell_reaction_units": [
+              1455,
+              1452
+            ]
+          },
+          {
+            "founder": 96670,
+            "lineage_reaction_units": [
+              3,
+              5
+            ],
+            "original_cell_reaction_units": [
+              3,
+              5
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          335,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          965857,
+          1443,
+          3727,
+          3
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            333.99999999999994,
+            0,
+            0,
+            1
+          ],
+          [
+            965218.7083333334,
+            79.33333333333333,
+            193.95833333333337,
+            1
+          ],
+          [
+            91.83333333333334,
+            1327.6666666666667,
+            23.499999999999996,
+            0
+          ],
+          [
+            208.45833333333331,
+            25.500000000000004,
+            3490.5416666666665,
+            0.5
+          ],
+          [
+            0,
+            0.5,
+            0,
+            2.5
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          364,
+          0,
+          2,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 1.1641532182693481e-10
+      },
+      "peer_y_units": 50.0,
+      "own_y_units": 4820.708333333333,
+      "outside_y_units": 274.2916666666667,
+      "initial_unknown_y_units": 1
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        93678,
+        95828
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1270,
+              1262
+            ],
+            "original_cell_reaction_units": [
+              876,
+              876
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              4246,
+              4206
+            ],
+            "original_cell_reaction_units": [
+              1469,
+              1449
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          343,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          965055,
+          1270,
+          4246
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            342.9999999999998,
+            0,
+            0
+          ],
+          [
+            964387.4583333337,
+            71.83333333333334,
+            204.70833333333334
+          ],
+          [
+            85.33333333333336,
+            1168.1666666666667,
+            16.499999999999996
+          ],
+          [
+            234.2083333333333,
+            22.000000000000004,
+            3984.7916666666665
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          391,
+          0,
+          5
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 4.656612873077393e-10
+      },
+      "peer_y_units": 38.5,
+      "own_y_units": 5152.958333333333,
+      "outside_y_units": 276.5416666666667,
+      "initial_unknown_y_units": 0
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        93678,
+        95828,
+        97216
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1208,
+              1198
+            ],
+            "original_cell_reaction_units": [
+              839,
+              837
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              4439,
+              4405
+            ],
+            "original_cell_reaction_units": [
+              1472,
+              1457
+            ]
+          },
+          {
+            "founder": 97216,
+            "lineage_reaction_units": [
+              2,
+              2
+            ],
+            "original_cell_reaction_units": [
+              2,
+              2
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          397,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          964708,
+          1208,
+          4439,
+          2
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            395.99999999999994,
+            0,
+            1,
+            0
+          ],
+          [
+            964059.9583333338,
+            66.5,
+            212.54166666666669,
+            0
+          ],
+          [
+            80,
+            1111.5,
+            16.499999999999996,
+            0
+          ],
+          [
+            241.0416666666666,
+            20.000000000000004,
+            4174.958333333333,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          369,
+          0,
+          3,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 4.656612873077393e-10
+      },
+      "peer_y_units": 36.5,
+      "own_y_units": 5288.458333333333,
+      "outside_y_units": 279.0416666666667,
+      "initial_unknown_y_units": 1
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        93678,
+        95828,
+        97309
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1167,
+              1160
+            ],
+            "original_cell_reaction_units": [
+              798,
+              799
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              2279,
+              2244
+            ],
+            "original_cell_reaction_units": [
+              1476,
+              1458
+            ]
+          },
+          {
+            "founder": 97309,
+            "lineage_reaction_units": [
+              2301,
+              2297
+            ],
+            "original_cell_reaction_units": [
+              1473,
+              1479
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          382,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          964445,
+          1167,
+          2279,
+          2301
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            381.99999999999955,
+            0,
+            0,
+            0
+          ],
+          [
+            963782.9583333337,
+            66.5,
+            85.08333333333333,
+            132.45833333333331
+          ],
+          [
+            78,
+            1073.5,
+            14.666666666666666,
+            0.8333333333333333
+          ],
+          [
+            125.12500000000001,
+            15.083333333333334,
+            2104.5833333333335,
+            30.208333333333332
+          ],
+          [
+            122.91666666666669,
+            4.916666666666667,
+            39.666666666666664,
+            2133.5
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          378,
+          0,
+          4,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 4.656612873077393e-10
+      },
+      "peer_y_units": 105.375,
+      "own_y_units": 5311.583333333334,
+      "outside_y_units": 284.04166666666663,
+      "initial_unknown_y_units": 0
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        92203,
+        97359,
+        97445
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 92203,
+            "lineage_reaction_units": [
+              615,
+              607
+            ],
+            "original_cell_reaction_units": [
+              564,
+              557
+            ]
+          },
+          {
+            "founder": 97359,
+            "lineage_reaction_units": [
+              12,
+              13
+            ],
+            "original_cell_reaction_units": [
+              12,
+              13
+            ]
+          },
+          {
+            "founder": 97445,
+            "lineage_reaction_units": [
+              238,
+              224
+            ],
+            "original_cell_reaction_units": [
+              238,
+              224
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          363,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          969270,
+          615,
+          12,
+          238
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            362.99999999999966,
+            0,
+            0,
+            0
+          ],
+          [
+            968824.5999999999,
+            59.31666666666668,
+            2.5,
+            18.583333333333332
+          ],
+          [
+            69.31666666666666,
+            543.6833333333334,
+            0,
+            2
+          ],
+          [
+            0.6666666666666666,
+            0.5,
+            10.5,
+            0.33333333333333337
+          ],
+          [
+            31.416666666666664,
+            3.5,
+            0,
+            203.08333333333331
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          365,
+          0,
+          0,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 1.1641532182693481e-10
+      },
+      "peer_y_units": 6.333333333333333,
+      "own_y_units": 757.2666666666667,
+      "outside_y_units": 80.4,
+      "initial_unknown_y_units": 0
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        93678,
+        95828,
+        97309,
+        97705
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              1052,
+              1045
+            ],
+            "original_cell_reaction_units": [
+              683,
+              684
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              2525,
+              2491
+            ],
+            "original_cell_reaction_units": [
+              1498,
+              1480
+            ]
+          },
+          {
+            "founder": 97309,
+            "lineage_reaction_units": [
+              2453,
+              2448
+            ],
+            "original_cell_reaction_units": [
+              1482,
+              1492
+            ]
+          },
+          {
+            "founder": 97705,
+            "lineage_reaction_units": [
+              5,
+              6
+            ],
+            "original_cell_reaction_units": [
+              5,
+              6
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          380,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          963908,
+          1052,
+          2525,
+          2453,
+          5
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            375.99999999999966,
+            0,
+            2,
+            1,
+            1
+          ],
+          [
+            963250.2916666669,
+            61.333333333333336,
+            98.13888888888887,
+            134.2361111111111,
+            0
+          ],
+          [
+            72.5,
+            966.6666666666667,
+            12.000000000000002,
+            0.8333333333333333,
+            0
+          ],
+          [
+            138.29166666666669,
+            12.083333333333334,
+            2338.8611111111113,
+            35.763888888888886,
+            0
+          ],
+          [
+            131.91666666666666,
+            4.916666666666667,
+            39.99999999999999,
+            2276.166666666667,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          364,
+          0,
+          0,
+          0,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 2.3283064365386963e-10
+      },
+      "peer_y_units": 105.59722222222221,
+      "own_y_units": 5586.694444444445,
+      "outside_y_units": 293.7083333333333,
+      "initial_unknown_y_units": 4
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "members": [
+        93678,
+        95828,
+        97309,
+        98135
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 93678,
+            "lineage_reaction_units": [
+              880,
+              869
+            ],
+            "original_cell_reaction_units": [
+              532,
+              528
+            ]
+          },
+          {
+            "founder": 95828,
+            "lineage_reaction_units": [
+              2673,
+              2631
+            ],
+            "original_cell_reaction_units": [
+              1520,
+              1498
+            ]
+          },
+          {
+            "founder": 97309,
+            "lineage_reaction_units": [
+              2638,
+              2629
+            ],
+            "original_cell_reaction_units": [
+              1485,
+              1488
+            ]
+          },
+          {
+            "founder": 98135,
+            "lineage_reaction_units": [
+              14,
+              14
+            ],
+            "original_cell_reaction_units": [
+              14,
+              14
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          338,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          963293,
+          880,
+          2673,
+          2638,
+          14
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            336.9999999999998,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            962610.6527777781,
+            49.833333333333336,
+            100.55555555555554,
+            141.95833333333331,
+            2
+          ],
+          [
+            62.99999999999999,
+            805.1666666666666,
+            11.500000000000002,
+            0.3333333333333333,
+            0
+          ],
+          [
+            147.93055555555557,
+            9.083333333333334,
+            2478.194444444445,
+            37.791666666666664,
+            0
+          ],
+          [
+            142.41666666666669,
+            4.916666666666667,
+            38.75,
+            2448.9166666666665,
+            0
+          ],
+          [
+            1,
+            0,
+            2,
+            0,
+            11
+          ]
+        ],
+        "remaining_y_by_producer": [
+          0,
+          388,
+          0,
+          0,
+          3,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 3.4924596548080444e-10
+      },
+      "peer_y_units": 104.375,
+      "own_y_units": 5743.277777777778,
+      "outside_y_units": 294.3472222222222,
+      "initial_unknown_y_units": 1
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "members": [
+        131741,
+        132783,
+        134400,
+        137638
+      ],
+      "chemistry": {
+        "convention": "Proportional well-mixed Y tracer; producer rows [initial-unknown,outside,member lineages]; consumer columns [outside,member lineages]. Labels track the most recent X->Y producer, not molecule identities.",
+        "roles": [
+          {
+            "founder": 131741,
+            "lineage_reaction_units": [
+              1852,
+              1872
+            ],
+            "original_cell_reaction_units": [
+              1424,
+              1445
+            ]
+          },
+          {
+            "founder": 132783,
+            "lineage_reaction_units": [
+              1287,
+              1306
+            ],
+            "original_cell_reaction_units": [
+              1287,
+              1306
+            ]
+          },
+          {
+            "founder": 134400,
+            "lineage_reaction_units": [
+              27,
+              25
+            ],
+            "original_cell_reaction_units": [
+              27,
+              25
+            ]
+          },
+          {
+            "founder": 137638,
+            "lineage_reaction_units": [
+              346,
+              338
+            ],
+            "original_cell_reaction_units": [
+              304,
+              300
+            ]
+          }
+        ],
+        "initial_y_by_producer": [
+          385,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "produced_y_by_producer": [
+          0,
+          962207,
+          1852,
+          1287,
+          27,
+          346
+        ],
+        "consumed_y_by_producer_consumer": [
+          [
+            385.00000000000006,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            961523.5666666669,
+            116.08333333333333,
+            135.18333333333334,
+            1.5,
+            25.666666666666668
+          ],
+          [
+            107.72222222222223,
+            1713.3333333333335,
+            26.944444444444443,
+            0,
+            3
+          ],
+          [
+            106.26666666666667,
+            35.083333333333336,
+            1143.6499999999999,
+            0,
+            0
+          ],
+          [
+            2.5,
+            0,
+            0,
+            23.5,
+            1
+          ],
+          [
+            29.944444444444446,
+            7.500000000000001,
+            0.2222222222222222,
+            0,
+            308.3333333333333
+          ]
+        ],
+        "remaining_y_by_producer": [
+          9.91440286059682e-162,
+          405,
+          1,
+          2,
+          0,
+          0
+        ],
+        "maximum_endpoint_cell_mass_error": 0,
+        "maximum_producer_balance_error": 2.3283064365386963e-10
+      },
+      "peer_y_units": 73.75,
+      "own_y_units": 3188.8166666666666,
+      "outside_y_units": 278.43333333333334,
+      "initial_unknown_y_units": 0
+    }
+  ],
+  "mobility_controls": [
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "anchored_equal_without_bond_fields": true,
+      "anchored_chemistry_equal": true
+    }
+  ],
+  "aggregates": {
+    "anchored": {
+      "trials": 14,
+      "copies": 446,
+      "cell_ticks": 257551,
+      "original_survival_ticks": 117672,
+      "suppressed_actions": 36174,
+      "peer_y_units": 1100.1190641878857,
+      "other_survival_delta_signs": {
+        "positive": 4,
+        "negative": 3,
+        "zero": 7
+      }
+    },
+    "intact": {
+      "trials": 14,
+      "copies": 392,
+      "cell_ticks": 227608,
+      "original_survival_ticks": 120973,
+      "suppressed_actions": 0,
+      "peer_y_units": 783.4874537037036,
+      "other_survival_delta_signs": {
+        "zero": 14
+      }
+    },
+    "no-bonds": {
+      "trials": 14,
+      "copies": 150,
+      "cell_ticks": 87718,
+      "original_survival_ticks": 32986,
+      "suppressed_actions": 9,
+      "peer_y_units": 71.38333333333333,
+      "other_survival_delta_signs": {
+        "negative": 13,
+        "positive": 1
+      }
+    },
+    "no-bonds-anchored": {
+      "trials": 14,
+      "copies": 446,
+      "cell_ticks": 257551,
+      "original_survival_ticks": 117672,
+      "suppressed_actions": 36222,
+      "peer_y_units": 1100.1190641878857,
+      "other_survival_delta_signs": {
+        "positive": 4,
+        "negative": 3,
+        "zero": 7
+      }
+    },
+    "no-reaction0": {
+      "trials": 46,
+      "copies": 857,
+      "cell_ticks": 488147,
+      "original_survival_ticks": 166675,
+      "suppressed_actions": 213,
+      "peer_y_units": 1033.7588270399306,
+      "other_survival_delta_signs": {
+        "negative": 38,
+        "positive": 7,
+        "zero": 1
+      }
+    },
+    "no-reaction1": {
+      "trials": 46,
+      "copies": 570,
+      "cell_ticks": 338680,
+      "original_survival_ticks": 155847,
+      "suppressed_actions": 435,
+      "peer_y_units": 1088.1457570516118,
+      "other_survival_delta_signs": {
+        "negative": 39,
+        "positive": 7
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "07ecca29681bb1a49712d77367eea48db175b7f887d1c5b44882be18f362eb6c",
+      "functional_sha256": "75ff3e0d95a4ea105bfad29054af02603ad2c4c5468fe40175d7bae5ce54f022",
+      "copies": 28,
+      "cell_ticks": 10264,
+      "original_survival_ticks": 6078,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 37.94578703703704,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "03289af969bc0a7627b063b7899dfb13c287c699f81df7edcdca55702c73f113",
+      "functional_sha256": "c8a61d7d2df8f0b881b8183776fbb4bb5d6558710fb852dae7a10ee8fe1b75b4",
+      "copies": 6,
+      "cell_ticks": 4410,
+      "original_survival_ticks": 2367,
+      "other_original_survival_delta": -3711,
+      "other_copy_delta": -22,
+      "peer_y_units": 3.2,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "14a917e454721957fbb31f82bd3b21c0b628bec2c2fa6d7ae33424497f0e1a63",
+      "functional_sha256": "32aea958b8846c7ad46d01075a27db7ce1e8d6b33cc4fc2cd69371e148f1ed12",
+      "copies": 39,
+      "cell_ticks": 14808,
+      "original_survival_ticks": 7479,
+      "other_original_survival_delta": 1401,
+      "other_copy_delta": 11,
+      "peer_y_units": 37.94578703703704,
+      "suppressed_actions": 1982
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "b3ef55494de5ea8dce68632f9962794d6fc4c4b6b618ca2bc14f1deb528ddd23",
+      "functional_sha256": "32aea958b8846c7ad46d01075a27db7ce1e8d6b33cc4fc2cd69371e148f1ed12",
+      "copies": 39,
+      "cell_ticks": 14808,
+      "original_survival_ticks": 7479,
+      "other_original_survival_delta": 1401,
+      "other_copy_delta": 11,
+      "peer_y_units": 37.94578703703704,
+      "suppressed_actions": 2021
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-reaction0",
+      "donor": 148252,
+      "final_sha256": "26479e3c4302dddf80c5cb1d7930d20428220745cd368545db5dea22cfcc70ac",
+      "functional_sha256": "bf42ce65ec84d31a051926add0b414fe73b0e8cf26d370ccc2dffc931bae2c2b",
+      "copies": 3,
+      "cell_ticks": 2218,
+      "original_survival_ticks": 2077,
+      "other_original_survival_delta": -455,
+      "other_copy_delta": 2,
+      "peer_y_units": 2.194444444444444,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-reaction0",
+      "donor": 148656,
+      "final_sha256": "1f80ac7124863b1b88bb676e558f085677db380b06690384f1b0adb7784627a2",
+      "functional_sha256": "a2de9dd9f85ca0f05e0c0500c47625c9c9f724e263c70e6129ae694e3905fd34",
+      "copies": 3,
+      "cell_ticks": 3703,
+      "original_survival_ticks": 3552,
+      "other_original_survival_delta": -213,
+      "other_copy_delta": -24,
+      "peer_y_units": 12.037646484375,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-reaction0",
+      "donor": 149369,
+      "final_sha256": "79fc4038decf65b501109433facd8833bd8ef3e95842fe43f02f16bc6d407049",
+      "functional_sha256": "4941b2272282e5fcf99513b4bd07b1472371eec4e312c09059dc7027b878eb5b",
+      "copies": 6,
+      "cell_ticks": 4277,
+      "original_survival_ticks": 3250,
+      "other_original_survival_delta": -2712,
+      "other_copy_delta": -22,
+      "peer_y_units": 20.93333333333333,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-reaction1",
+      "donor": 148252,
+      "final_sha256": "e1f6c21597feca36798c6c8dc03250bff9cc623f7339e1530c9274bb615bb646",
+      "functional_sha256": "dae038d9e6f249a134b5c8ee69b2a870859459ad9f9e6b6c919beea0a0b0eab2",
+      "copies": 3,
+      "cell_ticks": 1812,
+      "original_survival_ticks": 986,
+      "other_original_survival_delta": -1572,
+      "other_copy_delta": 2,
+      "peer_y_units": 8.859274691358024,
+      "suppressed_actions": 12
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-reaction1",
+      "donor": 148656,
+      "final_sha256": "94c074a08a243590a4b7e3a5dde0eb38fd31a5d245d31f20083fa6326e66efd7",
+      "functional_sha256": "47d7af6d665ba02f46eaa422b6e4f291c2c1d66a0cc3b14cbaa280915961cab9",
+      "copies": 11,
+      "cell_ticks": 4257,
+      "original_survival_ticks": 2255,
+      "other_original_survival_delta": -1536,
+      "other_copy_delta": -16,
+      "peer_y_units": 8.61111111111111,
+      "suppressed_actions": 8
+    },
+    {
+      "witness": "environment-seed5-t110758-cohort13-founder130760.json",
+      "case": "environment",
+      "seed": 5,
+      "mode": "no-reaction1",
+      "donor": 149369,
+      "final_sha256": "a2ea9fab98754c1dfadedd9d4409660cab92009ceaa4f1853aac50f2c6d037aa",
+      "functional_sha256": "d133420583f4842e70eefbb277839a9be7fa0218aefc5b710a4b587fd4d26a73",
+      "copies": 31,
+      "cell_ticks": 11438,
+      "original_survival_ticks": 9463,
+      "other_original_survival_delta": 3483,
+      "other_copy_delta": 3,
+      "peer_y_units": 62.842407407407414,
+      "suppressed_actions": 4
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "bb184794208f6c39b9d07bf9f8b2212c5db93a26f50f7553375ae38d11cbc7a6",
+      "functional_sha256": "f934e6a1018a524ef23c7aa29a52b2410ae9596a3ee484cb84cdc35e22a39849",
+      "copies": 2,
+      "cell_ticks": 4995,
+      "original_survival_ticks": 4587,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 10.666666666666668,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "71f2caeb417ec55b45d0460a1641a3ed7c0ee96979a4738c26da1f3b0386e4c7",
+      "functional_sha256": "ec2ff39f020e3a30e892843476f34cd008a63f0ff5b8ec3a987048e13030d197",
+      "copies": 0,
+      "cell_ticks": 1341,
+      "original_survival_ticks": 1341,
+      "other_original_survival_delta": -3246,
+      "other_copy_delta": -2,
+      "peer_y_units": 2.4166666666666665,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "ed6b48234a6ce51dc603a59f5ea1e0763c255686cbfed06dac58f8648e4d1161",
+      "functional_sha256": "6a492a4480640a6405ea6c22f3218aa850845eccbad5304cbca9ea674dfed422",
+      "copies": 10,
+      "cell_ticks": 13834,
+      "original_survival_ticks": 6973,
+      "other_original_survival_delta": 2386,
+      "other_copy_delta": 8,
+      "peer_y_units": 91.12142529899691,
+      "suppressed_actions": 1943
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "ed6b48234a6ce51dc603a59f5ea1e0763c255686cbfed06dac58f8648e4d1161",
+      "functional_sha256": "6a492a4480640a6405ea6c22f3218aa850845eccbad5304cbca9ea674dfed422",
+      "copies": 10,
+      "cell_ticks": 13834,
+      "original_survival_ticks": 6973,
+      "other_original_survival_delta": 2386,
+      "other_copy_delta": 8,
+      "peer_y_units": 91.12142529899691,
+      "suppressed_actions": 1943
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 94344,
+      "final_sha256": "bcb1144a60b8f9a332e2b8cde9c39c85681c57d3d64e38aa938230747383c0a1",
+      "functional_sha256": "535087c82aceb6fbdae0e595797bd7a07004964c404301304b7765c1013254d2",
+      "copies": 1,
+      "cell_ticks": 3617,
+      "original_survival_ticks": 3378,
+      "other_original_survival_delta": -346,
+      "other_copy_delta": 0,
+      "peer_y_units": 2,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 94597,
+      "final_sha256": "707ca5f7666b1a85b9c44d2288c3dd500049a0b2d2b0bf5dbac67868e0a47386",
+      "functional_sha256": "edaa6f7217088569d0ee93c5e553e8c545f79abaa40febf242e311aa7c69478e",
+      "copies": 1,
+      "cell_ticks": 2303,
+      "original_survival_ticks": 2080,
+      "other_original_survival_delta": -2458,
+      "other_copy_delta": 0,
+      "peer_y_units": 4,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95800,
+      "final_sha256": "f4be9954267de00dc66aa39d30e49769f90c25d2176b490255ff20423d61d5a0",
+      "functional_sha256": "ac5b9d3a4f1e258ca2d6dfb4ffdf71be95163cfd8abc2c0e48fff8bdbc90a6f7",
+      "copies": 4,
+      "cell_ticks": 2396,
+      "original_survival_ticks": 1749,
+      "other_original_survival_delta": 760,
+      "other_copy_delta": 2,
+      "peer_y_units": 6.666666666666667,
+      "suppressed_actions": 4
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 94344,
+      "final_sha256": "75313f447c8512720c7d79502e1936b84b87596b99a3db4b8f0ea2e39d0d4931",
+      "functional_sha256": "0defcc6fdded126a6d3de9af1a0319d758996b9a59a77a8ceb3a321428161030",
+      "copies": 0,
+      "cell_ticks": 2469,
+      "original_survival_ticks": 2469,
+      "other_original_survival_delta": -1271,
+      "other_copy_delta": -1,
+      "peer_y_units": 4.5,
+      "suppressed_actions": 4
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 94597,
+      "final_sha256": "bc29daafde69f7e61426a3a84f97a6f48db37265e5bef031cfa8b39d50fcf476",
+      "functional_sha256": "8e80c08ffc66d7a282c64fd7df574a21d196154033a57cb1fa3b1752e0f4a272",
+      "copies": 5,
+      "cell_ticks": 9021,
+      "original_survival_ticks": 8368,
+      "other_original_survival_delta": 3780,
+      "other_copy_delta": 4,
+      "peer_y_units": 80.72222222222221,
+      "suppressed_actions": 12
+    },
+    {
+      "witness": "symbols-seed3-t108949-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95800,
+      "final_sha256": "cb2ffe177d4755396a85ab824dc49c0d2cbf1e474613120b0229c4521982ce7c",
+      "functional_sha256": "0a682238bf9b3b1d68747d09089b45d6447fb2f7bef38ef979514ae905909418",
+      "copies": 28,
+      "cell_ticks": 14325,
+      "original_survival_ticks": 2133,
+      "other_original_survival_delta": 1114,
+      "other_copy_delta": 26,
+      "peer_y_units": 12.166666666666666,
+      "suppressed_actions": 8
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "38fbb044e764e33b111ecdd546d5ce776004272478ee71d0a6c6fb018f1d025c",
+      "functional_sha256": "a9bb5bf2cb89acdb7a5dad2ddf72059bd4fe05d43a9adfbdf5b1159176631c54",
+      "copies": 1,
+      "cell_ticks": 4422,
+      "original_survival_ticks": 4127,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 5.833333333333334,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "5732ef20a67924634b7a1b83eeee641574dc71f9e6bc224c17b43ba94233bcc6",
+      "functional_sha256": "0efd3ce9d7ca6ec988a4d2ad93ca5b1ef901de29b55d8fa01a8468c43d5f313d",
+      "copies": 0,
+      "cell_ticks": 2158,
+      "original_survival_ticks": 2158,
+      "other_original_survival_delta": -1969,
+      "other_copy_delta": -1,
+      "peer_y_units": 0,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "4ed6c9e27a11966358566573d5cc7e6933878d4839353a834d62292f81119509",
+      "functional_sha256": "da9afb12ba75d0f1090be1539599dbce8951736799601393cbd8634cffb9c962",
+      "copies": 1,
+      "cell_ticks": 5897,
+      "original_survival_ticks": 5686,
+      "other_original_survival_delta": 1559,
+      "other_copy_delta": 0,
+      "peer_y_units": 7.833333333333334,
+      "suppressed_actions": 842
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "4ed6c9e27a11966358566573d5cc7e6933878d4839353a834d62292f81119509",
+      "functional_sha256": "da9afb12ba75d0f1090be1539599dbce8951736799601393cbd8634cffb9c962",
+      "copies": 1,
+      "cell_ticks": 5897,
+      "original_survival_ticks": 5686,
+      "other_original_survival_delta": 1559,
+      "other_copy_delta": 0,
+      "peer_y_units": 7.833333333333334,
+      "suppressed_actions": 842
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 94344,
+      "final_sha256": "7f581cdf46dc9d6763115e928cce98e5d6f4cc9855aa787b6459255680da97ad",
+      "functional_sha256": "37482b59e916e4a7fe8e0985fa2ac5a5c29fcb7af2b4680fbf3adc7c265c1e67",
+      "copies": 0,
+      "cell_ticks": 1192,
+      "original_survival_ticks": 1192,
+      "other_original_survival_delta": -2272,
+      "other_copy_delta": 0,
+      "peer_y_units": 1,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95800,
+      "final_sha256": "d301a0e04cef8033c554e7f4e598ceca4a884d82e40514d1734cb7ed0ebd8555",
+      "functional_sha256": "591406dfa9985f3619fad1dd2a8deca22e0da959500d02fd1585caaddebca35d",
+      "copies": 2,
+      "cell_ticks": 1622,
+      "original_survival_ticks": 675,
+      "other_original_survival_delta": -54,
+      "other_copy_delta": 1,
+      "peer_y_units": 0,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 94344,
+      "final_sha256": "bff4bf68e06ce479a6a1b39395f774e4d9d8a514fe47736f0aa4375747379813",
+      "functional_sha256": "ad57efc2066ac2487b9e9d565865af7bbb45984f725ec7bce6a00e29dd14f0ff",
+      "copies": 0,
+      "cell_ticks": 638,
+      "original_survival_ticks": 638,
+      "other_original_survival_delta": -2840,
+      "other_copy_delta": 0,
+      "peer_y_units": 1.875,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t109136-cohort54-founder89334.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95800,
+      "final_sha256": "0340b9161db665a05e5f6583db9af1c5c272a08fa6a81b41c52ec6e5d47eb300",
+      "functional_sha256": "b1986779da01ab515ab20a3c89210acfd3fafce8f8dd9ca0a473bf1f1cdc122c",
+      "copies": 2,
+      "cell_ticks": 734,
+      "original_survival_ticks": 392,
+      "other_original_survival_delta": -389,
+      "other_copy_delta": 1,
+      "peer_y_units": 9.666666666666668,
+      "suppressed_actions": 14
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "0a28556d278129d156da5fcf541b2a3f3869eb44cb6fdcc7a58bab6ee3232f17",
+      "functional_sha256": "f9dcbe0378ff91b68a0861618766bc048f0fa2abf22c4222c00eecc73972ad05",
+      "copies": 45,
+      "cell_ticks": 21438,
+      "original_survival_ticks": 10128,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 79.38888888888889,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "467844561198b3b3d8ee680aa2a20bb9e8e9c5ffd4dc99657b608421380366a4",
+      "functional_sha256": "b1bf85df299da2e329cf2f09cceca6d74c8638e27b412d2e5a2fbdf4624becc7",
+      "copies": 31,
+      "cell_ticks": 17433,
+      "original_survival_ticks": 1890,
+      "other_original_survival_delta": -8238,
+      "other_copy_delta": -14,
+      "peer_y_units": 7.666666666666667,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "831191b25e5dadd23a076fca2868d48adb5c6458e9a04da7679dadd9973ef797",
+      "functional_sha256": "aaad8f59e33eac921948427b32c8057777a790d70f5dd2d59d944b6097057dab",
+      "copies": 61,
+      "cell_ticks": 29749,
+      "original_survival_ticks": 5787,
+      "other_original_survival_delta": -4341,
+      "other_copy_delta": 16,
+      "peer_y_units": 195.5537037037037,
+      "suppressed_actions": 4302
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "831191b25e5dadd23a076fca2868d48adb5c6458e9a04da7679dadd9973ef797",
+      "functional_sha256": "aaad8f59e33eac921948427b32c8057777a790d70f5dd2d59d944b6097057dab",
+      "copies": 61,
+      "cell_ticks": 29749,
+      "original_survival_ticks": 5787,
+      "other_original_survival_delta": -4341,
+      "other_copy_delta": 16,
+      "peer_y_units": 195.5537037037037,
+      "suppressed_actions": 4302
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 92770,
+      "final_sha256": "513f18db65f9f875b77c0bb7ca973202a048e98a1bde998be60474c2cf900fa8",
+      "functional_sha256": "d2953dd97f75abbd5685d2fb5db14567aac92810ef395cbed4e393a1a3b01291",
+      "copies": 12,
+      "cell_ticks": 6309,
+      "original_survival_ticks": 2953,
+      "other_original_survival_delta": -7009,
+      "other_copy_delta": -24,
+      "peer_y_units": 24.361111111111114,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "b036cfb49f08223ae006e9a410b70c6204445e47bcc9de82cefe450058cf7ae3",
+      "functional_sha256": "3479ab3375c7be575e2a1985fe312de43279477cf09ec46abdd3d5fffe2163b9",
+      "copies": 50,
+      "cell_ticks": 30485,
+      "original_survival_ticks": 8600,
+      "other_original_survival_delta": 3012,
+      "other_copy_delta": 14,
+      "peer_y_units": 101.125,
+      "suppressed_actions": 4
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95604,
+      "final_sha256": "ae9c5afb99b181d0f90439e40db5dde89917440f0605e9b2ec6575b74b52eb60",
+      "functional_sha256": "d5f0d9b897da3ac637a6f5e0402f7e199f17317b7540a48544d6fde6b6e3888b",
+      "copies": 35,
+      "cell_ticks": 16622,
+      "original_survival_ticks": 7500,
+      "other_original_survival_delta": -2321,
+      "other_copy_delta": -9,
+      "peer_y_units": 50.638888888888886,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "42f4113b98c2c305b4570022d62d6222bf82ade05ec19f2a96e5650d64c07940",
+      "functional_sha256": "1ec75682b8f4f987207ea08ba4eae9b99a9a4671f6b2b6308aae0293dfc04c96",
+      "copies": 50,
+      "cell_ticks": 23390,
+      "original_survival_ticks": 7142,
+      "other_original_survival_delta": 1974,
+      "other_copy_delta": 31,
+      "peer_y_units": 62.083333333333336,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 92770,
+      "final_sha256": "ae6b9aca7f56393e345c39c3eb17278fc9d8fcaf2e32e6ed5fd1a0ac96355bd2",
+      "functional_sha256": "250a692e8176d1e025dae6dd4d8602bfd38d66d91c3a1644bd9995361c64d217",
+      "copies": 11,
+      "cell_ticks": 4522,
+      "original_survival_ticks": 2154,
+      "other_original_survival_delta": -7870,
+      "other_copy_delta": -25,
+      "peer_y_units": 24.291666666666668,
+      "suppressed_actions": 14
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "fbbe6a35e1eca5a820edd8212d58622ae004973fb4e4c3c74e6946c5bafc27cd",
+      "functional_sha256": "f51d1e39dbfb14784f7077de85c40a6a67d3337e25243b0cbe46362dec870387",
+      "copies": 12,
+      "cell_ticks": 7013,
+      "original_survival_ticks": 2798,
+      "other_original_survival_delta": -2808,
+      "other_copy_delta": -24,
+      "peer_y_units": 9.5,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95604,
+      "final_sha256": "0aee5036c7be9ecb973206736bc6daddcb4bc808aefb7c2379a75ca9e5548814",
+      "functional_sha256": "95fac99d63053d0bbf84bc4ac54cf7c8642e02e9270411237bcd7adeec3dc5a3",
+      "copies": 11,
+      "cell_ticks": 5617,
+      "original_survival_ticks": 3190,
+      "other_original_survival_delta": -6689,
+      "other_copy_delta": -33,
+      "peer_y_units": 20.387517146776407,
+      "suppressed_actions": 15
+    },
+    {
+      "witness": "symbols-seed3-t109180-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "41eff619abf414c724668cbb66559d0fe7c4932006a5772f7a334fa9eb0cd4bd",
+      "functional_sha256": "5ccf6ab717f6ce210ca3566d0fcec76803ff4095365af103be0e2f24cb914f5e",
+      "copies": 30,
+      "cell_ticks": 20802,
+      "original_survival_ticks": 7844,
+      "other_original_survival_delta": 2612,
+      "other_copy_delta": 11,
+      "peer_y_units": 31.76996527777778,
+      "suppressed_actions": 15
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "e1e0d5ffdbcfd80a0c35c06b07573c869fb3fb3604829819d697963dd4f41027",
+      "functional_sha256": "e24b7cc77426972107950fc5847ba797c0c525e8ed6f22a7ca1fb4952f62d033",
+      "copies": 45,
+      "cell_ticks": 21346,
+      "original_survival_ticks": 9812,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 77.05555555555554,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "2512606b36de4b4d94f0b48fce8cad475bab866cd9068fa055b6b4957a0dfd64",
+      "functional_sha256": "07862b6d41a1621f881ebc59b33dc511033aa4d927c8151126321b36c3f2b032",
+      "copies": 13,
+      "cell_ticks": 5514,
+      "original_survival_ticks": 1834,
+      "other_original_survival_delta": -7978,
+      "other_copy_delta": -32,
+      "peer_y_units": 15.604166666666666,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "b53d3b36bcef6efbbc098e626f44f04febe3890e839f04d3a310d809f7efced2",
+      "functional_sha256": "50ee6bac23c9bf3713c81139223a70f0a6b55fad6803ce3721a087d743a22502",
+      "copies": 61,
+      "cell_ticks": 30207,
+      "original_survival_ticks": 5341,
+      "other_original_survival_delta": -4471,
+      "other_copy_delta": 16,
+      "peer_y_units": 205.13703703703703,
+      "suppressed_actions": 4386
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "b53d3b36bcef6efbbc098e626f44f04febe3890e839f04d3a310d809f7efced2",
+      "functional_sha256": "50ee6bac23c9bf3713c81139223a70f0a6b55fad6803ce3721a087d743a22502",
+      "copies": 61,
+      "cell_ticks": 30207,
+      "original_survival_ticks": 5341,
+      "other_original_survival_delta": -4471,
+      "other_copy_delta": 16,
+      "peer_y_units": 205.13703703703703,
+      "suppressed_actions": 4386
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 92770,
+      "final_sha256": "5cb1dea601c5462586b4b0a123b022113b47b3c032494f14bab115ed353ab991",
+      "functional_sha256": "081dafba91ad997f9becfff1f80546837f86f6052ff2dec3a945dc93e9292da9",
+      "copies": 36,
+      "cell_ticks": 20507,
+      "original_survival_ticks": 4022,
+      "other_original_survival_delta": -5759,
+      "other_copy_delta": 0,
+      "peer_y_units": 39.55555555555556,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "2db23476a22d1b1ec0935e58d0831ee1c6db4e4eabe0d5f3b00c42d012cc6e79",
+      "functional_sha256": "53d1279312abd3cd72aaf56fed6796987604a17d2f8093efa9f51f90ff879502",
+      "copies": 21,
+      "cell_ticks": 13968,
+      "original_survival_ticks": 8795,
+      "other_original_survival_delta": 3393,
+      "other_copy_delta": -15,
+      "peer_y_units": 43.11111111111111,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95604,
+      "final_sha256": "8d1459ad44ec2ac16a92b58f2e0198b274b38956f58bfdc321daec884d7a6179",
+      "functional_sha256": "48e3b4597952bc073fe3615c5783b3592f28d8c25391596a241879054271ece3",
+      "copies": 42,
+      "cell_ticks": 19676,
+      "original_survival_ticks": 8018,
+      "other_original_survival_delta": -1594,
+      "other_copy_delta": -3,
+      "peer_y_units": 53.76851851851852,
+      "suppressed_actions": 4
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "dd48f0e18202ef358ee6031b7c2ae9906fef9e6393df42cbe1062cbef1e3ca4b",
+      "functional_sha256": "98588b7e9755d05ee7cf1cb08e2de736b87a719665f98a36e0eadce12df5a1c1",
+      "copies": 19,
+      "cell_ticks": 11400,
+      "original_survival_ticks": 3279,
+      "other_original_survival_delta": -1580,
+      "other_copy_delta": 1,
+      "peer_y_units": 45.611111111111114,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 96103,
+      "final_sha256": "67e525fbe4bb6637821caabcdd1321d1caf2e6768641976e564695043ab78128",
+      "functional_sha256": "f143983cef5a35c063dee2de97bd66c2a75f1d0878d494b291b8aec8cc6f082d",
+      "copies": 33,
+      "cell_ticks": 13866,
+      "original_survival_ticks": 8035,
+      "other_original_survival_delta": -1721,
+      "other_copy_delta": -12,
+      "peer_y_units": 70.75,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 92770,
+      "final_sha256": "8a08c17e1f6b6cf7df401f823839da22a0e575bfb68165c4223fb1296c06d54c",
+      "functional_sha256": "aed11d70ee824b50c58e9bf1f31d18585416aaea73fe38ebe37e63e2d90a5cf1",
+      "copies": 56,
+      "cell_ticks": 30688,
+      "original_survival_ticks": 7348,
+      "other_original_survival_delta": -2479,
+      "other_copy_delta": 20,
+      "peer_y_units": 72.64814814814815,
+      "suppressed_actions": 12
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "1cc4a85389472241ae43fdfde2fa3380e65d9d5df8e1cba3402b7cb4e4480449",
+      "functional_sha256": "cd020206e440998d50acf3e4eb7bbec5ab7920e18e462d9dc8bf88f777995b0e",
+      "copies": 16,
+      "cell_ticks": 7735,
+      "original_survival_ticks": 2905,
+      "other_original_survival_delta": -2541,
+      "other_copy_delta": -20,
+      "peer_y_units": 50.950385802469135,
+      "suppressed_actions": 11
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95604,
+      "final_sha256": "4da20e9f16267228180714392c16966f776d69bf2fd4c177fd225f20c39c62f0",
+      "functional_sha256": "45f9292f0f147a98a0d009aad8a7d2d44938d0e446c7294ab29101f928062e56",
+      "copies": 15,
+      "cell_ticks": 8192,
+      "original_survival_ticks": 5282,
+      "other_original_survival_delta": -4356,
+      "other_copy_delta": -30,
+      "peer_y_units": 34.02777777777778,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "2352f74118a1a7b2940c50d0e35d50abde136e2fa85a9fa91e4637cc38db14b8",
+      "functional_sha256": "eb523d516ac75017951d517255f499e119d87d6c2ce6eac84c1f9773c118e27b",
+      "copies": 7,
+      "cell_ticks": 4342,
+      "original_survival_ticks": 2233,
+      "other_original_survival_delta": -2688,
+      "other_copy_delta": -11,
+      "peer_y_units": 23.083333333333332,
+      "suppressed_actions": 15
+    },
+    {
+      "witness": "symbols-seed3-t109310-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 96103,
+      "final_sha256": "efbb8b72cf5014494a10267cbd17b66f557a2e97201273c7dade4fe59742cb3e",
+      "functional_sha256": "3f701ea997748178072890bf7b888c775d582b56bfa6ebc1c8de9074dd2247db",
+      "copies": 7,
+      "cell_ticks": 4341,
+      "original_survival_ticks": 3460,
+      "other_original_survival_delta": -6304,
+      "other_copy_delta": -38,
+      "peer_y_units": 28.583333333333332,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "2de7aa5df8df6c05b93de95b4f65dd1b7d779d6ad4024b103e8a43092472c5fe",
+      "functional_sha256": "de16672a7f3a143fdc0edf9b0793c1d47dd8e10f2646e16ef4bc4168cc987663",
+      "copies": 36,
+      "cell_ticks": 18865,
+      "original_survival_ticks": 9081,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 52.16666666666667,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "f6abbd39524c64f4934f2c4e25cf98830555594909112ad8bd8c813bded06872",
+      "functional_sha256": "1b6b585b7595b657163db638ff79f5b1c0050601430baf07ebdf41a91a4e0382",
+      "copies": 0,
+      "cell_ticks": 1033,
+      "original_survival_ticks": 1033,
+      "other_original_survival_delta": -8048,
+      "other_copy_delta": -36,
+      "peer_y_units": 2.3958333333333335,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "b4c123b38910d8b662749d01b4eeee184ab1cc6102c9530f49f8709cfebf98dc",
+      "functional_sha256": "6c733daa2c6592caa77dadff0490d1ba696e82f7479f88a532b41a726b5a90d3",
+      "copies": 37,
+      "cell_ticks": 19483,
+      "original_survival_ticks": 9081,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 1,
+      "peer_y_units": 59.75,
+      "suppressed_actions": 2707
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "b4c123b38910d8b662749d01b4eeee184ab1cc6102c9530f49f8709cfebf98dc",
+      "functional_sha256": "6c733daa2c6592caa77dadff0490d1ba696e82f7479f88a532b41a726b5a90d3",
+      "copies": 37,
+      "cell_ticks": 19483,
+      "original_survival_ticks": 9081,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 1,
+      "peer_y_units": 59.75,
+      "suppressed_actions": 2707
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "df33cf6a1dc27166aaff3222898e1434205ec461c0e1b66ee59f293e64a89a91",
+      "functional_sha256": "b57cdff0ca0e04eccae98f243a153cbfc6679894b2cfcfa7899586ab623dbd8c",
+      "copies": 9,
+      "cell_ticks": 3291,
+      "original_survival_ticks": 1111,
+      "other_original_survival_delta": -3979,
+      "other_copy_delta": -18,
+      "peer_y_units": 1,
+      "suppressed_actions": 8
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "5cd8453353efa3f656255d569f61b64d2f64210b4745367444d45c27b8029752",
+      "functional_sha256": "688c4128f05e2556d5eeb29c2ac0ddb0481c0e27449d0b8fd98fb51d4afa5a6d",
+      "copies": 1,
+      "cell_ticks": 787,
+      "original_survival_ticks": 360,
+      "other_original_survival_delta": -3752,
+      "other_copy_delta": -8,
+      "peer_y_units": 0,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 96417,
+      "final_sha256": "5fabe6cb817d013f89f86c36b9129d9961558a672dc35ca746f0bd0dd7814e7a",
+      "functional_sha256": "dace16ca5dbdc95dea448f596da676d04c6b659e4eceef7d1c8c573ca2a0e5dd",
+      "copies": 72,
+      "cell_ticks": 30012,
+      "original_survival_ticks": 4220,
+      "other_original_survival_delta": -4845,
+      "other_copy_delta": 36,
+      "peer_y_units": 31.710069444444443,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "2465e4c515fbde5ced84786f9239cee73a293f5e1f13d06e3b4d5e530dfef07f",
+      "functional_sha256": "ec03a177e2f65fb1547cb626dcf9104909424a7e25581b177ae7c2f6292883d2",
+      "copies": 2,
+      "cell_ticks": 677,
+      "original_survival_ticks": 495,
+      "other_original_survival_delta": -4635,
+      "other_copy_delta": -25,
+      "peer_y_units": 6,
+      "suppressed_actions": 14
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "7b3851dbe0f1b4a82fb7eb5db2230d9ae8e7037d5c661ba9fb575fc003188750",
+      "functional_sha256": "7a4b7da4c376267f84229cff6c97aa8dfaabede05b0ee2d34c4e74f56424d370",
+      "copies": 3,
+      "cell_ticks": 2096,
+      "original_survival_ticks": 1677,
+      "other_original_survival_delta": -2465,
+      "other_copy_delta": -6,
+      "peer_y_units": 8,
+      "suppressed_actions": 9
+    },
+    {
+      "witness": "symbols-seed3-t109704-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 96417,
+      "final_sha256": "b017d3ee919651d14c3b4576f51db9a9bb4bd29bf34168180e8503b648361eb7",
+      "functional_sha256": "c4bc526527239f3f7f3d3963d0767df877708b592a79d22c410b42befba084e4",
+      "copies": 15,
+      "cell_ticks": 9632,
+      "original_survival_ticks": 4362,
+      "other_original_survival_delta": -4709,
+      "other_copy_delta": -21,
+      "peer_y_units": 22.020833333333332,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "eff2a4333f49d5cfe98bff1d95fa32692e32d37236ae035a361f39e4ef895746",
+      "functional_sha256": "790fe7b39492f15f39624daa8ea37b46411a4e9e296b43a9e2be1995af19c313",
+      "copies": 37,
+      "cell_ticks": 19526,
+      "original_survival_ticks": 8789,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 50.0,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "735cb1ec43c473832b7e6229efe34797f5221ad6b0d4796fcaa1a7afa6935289",
+      "functional_sha256": "82e8fba16a64f5a026eeb7f56e8fb587293a13c83685f3030e62caf9e2a010ff",
+      "copies": 3,
+      "cell_ticks": 1788,
+      "original_survival_ticks": 1057,
+      "other_original_survival_delta": -7732,
+      "other_copy_delta": -34,
+      "peer_y_units": 1,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "497fb44613218af91f528f0de40b51a8e57090b1d6643a39636e45faa6c7fd42",
+      "functional_sha256": "fe25cac4fec5eba9c25a04a6fce4cb01f543c08fd8201116cd44d89e1be41aad",
+      "copies": 36,
+      "cell_ticks": 19616,
+      "original_survival_ticks": 8789,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": -1,
+      "peer_y_units": 57.58333333333333,
+      "suppressed_actions": 2727
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "497fb44613218af91f528f0de40b51a8e57090b1d6643a39636e45faa6c7fd42",
+      "functional_sha256": "fe25cac4fec5eba9c25a04a6fce4cb01f543c08fd8201116cd44d89e1be41aad",
+      "copies": 36,
+      "cell_ticks": 19616,
+      "original_survival_ticks": 8789,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": -1,
+      "peer_y_units": 57.58333333333333,
+      "suppressed_actions": 2727
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "e6546c24f755f14f4183e82b1db40ad2bf7de9a210a996639046ff894ea06ec1",
+      "functional_sha256": "ffc9c69e8f9ee32f1fae45a6f6e351016a80a013413224a99adb11ed39ccf408",
+      "copies": 33,
+      "cell_ticks": 15912,
+      "original_survival_ticks": 357,
+      "other_original_survival_delta": -4685,
+      "other_copy_delta": 4,
+      "peer_y_units": 2.5,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "a88582dfdf3a3314fd9af4b3eb997dcd4a971f31dc56ae36fdac3a7b6389aef4",
+      "functional_sha256": "f8aad74f8ce7eff3e0fce26e20c390e15af3032d76f697bde9847519ae9b167e",
+      "copies": 14,
+      "cell_ticks": 8479,
+      "original_survival_ticks": 4005,
+      "other_original_survival_delta": 175,
+      "other_copy_delta": 6,
+      "peer_y_units": 1,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 96670,
+      "final_sha256": "d2a076bed88a2d98ae77afc58e7b597d3dedd82d3b8bc349f1f6df233c04aac5",
+      "functional_sha256": "259950ffb5758627717b21765fc0e9660d8e43b85dceedc11f705093406ce653",
+      "copies": 77,
+      "cell_ticks": 45925,
+      "original_survival_ticks": 5088,
+      "other_original_survival_delta": -3689,
+      "other_copy_delta": 40,
+      "peer_y_units": 80.89814814814815,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "eb3b6a6985ca1786a78a2396f4966cc94e800b05164498827abfa18fb4ca7df9",
+      "functional_sha256": "6c6f16c5ed53ddc8a97e7adee437ce72ba96c81ab72f103aea60a1c4043c4cf2",
+      "copies": 3,
+      "cell_ticks": 966,
+      "original_survival_ticks": 771,
+      "other_original_survival_delta": -4289,
+      "other_copy_delta": -26,
+      "peer_y_units": 4.375,
+      "suppressed_actions": 4
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "adfc3d590d40abd7fc72d6d0a42020220b9bed8829ee32369a7daa048e85a9f1",
+      "functional_sha256": "59bdea0d7133e7eda2f05e285fb024588bb3f4786facfb9ce7aa2bb68368a787",
+      "copies": 1,
+      "cell_ticks": 618,
+      "original_survival_ticks": 549,
+      "other_original_survival_delta": -3345,
+      "other_copy_delta": -7,
+      "peer_y_units": 8.166666666666668,
+      "suppressed_actions": 15
+    },
+    {
+      "witness": "symbols-seed3-t109996-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 96670,
+      "final_sha256": "11f06886c972e6a669c83649872de7417723e60299d58d759e6c2858d67482cb",
+      "functional_sha256": "abf42e86e3a1a7ad90fd1939a7b60495a227386f64a3e793f44ec1657eaef0d3",
+      "copies": 7,
+      "cell_ticks": 2575,
+      "original_survival_ticks": 887,
+      "other_original_survival_delta": -7888,
+      "other_copy_delta": -30,
+      "peer_y_units": 7.166666666666667,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "c0edef0a874cb5811740c7f0d7e5f8a9ae5e7ea9969aaf6d92a3a7572bb84ad1",
+      "functional_sha256": "d76f2e3201e5e86b11ef21b0c5e2ecdb7ffaae878a7e1f2980c376e1e605e6b8",
+      "copies": 37,
+      "cell_ticks": 20795,
+      "original_survival_ticks": 8250,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 38.5,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "383a607f41f9d4effb400096eca6cfe4b84f85b4749aaa7b1881c35ebe72262d",
+      "functional_sha256": "22a9dbc5c10c9d56c0286fed53662d2b795bbeabe1d29ca448399ea2b07ce928",
+      "copies": 7,
+      "cell_ticks": 3605,
+      "original_survival_ticks": 1638,
+      "other_original_survival_delta": -6612,
+      "other_copy_delta": -30,
+      "peer_y_units": 1,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "29b8736a5bde0d018ca2b73ed13e00a2e86e5fe1a8b3ee676f1f87a2805fff04",
+      "functional_sha256": "086ff7f3f22691210f2eef0063456584bcbcfd748b361c6d1435833b0149b22e",
+      "copies": 38,
+      "cell_ticks": 20244,
+      "original_survival_ticks": 8250,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 1,
+      "peer_y_units": 46.083333333333336,
+      "suppressed_actions": 2817
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "29b8736a5bde0d018ca2b73ed13e00a2e86e5fe1a8b3ee676f1f87a2805fff04",
+      "functional_sha256": "086ff7f3f22691210f2eef0063456584bcbcfd748b361c6d1435833b0149b22e",
+      "copies": 38,
+      "cell_ticks": 20244,
+      "original_survival_ticks": 8250,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 1,
+      "peer_y_units": 46.083333333333336,
+      "suppressed_actions": 2817
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "935aa89122d4b032f2cd4fd24116bc0f0f190514ce6bf9185b795ec32047ceed",
+      "functional_sha256": "43625302dedfc7ef74211c3a4a66335c8f230cb7d4304b2904630e8d8103407a",
+      "copies": 5,
+      "cell_ticks": 2038,
+      "original_survival_ticks": 919,
+      "other_original_survival_delta": -4127,
+      "other_copy_delta": -25,
+      "peer_y_units": 0,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "7efb597a56e79e18e4305a81d0d95f47f41d8b1e1c51ba86cb5db887366581b5",
+      "functional_sha256": "0a9d551c17bb58e378c54b9f204f5e093e2209b8d32ac7bc56c9859c6ab590f6",
+      "copies": 1,
+      "cell_ticks": 418,
+      "original_survival_ticks": 365,
+      "other_original_survival_delta": -2935,
+      "other_copy_delta": -6,
+      "peer_y_units": 0,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "da79e1c6f212035c009b37d9b9773512bac15c626b6a07c806889eb50c1f5263",
+      "functional_sha256": "a1dd68bd28c3ff791546475e77cde3ceea18e63cfe7f0697f4bdb6c330de328b",
+      "copies": 1,
+      "cell_ticks": 963,
+      "original_survival_ticks": 788,
+      "other_original_survival_delta": -4336,
+      "other_copy_delta": -29,
+      "peer_y_units": 8,
+      "suppressed_actions": 17
+    },
+    {
+      "witness": "symbols-seed3-t110503-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "756dda5169e9f401ba5a376deede8c2701bf6b73e669b452659a5f4af07bbf45",
+      "functional_sha256": "d7dc0960a7b8e314c1fdb05a98230240a6c07792bd2ad0fa85e17f637b8875d9",
+      "copies": 40,
+      "cell_ticks": 23250,
+      "original_survival_ticks": 5138,
+      "other_original_survival_delta": 1750,
+      "other_copy_delta": 33,
+      "peer_y_units": 12.883333333333333,
+      "suppressed_actions": 19
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "20c33bd641f1ce37ed1afe6b4029d77cc54e47863dbc21834b06289afd056869",
+      "functional_sha256": "be96fae03c66d29b4695ac7780f1adfa1b564394435e81bf5d82116e3525f48f",
+      "copies": 36,
+      "cell_ticks": 21278,
+      "original_survival_ticks": 8132,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 36.5,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "3dfe374c49dbf307ce9eb87218d397b732d9222ae667250a45f29a93d93c8f01",
+      "functional_sha256": "5a0adf671c1b28a2059de9be25063e1d9619ec1cac105865155157c132333a95",
+      "copies": 16,
+      "cell_ticks": 8104,
+      "original_survival_ticks": 2960,
+      "other_original_survival_delta": -5172,
+      "other_copy_delta": -20,
+      "peer_y_units": 4.611111111111111,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "6924426f4fcbacdec323a5ff7d34f17bb232a11fd0ce4ddbad35f50d848c7eff",
+      "functional_sha256": "2879ca59e6cc8a3ec7fe5487afd716a8f49e5ec26acdca89a201b19e6d795b69",
+      "copies": 38,
+      "cell_ticks": 20574,
+      "original_survival_ticks": 8132,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 2,
+      "peer_y_units": 44.083333333333336,
+      "suppressed_actions": 2866
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "6924426f4fcbacdec323a5ff7d34f17bb232a11fd0ce4ddbad35f50d848c7eff",
+      "functional_sha256": "2879ca59e6cc8a3ec7fe5487afd716a8f49e5ec26acdca89a201b19e6d795b69",
+      "copies": 38,
+      "cell_ticks": 20574,
+      "original_survival_ticks": 8132,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 2,
+      "peer_y_units": 44.083333333333336,
+      "suppressed_actions": 2866
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "bfbdc6659fd3c0f0bb4b1a20cc5cd08a14e62784bd0ea1e7caeec388c150e3bd",
+      "functional_sha256": "a0a60ac2179b8fc69cf65045db4115f3d50380fee0773b15233f029430dfe13e",
+      "copies": 31,
+      "cell_ticks": 15138,
+      "original_survival_ticks": 4490,
+      "other_original_survival_delta": -545,
+      "other_copy_delta": 1,
+      "peer_y_units": 1,
+      "suppressed_actions": 1
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "18d74a3d53d060a8ee91be6460c5260bb28b24cc9449ac18dffb0c33d469ec46",
+      "functional_sha256": "6d244ea2d45c10e93d5a9a9af3a74eda88f5f39b5d9b700ea91415d81abe54fb",
+      "copies": 0,
+      "cell_ticks": 711,
+      "original_survival_ticks": 711,
+      "other_original_survival_delta": -2463,
+      "other_copy_delta": -6,
+      "peer_y_units": 1,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 97216,
+      "final_sha256": "5f831d9385c4b4752f2ee8ebdbfd57fdf27869fcc3c4cb23c45d1abe72ed9ea7",
+      "functional_sha256": "9843299c48e52e3d4acbea2f1978fe3c327f782aebaa08cabd30f54989cef5fc",
+      "copies": 76,
+      "cell_ticks": 42309,
+      "original_survival_ticks": 5091,
+      "other_original_survival_delta": -3033,
+      "other_copy_delta": 40,
+      "peer_y_units": 1,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "dfca89a9a631fe32f1237ab48491184954727fe14971099a7a0085b2c97c2bb4",
+      "functional_sha256": "62f9caf74fab43b102b2dcb4d416f64e60a2951c8c92daf082ed76ae88a96f36",
+      "copies": 44,
+      "cell_ticks": 18691,
+      "original_survival_ticks": 5209,
+      "other_original_survival_delta": 166,
+      "other_copy_delta": 14,
+      "peer_y_units": 0.2777777777777778,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "d13e6853bb16b26f5bf0a3c7e3c178176a42ff31744d1241d8eaccba8d13bc3d",
+      "functional_sha256": "91d892a39fefd8a984c203f4bc3f0924ed22e94b087edec401dc9688b4cd1086",
+      "copies": 2,
+      "cell_ticks": 899,
+      "original_survival_ticks": 461,
+      "other_original_survival_delta": -2781,
+      "other_copy_delta": -4,
+      "peer_y_units": 8.740576774691359,
+      "suppressed_actions": 16
+    },
+    {
+      "witness": "symbols-seed3-t110649-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 97216,
+      "final_sha256": "8a15896cb67f721a392801a98b02f418c74640fd1193a3aff6b7bba45c4fa3f4",
+      "functional_sha256": "afa3f88eaa10a6e95c83d161886d5e3407ccd8b4e14219115712bbc9e29832bf",
+      "copies": 13,
+      "cell_ticks": 5314,
+      "original_survival_ticks": 2939,
+      "other_original_survival_delta": -5191,
+      "other_copy_delta": -23,
+      "peer_y_units": 17.166666666666668,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "42e0763c2f8b04a27a503c6026076af3b375f487c29abffb3f5f006f2fc37c37",
+      "functional_sha256": "6918d05d939862860e035f5b3fac65d46a11eb3ddcea24d16df1ddaeae798f5e",
+      "copies": 36,
+      "cell_ticks": 21727,
+      "original_survival_ticks": 12975,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 105.375,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "7f37f5689fdaf5155899056d35a777258e52e8ba739c3c87d6b131bc3f72c0b3",
+      "functional_sha256": "d2183973727d648fd45cd6862fadc201e86213e4fe7fea4fde003ac0d9df05ea",
+      "copies": 55,
+      "cell_ticks": 23842,
+      "original_survival_ticks": 5700,
+      "other_original_survival_delta": -7275,
+      "other_copy_delta": 19,
+      "peer_y_units": 3.833333333333333,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "40309cb058bb976f25075239b4b3b9ebb8d4414a86151552b0f7d0bb048cc882",
+      "functional_sha256": "acce737b3766cc0b72c5fc1a2c0bb6bf44e4a25d6fd9f5353093f34b86d27ed5",
+      "copies": 38,
+      "cell_ticks": 20725,
+      "original_survival_ticks": 12975,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 2,
+      "peer_y_units": 100.83333333333333,
+      "suppressed_actions": 2888
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "28602faaa872f8bcdd1dfce7f23eda3654be4b3b6077a5a471c7e4666f8bd86e",
+      "functional_sha256": "acce737b3766cc0b72c5fc1a2c0bb6bf44e4a25d6fd9f5353093f34b86d27ed5",
+      "copies": 38,
+      "cell_ticks": 20725,
+      "original_survival_ticks": 12975,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 2,
+      "peer_y_units": 100.83333333333333,
+      "suppressed_actions": 2888
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "442a6f4fb4e403186b31378a1791198ac8e68a55cd63fef1ea81a164cc15b1a8",
+      "functional_sha256": "cc2eccd012033834b48ae2923ea567c20dc7d5760133e35fd02b71af0101a99b",
+      "copies": 31,
+      "cell_ticks": 16056,
+      "original_survival_ticks": 10042,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 1,
+      "peer_y_units": 62.25,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "865f8fee5fc49111601409f8d484a98f4c01d2debfb144ae17e89365650c6629",
+      "functional_sha256": "ec69a1f2af907fda977689c4ce5c3597acd329615ee0963c7e63341fd343827a",
+      "copies": 10,
+      "cell_ticks": 6479,
+      "original_survival_ticks": 2584,
+      "other_original_survival_delta": -5421,
+      "other_copy_delta": -12,
+      "peer_y_units": 0.5,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 97309,
+      "final_sha256": "fd1060cb6a2a64d2102959e779f6c8ea08255fa8f10c3cd02ef8c5a7ae1ce8b9",
+      "functional_sha256": "162641baa6635b984bc90a1c626b41e3f4d54a7122973cf85b4ab8024b215d60",
+      "copies": 2,
+      "cell_ticks": 1351,
+      "original_survival_ticks": 1093,
+      "other_original_survival_delta": -6935,
+      "other_copy_delta": -18,
+      "peer_y_units": 5.0,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "c5979d14483c5b45d56f14ab9acadae3de08cc06278cf58854b56b60129cd1b5",
+      "functional_sha256": "0a147845c9490c6829f19fb52a70f78196c871afad36d04048fc310c5eeaf442",
+      "copies": 4,
+      "cell_ticks": 2077,
+      "original_survival_ticks": 955,
+      "other_original_survival_delta": -9109,
+      "other_copy_delta": -26,
+      "peer_y_units": 10.819444444444445,
+      "suppressed_actions": 9
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "0db5937c463dec106e5acded208d1318aa89591850c3696db345fe4b5296c8d0",
+      "functional_sha256": "5f73af4d56d0359808b8d1b3617da8d77effc40e23e76a586ae019bb86056cfe",
+      "copies": 24,
+      "cell_ticks": 12366,
+      "original_survival_ticks": 1744,
+      "other_original_survival_delta": -6287,
+      "other_copy_delta": 2,
+      "peer_y_units": 4.666666666666666,
+      "suppressed_actions": 8
+    },
+    {
+      "witness": "symbols-seed3-t110778-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 97309,
+      "final_sha256": "1230e3a3c196718ae3b2ef059a6c86ae4fb53a57b6ce25ab539d9fc73b6513af",
+      "functional_sha256": "d572302601452784a48ea941e9526ee52faf23530cfa82a81268456f1d3c531d",
+      "copies": 15,
+      "cell_ticks": 7418,
+      "original_survival_ticks": 5672,
+      "other_original_survival_delta": -2398,
+      "other_copy_delta": -5,
+      "peer_y_units": 28.25,
+      "suppressed_actions": 13
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "1093eeebb390c566ccd60e349bf3c4335bff01496bf86c4930deb414d11e81c9",
+      "functional_sha256": "1b61fe2fca21768ab822feea4e2e6ae910f1dd162273e22f8d3c0a840c99da0b",
+      "copies": 1,
+      "cell_ticks": 3360,
+      "original_survival_ticks": 3129,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 6.333333333333333,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "42324d58c540f2de84f01f3f4f07e5755d865d3df2ed9fa69884e7de9e113e3c",
+      "functional_sha256": "61f0a21f5ff4acbbfb8c1f331ff29ba648f8f2f7818a9aa90ac551dca3b024c0",
+      "copies": 9,
+      "cell_ticks": 10060,
+      "original_survival_ticks": 5739,
+      "other_original_survival_delta": 2610,
+      "other_copy_delta": 8,
+      "peer_y_units": 2.4333333333333336,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "dff4267f2cef2def64fa6be2a13bbb2b924ec79d5b40344354e61f8332a01bb0",
+      "functional_sha256": "3a7532ba225d0b1bb43a4e59cbc4befe9bbb3cdc0b93e326143e8732aee38775",
+      "copies": 2,
+      "cell_ticks": 4828,
+      "original_survival_ticks": 4186,
+      "other_original_survival_delta": 1057,
+      "other_copy_delta": 1,
+      "peer_y_units": 5.277777777777778,
+      "suppressed_actions": 678
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "dff4267f2cef2def64fa6be2a13bbb2b924ec79d5b40344354e61f8332a01bb0",
+      "functional_sha256": "3a7532ba225d0b1bb43a4e59cbc4befe9bbb3cdc0b93e326143e8732aee38775",
+      "copies": 2,
+      "cell_ticks": 4828,
+      "original_survival_ticks": 4186,
+      "other_original_survival_delta": 1057,
+      "other_copy_delta": 1,
+      "peer_y_units": 5.277777777777778,
+      "suppressed_actions": 678
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 92203,
+      "final_sha256": "b50c85c2069785ac5e50c6548798c9ec9d7f2fac7970b040a3a45a5d34e50e25",
+      "functional_sha256": "56ea15b630c27a3b02c88a7ba3bdd4840dc503b53da068c4cca36030b638a075",
+      "copies": 0,
+      "cell_ticks": 1727,
+      "original_survival_ticks": 1727,
+      "other_original_survival_delta": 741,
+      "other_copy_delta": 0,
+      "peer_y_units": 4.333333333333334,
+      "suppressed_actions": 4
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 97359,
+      "final_sha256": "a13e967952313d72d946878971f61eebc5d3db157074a1204d4cb01809ae0b5e",
+      "functional_sha256": "68d8c25819f66dc88748e7a2862db8e3e98e5646317a57611b708461f7f025cd",
+      "copies": 12,
+      "cell_ticks": 16967,
+      "original_survival_ticks": 2458,
+      "other_original_survival_delta": -621,
+      "other_copy_delta": 11,
+      "peer_y_units": 6.666666666666667,
+      "suppressed_actions": 1
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 97445,
+      "final_sha256": "b6e1cc429476b22fa7cd05e8529d64a4abc44373e702a30542d9eace30955232",
+      "functional_sha256": "7fdf902393751b110056ace6fd242288a2a172239cef93dcee1a33206d271c3f",
+      "copies": 3,
+      "cell_ticks": 2705,
+      "original_survival_ticks": 1938,
+      "other_original_survival_delta": -320,
+      "other_copy_delta": 2,
+      "peer_y_units": 12.416666666666664,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 92203,
+      "final_sha256": "7547a222a477df02fea97a734741c734c159c112c9246098ce138b497f35783c",
+      "functional_sha256": "5537d742c44f339157ec8648f95c4316dff02830247654a2fc295236dfdb8a9a",
+      "copies": 4,
+      "cell_ticks": 2533,
+      "original_survival_ticks": 527,
+      "other_original_survival_delta": -477,
+      "other_copy_delta": 4,
+      "peer_y_units": 3.7083333333333335,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 97359,
+      "final_sha256": "9c6678802cba4f2f715ee393170986abe14429ae3d91be26e750ed289325167e",
+      "functional_sha256": "747ad64defa59ae185d549734026789644a7795a0e4df32d97a2c4b6aaf659c3",
+      "copies": 2,
+      "cell_ticks": 3376,
+      "original_survival_ticks": 1312,
+      "other_original_survival_delta": -1775,
+      "other_copy_delta": 1,
+      "peer_y_units": 4.433333333333334,
+      "suppressed_actions": 2
+    },
+    {
+      "witness": "symbols-seed3-t110914-cohort34-founder88295.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 97445,
+      "final_sha256": "d71618e9b39c9da686b49792220d605ea0a995af5a02a206d53e9d519c92d103",
+      "functional_sha256": "63bdb2dc7010f1971f691b221a28916a6d3327937a24343837c2c71f03b024f7",
+      "copies": 3,
+      "cell_ticks": 2876,
+      "original_survival_ticks": 1078,
+      "other_original_survival_delta": -1212,
+      "other_copy_delta": 2,
+      "peer_y_units": 10.813271604938272,
+      "suppressed_actions": 9
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "71354051c11de46cae5279eda4497de985719563891cbdd714da2474a6a12b50",
+      "functional_sha256": "252c9669ca727d9866c75815fa2a52bf4995d7a072f36ace8d41330927044a95",
+      "copies": 40,
+      "cell_ticks": 22822,
+      "original_survival_ticks": 12548,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 105.59722222222221,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "84fea3e27e799fe3d14b319ccecd81c0c582ce0b2ac3c8506c11563c59627c7d",
+      "functional_sha256": "2b219283a655bc3e76dc446c385c373b972c4b57dcc8be2c14bf2fbd19cba669",
+      "copies": 2,
+      "cell_ticks": 2578,
+      "original_survival_ticks": 1962,
+      "other_original_survival_delta": -10586,
+      "other_copy_delta": -38,
+      "peer_y_units": 6.666666666666666,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "01d4c132343e364cc26b33bb888206634e1f541d3d0868f6ed4872152066d61e",
+      "functional_sha256": "e86b8e737fd62bfd7250957af96be0d85ad6d569703600db224813e79633ca0d",
+      "copies": 39,
+      "cell_ticks": 20853,
+      "original_survival_ticks": 12548,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": -1,
+      "peer_y_units": 97.58333333333333,
+      "suppressed_actions": 2906
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "a38ed9bccb5ce4804c4812ad6d7cf10179398cf7ed942b8839d7e2d27d872875",
+      "functional_sha256": "e86b8e737fd62bfd7250957af96be0d85ad6d569703600db224813e79633ca0d",
+      "copies": 39,
+      "cell_ticks": 20853,
+      "original_survival_ticks": 12548,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": -1,
+      "peer_y_units": 97.58333333333333,
+      "suppressed_actions": 2906
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "729cd159d29d5afd9b60dbd75c31e7510b646192dad4b8c8b4f289559abcd13f",
+      "functional_sha256": "92f81700f865371837e63c9d184c4a3e22c650cc009a0457d81da06e6fff75f3",
+      "copies": 4,
+      "cell_ticks": 2233,
+      "original_survival_ticks": 1548,
+      "other_original_survival_delta": -8521,
+      "other_copy_delta": -30,
+      "peer_y_units": 5.833333333333334,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "2291ef39c6dc63bc7cd81193eaee96c790f1a823d79faf07162abd0f0685dbb7",
+      "functional_sha256": "317aefbf3888ccf591a72a95777ff9ebf584925a8e01b737ced617f33e3f73e2",
+      "copies": 9,
+      "cell_ticks": 4190,
+      "original_survival_ticks": 1832,
+      "other_original_survival_delta": -5765,
+      "other_copy_delta": -13,
+      "peer_y_units": 8.75,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 97309,
+      "final_sha256": "112d0733df2d1e82c614830dad0f58845ce966f43862884d3f32f404f2c9aff2",
+      "functional_sha256": "5e4a32f5eeb366bdfac06c393494230a8bebe6c85a78ee5235ab7c362ba5827c",
+      "copies": 3,
+      "cell_ticks": 2305,
+      "original_survival_ticks": 1740,
+      "other_original_survival_delta": -5843,
+      "other_copy_delta": -21,
+      "peer_y_units": 4,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 97705,
+      "final_sha256": "4b370ec2e6c74650ca46d2f5b88251ea9dc30c1bfb1e0b8e3f21341af4085071",
+      "functional_sha256": "1630d65b4822e2b25cf9e72dc51bcba8d3bff6a285906320c71d250de734bf2d",
+      "copies": 16,
+      "cell_ticks": 7646,
+      "original_survival_ticks": 2533,
+      "other_original_survival_delta": -9993,
+      "other_copy_delta": -24,
+      "peer_y_units": 22.833333333333336,
+      "suppressed_actions": 1
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "5c3d8e9780e5e95f666ffd3e1c02dbef8a53c9b80f97bea1e2148bcc87e8887d",
+      "functional_sha256": "dfd10d86e33ffe291b2dbcdf8595dd012cbb493e3e70b1c4497737db2ec5aa2a",
+      "copies": 30,
+      "cell_ticks": 15335,
+      "original_survival_ticks": 6118,
+      "other_original_survival_delta": -4003,
+      "other_copy_delta": -4,
+      "peer_y_units": 36.083333333333336,
+      "suppressed_actions": 13
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "f760138887a300e0cded74cd29f6c06407484be121ceb2d86830607815b9c742",
+      "functional_sha256": "e7723294aae4c3cc9040e21a462e7e964d04c884ac55e5160b82446c207a7f39",
+      "copies": 1,
+      "cell_ticks": 1370,
+      "original_survival_ticks": 1047,
+      "other_original_survival_delta": -6598,
+      "other_copy_delta": -21,
+      "peer_y_units": 14.562700938786008,
+      "suppressed_actions": 14
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 97309,
+      "final_sha256": "255e49aae73c784729f227b9d75abb8ebb0ded4eba06388ad075afba629da0d8",
+      "functional_sha256": "df7f0947fb980ab7b8c588c6d6c866ca297132d56b9de33f18f7ffef281e76ef",
+      "copies": 3,
+      "cell_ticks": 2255,
+      "original_survival_ticks": 945,
+      "other_original_survival_delta": -6666,
+      "other_copy_delta": -21,
+      "peer_y_units": 6.415740740740741,
+      "suppressed_actions": 9
+    },
+    {
+      "witness": "symbols-seed3-t111233-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 97705,
+      "final_sha256": "34b74a78aa40a492e6a53929286893c66494661deae41995a1dc6508e8d730c7",
+      "functional_sha256": "b9e48fa56d09aea3696144f7fc1b14d6db7fa45f43988627836b522e0f50f61e",
+      "copies": 18,
+      "cell_ticks": 10756,
+      "original_survival_ticks": 7554,
+      "other_original_survival_delta": -4976,
+      "other_copy_delta": -22,
+      "peer_y_units": 60.479166666666664,
+      "suppressed_actions": 1
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "787b5dcf3fdffde9306c289b3a2c14c4bb0b9878c90adf4b2536d7e1a42591d4",
+      "functional_sha256": "2e43fb5756d8aab8ac4a16fa676c2e6261bedb1784b5dcf034259fe095bbbbdb",
+      "copies": 38,
+      "cell_ticks": 23399,
+      "original_survival_ticks": 12021,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 104.375,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "36f7341c699f74467b47af2667d92bba5681babffbc2b416c605d1aaa38d4243",
+      "functional_sha256": "5fab64dba8b1b87d2be4be42e6d2788d26e083154cb6637333299e309cc3ea8c",
+      "copies": 5,
+      "cell_ticks": 2701,
+      "original_survival_ticks": 1164,
+      "other_original_survival_delta": -10857,
+      "other_copy_delta": -33,
+      "peer_y_units": 6.555555555555555,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "7d6887fc7d31fb95dbf995baffa56242d49aeb701288af9429dfde1ab42f531c",
+      "functional_sha256": "30e1aa97b75ca5871dc16e75bda0ebc78f3c2c428b559b5e91c6d5e56b2a406a",
+      "copies": 37,
+      "cell_ticks": 20088,
+      "original_survival_ticks": 12021,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": -1,
+      "peer_y_units": 87.5,
+      "suppressed_actions": 2794
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "ee637dc4fe5a7dbcf856e240200a3793922fc1a132977b6dce4d6b84fdf4af33",
+      "functional_sha256": "30e1aa97b75ca5871dc16e75bda0ebc78f3c2c428b559b5e91c6d5e56b2a406a",
+      "copies": 37,
+      "cell_ticks": 20088,
+      "original_survival_ticks": 12021,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": -1,
+      "peer_y_units": 87.5,
+      "suppressed_actions": 2794
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 93678,
+      "final_sha256": "c6c19e28618e7e5e5bb3a833d90406b77448a2dac518539e91ab29cbd2d209a1",
+      "functional_sha256": "e11c9ccf72e1d138513e7917415aaf46f15e271b56edf4ab760182f1600fb92b",
+      "copies": 32,
+      "cell_ticks": 15462,
+      "original_survival_ticks": 7932,
+      "other_original_survival_delta": -2181,
+      "other_copy_delta": -1,
+      "peer_y_units": 40.416666666666664,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 95828,
+      "final_sha256": "17ec8e3699575533949d76b55c0558adfb114d6e25e69dec00951edd24fef550",
+      "functional_sha256": "978680c3dd00b7395ccb90d74e6f05c205065137809a5bff3663a4a688aa0f7d",
+      "copies": 6,
+      "cell_ticks": 2186,
+      "original_survival_ticks": 1125,
+      "other_original_survival_delta": -5931,
+      "other_copy_delta": -14,
+      "peer_y_units": 2.5,
+      "suppressed_actions": 5
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 97309,
+      "final_sha256": "d37e037aec0077edf36e0203cc9b7c50d679f09ee5f94fe0fb86c3f62d780271",
+      "functional_sha256": "43e07be1464da676a030aa5fe4f6fe95e5884046217cd945a3b289a0c8e04fa1",
+      "copies": 4,
+      "cell_ticks": 1642,
+      "original_survival_ticks": 1072,
+      "other_original_survival_delta": -6000,
+      "other_copy_delta": -19,
+      "peer_y_units": 10.055555555555555,
+      "suppressed_actions": 7
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction0",
+      "donor": 98135,
+      "final_sha256": "baca250ab279bdb53cadbb8c9a0b388736f5f1a7d196ac57ea0e8a220b5c8193",
+      "functional_sha256": "8d2421df10f94e62156e6d8c8a1921de5a1f6aaa7b69afbc63b6a932db5b8bdb",
+      "copies": 61,
+      "cell_ticks": 32201,
+      "original_survival_ticks": 12244,
+      "other_original_survival_delta": 277,
+      "other_copy_delta": 23,
+      "peer_y_units": 116.28611111111111,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 93678,
+      "final_sha256": "53b46aa6b78b73128deb3b4a0eefa03b86fc75bbda7cf24aa46dc1e503ae5fe9",
+      "functional_sha256": "01b813dad904e64721a851c093a72fe556ce8b903bbb80b66746d109e4b510b1",
+      "copies": 12,
+      "cell_ticks": 6301,
+      "original_survival_ticks": 3981,
+      "other_original_survival_delta": -6212,
+      "other_copy_delta": -21,
+      "peer_y_units": 32.5,
+      "suppressed_actions": 17
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 95828,
+      "final_sha256": "9b9fee6a4d923172d385d3baeb3e23564c4996e470de7750e11fadd2f4f6c2e4",
+      "functional_sha256": "988ad7778a211a7b53c3992c5040736c239e3a24f3bb2d533a8e85f00f147685",
+      "copies": 7,
+      "cell_ticks": 2347,
+      "original_survival_ticks": 1383,
+      "other_original_survival_delta": -5719,
+      "other_copy_delta": -13,
+      "peer_y_units": 14.745583333333334,
+      "suppressed_actions": 11
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 97309,
+      "final_sha256": "a79e7e0613ed81262da1d194299e60f019508e9c9a0785a83d61eafe5bf1c5df",
+      "functional_sha256": "e5518690dd1314c2497feca50e26e483962e290871ae3b9acc094c6582c11250",
+      "copies": 7,
+      "cell_ticks": 5307,
+      "original_survival_ticks": 2271,
+      "other_original_survival_delta": -4879,
+      "other_copy_delta": -16,
+      "peer_y_units": 29.45,
+      "suppressed_actions": 18
+    },
+    {
+      "witness": "symbols-seed3-t111804-cohort44-founder83263.json",
+      "case": "symbols",
+      "seed": 3,
+      "mode": "no-reaction1",
+      "donor": 98135,
+      "final_sha256": "3fb72a3f832daf17ada5437845304a41de47fbc9d0bb700e2a2ae9869b764850",
+      "functional_sha256": "e127306ed73cebf5324c84cc2467da9f52eff14bf537597c2b64ca6f5832ede1",
+      "copies": 29,
+      "cell_ticks": 14727,
+      "original_survival_ticks": 7266,
+      "other_original_survival_delta": -4703,
+      "other_copy_delta": -9,
+      "peer_y_units": 62.80555555555556,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "intact",
+      "donor": 0,
+      "final_sha256": "397823f43fcef35e9e897ad75e5b65b2b5d122687768b5296c0cb7b375b54259",
+      "functional_sha256": "e10ba9c439d69941ec01270cc4f195d03fd26e357dc11fb7daf2a1622411b96f",
+      "copies": 10,
+      "cell_ticks": 13371,
+      "original_survival_ticks": 11316,
+      "other_original_survival_delta": 0,
+      "other_copy_delta": 0,
+      "peer_y_units": 73.75,
+      "suppressed_actions": 0
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-bonds",
+      "donor": 0,
+      "final_sha256": "a4c94385a79abb91d445d61c0585c6324bdef93711e7879094fe49feb8861a11",
+      "functional_sha256": "af82cdf95361956d83f1f84a44b07eaba8263c613f2aa159bb72c383a5386204",
+      "copies": 3,
+      "cell_ticks": 3151,
+      "original_survival_ticks": 2143,
+      "other_original_survival_delta": -9173,
+      "other_copy_delta": -7,
+      "peer_y_units": 14.0,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "anchored",
+      "donor": 0,
+      "final_sha256": "41f2224618869ffea052bb0734c2fbf178c75815243253a7f59382f6a224dfcb",
+      "functional_sha256": "795ee9ce58f07f7538a81374277005c088585b662051d8a0d7e96866918466c9",
+      "copies": 9,
+      "cell_ticks": 16645,
+      "original_survival_ticks": 10424,
+      "other_original_survival_delta": -892,
+      "other_copy_delta": -1,
+      "peer_y_units": 63.83333333333333,
+      "suppressed_actions": 2336
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-bonds-anchored",
+      "donor": 0,
+      "final_sha256": "b54448f1ee4c93877fd036c81493090614a8c2f24f888b57580a03c0b682e90b",
+      "functional_sha256": "795ee9ce58f07f7538a81374277005c088585b662051d8a0d7e96866918466c9",
+      "copies": 9,
+      "cell_ticks": 16645,
+      "original_survival_ticks": 10424,
+      "other_original_survival_delta": -892,
+      "other_copy_delta": -1,
+      "peer_y_units": 63.83333333333333,
+      "suppressed_actions": 2345
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction0",
+      "donor": 131741,
+      "final_sha256": "59b52f3e5976a7fdbb2ab63c8436ac48d347791b2dce5ffd2fb95e019f951e7a",
+      "functional_sha256": "33eef61ea0ed02ea9e93202f12a07a3855ea44eb4fa9b8fda2f41f82bcf25f46",
+      "copies": 7,
+      "cell_ticks": 4991,
+      "original_survival_ticks": 819,
+      "other_original_survival_delta": -5521,
+      "other_copy_delta": 6,
+      "peer_y_units": 7.416666666666667,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction0",
+      "donor": 132783,
+      "final_sha256": "96b463c0c23ddee218d703a7a2cbd417e4807d2b8891753bf399041f8f5c73a9",
+      "functional_sha256": "2df9b29a8f2e1c28934a4429a17871d710fb0c996fa31528afe23e5413f4fc7b",
+      "copies": 6,
+      "cell_ticks": 7003,
+      "original_survival_ticks": 2747,
+      "other_original_survival_delta": -3604,
+      "other_copy_delta": -4,
+      "peer_y_units": 16.833333333333332,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction0",
+      "donor": 134400,
+      "final_sha256": "513d8d9adc1e9243092655651e4a0bb76d7ece661c6369cd263218fb41c2415e",
+      "functional_sha256": "ab9de6b7bc5ec2e4d2a025b47ee7b8a18c66a2f9ec7d3c1bba606019977598dc",
+      "copies": 1,
+      "cell_ticks": 4444,
+      "original_survival_ticks": 4087,
+      "other_original_survival_delta": -7125,
+      "other_copy_delta": -9,
+      "peer_y_units": 10.25,
+      "suppressed_actions": 1
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction0",
+      "donor": 137638,
+      "final_sha256": "ccf49562ab04f6415d92aa99e4d18fc5c8faf7568dafda08916c910eba193b5f",
+      "functional_sha256": "aa583006a5066fbd43ff1f72eb949a1324cfb0dac9b45b15d767bc9c915d9514",
+      "copies": 13,
+      "cell_ticks": 15988,
+      "original_survival_ticks": 6140,
+      "other_original_survival_delta": -4014,
+      "other_copy_delta": 4,
+      "peer_y_units": 37.47222222222223,
+      "suppressed_actions": 6
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction1",
+      "donor": 131741,
+      "final_sha256": "6d01eefcf01c24bf3a30398603b497de8395ad33525fad340feee3763f02c12b",
+      "functional_sha256": "bf37a461393b7c5bc1be8b6690e9050e1023010669f17006bf3da1a93b94a231",
+      "copies": 1,
+      "cell_ticks": 1749,
+      "original_survival_ticks": 1318,
+      "other_original_survival_delta": -5056,
+      "other_copy_delta": 0,
+      "peer_y_units": 13.5,
+      "suppressed_actions": 8
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction1",
+      "donor": 132783,
+      "final_sha256": "9cb48f9008ed06eb02a523c49869dbe7d9e8ec635566b2368d76524290c65f15",
+      "functional_sha256": "2a0a7db38d939356a4dcfadc1e4a3859489bbb400ceb463ab9d76b7d2405a951",
+      "copies": 9,
+      "cell_ticks": 12408,
+      "original_survival_ticks": 6705,
+      "other_original_survival_delta": 320,
+      "other_copy_delta": -1,
+      "peer_y_units": 23.88888888888889,
+      "suppressed_actions": 10
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction1",
+      "donor": 134400,
+      "final_sha256": "9d7ff705a5910eaa7dcb4c7e1394f3d5871380a8e1bc2995b981187065cdcb74",
+      "functional_sha256": "1a23be59b7051fd71a3627e3f50377c7e925e319a516d1978eb081db0e045672",
+      "copies": 9,
+      "cell_ticks": 15156,
+      "original_survival_ticks": 10620,
+      "other_original_survival_delta": -604,
+      "other_copy_delta": -1,
+      "peer_y_units": 70.24074074074073,
+      "suppressed_actions": 3
+    },
+    {
+      "witness": "symbols-seed6-t119640-cohort97-founder97167.json",
+      "case": "symbols",
+      "seed": 6,
+      "mode": "no-reaction1",
+      "donor": 137638,
+      "final_sha256": "2d373714342b1a80119ddcbd4b568017da3b064efcedcb76a98be9dcbcd28793",
+      "functional_sha256": "da57a2f1d13c1f13db5f7b588a7e447a6c161e7475ad8ebd0461cefec79ec385",
+      "copies": 16,
+      "cell_ticks": 16696,
+      "original_survival_ticks": 8157,
+      "other_original_survival_delta": -2035,
+      "other_copy_delta": 7,
+      "peer_y_units": 73.5,
+      "suppressed_actions": 11
+    }
+  ],
+  "verification_scope": "Matched source/initial/final hashes, historical controls, full physical ledgers, tracer balances, reaction and acquisition identities. Projection removes only bond graph and genome BIND counters. Python does not independently replay fractional transport, intermediate ancestry, or every original-cell position."
+}

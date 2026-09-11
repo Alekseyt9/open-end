@@ -109,6 +109,9 @@ func ResolveWithIntervention(w *world.World, e Event, sink Observer, beforeApply
 }
 
 func Inflow(w *world.World) {
+	InflowObserved(w, nil)
+}
+func InflowObserved(w *world.World, sink Observer) {
 	if w.Symbols != nil {
 		for j := range w.Cells {
 			if x := w.Cells[j].Word; x != nil && x.Expires <= w.Tick {
@@ -130,7 +133,7 @@ func Inflow(w *world.World) {
 		w.Cells[i].Energy += n
 		w.Accounting.Injected += int64(n)
 	}
-	transport(w)
+	transportObserved(w, sink)
 	if w.Config.Ecology {
 		charge(w)
 	}
@@ -371,8 +374,12 @@ func applyObserved(w *world.World, p *world.Particle, e Event, sink Observer) {
 	case vm.CONVERT:
 		if w.Config.Ecology {
 			before := p.Energy
+			chemical := w.Cells[p.Position].Chemical
 			convert(w, p, i.A, i.B)
 			acquired(sink, p, p.Energy-before)
+			if observer, ok := sink.(ChemicalObserver); ok {
+				observer.Reacted(ReactionEvent{Actor: p.ID, Position: p.Position, Reaction: i.A, Before: chemical, After: w.Cells[p.Position].Chemical, Energy: p.Energy - before})
+			}
 		}
 	case vm.TARGET:
 		p.Target = 0

@@ -50,19 +50,20 @@ type RoleFrame struct {
 	ConnectedPairs int    `json:"connected_founder_pairs"`
 }
 type RoleResult struct {
-	Protocol              RoleProtocol `json:"protocol"`
-	SourceHash            string       `json:"source_sha256"`
-	InitialHash           string       `json:"initial_sha256"`
-	FinalHash             string       `json:"final_sha256"`
-	Start                 uint64       `json:"start_tick"`
-	FinalTick             uint64       `json:"final_tick"`
-	RemovedBonds          int          `json:"initial_removed_bonds"`
-	Roles                 []CellRole   `json:"roles"`
-	Flows                 []RoleFlow   `json:"flows"`
-	Frames                []RoleFrame  `json:"frames"`
-	TogetherTicks         uint64       `json:"all_original_members_connected_ticks"`
-	ConnectedPairTicks    uint64       `json:"original_member_connected_pair_ticks"`
-	StableDescendantTicks uint64       `json:"stable_founder_free_component_ticks"`
+	Protocol              RoleProtocol         `json:"protocol"`
+	SourceHash            string               `json:"source_sha256"`
+	InitialHash           string               `json:"initial_sha256"`
+	FinalHash             string               `json:"final_sha256"`
+	Start                 uint64               `json:"start_tick"`
+	FinalTick             uint64               `json:"final_tick"`
+	RemovedBonds          int                  `json:"initial_removed_bonds"`
+	Roles                 []CellRole           `json:"roles"`
+	Flows                 []RoleFlow           `json:"flows"`
+	Frames                []RoleFrame          `json:"frames"`
+	TogetherTicks         uint64               `json:"all_original_members_connected_ticks"`
+	ConnectedPairTicks    uint64               `json:"original_member_connected_pair_ticks"`
+	StableDescendantTicks uint64               `json:"stable_founder_free_component_ticks"`
+	Chemistry             *ChemicalTraceResult `json:"chemistry,omitempty"`
 }
 type roleSink struct {
 	w           *world.World
@@ -72,6 +73,7 @@ type roleSink struct {
 	flows       map[string]*RoleFlow
 	ages        map[string]uint64
 	copyParents map[uint64]uint64
+	trace       *chemicalTrace
 }
 
 // BondComponents includes singletons, with sorted member lists. It is diagnostic
@@ -141,6 +143,16 @@ func (s *roleSink) before(p *world.Particle, e *rules.Event) bool {
 		block = e.Intent.Op == vm.TRANSFER && s.tags[p.Target] != 0 && s.tags[p.Target] != index
 	case "no-bonds":
 		block = e.Intent.Op == vm.BIND && s.tags[p.Target] != 0
+	case "anchored":
+		block = e.Intent.Op == vm.MOVE
+	case "no-bonds-anchored":
+		block = e.Intent.Op == vm.MOVE || e.Intent.Op == vm.BIND && s.tags[p.Target] != 0
+	case "no-reaction0", "no-reaction1":
+		reaction := 0
+		if s.r.Protocol.Mode == "no-reaction1" {
+			reaction = 1
+		}
+		block = r.Founder == s.r.Protocol.Donor && e.Intent.Op == vm.CONVERT && e.Intent.A == reaction
 	case "no-signals":
 		block = e.Intent.Op == vm.EMIT || e.Intent.Op == vm.TOKEN
 		blind = e.Intent.Op == vm.LISTEN || e.Intent.Op == vm.SENSE && (e.Intent.A == 7 || e.Intent.A >= 12 && e.Intent.A <= 15)
@@ -291,7 +303,7 @@ func (s *roleSink) TickCompleted(tick uint64) {
 
 func ContinueRoles(source *world.World, protocol RoleProtocol) (*world.World, RoleResult, error) {
 	var empty RoleResult
-	if protocol.Version != 1 || protocol.Ticks < 1 || protocol.Every < 1 || protocol.Every > protocol.Ticks {
+	if (protocol.Version != 1 && protocol.Version != 2) || protocol.Ticks < 1 || protocol.Every < 1 || protocol.Every > protocol.Ticks {
 		return nil, empty, fmt.Errorf("invalid role protocol")
 	}
 	if err := ValidateRoleMembers(source, protocol.Members); err != nil {
@@ -300,7 +312,18 @@ func ContinueRoles(source *world.World, protocol RoleProtocol) (*world.World, Ro
 	if source.Config.CollectiveAblation != "" || source.Config.BondMotion != "" {
 		return nil, empty, fmt.Errorf("source already treated")
 	}
+	if protocol.Version == 2 && (!source.Config.Ecology || source.RuleState != nil) {
+		return nil, empty, fmt.Errorf("chemistry protocol requires baseline ecology without DSL state")
+	}
 	switch protocol.Mode {
+	case "anchored", "no-bonds-anchored":
+		if protocol.Version != 2 || protocol.Donor != 0 {
+			return nil, empty, fmt.Errorf("anchoring requires protocol 2 and no donor")
+		}
+	case "no-reaction0", "no-reaction1":
+		if protocol.Version != 2 || !slices.Contains(protocol.Members, protocol.Donor) {
+			return nil, empty, fmt.Errorf("reaction ablation requires protocol 2 and a member donor")
+		}
 	case "intact", "no-sharing", "no-peer-sharing", "no-bonds", "no-signals":
 		if protocol.Donor != 0 {
 			return nil, empty, fmt.Errorf("unexpected donor")
@@ -326,7 +349,10 @@ func ContinueRoles(source *world.World, protocol RoleProtocol) (*world.World, Ro
 		s.tags[id] = i + 1
 		s.r.Roles = append(s.r.Roles, CellRole{Founder: id, Genome: w.Particles[id].Genome, Executed: map[vm.Opcode]uint64{}, Suppressed: map[vm.Opcode]uint64{}})
 	}
-	if protocol.Mode == "no-bonds" {
+	if protocol.Version == 2 {
+		s.trace = newChemicalTrace(w, protocol.Members)
+	}
+	if protocol.Mode == "no-bonds" || protocol.Mode == "no-bonds-anchored" {
 		for k, b := range w.Relations {
 			if s.tags[b.A] != 0 && s.tags[b.B] != 0 {
 				delete(w.Relations, k)
@@ -344,6 +370,12 @@ func ContinueRoles(source *world.World, protocol RoleProtocol) (*world.World, Ro
 	}
 	s.r.FinalHash = kernel.Hash(w)
 	s.r.FinalTick = w.Tick
+	if s.trace != nil {
+		if err := s.trace.finish(w); err != nil {
+			return nil, empty, err
+		}
+		s.r.Chemistry = &s.trace.result
+	}
 	keys := make([]string, 0, len(s.flows))
 	for k := range s.flows {
 		keys = append(keys, k)

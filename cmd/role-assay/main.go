@@ -62,13 +62,14 @@ func run(args []string, out io.Writer) (err error) {
 	ticks := fs.Int("ticks", 5000, "ticks per matched continuation")
 	every := fs.Int("every", 100, "sampling interval")
 	workers := fs.Int("workers", 16, "parallel worlds")
+	suite := fs.String("suite", "roles", "roles (protocol 1) or mechanisms (protocol 2 chemistry/mobility)")
 	if e := fs.Parse(args); e != nil {
 		if e == flag.ErrHelp {
 			return nil
 		}
 		return e
 	}
-	if *dest == "" || *ticks < 1 || *every < 1 || *every > *ticks || *workers < 1 || *workers > 256 || fs.NArg() != 0 {
+	if *dest == "" || *ticks < 1 || *every < 1 || *every > *ticks || *workers < 1 || *workers > 256 || fs.NArg() != 0 || (*suite != "roles" && *suite != "mechanisms") {
 		return fmt.Errorf("provide out, ticks >= every > 0, workers 1..256")
 	}
 	var manifest struct {
@@ -92,6 +93,12 @@ func run(args []string, out io.Writer) (err error) {
 		protocol experiment.RoleProtocol
 	}
 	jobs := []job{}
+	version := 1
+	modes := []string{"intact", "no-sharing", "no-peer-sharing", "no-signals", "no-bonds", "no-acquisition"}
+	if *suite == "mechanisms" {
+		version = 2
+		modes = []string{"intact", "no-bonds", "anchored", "no-bonds-anchored", "no-reaction0", "no-reaction1"}
+	}
 	seen := map[string]bool{}
 	for _, row := range witnesses {
 		if row.Snapshot == "" || filepath.Base(row.Snapshot) != row.Snapshot || seen[row.Snapshot] {
@@ -126,13 +133,13 @@ func run(args []string, out io.Writer) (err error) {
 			}
 			delete(actual, g.Hash)
 		}
-		for _, mode := range []string{"intact", "no-sharing", "no-peer-sharing", "no-signals", "no-bonds", "no-acquisition"} {
+		for _, mode := range modes {
 			donors := []uint64{0}
-			if mode == "no-acquisition" {
+			if mode == "no-acquisition" || mode == "no-reaction0" || mode == "no-reaction1" {
 				donors = row.Candidate.Members
 			}
 			for _, donor := range donors {
-				jobs = append(jobs, job{len(jobs), w, row, experiment.RoleProtocol{Version: 1, Mode: mode, Donor: donor, Members: row.Candidate.Members, Ticks: *ticks, Every: *every}})
+				jobs = append(jobs, job{len(jobs), w, row, experiment.RoleProtocol{Version: version, Mode: mode, Donor: donor, Members: row.Candidate.Members, Ticks: *ticks, Every: *every}})
 			}
 		}
 	}
@@ -140,7 +147,7 @@ func run(args []string, out io.Writer) (err error) {
 		return e
 	}
 	start := time.Now()
-	status := map[string]any{"status": "running", "input": *input, "workers": *workers, "total": len(jobs), "completed": 0, "protocol_version": 1, "snapshot_semantics": "Released physical states: resuming snapshots alone DOES NOT resume interventions. Replay from witnesses with recorded protocols."}
+	status := map[string]any{"status": "running", "input": *input, "suite": *suite, "workers": *workers, "total": len(jobs), "completed": 0, "protocol_version": version, "snapshot_semantics": "Released physical states: resuming snapshots alone DOES NOT resume interventions. Replay from witnesses with recorded protocols."}
 	if exe, e := os.Executable(); e == nil {
 		if b, e := os.ReadFile(exe); e == nil {
 			h := sha256.Sum256(b)

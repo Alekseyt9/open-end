@@ -9,6 +9,8 @@ Use external matched experiments to investigate barriers to collective reproduct
 
 The [cell contribution assay](experiments/multicell-roles/REPORT.md) now tests preserved mixed-genome groups with COPY-lineage interventions. Its first 116 continuations show offspring provisioning, no energy sharing between original cell lineages, and no targeted signal use. Next, separate bond-imposed immobility from functional integration and measure local chemical contributions before testing inheritance of complementary roles across group generations. Existing genetic differences are not sufficient evidence of useful differentiation.
 
+The [mobility and chemistry follow-up](experiments/multicell-mechanisms/REPORT.md) completes those controls: 14/14 anchored pairs agree outside bond fields, and a proportional tracer attributes 1.31% of tagged Y consumption to other selected lineages. All observed original cells still execute both reactions. The next mechanism hypothesis is a resource-funded cost for switching reaction types, with zero-cost controls and no assigned cell roles. Test whether it produces persistent useful specialization before seeking inheritance across group generations; it is not yet an implemented physical rule.
+
 ---
 
 ## 0. Core idea

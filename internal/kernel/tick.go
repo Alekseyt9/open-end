@@ -45,7 +45,7 @@ func step(w *world.World, sink Observer, filter func(*world.Particle, *rules.Eve
 		s.Pending = s.Pending[1:]
 		s.Apply(change)
 	}
-	rules.Inflow(w)
+	rules.InflowObserved(w, sink)
 	ids := orderedIDs(w)
 	events := make([]rules.Event, 0, len(ids))
 	for j := range ids {

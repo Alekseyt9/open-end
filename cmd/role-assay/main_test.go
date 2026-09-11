@@ -21,6 +21,7 @@ func TestRoleBatchWorkerEquivalenceAndIntegrity(t *testing.T) {
 	c.Height = 8
 	c.MaxEntities = 64
 	c.MutationPPM = 0
+	c.Ecology = true
 	w, e := world.New(c)
 	if e != nil {
 		t.Fatal(e)
@@ -50,26 +51,32 @@ func TestRoleBatchWorkerEquivalenceAndIntegrity(t *testing.T) {
 	if e := save(filepath.Join(input, "manifest.json"), map[string]any{"status": "complete", "total": 1, "completed": 1}); e != nil {
 		t.Fatal(e)
 	}
-	var prior []result
-	for _, workers := range []string{"1", "16"} {
-		dir := filepath.Join(t.TempDir(), "output")
-		args := []string{"-input", input, "-out", dir, "-ticks", "100", "-every", "20", "-workers", workers}
-		if e := run(args, io.Discard); e != nil {
-			t.Fatal(e)
-		}
-		var current []result
-		if e := read(filepath.Join(dir, "results.json"), &current); e != nil {
-			t.Fatal(e)
-		}
-		if len(current) != 7 {
-			t.Fatal("missing arms")
-		}
-		if prior != nil && !reflect.DeepEqual(prior, current) {
-			t.Fatal("worker count changes results")
-		}
-		prior = current
-		if e := run(args, io.Discard); e == nil {
-			t.Fatal("overwrote existing output")
+	for _, suite := range []string{"roles", "mechanisms"} {
+		var prior []result
+		for _, workers := range []string{"1", "16"} {
+			dir := filepath.Join(t.TempDir(), "output")
+			args := []string{"-input", input, "-out", dir, "-ticks", "100", "-every", "20", "-workers", workers, "-suite", suite}
+			if e := run(args, io.Discard); e != nil {
+				t.Fatal(e)
+			}
+			var current []result
+			if e := read(filepath.Join(dir, "results.json"), &current); e != nil {
+				t.Fatal(e)
+			}
+			want := 7
+			if suite == "mechanisms" {
+				want = 8
+			}
+			if len(current) != want {
+				t.Fatal("missing arms")
+			}
+			if prior != nil && !reflect.DeepEqual(prior, current) {
+				t.Fatal("worker count changes results")
+			}
+			prior = current
+			if e := run(args, io.Discard); e == nil {
+				t.Fatal("overwrote existing output")
+			}
 		}
 	}
 	rows[0].Hash = "tampered"

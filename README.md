@@ -50,6 +50,7 @@ The current priority is **increasing organizational complexity toward multicellu
 | Collective observation | Per-tick bond membership, founder ancestry, daughter candidates, matched ablations | Whole-group reproduction and obligatory specialization remain unproven |
 | Collective reproduction experiments | Matched bond-rupture mechanics, growth diagnostics, separate clonal and multi-founder daughter criteria | Candidate ancestry and persistence do not establish inherited functional organization |
 | Cell contribution assays | COPY-lineage targeting, energy-flow attribution, peer/offspring sharing controls, signal/bond/acquisition interventions | First mixed-genome witnesses show offspring provisioning; useful division of labor remains unproven |
+| Mobility and chemistry controls | Factorial bond/movement interventions, reaction-specific disruptions, proportional Y provenance | Bond benefits explained by immobility in tested worlds; limited chemical coupling among generalists |
 | Entity discovery | Bond, reciprocal-transfer and copying-ancestry candidates; containment DAG; subsequent-interval checks | Descriptive boundaries; causal coordination and higher-level individuality remain unmeasured |
 | Causal analysis | Whole-seed forecast evaluation, random grouping controls, local and matched outside bond cuts | Local effects are measurable; a predictive macro advantage and causal emergence are not established |
 | Symbolic primitives | Ordered inscriptions, reception controls, context-indexed memory lookup, paired assays | Primitive use observed; a beneficial symbolic convention remains unproven |
@@ -266,6 +267,7 @@ Archive selection uses novelty distance, effective genome diversity, bonded stru
 | [Adaptive allocation](experiments/adaptivity/REPORT.md) | 96 probes; four original worlds continued for 20,000 ticks; verified round 9.23 s | No adaptive score above threshold; selected by behavioral spread and exploration |
 | [Collective reproduction follow-up](experiments/multicell-motion/REPORT.md) | 528 qualified clonal member sets, at most 10 simultaneous in one world; 14 mixed-genome qualification snapshots preserved | Original multi-founder criterion missed clonal branches; automatic rupture generally harmed persistence; functional differentiation remains to be tested |
 | [Cell contributions in clonal groups](experiments/multicell-roles/REPORT.md) | 116 targeted continuations; all 17,472 transferred energy units went to observed COPY offspring; no peer sharing or signal use | Bond removal harms persistence, with mobility as an alternative explanation; inherited division of labor remains open |
+| [Mobility and chemical mechanisms](experiments/multicell-mechanisms/REPORT.md) | 148 continuations; 14/14 anchored pairs match outside bond fields; 1.31% of tagged Y consumption traces to other selected lineages | All original cells execute both reactions; material coupling does not yet establish useful specialization |
 
 These are recorded results for specific configurations and horizons, not general performance or OEE guarantees.
 
@@ -326,6 +328,7 @@ The test suite covers deterministic replay, resource conservation, mutation and 
 - [Proto-multicellularity](docs/collectives.md): group continuity, ancestry, daughter criteria, ablations, and limits; [32-world experiment](experiments/collectives/REPORT.md).
 - [Collective reproduction and bond motion](docs/multicell-motion.md): growth restrictions, rupture mechanics and clonal daughter diagnostics.
 - [Cell contribution assays](docs/multicell-roles.md): targeted interventions, lineage roles, peer versus offspring energy flows, replay protocols and interpretation limits.
+- [Mobility and chemical mechanisms](docs/multicell-mechanisms.md): movement controls, reaction interventions, proportional Y provenance and the next specialization hypothesis.
 - [Entity discovery](docs/entities.md): candidate boundaries, inclusion hierarchy, and subsequent-interval evidence; [32 verified replays](experiments/entities/REPORT.md).
 - [Predictive and causal analysis](docs/causal.md): whole-seed evaluation, model/control definitions, local bond interventions, and limitations; [83-group experiment](experiments/causal/REPORT.md).
 - [Symbolic primitives](docs/symbols.md): inscriptions, memory lookup, reception controls and telemetry; [32-world experiment and 24 continuations](experiments/symbols/REPORT.md).
